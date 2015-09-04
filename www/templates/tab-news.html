@@ -1,0 +1,37 @@
+            
+<ion-view view-title="ISGH">
+  <ion-content class="padding">
+    
+    <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+
+    <div class="list card" ng-repeat="itemNew in news">
+
+      <div class="item item-avatar">
+        <div class="item-image app-units" ng-class="checkColor(itemNew.unit)">{{itemNew.unit || "ISGH"}}</div>
+        <h2>{{itemNew.category}}</h2>
+        <p>{{itemNew.created | DateRelativeFilter}}</p>
+      </div>
+      
+      <div class="item item-body">
+        <h2 class="app-no-margin-top">{{itemNew.title}}</h2>
+        <img class="full-image" ng-click="openMimages(itemNew)" ng-src="{{url_intranet + (itemNew.images.image_fulltext || itemNew.images.image_intro)}}">
+        <p class="app-text-align-justfy">{{itemNew.striptext | EllipsisFilter:200}}</p>
+      </div>
+
+      <div class="item app-item-no-padding">
+        <div class="button-bar bar-light">
+          <!--ABRINDO DENTRO DO MODAL COM IFRAME-->
+          <a class="button" ng-click="openModal(itemNew)" ><i class="ion-ios-plus-empty"></i> Leia mais</a>
+          
+          <!--VISUALIZANDO NO APP SEM FORMATAÇÃO ORIGINAL DO ARTIGO-->
+          <!--<a class="button" href="#/tab/news/{{itemNew.id}}"><i class="ion-ios-plus-empty"></i> Leia mais</a>-->
+          
+          <!--ABRINDO NA JANELA BROWSER DO DEVICE-->
+          <!--<a class="button" ng-click="openBrowser(new.id)"><i class="ion-ios-plus-empty"></i> Leia mais</a>-->
+        </div>
+      </div>
+      
+    </div>
+    
+  </ion-content>
+</ion-view>
