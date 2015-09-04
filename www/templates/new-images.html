@@ -1,20 +1,23 @@
 <ion-modal-view class="modal-image">
 
-  <ion-nav-bar class="bar-black">
-    <ion-nav-buttons side="left">
+  <ion-header-bar class="ionic bar-black">
+    <div class="buttons">
       <button class="button button-clear icon ion-android-close" ng-click="closeMimages()"></button>
-    </ion-nav-buttons>
-    <ion-nav-buttons side="right">
+    </div>
+    <p class="title app-font-size-100"></p>
+    <div class="buttons">
       <button class="button icon app-units" disabled="disabled" ng-class="checkColor(itemNew.unit)">{{itemNew.unit || "ISGH"}}</button>
-    </ion-nav-buttons>
-  </ion-nav-bar>
+    </div>
+  </ion-header-bar>
 
-  <ion-scroll zooming="true" delegate-handle="mimagesScroll" direction="xy" scrollbar-x="false" scrollbar-y="false" min-zoom="{{zoomMin}}" class="app-full-size">
+
+  <ion-scroll zooming="true" delegate-handle="mimagesScroll" direction="xy" scrollbar-x="false" scrollbar-y="false" min-zoom="{{zoomMin}}"
+  class="app-full-size">
     <div class="modal-image-box" style="background-image: url( {{url_intranet + (itemNew.images.image_fulltext || itemNew.images.image_intro)}} )"></div>
   </ion-scroll>
-  
+
   <ion-footer-bar align-title="left" class="bar-black">
-        {{itemNew.title}}
+    {{itemNew.title}}
   </ion-footer-bar>
 
 </ion-modal-view>
