@@ -1,6 +1,6 @@
 angular.module('isgh.LectureseventsCtrl', ['ngSanitize'])
 
-.controller('LectureseventsCtrl', function ($scope, $filter, Constant, init, LecturesEvents) {
+.controller('LectureseventsCtrl', function ($scope, $filter, $ionicScrollDelegate, Constant, init, LecturesEvents) {
 	
 	$scope.lecturesevents = init;
 	$scope.url_site = Constant.url_site;
@@ -36,6 +36,9 @@ angular.module('isgh.LectureseventsCtrl', ['ngSanitize'])
 	// GATILHO PRA FECHAR MODAL
 	$scope.closeModal = function() {
 		$scope.modal.hide();
+		$ionicScrollDelegate.$getByHandle('modalScroll').scrollTop();
+		$ionicScrollDelegate.$getByHandle('modalScroll').zoomTo(1);
+		
 		if (window.StatusBar) {
 	      StatusBar.styleLightContent();
 	    }
