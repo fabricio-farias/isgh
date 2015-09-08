@@ -1,0 +1,545 @@
+2015-08-01 20:48:34.156 ISGH[5356:280939] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/D45F31BF-7F7C-421A-AA1E-CF5C7087718E/Library/Cookies/Cookies.binarycookies
+2015-08-01 20:48:34.569 ISGH[5356:280939] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-01 20:48:34.570 ISGH[5356:280939] Multi-tasking -> Device: YES, App: YES
+2015-08-01 20:48:34.589 ISGH[5356:280939] Unlimited access to network resources
+2015-08-01 20:48:34.790 ISGH[5356:280939] [CDVTimer][keyboard] 0.084996ms
+2015-08-01 20:48:35.031 ISGH[5356:280939] [CDVTimer][splashscreen] 240.400970ms
+2015-08-01 20:48:35.037 ISGH[5356:280939] [CDVTimer][statusbar] 5.352974ms
+2015-08-01 20:48:35.061 ISGH[5356:280939] VERSION LABEL: 0.0.1:1438472823:
+2015-08-01 20:48:35.062 ISGH[5356:280939] updating version label
+2015-08-01 20:48:35.066 ISGH[5356:280939] [CDVTimer][ionicdeploy] 29.639006ms
+2015-08-01 20:48:35.067 ISGH[5356:280939] [CDVTimer][TotalPluginStartup] 276.400030ms
+2015-08-01 20:48:35.149 ISGH[5356:280939] active
+2015-08-01 20:48:35.151 ISGH[5356:280939] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-01 20:48:35.561 ISGH[5356:280939] Resetting plugins due to page load.
+2015-08-01 20:48:35.562 ISGH[5356:280939] uuid is: 
+2015-08-01 20:48:35.562 ISGH[5356:280939] ignore deploy
+2015-08-01 20:48:35.562 ISGH[5356:280939] ignore version: 
+2015-08-01 20:48:36.377 ISGH[5356:280939] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/71F592C1-82BD-4EA3-BD24-B244BFA7440D/ISGH.app/www/index.html#/tab/news
+2015-08-01 20:49:10.652 ISGH[5356:280939] Resetting plugins due to page load.
+2015-08-01 20:49:10.673 ISGH[5356:280939] uuid is: 
+2015-08-01 20:49:10.673 ISGH[5356:280939] ignore deploy
+2015-08-01 20:49:10.673 ISGH[5356:280939] ignore version: 
+2015-08-01 20:49:11.279 ISGH[5356:280939] Finished load of: http://sistemas3.isgh.org.br/curso-inscricao/login
+2015-08-01 20:50:54.522 ISGH[5632:282325] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/AB071E00-1281-4F9F-8B41-A53EBD5615CD/Library/Cookies/Cookies.binarycookies
+2015-08-01 20:50:54.840 ISGH[5632:282325] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-01 20:50:54.840 ISGH[5632:282325] Multi-tasking -> Device: YES, App: YES
+2015-08-01 20:50:54.875 ISGH[5632:282325] Unlimited access to network resources
+2015-08-01 20:50:55.127 ISGH[5632:282325] [CDVTimer][keyboard] 0.088990ms
+2015-08-01 20:50:55.313 ISGH[5632:282325] [CDVTimer][splashscreen] 184.863031ms
+2015-08-01 20:50:55.322 ISGH[5632:282325] [CDVTimer][statusbar] 8.800030ms
+2015-08-01 20:50:55.324 ISGH[5632:282325] VERSION LABEL: 0.0.1:1438473028:
+2015-08-01 20:50:55.324 ISGH[5632:282325] updating version label
+2015-08-01 20:50:55.328 ISGH[5632:282325] [CDVTimer][ionicdeploy] 5.685985ms
+2015-08-01 20:50:55.328 ISGH[5632:282325] [CDVTimer][TotalPluginStartup] 201.128006ms
+2015-08-01 20:50:55.427 ISGH[5632:282325] active
+2015-08-01 20:50:55.428 ISGH[5632:282325] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-01 20:50:55.678 ISGH[5632:282325] Resetting plugins due to page load.
+2015-08-01 20:50:55.680 ISGH[5632:282325] uuid is: 
+2015-08-01 20:50:55.680 ISGH[5632:282325] ignore deploy
+2015-08-01 20:50:55.680 ISGH[5632:282325] ignore version: 
+2015-08-01 20:50:56.509 ISGH[5632:282325] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/341099DF-0C51-463A-9C25-210860905A42/ISGH.app/www/index.html#/tab/news
+2015-08-01 20:51:01.700 ISGH[5632:282360] Terminating since there is no system app.
+2015-08-01 21:58:30.540 ISGH[6531:305602] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/C08945AC-8BC1-4F4D-9B58-D9A0E7E9B038/Library/Cookies/Cookies.binarycookies
+2015-08-01 21:58:31.094 ISGH[6531:305602] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-01 21:58:31.094 ISGH[6531:305602] Multi-tasking -> Device: YES, App: YES
+2015-08-01 21:58:31.123 ISGH[6531:305602] Unlimited access to network resources
+2015-08-01 21:58:31.403 ISGH[6531:305602] [CDVTimer][keyboard] 0.093997ms
+2015-08-01 21:58:31.602 ISGH[6531:305602] [CDVTimer][splashscreen] 198.520005ms
+2015-08-01 21:58:31.608 ISGH[6531:305602] [CDVTimer][statusbar] 5.891979ms
+2015-08-01 21:58:31.621 ISGH[6531:305602] VERSION LABEL: 0.0.1:1438476980:
+2015-08-01 21:58:31.622 ISGH[6531:305602] updating version label
+2015-08-01 21:58:31.626 ISGH[6531:305602] [CDVTimer][ionicdeploy] 17.997026ms
+2015-08-01 21:58:31.627 ISGH[6531:305602] [CDVTimer][TotalPluginStartup] 237.827003ms
+2015-08-01 21:58:31.664 ISGH[6531:305602] active
+2015-08-01 21:58:31.669 ISGH[6531:305602] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-01 21:58:32.182 ISGH[6531:305602] Resetting plugins due to page load.
+2015-08-01 21:58:32.184 ISGH[6531:305602] uuid is: 
+2015-08-01 21:58:32.184 ISGH[6531:305602] ignore deploy
+2015-08-01 21:58:32.184 ISGH[6531:305602] ignore version: 
+2015-08-01 21:58:33.313 ISGH[6531:305602] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/B670FDC0-D61B-4170-B457-84B9A463CC3C/ISGH.app/www/index.html#/tab/news
+2015-08-01 22:01:21.697 ISGH[6531:305602] THREAD WARNING: ['InAppBrowser'] took '301.602051' ms. Plugin should use a background thread.
+2015-08-01 22:02:16.195 ISGH[6531:305602] active
+2015-08-01 22:02:16.230 ISGH[6531:305602] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-01 22:02:23.759 ISGH[6531:305602] THREAD WARNING: ['InAppBrowser'] took '10.505859' ms. Plugin should use a background thread.
+2015-08-01 22:08:28.704 ISGH[6531:305602] active
+2015-08-01 22:08:28.735 ISGH[6531:305602] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-01 22:08:35.979 ISGH[6531:305602] THREAD WARNING: ['InAppBrowser'] took '51.178955' ms. Plugin should use a background thread.
+2015-08-01 22:08:44.659 ISGH[6531:305602] active
+2015-08-01 22:08:44.670 ISGH[6531:305602] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-01 22:08:54.155 ISGH[6531:305602] active
+2015-08-01 22:08:54.157 ISGH[6531:305602] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-01 22:24:23.396 ISGH[6949:314233] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/BEE646FF-FD4B-4E90-BF35-E9EC309AC277/Library/Cookies/Cookies.binarycookies
+2015-08-01 22:24:23.722 ISGH[6949:314233] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-01 22:24:23.723 ISGH[6949:314233] Multi-tasking -> Device: YES, App: YES
+2015-08-01 22:24:23.739 ISGH[6949:314233] Unlimited access to network resources
+2015-08-01 22:24:23.955 ISGH[6949:314233] [CDVTimer][keyboard] 0.086010ms
+2015-08-01 22:24:24.298 ISGH[6949:314233] [CDVTimer][splashscreen] 343.020976ms
+2015-08-01 22:24:24.306 ISGH[6949:314233] [CDVTimer][statusbar] 7.683992ms
+2015-08-01 22:24:24.309 ISGH[6949:314233] VERSION LABEL: 0.0.1:1438478630:
+2015-08-01 22:24:24.309 ISGH[6949:314233] updating version label
+2015-08-01 22:24:24.313 ISGH[6949:314233] [CDVTimer][ionicdeploy] 6.204009ms
+2015-08-01 22:24:24.313 ISGH[6949:314233] [CDVTimer][TotalPluginStartup] 357.914984ms
+2015-08-01 22:24:24.396 ISGH[6949:314233] active
+2015-08-01 22:24:24.398 ISGH[6949:314233] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-01 22:24:24.730 ISGH[6949:314233] Resetting plugins due to page load.
+2015-08-01 22:24:24.731 ISGH[6949:314233] uuid is: 
+2015-08-01 22:24:24.731 ISGH[6949:314233] ignore deploy
+2015-08-01 22:24:24.732 ISGH[6949:314233] ignore version: 
+2015-08-01 22:24:25.575 ISGH[6949:314233] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/AD9E42DC-8F11-406E-A675-CB8D4F514267/ISGH.app/www/index.html#/tab/news
+2015-08-01 22:31:32.816 ISGH[7298:317404] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/464F310E-09C7-4ADD-89AE-78239ADF6833/Library/Cookies/Cookies.binarycookies
+2015-08-01 22:31:33.206 ISGH[7298:317404] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-01 22:31:33.207 ISGH[7298:317404] Multi-tasking -> Device: YES, App: YES
+2015-08-01 22:31:33.231 ISGH[7298:317404] Unlimited access to network resources
+2015-08-01 22:31:33.442 ISGH[7298:317404] [CDVTimer][keyboard] 0.091970ms
+2015-08-01 22:31:33.573 ISGH[7298:317404] [CDVTimer][splashscreen] 131.281972ms
+2015-08-01 22:31:33.580 ISGH[7298:317404] [CDVTimer][statusbar] 6.601989ms
+2015-08-01 22:31:33.582 ISGH[7298:317404] VERSION LABEL: 0.0.1:1438479066:
+2015-08-01 22:31:33.583 ISGH[7298:317404] updating version label
+2015-08-01 22:31:33.587 ISGH[7298:317404] [CDVTimer][ionicdeploy] 7.063031ms
+2015-08-01 22:31:33.587 ISGH[7298:317404] [CDVTimer][TotalPluginStartup] 146.587014ms
+2015-08-01 22:31:33.678 ISGH[7298:317404] active
+2015-08-01 22:31:33.679 ISGH[7298:317404] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-01 22:31:33.887 ISGH[7298:317404] Resetting plugins due to page load.
+2015-08-01 22:31:33.889 ISGH[7298:317404] uuid is: 
+2015-08-01 22:31:33.889 ISGH[7298:317404] ignore deploy
+2015-08-01 22:31:33.889 ISGH[7298:317404] ignore version: 
+2015-08-01 22:31:34.871 ISGH[7298:317404] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/A364AADE-2A39-4E6C-AC9F-590E82B4AB7E/ISGH.app/www/index.html#/tab/news
+2015-08-01 22:41:01.646 ISGH[7649:322042] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/60AA129F-BE79-4DDE-96D4-8533160D0F55/Library/Cookies/Cookies.binarycookies
+2015-08-01 22:41:01.962 ISGH[7649:322042] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-01 22:41:01.963 ISGH[7649:322042] Multi-tasking -> Device: YES, App: YES
+2015-08-01 22:41:01.980 ISGH[7649:322042] Unlimited access to network resources
+2015-08-01 22:41:02.151 ISGH[7649:322042] [CDVTimer][keyboard] 0.086010ms
+2015-08-01 22:41:02.259 ISGH[7649:322042] [CDVTimer][splashscreen] 107.232988ms
+2015-08-01 22:41:02.267 ISGH[7649:322042] [CDVTimer][statusbar] 7.558048ms
+2015-08-01 22:41:02.269 ISGH[7649:322042] VERSION LABEL: 0.0.1:1438479627:
+2015-08-01 22:41:02.269 ISGH[7649:322042] updating version label
+2015-08-01 22:41:02.274 ISGH[7649:322042] [CDVTimer][ionicdeploy] 6.877005ms
+2015-08-01 22:41:02.274 ISGH[7649:322042] [CDVTimer][TotalPluginStartup] 122.748971ms
+2015-08-01 22:41:02.310 ISGH[7649:322042] active
+2015-08-01 22:41:02.315 ISGH[7649:322042] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-01 22:41:02.569 ISGH[7649:322042] Resetting plugins due to page load.
+2015-08-01 22:41:02.571 ISGH[7649:322042] uuid is: 
+2015-08-01 22:41:02.571 ISGH[7649:322042] ignore deploy
+2015-08-01 22:41:02.571 ISGH[7649:322042] ignore version: 
+2015-08-01 22:41:03.373 ISGH[7649:322042] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/E3184924-0AD3-4A4E-AF49-71AB956C790A/ISGH.app/www/index.html#/tab/news
+2015-08-01 22:41:03.630 ISGH[7649:322042] THREAD WARNING: ['StatusBar'] took '14.427002' ms. Plugin should use a background thread.
+2015-08-01 22:43:55.821 ISGH[7951:324298] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/81FEA033-76D8-485F-8DBD-EB20C375B5B0/Library/Cookies/Cookies.binarycookies
+2015-08-01 22:43:56.276 ISGH[7951:324298] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-01 22:43:56.277 ISGH[7951:324298] Multi-tasking -> Device: YES, App: YES
+2015-08-01 22:43:56.337 ISGH[7951:324298] Unlimited access to network resources
+2015-08-01 22:43:56.588 ISGH[7951:324298] [CDVTimer][keyboard] 0.086963ms
+2015-08-01 22:43:56.755 ISGH[7951:324298] [CDVTimer][splashscreen] 166.754007ms
+2015-08-01 22:43:56.761 ISGH[7951:324298] [CDVTimer][statusbar] 5.942047ms
+2015-08-01 22:43:56.763 ISGH[7951:324298] VERSION LABEL: 0.0.1:1438479789:
+2015-08-01 22:43:56.763 ISGH[7951:324298] updating version label
+2015-08-01 22:43:56.777 ISGH[7951:324298] [CDVTimer][ionicdeploy] 15.577018ms
+2015-08-01 22:43:56.777 ISGH[7951:324298] [CDVTimer][TotalPluginStartup] 189.303994ms
+2015-08-01 22:43:56.982 ISGH[7951:324298] active
+2015-08-01 22:43:56.983 ISGH[7951:324298] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-01 22:43:57.212 ISGH[7951:324298] Resetting plugins due to page load.
+2015-08-01 22:43:57.214 ISGH[7951:324298] uuid is: 
+2015-08-01 22:43:57.214 ISGH[7951:324298] ignore deploy
+2015-08-01 22:43:57.214 ISGH[7951:324298] ignore version: 
+2015-08-01 22:43:57.969 ISGH[7951:324298] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/9CC36A83-3F4C-4FE1-93CB-2B6E0D41ABD2/ISGH.app/www/index.html#/tab/news
+2015-08-01 22:46:41.314 ISGH[8233:325851] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/583618A5-A2A9-4C68-B870-ED4F78316954/Library/Cookies/Cookies.binarycookies
+2015-08-01 22:46:41.677 ISGH[8233:325851] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-01 22:46:41.678 ISGH[8233:325851] Multi-tasking -> Device: YES, App: YES
+2015-08-01 22:46:41.693 ISGH[8233:325851] Unlimited access to network resources
+2015-08-01 22:46:41.856 ISGH[8233:325851] [CDVTimer][keyboard] 0.092030ms
+2015-08-01 22:46:41.982 ISGH[8233:325851] [CDVTimer][splashscreen] 126.266003ms
+2015-08-01 22:46:41.990 ISGH[8233:325851] [CDVTimer][statusbar] 7.687986ms
+2015-08-01 22:46:41.993 ISGH[8233:325851] VERSION LABEL: 0.0.1:1438479971:
+2015-08-01 22:46:41.993 ISGH[8233:325851] updating version label
+2015-08-01 22:46:41.998 ISGH[8233:325851] [CDVTimer][ionicdeploy] 6.914020ms
+2015-08-01 22:46:41.998 ISGH[8233:325851] [CDVTimer][TotalPluginStartup] 141.950011ms
+2015-08-01 22:46:42.032 ISGH[8233:325851] active
+2015-08-01 22:46:42.036 ISGH[8233:325851] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-01 22:46:42.288 ISGH[8233:325851] Resetting plugins due to page load.
+2015-08-01 22:46:42.290 ISGH[8233:325851] uuid is: 
+2015-08-01 22:46:42.290 ISGH[8233:325851] ignore deploy
+2015-08-01 22:46:42.290 ISGH[8233:325851] ignore version: 
+2015-08-01 22:46:43.107 ISGH[8233:325851] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/83404D6E-6765-41CB-BD9E-1C293FAF3FA8/ISGH.app/www/index.html#/tab/news
+2015-08-01 22:56:47.628 ISGH[8543:329379] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/48EF2296-5476-44FA-8FDA-23A57C756E13/Library/Cookies/Cookies.binarycookies
+2015-08-01 22:56:49.155 ISGH[8543:329379] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-01 22:56:49.155 ISGH[8543:329379] Multi-tasking -> Device: YES, App: YES
+2015-08-01 22:56:49.190 ISGH[8543:329379] Unlimited access to network resources
+2015-08-01 22:56:49.389 ISGH[8543:329379] [CDVTimer][keyboard] 0.094950ms
+2015-08-01 22:56:50.108 ISGH[8543:329379] [CDVTimer][splashscreen] 718.989015ms
+2015-08-01 22:56:50.116 ISGH[8543:329379] [CDVTimer][statusbar] 8.050978ms
+2015-08-01 22:56:50.118 ISGH[8543:329379] VERSION LABEL: 0.0.1:1438480573:
+2015-08-01 22:56:50.119 ISGH[8543:329379] updating version label
+2015-08-01 22:56:50.141 ISGH[8543:329379] [CDVTimer][ionicdeploy] 23.853004ms
+2015-08-01 22:56:50.141 ISGH[8543:329379] [CDVTimer][TotalPluginStartup] 752.013028ms
+2015-08-01 22:56:50.183 ISGH[8543:329379] active
+2015-08-01 22:56:50.185 ISGH[8543:329379] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-01 22:56:50.946 ISGH[8543:329379] Resetting plugins due to page load.
+2015-08-01 22:56:50.947 ISGH[8543:329379] uuid is: 
+2015-08-01 22:56:50.947 ISGH[8543:329379] ignore deploy
+2015-08-01 22:56:50.948 ISGH[8543:329379] ignore version: 
+2015-08-01 22:56:51.865 ISGH[8543:329379] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/4B99CE10-DF21-4068-918F-617BD92F02E9/ISGH.app/www/index.html#/tab/news
+2015-08-01 23:03:09.455 ISGH[8842:332171] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/251E54F1-0976-4843-9251-3FCB544F44FC/Library/Cookies/Cookies.binarycookies
+2015-08-01 23:03:09.817 ISGH[8842:332171] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-01 23:03:09.817 ISGH[8842:332171] Multi-tasking -> Device: YES, App: YES
+2015-08-01 23:03:09.843 ISGH[8842:332171] Unlimited access to network resources
+2015-08-01 23:03:10.006 ISGH[8842:332171] [CDVTimer][keyboard] 0.084996ms
+2015-08-01 23:03:10.144 ISGH[8842:332171] [CDVTimer][splashscreen] 137.566030ms
+2015-08-01 23:03:10.150 ISGH[8842:332171] [CDVTimer][statusbar] 5.950034ms
+2015-08-01 23:03:10.152 ISGH[8842:332171] VERSION LABEL: 0.0.1:1438480954:
+2015-08-01 23:03:10.152 ISGH[8842:332171] updating version label
+2015-08-01 23:03:10.156 ISGH[8842:332171] [CDVTimer][ionicdeploy] 6.097019ms
+2015-08-01 23:03:10.156 ISGH[8842:332171] [CDVTimer][TotalPluginStartup] 150.555015ms
+2015-08-01 23:03:10.189 ISGH[8842:332171] active
+2015-08-01 23:03:10.197 ISGH[8842:332171] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-01 23:03:10.430 ISGH[8842:332171] Resetting plugins due to page load.
+2015-08-01 23:03:10.431 ISGH[8842:332171] uuid is: 
+2015-08-01 23:03:10.432 ISGH[8842:332171] ignore deploy
+2015-08-01 23:03:10.432 ISGH[8842:332171] ignore version: 
+2015-08-01 23:03:11.201 ISGH[8842:332171] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/DF384099-3E7B-4767-990F-554439BA16A9/ISGH.app/www/index.html#/tab/news
+2015-08-01 23:03:11.406 ISGH[8842:332171] THREAD WARNING: ['Device'] took '14.348877' ms. Plugin should use a background thread.
+2015-08-01 23:08:09.297 ISGH[9133:334659] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/39745332-DB8D-401F-9EF2-180E57A49A13/Library/Cookies/Cookies.binarycookies
+2015-08-01 23:08:09.669 ISGH[9133:334659] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-01 23:08:09.669 ISGH[9133:334659] Multi-tasking -> Device: YES, App: YES
+2015-08-01 23:08:09.692 ISGH[9133:334659] Unlimited access to network resources
+2015-08-01 23:08:09.859 ISGH[9133:334659] [CDVTimer][keyboard] 0.084043ms
+2015-08-01 23:08:09.998 ISGH[9133:334659] [CDVTimer][splashscreen] 139.348984ms
+2015-08-01 23:08:10.006 ISGH[9133:334659] [CDVTimer][statusbar] 7.941961ms
+2015-08-01 23:08:10.009 ISGH[9133:334659] VERSION LABEL: 0.0.1:1438481262:
+2015-08-01 23:08:10.009 ISGH[9133:334659] updating version label
+2015-08-01 23:08:10.013 ISGH[9133:334659] [CDVTimer][ionicdeploy] 6.256998ms
+2015-08-01 23:08:10.013 ISGH[9133:334659] [CDVTimer][TotalPluginStartup] 154.606998ms
+2015-08-01 23:08:10.098 ISGH[9133:334659] active
+2015-08-01 23:08:10.100 ISGH[9133:334659] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-01 23:08:10.290 ISGH[9133:334659] Resetting plugins due to page load.
+2015-08-01 23:08:10.292 ISGH[9133:334659] uuid is: 
+2015-08-01 23:08:10.292 ISGH[9133:334659] ignore deploy
+2015-08-01 23:08:10.292 ISGH[9133:334659] ignore version: 
+2015-08-01 23:08:11.066 ISGH[9133:334659] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/15FEE973-0BDF-46AB-8867-3733D8279485/ISGH.app/www/index.html#/tab/news
+2015-08-01 23:26:56.300 ISGH[9929:344424] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/4EC0B8BB-D5FB-4CCC-BAC6-B9E107B249E9/Library/Cookies/Cookies.binarycookies
+2015-08-01 23:26:56.997 ISGH[9929:344424] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-01 23:26:56.997 ISGH[9929:344424] Multi-tasking -> Device: YES, App: YES
+2015-08-01 23:26:57.011 ISGH[9929:344424] Unlimited access to network resources
+2015-08-01 23:26:57.421 ISGH[9929:344424] [CDVTimer][keyboard] 0.091016ms
+2015-08-01 23:26:57.858 ISGH[9929:344424] [CDVTimer][splashscreen] 436.919987ms
+2015-08-01 23:26:57.865 ISGH[9929:344424] [CDVTimer][statusbar] 6.314993ms
+2015-08-01 23:26:57.867 ISGH[9929:344424] VERSION LABEL: 0.0.1:1438482362:
+2015-08-01 23:26:57.867 ISGH[9929:344424] updating version label
+2015-08-01 23:26:57.871 ISGH[9929:344424] [CDVTimer][ionicdeploy] 5.981982ms
+2015-08-01 23:26:57.871 ISGH[9929:344424] [CDVTimer][TotalPluginStartup] 450.159967ms
+2015-08-01 23:26:57.953 ISGH[9929:344424] active
+2015-08-01 23:26:57.955 ISGH[9929:344424] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-01 23:26:58.678 ISGH[9929:344424] Resetting plugins due to page load.
+2015-08-01 23:26:58.680 ISGH[9929:344424] uuid is: 
+2015-08-01 23:26:58.680 ISGH[9929:344424] ignore deploy
+2015-08-01 23:26:58.680 ISGH[9929:344424] ignore version: 
+2015-08-01 23:27:02.774 ISGH[9929:344424] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/E7DAC7B5-24BC-4084-AB2B-1685ED287134/ISGH.app/www/index.html#/tab/news
+2015-08-01 23:27:05.601 ISGH[9929:344424] THREAD WARNING: ['StatusBar'] took '26.166016' ms. Plugin should use a background thread.
+2015-08-01 23:33:52.389 ISGH[10272:348298] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/5BCBD938-28F0-426E-B8D3-E2519B2B8EC1/Library/Cookies/Cookies.binarycookies
+2015-08-01 23:33:53.593 ISGH[10272:348298] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-01 23:33:53.593 ISGH[10272:348298] Multi-tasking -> Device: YES, App: YES
+2015-08-01 23:33:53.641 ISGH[10272:348298] Unlimited access to network resources
+2015-08-01 23:33:54.737 ISGH[10272:348298] [CDVTimer][keyboard] 0.101030ms
+2015-08-01 23:33:55.278 ISGH[10272:348298] [CDVTimer][splashscreen] 540.937006ms
+2015-08-01 23:33:55.308 ISGH[10272:348298] [CDVTimer][statusbar] 9.847999ms
+2015-08-01 23:33:55.329 ISGH[10272:348298] VERSION LABEL: 0.0.1:1438482714:
+2015-08-01 23:33:55.329 ISGH[10272:348298] updating version label
+2015-08-01 23:33:55.334 ISGH[10272:348298] [CDVTimer][ionicdeploy] 26.225030ms
+2015-08-01 23:33:55.334 ISGH[10272:348298] [CDVTimer][TotalPluginStartup] 597.814977ms
+2015-08-01 23:33:55.496 ISGH[10272:348298] active
+2015-08-01 23:33:55.518 ISGH[10272:348298] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-01 23:33:56.413 ISGH[10272:348298] Resetting plugins due to page load.
+2015-08-01 23:33:56.415 ISGH[10272:348298] uuid is: 
+2015-08-01 23:33:56.415 ISGH[10272:348298] ignore deploy
+2015-08-01 23:33:56.415 ISGH[10272:348298] ignore version: 
+2015-08-01 23:33:57.681 ISGH[10272:348298] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/42A7F3AA-0843-4616-9E6E-DB5E08F59C85/ISGH.app/www/index.html#/tab/news
+2015-08-01 23:36:10.862 ISGH[10557:349647] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/5833F583-E2CE-4C3E-B066-62E49DF3E251/Library/Cookies/Cookies.binarycookies
+2015-08-01 23:36:11.206 ISGH[10557:349647] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-01 23:36:11.207 ISGH[10557:349647] Multi-tasking -> Device: YES, App: YES
+2015-08-01 23:36:11.227 ISGH[10557:349647] Unlimited access to network resources
+2015-08-01 23:36:11.388 ISGH[10557:349647] [CDVTimer][keyboard] 0.088036ms
+2015-08-01 23:36:11.615 ISGH[10557:349647] [CDVTimer][splashscreen] 226.000011ms
+2015-08-01 23:36:11.624 ISGH[10557:349647] [CDVTimer][statusbar] 8.944988ms
+2015-08-01 23:36:11.628 ISGH[10557:349647] VERSION LABEL: 0.0.1:1438482933:
+2015-08-01 23:36:11.628 ISGH[10557:349647] updating version label
+2015-08-01 23:36:11.633 ISGH[10557:349647] [CDVTimer][ionicdeploy] 6.754994ms
+2015-08-01 23:36:11.633 ISGH[10557:349647] [CDVTimer][TotalPluginStartup] 244.732022ms
+2015-08-01 23:36:11.726 ISGH[10557:349647] active
+2015-08-01 23:36:11.728 ISGH[10557:349647] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-01 23:36:11.925 ISGH[10557:349647] Resetting plugins due to page load.
+2015-08-01 23:36:11.927 ISGH[10557:349647] uuid is: 
+2015-08-01 23:36:11.927 ISGH[10557:349647] ignore deploy
+2015-08-01 23:36:11.927 ISGH[10557:349647] ignore version: 
+2015-08-01 23:36:12.729 ISGH[10557:349647] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/A14C92C6-0F68-40D7-8987-C3323EB931C0/ISGH.app/www/index.html#/tab/news
+2015-08-01 23:42:11.621 ISGH[10906:353296] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/E6926C76-1D39-48A6-96A0-10958CD6E514/Library/Cookies/Cookies.binarycookies
+2015-08-01 23:42:12.115 ISGH[10906:353296] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-01 23:42:12.115 ISGH[10906:353296] Multi-tasking -> Device: YES, App: YES
+2015-08-01 23:42:12.134 ISGH[10906:353296] Unlimited access to network resources
+2015-08-01 23:42:12.292 ISGH[10906:353296] [CDVTimer][keyboard] 0.084996ms
+2015-08-01 23:42:12.657 ISGH[10906:353296] [CDVTimer][splashscreen] 364.068031ms
+2015-08-01 23:42:12.664 ISGH[10906:353296] [CDVTimer][statusbar] 7.423997ms
+2015-08-01 23:42:12.666 ISGH[10906:353296] VERSION LABEL: 0.0.1:1438483302:
+2015-08-01 23:42:12.667 ISGH[10906:353296] updating version label
+2015-08-01 23:42:12.680 ISGH[10906:353296] [CDVTimer][ionicdeploy] 15.091002ms
+2015-08-01 23:42:12.680 ISGH[10906:353296] [CDVTimer][TotalPluginStartup] 387.685001ms
+2015-08-01 23:42:12.719 ISGH[10906:353296] active
+2015-08-01 23:42:12.722 ISGH[10906:353296] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-01 23:42:13.161 ISGH[10906:353296] Resetting plugins due to page load.
+2015-08-01 23:42:13.162 ISGH[10906:353296] uuid is: 
+2015-08-01 23:42:13.163 ISGH[10906:353296] ignore deploy
+2015-08-01 23:42:13.163 ISGH[10906:353296] ignore version: 
+2015-08-01 23:42:13.790 ISGH[10906:353296] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/31B7080A-6A01-443A-89EC-05D3A86826DB/ISGH.app/www/index.html#/tab/news
+2015-08-01 23:42:14.072 ISGH[10906:353296] THREAD WARNING: ['StatusBar'] took '36.079102' ms. Plugin should use a background thread.
+2015-08-01 23:47:01.713 ISGH[11202:355598] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/393B165A-A02F-4717-956B-B02BE1238643/Library/Cookies/Cookies.binarycookies
+2015-08-01 23:47:01.973 ISGH[11202:355598] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-01 23:47:01.974 ISGH[11202:355598] Multi-tasking -> Device: YES, App: YES
+2015-08-01 23:47:01.987 ISGH[11202:355598] Unlimited access to network resources
+2015-08-01 23:47:02.166 ISGH[11202:355598] [CDVTimer][keyboard] 0.107944ms
+2015-08-01 23:47:02.283 ISGH[11202:355598] [CDVTimer][splashscreen] 116.482019ms
+2015-08-01 23:47:02.289 ISGH[11202:355598] [CDVTimer][statusbar] 6.146014ms
+2015-08-01 23:47:02.291 ISGH[11202:355598] VERSION LABEL: 0.0.1:1438483592:
+2015-08-01 23:47:02.291 ISGH[11202:355598] updating version label
+2015-08-01 23:47:02.297 ISGH[11202:355598] [CDVTimer][ionicdeploy] 8.000016ms
+2015-08-01 23:47:02.298 ISGH[11202:355598] [CDVTimer][TotalPluginStartup] 132.282972ms
+2015-08-01 23:47:02.396 ISGH[11202:355598] active
+2015-08-01 23:47:02.399 ISGH[11202:355598] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-01 23:47:02.617 ISGH[11202:355598] Resetting plugins due to page load.
+2015-08-01 23:47:02.619 ISGH[11202:355598] uuid is: 
+2015-08-01 23:47:02.619 ISGH[11202:355598] ignore deploy
+2015-08-01 23:47:02.619 ISGH[11202:355598] ignore version: 
+2015-08-01 23:47:03.389 ISGH[11202:355598] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/DD77EEF3-DA4C-409F-ABA5-97242C333F24/ISGH.app/www/index.html#/tab/news
+2015-08-01 23:51:43.364 ISGH[11496:358029] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/A9FCB574-BDCA-422E-A613-F0C340F47798/Library/Cookies/Cookies.binarycookies
+2015-08-01 23:51:43.925 ISGH[11496:358029] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-01 23:51:43.925 ISGH[11496:358029] Multi-tasking -> Device: YES, App: YES
+2015-08-01 23:51:43.968 ISGH[11496:358029] Unlimited access to network resources
+2015-08-01 23:51:44.187 ISGH[11496:358029] [CDVTimer][keyboard] 0.092030ms
+2015-08-01 23:51:44.496 ISGH[11496:358029] [CDVTimer][splashscreen] 308.898985ms
+2015-08-01 23:51:44.504 ISGH[11496:358029] [CDVTimer][statusbar] 7.664979ms
+2015-08-01 23:51:44.506 ISGH[11496:358029] VERSION LABEL: 0.0.1:1438483829:
+2015-08-01 23:51:44.506 ISGH[11496:358029] updating version label
+2015-08-01 23:51:44.517 ISGH[11496:358029] [CDVTimer][ionicdeploy] 12.728989ms
+2015-08-01 23:51:44.517 ISGH[11496:358029] [CDVTimer][TotalPluginStartup] 330.344021ms
+2015-08-01 23:51:44.609 ISGH[11496:358029] active
+2015-08-01 23:51:44.610 ISGH[11496:358029] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-01 23:51:45.090 ISGH[11496:358029] Resetting plugins due to page load.
+2015-08-01 23:51:45.092 ISGH[11496:358029] uuid is: 
+2015-08-01 23:51:45.116 ISGH[11496:358029] ignore deploy
+2015-08-01 23:51:45.116 ISGH[11496:358029] ignore version: 
+2015-08-01 23:51:48.142 ISGH[11496:358029] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/E08266F7-8425-472C-AA09-534405451BF8/ISGH.app/www/index.html#/tab/news
+2015-08-01 23:57:36.623 ISGH[11823:360182] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/F9174A2A-C00D-4316-8ACF-C88B9CF6A574/Library/Cookies/Cookies.binarycookies
+2015-08-01 23:57:37.022 ISGH[11823:360182] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-01 23:57:37.023 ISGH[11823:360182] Multi-tasking -> Device: YES, App: YES
+2015-08-01 23:57:37.043 ISGH[11823:360182] Unlimited access to network resources
+2015-08-01 23:57:37.234 ISGH[11823:360182] [CDVTimer][keyboard] 0.106990ms
+2015-08-01 23:57:37.388 ISGH[11823:360182] [CDVTimer][splashscreen] 154.440999ms
+2015-08-01 23:57:37.395 ISGH[11823:360182] [CDVTimer][statusbar] 6.730974ms
+2015-08-01 23:57:37.397 ISGH[11823:360182] VERSION LABEL: 0.0.1:1438484222:
+2015-08-01 23:57:37.397 ISGH[11823:360182] updating version label
+2015-08-01 23:57:37.402 ISGH[11823:360182] [CDVTimer][ionicdeploy] 6.102026ms
+2015-08-01 23:57:37.402 ISGH[11823:360182] [CDVTimer][TotalPluginStartup] 168.336987ms
+2015-08-01 23:57:37.442 ISGH[11823:360182] active
+2015-08-01 23:57:37.462 ISGH[11823:360182] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-01 23:57:37.865 ISGH[11823:360182] Resetting plugins due to page load.
+2015-08-01 23:57:37.871 ISGH[11823:360182] uuid is: 
+2015-08-01 23:57:37.871 ISGH[11823:360182] ignore deploy
+2015-08-01 23:57:37.872 ISGH[11823:360182] ignore version: 
+2015-08-01 23:57:38.727 ISGH[11823:360182] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/654F5F38-3F51-4B1D-B4EA-051552A09EE3/ISGH.app/www/index.html#/tab/news
+2015-08-01 23:58:02.199 ISGH[11823:360182] THREAD WARNING: ['Keyboard'] took '16.510010' ms. Plugin should use a background thread.
+2015-08-02 00:25:07.974 ISGH[12503:370831] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/99B0641C-50EF-42BD-AD8C-11C987A350BD/Library/Cookies/Cookies.binarycookies
+2015-08-02 00:25:08.659 ISGH[12503:370831] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-02 00:25:08.660 ISGH[12503:370831] Multi-tasking -> Device: YES, App: YES
+2015-08-02 00:25:08.727 ISGH[12503:370831] Unlimited access to network resources
+2015-08-02 00:25:09.225 ISGH[12503:370831] [CDVTimer][keyboard] 57.556987ms
+2015-08-02 00:25:11.397 ISGH[12503:370831] [CDVTimer][splashscreen] 2170.911014ms
+2015-08-02 00:25:11.405 ISGH[12503:370831] [CDVTimer][statusbar] 7.608950ms
+2015-08-02 00:25:11.418 ISGH[12503:370831] VERSION LABEL: 0.0.1:1438485848:
+2015-08-02 00:25:11.419 ISGH[12503:370831] updating version label
+2015-08-02 00:25:11.579 ISGH[12503:370831] [CDVTimer][ionicdeploy] 173.686981ms
+2015-08-02 00:25:11.579 ISGH[12503:370831] [CDVTimer][TotalPluginStartup] 2411.361992ms
+2015-08-02 00:25:11.616 ISGH[12503:370831] active
+2015-08-02 00:25:11.617 ISGH[12503:370831] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-02 00:25:14.404 ISGH[12503:370831] Resetting plugins due to page load.
+2015-08-02 00:25:14.406 ISGH[12503:370831] uuid is: 
+2015-08-02 00:25:14.406 ISGH[12503:370831] ignore deploy
+2015-08-02 00:25:14.406 ISGH[12503:370831] ignore version: 
+2015-08-02 00:25:16.308 ISGH[12503:370831] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/32D0D53C-50EA-4C5D-8466-C8512E793941/ISGH.app/www/index.html#/tab/news
+2015-08-02 00:26:47.706 ISGH[12776:371805] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/F2BE34CC-2D8B-4426-84E1-A409B909092F/Library/Cookies/Cookies.binarycookies
+2015-08-02 00:26:47.949 ISGH[12776:371805] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-02 00:26:47.949 ISGH[12776:371805] Multi-tasking -> Device: YES, App: YES
+2015-08-02 00:26:47.962 ISGH[12776:371805] Unlimited access to network resources
+2015-08-02 00:26:48.202 ISGH[12776:371805] [CDVTimer][keyboard] 0.105977ms
+2015-08-02 00:26:48.452 ISGH[12776:371805] [CDVTimer][splashscreen] 249.453008ms
+2015-08-02 00:26:48.462 ISGH[12776:371805] [CDVTimer][statusbar] 10.304987ms
+2015-08-02 00:26:48.464 ISGH[12776:371805] VERSION LABEL: 0.0.1:1438485980:
+2015-08-02 00:26:48.464 ISGH[12776:371805] updating version label
+2015-08-02 00:26:48.542 ISGH[12776:371805] [CDVTimer][ionicdeploy] 79.730034ms
+2015-08-02 00:26:48.543 ISGH[12776:371805] [CDVTimer][TotalPluginStartup] 341.380000ms
+2015-08-02 00:26:48.595 ISGH[12776:371805] active
+2015-08-02 00:26:48.597 ISGH[12776:371805] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-02 00:26:49.007 ISGH[12776:371805] Resetting plugins due to page load.
+2015-08-02 00:26:49.010 ISGH[12776:371805] uuid is: 
+2015-08-02 00:26:49.011 ISGH[12776:371805] ignore deploy
+2015-08-02 00:26:49.011 ISGH[12776:371805] ignore version: 
+2015-08-02 00:26:49.940 ISGH[12776:371805] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/7B385D8B-BB82-4E1F-BC10-5931B3F268BC/ISGH.app/www/index.html#/tab/news
+2015-08-02 00:30:39.372 ISGH[13071:373612] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/BB55B517-97CA-4D3D-8C05-68D94BEDD4DD/Library/Cookies/Cookies.binarycookies
+2015-08-02 00:30:39.902 ISGH[13071:373612] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-02 00:30:39.903 ISGH[13071:373612] Multi-tasking -> Device: YES, App: YES
+2015-08-02 00:30:39.941 ISGH[13071:373612] Unlimited access to network resources
+2015-08-02 00:30:40.225 ISGH[13071:373612] [CDVTimer][keyboard] 0.091016ms
+2015-08-02 00:30:41.072 ISGH[13071:373612] [CDVTimer][splashscreen] 847.428024ms
+2015-08-02 00:30:41.079 ISGH[13071:373612] [CDVTimer][statusbar] 6.347001ms
+2015-08-02 00:30:41.081 ISGH[13071:373612] VERSION LABEL: 0.0.1:1438486212:
+2015-08-02 00:30:41.081 ISGH[13071:373612] updating version label
+2015-08-02 00:30:41.085 ISGH[13071:373612] [CDVTimer][ionicdeploy] 5.802035ms
+2015-08-02 00:30:41.085 ISGH[13071:373612] [CDVTimer][TotalPluginStartup] 860.541999ms
+2015-08-02 00:30:41.127 ISGH[13071:373612] active
+2015-08-02 00:30:41.129 ISGH[13071:373612] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-02 00:30:41.860 ISGH[13071:373612] Resetting plugins due to page load.
+2015-08-02 00:30:41.862 ISGH[13071:373612] uuid is: 
+2015-08-02 00:30:41.862 ISGH[13071:373612] ignore deploy
+2015-08-02 00:30:41.862 ISGH[13071:373612] ignore version: 
+2015-08-02 00:30:42.714 ISGH[13071:373612] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/08F26A88-03FB-48A0-AD0E-63FD1A9C7E59/ISGH.app/www/index.html#/tab/news
+2015-08-02 00:34:39.370 ISGH[13357:375082] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/DB2798F4-28E7-4908-BBE6-15BB998E851E/Library/Cookies/Cookies.binarycookies
+2015-08-02 00:34:39.828 ISGH[13357:375082] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-02 00:34:39.829 ISGH[13357:375082] Multi-tasking -> Device: YES, App: YES
+2015-08-02 00:34:39.848 ISGH[13357:375082] Unlimited access to network resources
+2015-08-02 00:34:40.024 ISGH[13357:375082] [CDVTimer][keyboard] 0.088036ms
+2015-08-02 00:34:40.204 ISGH[13357:375082] [CDVTimer][splashscreen] 179.506958ms
+2015-08-02 00:34:40.212 ISGH[13357:375082] [CDVTimer][statusbar] 7.749975ms
+2015-08-02 00:34:40.234 ISGH[13357:375082] VERSION LABEL: 0.0.1:1438486461:
+2015-08-02 00:34:40.234 ISGH[13357:375082] updating version label
+2015-08-02 00:34:40.239 ISGH[13357:375082] [CDVTimer][ionicdeploy] 8.423030ms
+2015-08-02 00:34:40.239 ISGH[13357:375082] [CDVTimer][TotalPluginStartup] 215.166032ms
+2015-08-02 00:34:40.330 ISGH[13357:375082] active
+2015-08-02 00:34:40.332 ISGH[13357:375082] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-02 00:34:40.589 ISGH[13357:375082] Resetting plugins due to page load.
+2015-08-02 00:34:40.591 ISGH[13357:375082] uuid is: 
+2015-08-02 00:34:40.591 ISGH[13357:375082] ignore deploy
+2015-08-02 00:34:40.591 ISGH[13357:375082] ignore version: 
+2015-08-02 00:34:41.412 ISGH[13357:375082] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/6258D09C-2E53-42ED-9AA5-462BC3A37E80/ISGH.app/www/index.html#/tab/news
+2015-08-02 00:37:00.827 ISGH[13633:376241] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/1FF65549-345A-445C-9FA9-424B382CDD4D/Library/Cookies/Cookies.binarycookies
+2015-08-02 00:37:01.157 ISGH[13633:376241] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-02 00:37:01.158 ISGH[13633:376241] Multi-tasking -> Device: YES, App: YES
+2015-08-02 00:37:01.174 ISGH[13633:376241] Unlimited access to network resources
+2015-08-02 00:37:01.358 ISGH[13633:376241] [CDVTimer][keyboard] 0.088990ms
+2015-08-02 00:37:01.521 ISGH[13633:376241] [CDVTimer][splashscreen] 163.281024ms
+2015-08-02 00:37:01.528 ISGH[13633:376241] [CDVTimer][statusbar] 6.295979ms
+2015-08-02 00:37:01.530 ISGH[13633:376241] VERSION LABEL: 0.0.1:1438486599:
+2015-08-02 00:37:01.530 ISGH[13633:376241] updating version label
+2015-08-02 00:37:01.561 ISGH[13633:376241] [CDVTimer][ionicdeploy] 32.868981ms
+2015-08-02 00:37:01.561 ISGH[13633:376241] [CDVTimer][TotalPluginStartup] 203.446984ms
+2015-08-02 00:37:01.646 ISGH[13633:376241] active
+2015-08-02 00:37:01.648 ISGH[13633:376241] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-02 00:37:01.912 ISGH[13633:376241] Resetting plugins due to page load.
+2015-08-02 00:37:01.914 ISGH[13633:376241] uuid is: 
+2015-08-02 00:37:01.914 ISGH[13633:376241] ignore deploy
+2015-08-02 00:37:01.914 ISGH[13633:376241] ignore version: 
+2015-08-02 00:37:02.698 ISGH[13633:376241] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/7FC7115B-DC18-44B5-87D5-313718A295BC/ISGH.app/www/index.html#/tab/news
+2015-08-02 00:39:58.509 ISGH[13912:377538] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/1079375E-9E01-4EB7-8664-1A815F48359C/Library/Cookies/Cookies.binarycookies
+2015-08-02 00:39:58.908 ISGH[13912:377538] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-02 00:39:58.909 ISGH[13912:377538] Multi-tasking -> Device: YES, App: YES
+2015-08-02 00:39:58.933 ISGH[13912:377538] Unlimited access to network resources
+2015-08-02 00:39:59.123 ISGH[13912:377538] [CDVTimer][keyboard] 0.086010ms
+2015-08-02 00:39:59.293 ISGH[13912:377538] [CDVTimer][splashscreen] 169.743001ms
+2015-08-02 00:39:59.299 ISGH[13912:377538] [CDVTimer][statusbar] 5.890012ms
+2015-08-02 00:39:59.301 ISGH[13912:377538] VERSION LABEL: 0.0.1:1438486779:
+2015-08-02 00:39:59.301 ISGH[13912:377538] updating version label
+2015-08-02 00:39:59.305 ISGH[13912:377538] [CDVTimer][ionicdeploy] 6.067038ms
+2015-08-02 00:39:59.305 ISGH[13912:377538] [CDVTimer][TotalPluginStartup] 182.686985ms
+2015-08-02 00:39:59.395 ISGH[13912:377538] active
+2015-08-02 00:39:59.398 ISGH[13912:377538] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-02 00:39:59.626 ISGH[13912:377538] Resetting plugins due to page load.
+2015-08-02 00:39:59.628 ISGH[13912:377538] uuid is: 
+2015-08-02 00:39:59.628 ISGH[13912:377538] ignore deploy
+2015-08-02 00:39:59.628 ISGH[13912:377538] ignore version: 
+2015-08-02 00:40:00.630 ISGH[13912:377538] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/61C7D211-4B9B-4E23-AF00-53990D6207B9/ISGH.app/www/index.html#/tab/news
+2015-08-02 00:42:38.588 ISGH[14220:379383] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/75688C19-42E4-4D7B-973C-0828BFA0A854/Library/Cookies/Cookies.binarycookies
+2015-08-02 00:42:39.023 ISGH[14220:379383] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-02 00:42:39.024 ISGH[14220:379383] Multi-tasking -> Device: YES, App: YES
+2015-08-02 00:42:39.041 ISGH[14220:379383] Unlimited access to network resources
+2015-08-02 00:42:39.226 ISGH[14220:379383] [CDVTimer][keyboard] 0.090003ms
+2015-08-02 00:42:39.518 ISGH[14220:379383] [CDVTimer][splashscreen] 292.603970ms
+2015-08-02 00:42:39.526 ISGH[14220:379383] [CDVTimer][statusbar] 7.584035ms
+2015-08-02 00:42:39.528 ISGH[14220:379383] VERSION LABEL: 0.0.1:1438486933:
+2015-08-02 00:42:39.529 ISGH[14220:379383] updating version label
+2015-08-02 00:42:39.533 ISGH[14220:379383] [CDVTimer][ionicdeploy] 6.424963ms
+2015-08-02 00:42:39.533 ISGH[14220:379383] [CDVTimer][TotalPluginStartup] 307.648957ms
+2015-08-02 00:42:39.570 ISGH[14220:379383] active
+2015-08-02 00:42:39.576 ISGH[14220:379383] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-02 00:42:39.887 ISGH[14220:379383] Resetting plugins due to page load.
+2015-08-02 00:42:39.889 ISGH[14220:379383] uuid is: 
+2015-08-02 00:42:39.889 ISGH[14220:379383] ignore deploy
+2015-08-02 00:42:39.889 ISGH[14220:379383] ignore version: 
+2015-08-02 00:42:40.674 ISGH[14220:379383] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/1DA56F2C-9A44-4302-8F71-8720C9AED44E/ISGH.app/www/index.html#/tab/news
+2015-08-02 00:44:22.458 ISGH[14492:380351] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/D1B54D24-A9F7-4BC3-8D0D-4AEE8EED1145/Library/Cookies/Cookies.binarycookies
+2015-08-02 00:44:22.835 ISGH[14492:380351] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-02 00:44:22.836 ISGH[14492:380351] Multi-tasking -> Device: YES, App: YES
+2015-08-02 00:44:22.860 ISGH[14492:380351] Unlimited access to network resources
+2015-08-02 00:44:23.140 ISGH[14492:380351] [CDVTimer][keyboard] 0.086963ms
+2015-08-02 00:44:23.300 ISGH[14492:380351] [CDVTimer][splashscreen] 160.247982ms
+2015-08-02 00:44:23.308 ISGH[14492:380351] [CDVTimer][statusbar] 7.730007ms
+2015-08-02 00:44:23.311 ISGH[14492:380351] VERSION LABEL: 0.0.1:1438487039:
+2015-08-02 00:44:23.311 ISGH[14492:380351] updating version label
+2015-08-02 00:44:23.316 ISGH[14492:380351] [CDVTimer][ionicdeploy] 7.071972ms
+2015-08-02 00:44:23.316 ISGH[14492:380351] [CDVTimer][TotalPluginStartup] 176.133990ms
+2015-08-02 00:44:23.352 ISGH[14492:380351] active
+2015-08-02 00:44:23.386 ISGH[14492:380351] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-02 00:44:23.624 ISGH[14492:380351] Resetting plugins due to page load.
+2015-08-02 00:44:23.626 ISGH[14492:380351] uuid is: 
+2015-08-02 00:44:23.626 ISGH[14492:380351] ignore deploy
+2015-08-02 00:44:23.626 ISGH[14492:380351] ignore version: 
+2015-08-02 00:44:24.541 ISGH[14492:380351] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/051A043F-BB91-49A2-B42A-F16FAFE535A2/ISGH.app/www/index.html#/tab/news
+2015-08-02 00:56:50.608 ISGH[14826:383570] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/2F9B5FD1-A24E-4F11-916B-B69B99EDD7A8/Library/Cookies/Cookies.binarycookies
+2015-08-02 00:56:51.111 ISGH[14826:383570] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-02 00:56:51.112 ISGH[14826:383570] Multi-tasking -> Device: YES, App: YES
+2015-08-02 00:56:51.139 ISGH[14826:383570] Unlimited access to network resources
+2015-08-02 00:56:51.406 ISGH[14826:383570] [CDVTimer][keyboard] 0.088036ms
+2015-08-02 00:56:51.928 ISGH[14826:383570] [CDVTimer][splashscreen] 521.489978ms
+2015-08-02 00:56:51.936 ISGH[14826:383570] [CDVTimer][statusbar] 7.771015ms
+2015-08-02 00:56:51.939 ISGH[14826:383570] VERSION LABEL: 0.0.1:1438487766:
+2015-08-02 00:56:51.939 ISGH[14826:383570] updating version label
+2015-08-02 00:56:51.974 ISGH[14826:383570] [CDVTimer][ionicdeploy] 37.657022ms
+2015-08-02 00:56:51.974 ISGH[14826:383570] [CDVTimer][TotalPluginStartup] 568.024993ms
+2015-08-02 00:56:52.016 ISGH[14826:383570] active
+2015-08-02 00:56:52.020 ISGH[14826:383570] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-02 00:56:52.687 ISGH[14826:383570] Resetting plugins due to page load.
+2015-08-02 00:56:52.688 ISGH[14826:383570] uuid is: 
+2015-08-02 00:56:52.689 ISGH[14826:383570] ignore deploy
+2015-08-02 00:56:52.689 ISGH[14826:383570] ignore version: 
+2015-08-02 00:56:53.431 ISGH[14826:383570] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/774D8F43-8E33-4792-8FD5-D809D32C48D8/ISGH.app/www/index.html#/tab/news
+2015-08-02 01:02:31.722 ISGH[15444:387289] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/207DAB53-DDD4-4EE7-9EAF-58BE84BCD1A6/Library/Cookies/Cookies.binarycookies
+2015-08-02 01:02:32.157 ISGH[15444:387289] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-02 01:02:32.157 ISGH[15444:387289] Multi-tasking -> Device: YES, App: YES
+2015-08-02 01:02:32.173 ISGH[15444:387289] Unlimited access to network resources
+2015-08-02 01:02:32.348 ISGH[15444:387289] [CDVTimer][keyboard] 0.090003ms
+2015-08-02 01:02:32.539 ISGH[15444:387289] [CDVTimer][splashscreen] 191.312015ms
+2015-08-02 01:02:32.547 ISGH[15444:387289] [CDVTimer][statusbar] 7.052004ms
+2015-08-02 01:02:32.549 ISGH[15444:387289] VERSION LABEL: 0.0.1:1438488134:
+2015-08-02 01:02:32.549 ISGH[15444:387289] updating version label
+2015-08-02 01:02:32.553 ISGH[15444:387289] [CDVTimer][ionicdeploy] 6.085992ms
+2015-08-02 01:02:32.553 ISGH[15444:387289] [CDVTimer][TotalPluginStartup] 205.480993ms
+2015-08-02 01:02:32.588 ISGH[15444:387289] active
+2015-08-02 01:02:32.593 ISGH[15444:387289] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-02 01:02:32.882 ISGH[15444:387289] Resetting plugins due to page load.
+2015-08-02 01:02:32.884 ISGH[15444:387289] uuid is: 
+2015-08-02 01:02:32.884 ISGH[15444:387289] ignore deploy
+2015-08-02 01:02:32.884 ISGH[15444:387289] ignore version: 
+2015-08-02 01:02:33.488 ISGH[15444:387289] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/D9A14104-F2F1-4B93-ADA8-38CC8A80C085/ISGH.app/www/index.html#/tab/news
+2015-08-02 01:04:17.224 ISGH[15444:387289] THREAD WARNING: ['Keyboard'] took '15.225342' ms. Plugin should use a background thread.
+2015-08-02 01:09:58.705 ISGH[15772:389627] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Data/Application/5D50D344-D3B4-41BA-9C89-5D22B6C48BFC/Library/Cookies/Cookies.binarycookies
+2015-08-02 01:09:59.055 ISGH[15772:389627] Apache Cordova native platform version 3.8.0 is starting.
+2015-08-02 01:09:59.055 ISGH[15772:389627] Multi-tasking -> Device: YES, App: YES
+2015-08-02 01:09:59.077 ISGH[15772:389627] Unlimited access to network resources
+2015-08-02 01:09:59.336 ISGH[15772:389627] [CDVTimer][keyboard] 0.083983ms
+2015-08-02 01:09:59.836 ISGH[15772:389627] [CDVTimer][splashscreen] 499.370039ms
+2015-08-02 01:09:59.844 ISGH[15772:389627] [CDVTimer][statusbar] 7.631004ms
+2015-08-02 01:09:59.846 ISGH[15772:389627] VERSION LABEL: 0.0.1:1438488578:
+2015-08-02 01:09:59.847 ISGH[15772:389627] updating version label
+2015-08-02 01:09:59.852 ISGH[15772:389627] [CDVTimer][ionicdeploy] 7.395029ms
+2015-08-02 01:09:59.852 ISGH[15772:389627] [CDVTimer][TotalPluginStartup] 515.438974ms
+2015-08-02 01:09:59.890 ISGH[15772:389627] active
+2015-08-02 01:09:59.892 ISGH[15772:389627] Attempting to badge the application icon but haven't received permission from the user to badge the application
+2015-08-02 01:10:00.402 ISGH[15772:389627] Resetting plugins due to page load.
+2015-08-02 01:10:00.404 ISGH[15772:389627] uuid is: 
+2015-08-02 01:10:00.404 ISGH[15772:389627] ignore deploy
+2015-08-02 01:10:00.404 ISGH[15772:389627] ignore version: 
+2015-08-02 01:10:01.449 ISGH[15772:389627] Finished load of: file:///Users/Fabricio/Library/Developer/CoreSimulator/Devices/687B9F95-CD1A-4FF7-9739-B5950FA4AB21/data/Containers/Bundle/Application/0894E47D-006E-40C1-9C16-552D1896BE80/ISGH.app/www/index.html#/tab/news
