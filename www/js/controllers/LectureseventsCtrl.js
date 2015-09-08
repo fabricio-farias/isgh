@@ -1,6 +1,6 @@
 angular.module('isgh.LectureseventsCtrl', ['ngSanitize'])
 
-.controller('LectureseventsCtrl', function ($scope, $filter, $ionicScrollDelegate, Constant, init, LecturesEvents) {
+.controller('LectureseventsCtrl', function ($scope, $filter, Constant, init, LecturesEvents) {
 	
 	$scope.lecturesevents = init;
 	$scope.url_site = Constant.url_site;
@@ -20,7 +20,7 @@ angular.module('isgh.LectureseventsCtrl', ['ngSanitize'])
 	}
 	
 })
-.controller('LectureeventCtrl', function ($scope, $sce, $css, $filter, Constant, init, $ionicModal) {
+.controller('LectureeventCtrl', function ($scope, $sce, $css, $filter, Constant, init, $ionicModal, $ionicScrollDelegate) {
 	
 	$scope.lectureevent = init;
 	$scope.url_site = Constant.url_site;
