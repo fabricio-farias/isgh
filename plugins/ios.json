@@ -4,10 +4,34 @@
         "uninstalled": []
     },
     "config_munge": {
-        "files": {}
+        "files": {
+            "framework": {
+                "parents": {
+                    "MessageUI.framework": [
+                        {
+                            "xml": true,
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"EmailComposer\"><param name=\"ios-package\" value=\"EmailComposer\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
     },
     "installed_plugins": {
         "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.ionicframework.isgh900684"
+        },
+        "com.jcjee.plugins.emailcomposer": {
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
         }
     },

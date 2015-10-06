@@ -1,26 +1,38 @@
 .app-full-size{width: 100%;height:100%}
 .app-item-page{width: 960px;height: 10000px}
+
+/*ION-REEFRESHER*/
+.spinner{stroke: #666666}
+.scroll-refresher .ionic-refresher-content{color: #666666;}
+
+/*LOADING*/
+.loading-container .loading{background-color: transparent;}
+
 /*BARS TABS COLORS*/
-/*IOS || DEFAULT*/
-.bar.bar-black, .bar.bar-black.bar-footer{background-color:#000000;color:#b2b2b2;}
-.bar.bar-positive{border-color: #004770;background-color: #114A71;}
-.tabs-striped.tabs-color-positive .tab-item{color: rgba(17, 74, 113, 0.4)}
-.tabs-striped.tabs-color-positive .tab-item.activated, .tabs-striped.tabs-color-positive .tab-item.active, .tabs-striped.tabs-color-positive .tab-item.tab-item-active{border-color:#114A71;color:#114A71}
-.tabs-striped.tabs-background-positive .tabs{background-color: #114A71;}
+.bar.bar-black, .bar.bar-black.bar-footer{background-color:#000000;color:#b2b2b2;border-bottom-width: 0;}
 
-
+/*google apps*/
+.tabs-light > .tabs, .tabs.tabs-light{border-top: 1px solid #ddd !important;}
+/*IOS*/
+[nav-bar-transition="ios"] .bar{border-color: #0d4772;background-color: #37639B;-webkit-box-shadow: 0 0 3px 5px rgba(0,0,0,.1);box-shadow: 0 0 3px 5px rgba(0,0,0,.1);}
+.tabs-light.tabs-bottom .tab-item{color: rgba(55,99,155, 0.4)}
+.tabs-light.tabs-bottom .tab-item.activated,.tabs-light.tabs-bottom .tab-item.active,.tabs-light.tabs-bottom .tab-item.tab-item-active{margin-bottom: -2px;color: #37639B;border-style: solid;border-color:#37639B;border-width: 0px 0px 2px 0px !important;}
 /*ANDROID*/
-.nav-bar-tabs-top .bar.bar-positive{border-color: transparent;background-color: #114A71;}
-.tabs-striped.tabs-color-positive.tabs-top .tab-item{color:rgba(255, 255, 255, 0.4);}
-.tabs-striped.tabs-color-positive.tabs-top .tab-item.activated, 
-.tabs-striped.tabs-color-positive.tabs-top .tab-item.active, 
-.tabs-striped.tabs-color-positive.tabs-top .tab-item.tab-item-active{border-color:#FFFFFF;color:#FFFFFF}
-.tabs-striped.tabs-stable.tabs-top .tabs{background-color: 	#114A71;}
-/*BARS TABS COLORS*/
+[nav-bar-transition="android"] .bar{border-color: #37639B;background-color: #37639B;}
+.tabs-striped.tabs-positive.tabs-top .tabs{background-color:#37639B;border-bottom-color:#37639B;border-bottom-width: 2px;-webkit-box-shadow: 0 0 3px 5px rgba(0,0,0,.1);box-shadow: 0 0 3px 5px rgba(0,0,0,.1);}
+.tabs-striped.tabs-positive.tabs-top .tab-item{color: rgba(255,255,255, 0.4)}
+.tabs-striped.tabs-positive.tabs-top .tab-item.activated,.tabs-striped.tabs-positive.tabs-top .tab-item.active,.tabs-striped.tabs-positive.tabs-top .tab-item.tab-item-active{margin-bottom: -2px;color: #FFFFFF;border-color:#FFFFFF;border-width: 0px 0px 2px 0px !important;}
+
+/*thumblr app*/
+/*.bar.bar-positive{border-color: #0d4772;background-color: #0d4772;}
+.tabs-striped.tabs-positive .tabs{background-color: #0d4772;border-bottom-color: #0d4772; -webkit-box-shadow: 0 0 3px 5px rgba(0,0,0,.3);box-shadow: 0 0 3px 5px rgba(0,0,0,.3);}
+.tabs-striped.tabs-positive .tab-item.activated,
+.tabs-striped.tabs-positive .tab-item.active,
+.tabs-striped.tabs-positive .tab-item.tab-item-active{border-color:#0d4772;}*/
 
 
 /*BACKGROUND COLOR*/
-.pane, .view{background-color: #EEEEEE;}
+.pane, .view{background-color: #F5F5F5;}
 
 /*SLIDESHOW*/
 .slider {height: 300px;}
@@ -117,6 +129,10 @@ iframe, .app-iframe-issue .scroll{width: 100%!important;height: 100%!important;}
 .app-float-right{float: right!important}
 .app-float-left{float: left!important}
 
+.app-jumbotron{text-align: center; color: #BBBBBB;}
+.app-jumbotron i{font-size: 20em;}
+.app-jumbotron p{font-size: 1.5em;}
+
 /*BUTTON*/
 /*.app-button-mini{padding:2px 4px 1px;min-width:28px;min-height: 20px;font-size:12px!important;line-height: 16px;}*/
 
@@ -131,3 +147,61 @@ iframe, .app-iframe-issue .scroll{width: 100%!important;height: 100%!important;}
 .slide-in-right.ng-enter, .slide-in-right > .ng-enter {-webkit-transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms; transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms; }
 .slide-in-right.ng-enter-active, .slide-in-right > .ng-enter-active {-webkit-transform: translateX(0);transform: translateX(0); }
 .slide-in-right.ng-leave, .slide-in-right > .ng-leave {-webkit-transition: all ease-in-out 250ms;transition: all ease-in-out 250ms; }
+
+
+.alert-bar{
+	transition: top 0.25s ease;
+	-webkit-transition: top 0.25s ease;
+	position:absolute;
+	top:0;
+	padding:5px 10px;
+	background-color: black; 
+	color: white;
+	text-align: center;
+	width: 100%;
+	z-index: 10;
+	visibility: hidden;
+}
+.alert-bar i{float: right;}
+.bar-active{
+	visibility: visible;
+	top: 44px;
+}
+
+.alert-bar-error{
+	background-color: orangered;
+}
+.alert-bar-success{
+	background-color: seagreen;
+}
+.alert-bar-info{
+	background-color: royalblue;
+}
+.alert-bar-warning{
+	background-color: goldenrod;
+}
+
+.jumbotron {
+    padding-top: 20%;
+    color: inherit;
+    background-color: #eee;
+	position: relative;
+	text-align: center;
+	height: inherit;
+	top: 44px;
+	
+}
+.jumbotron .h1, .jumbotron h1 {
+    font-size: 63px;
+	color: #999;
+	text-shadow: 1px 1px 1px #fff;
+	-webkit-text-shadow: 1px 1px 1px #fff;
+}
+.jumbotron p {
+    margin-bottom: 15px;
+    font-size: 21px;
+    font-weight: 200;
+	color: #999;
+	text-shadow: 1px 1px 1px #fff;
+	-webkit-text-shadow: 1px 1px 1px #fff;
+}

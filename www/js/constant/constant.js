@@ -4,6 +4,13 @@ angular.module('isgh.Constant', []).constant("Constant", {
 	url_intranet: "http://177.136.74.42/intranet/",
 	url_site: "http://177.136.74.42/site/",
 	url_procseletivo: "http://177.136.74.42/processos_seletivos/",
+
+	backButton: (ionic.Platform.isAndroid()) ? 'ion-android-arrow-back' : 'ion-ios-arrow-back',
+	closeButton: (ionic.Platform.isAndroid()) ? 'ion-android-close' : 'ion-ios-close-empty',
+	
+	emails: {
+		cursos: {to: "cepep@isgh.org.br", cc: "contato@isgh.org.br"} 
+	},
 	
 	database: { 
 		name: 'isgh.db',
@@ -30,9 +37,7 @@ angular.module('isgh.Constant', []).constant("Constant", {
 					{ name: 'thumbnail', type: 'text' },
 					{ name: 'location', type: 'text' },
 					{ name: 'location_alias', type: 'text' },
-					{ name: 'register_opened', type: 'numeric' },
-					{ name: 'register_closed', type: 'numeric' },
-					{ name: 'event_closed', type: 'numeric' },
+					{ name: 'date', type: 'numeric' },
 					{ name: 'filename', type: 'text' },
 					{ name: 'form_date_up', type: 'text' },
 					{ name: 'form_date_down', type: 'text' },
@@ -47,6 +52,7 @@ angular.module('isgh.Constant', []).constant("Constant", {
 					{ name: 'form_content_4', type: 'text' },
 					{ name: 'form_link', type: 'text' },
 					{ name: 'register_link', type: 'text' },
+					{ name: 'register_planning', type: 'integer' },
 					{ name: 'status', type: 'text' }
 					
 				]

@@ -7,7 +7,7 @@
           <img ng-src="{{url_site + lectureevent.thumbnail}}">
           <h2 class="app-no-white-space app-font-size-90">{{lectureevent.title}}</h2>
           <p>
-            <a class="button button-full button-small button-{{lectureevent.status.color}}" ng-click="externalLink(lectureevent.register_link, '_system')">
+            <a class="button button-full button-small button-{{lectureevent.status.color}}" ng-click="externalLink(lectureevent.register_link, '_system', lectureevent)">
               {{lectureevent.status.desc1+" "+lectureevent.status.desc2}}
             </a>
           </p>

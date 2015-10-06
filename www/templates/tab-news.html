@@ -1,10 +1,14 @@
-            
-<ion-view view-title="ISGH">
-  <ion-content class="padding">
-    
+<ion-view view-title="Notícias">
+
+  <ui-alert-bar alert="alert"></ui-alert-bar>
+  
+  <!--<ui-jumbotron icon="ion-ios-home">Não há notícias para exibir</ui-jumbotron>-->
+  
+  <ion-content>
+
     <ion-refresher on-refresh="doRefresh()"></ion-refresher>
 
-    <div class="list card" ng-repeat="itemNew in news">
+    <div class="list" ng-repeat="itemNew in news">
 
       <div class="item item-avatar">
         <div class="item-image app-units" ng-class="checkColor(itemNew.unit)">{{itemNew.unit || "ISGH"}}</div>

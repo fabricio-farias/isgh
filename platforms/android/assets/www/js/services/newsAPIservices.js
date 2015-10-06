@@ -1,6 +1,6 @@
 angular.module('isgh.newsAPIservices', ['isgh.dbAPIservices'])
 
-  .factory('News', function ($q, $http, Constant, DB, $cordovaSQLite, $ionicPopup) {
+  .factory('News', function ($q, $http, Constant, DB, $cordovaSQLite) {
 
     var db = DB;
     var table = Constant.database.tables.news;
@@ -14,7 +14,7 @@ angular.module('isgh.newsAPIservices', ['isgh.dbAPIservices'])
       $http.get(Constant.url_wsapp + 'intranet/?func=newsAll').then(function (response) {
         deferred.resolve(response);
       }, function (erro) {
-        deferred.reject("Falha na conexão");
+        deferred.reject("Sem conexão com a Internet");
       });
 
       return deferred.promise;
@@ -22,26 +22,32 @@ angular.module('isgh.newsAPIservices', ['isgh.dbAPIservices'])
     
     // INSERT ROWS IN TABLE
     var _populate = function (refresh) {
-
+      var deferred = $q.defer();
       var refresh = typeof refresh !== 'undefined' ? true : false;
 
-      if (refresh) {
-        db.dropTable(table);
-        db.createTable(table);
-      }
-
-      return _newsWSget().then(function (response) {
-        angular.forEach(response.data, function (obj) {
-          var query = "INSERT INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
-          db.query(query, [obj.id, obj.title, obj.images, obj.created, obj.introtext, obj.striptext, obj.category, obj.unit]);
-        });
+      _newsWSget().then(function (response) {
+        if (response.data.length > 0) {
+          if (refresh) {
+            db.dropTable(table);
+            db.createTable(table);
+          }
+          
+          angular.forEach(response.data, function (obj) {
+            var query = "INSERT INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
+            db.query(query, [obj.id, obj.title, obj.images, obj.created, obj.introtext, obj.striptext, obj.category, obj.unit]);
+          });
+          
+          deferred.resolve(_all());
+          
+        } else {
+          deferred.reject("Restabelecendo conexão perdida com ISGH");
+        }
+        
       }, function (erro) {
-        $ionicPopup.alert({
-          title: erro,
-          content: "Verifique se você está conectado à internet e tente novamente."
-        });
+        deferred.reject(erro);
       });
-
+      
+      return deferred.promise;
     }
     
     //SELECT ALL
@@ -49,12 +55,11 @@ angular.module('isgh.newsAPIservices', ['isgh.dbAPIservices'])
       var query = "SELECT * FROM "+table.name+" ORDER BY id DESC";
       return db.query(query).then(function (result) {
         return db.fetchAll(result);
+      }, function (erro) {
+        console.log(erro);
       });
     };
-    // var _all = function () { 
-    //   return $http.get(Constant.url_wsapp + 'intranet/?func=newsAll');
-    // });
-    
+        
     return {
       newsWSget: _newsWSget,
       populate: _populate,

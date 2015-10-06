@@ -5,9 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-var app = angular.module('isgh', ['ionic', 'ionic.service.core', 'ngCordova', 'door3.css', 'isgh.Constant', 'isgh.dbAPIservices' ,'isgh.NewsCtrl', 'isgh.LectureseventsCtrl', 'isgh.SelectionprocessesCtrl', 'isgh.AccountCtrl', 'isgh.EllipsisFilter', 'isgh.CapcaseFilter', 'isgh.NewsFilter', 'angularMoment', 'isgh.DateRelativeFilter', 'isgh.newsAPIservices', 'isgh.lectureseventsAPIservices', 'isgh.IframeDirective'])
+var app = angular.module('isgh', ['ionic', 'ionic.service.core', 'ngCordova', 'door3.css', 'isgh.Constant', 'isgh.ionicLoadingConfig', 'isgh.emailAPIprovider', 'isgh.dbAPIservices', 'isgh.NewsCtrl', 'isgh.LectureseventsCtrl', 'isgh.SelectionProcessesCtrl', 'isgh.AccountCtrl', 'isgh.EllipsisFilter', 'isgh.CapcaseFilter', 'angularMoment', 'isgh.DateRelativeFilter', 'isgh.newsAPIservices', 'isgh.lectureseventsAPIservices','uiAlertBar','uiJumbotron'])
 
-  .run(function ($ionicPlatform, $cordovaInAppBrowser, $cordovaSQLite, amMoment, DB, News, LecturesEvents) {
+  .run(function ($ionicPlatform, $cordovaInAppBrowser, $cordovaSQLite, amMoment, DB) {
 
     $ionicPlatform.ready(function () {
        
@@ -23,13 +23,9 @@ var app = angular.module('isgh', ['ionic', 'ionic.service.core', 'ngCordova', 'd
         StatusBar.styleLightContent();
       }
       
-      // lembrar que a inicializacao sem tabela a tele fica branca assim tendo que fazer um segundo refresh
-      // corrigir a inicializacao posteriormente
       DB.init();
-      News.populate();
-      LecturesEvents.populate();
       amMoment.changeLocale('pt');
-    
+
     });
   });
 

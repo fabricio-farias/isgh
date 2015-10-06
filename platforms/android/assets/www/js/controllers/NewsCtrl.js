@@ -2,18 +2,19 @@ angular.module('isgh.NewsCtrl', ['ngSanitize']).controller('NewsCtrl', function 
 
 	$scope.news = init;
 	$scope.url_intranet = Constant.url_intranet;
-	
+	// para redirecionar para pagina de erro
+	// $state.go("error", {title: "ISGH", message: "Não foi possivel carregar o feed de notícias", icon: "ion-android-wifi"});
+			
 	// refresh na pagina sera incluido em breve
 	$scope.doRefresh = function () {
 		News.populate(true).then(function (response) {
-			News.all().then(function (response) {
-				angular.forEach(response, function (item) {
-					item.images = JSON.parse(item.images);
-				});
-
-				$scope.news = response;
-				$scope.$broadcast('scroll.refreshComplete');
+			angular.forEach(response, function (item) {
+				item.images = JSON.parse(item.images);
 			});
+			$scope.news = response;
+			$scope.$broadcast('scroll.refreshComplete');
+		}, function (erro) {
+			console.log(erro);
 		});
 	}
 	
@@ -23,6 +24,7 @@ angular.module('isgh.NewsCtrl', ['ngSanitize']).controller('NewsCtrl', function 
 		animation: 'slide-in-right'
 	}).then(function (modal) {
 		$scope.modal = modal;
+		$scope.backButton = Constant.backButton;
 	});
 	
 	// GATILHO PRA FECHAR MODAL
@@ -64,6 +66,7 @@ angular.module('isgh.NewsCtrl', ['ngSanitize']).controller('NewsCtrl', function 
 		}
 		$css.add('css/intranet/intranet.css');
 		$scope.itemNew = itemNew;
+
 	};
 	
 	// GATILHO PARA ALTERAR A COR DA UNIDADE
@@ -97,6 +100,7 @@ angular.module('isgh.NewsCtrl', ['ngSanitize']).controller('NewsCtrl', function 
 		animation: 'slide-in-up'
 	}).then(function (modal) {
 		$scope.mimages = modal;
+		$scope.closeButton = Constant.closeButton;
 	});
 
 	$scope.openMimages = function (itemNew) {

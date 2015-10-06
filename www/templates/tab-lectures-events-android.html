@@ -1,0 +1,23 @@
+<ion-view view-title="Cursos">
+  <ion-content>
+    <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+    
+    <div class="list">
+      <a class="item item-thumbnail-left" href="#/tab/lectures-events/{{lecturesevent.id}}/{{lecturesevent.register_planning}}"
+      ng-repeat="lecturesevent in lecturesevents">
+        <img ng-src="{{url_site + lecturesevent.thumbnail}}">
+        <h2 class="app-title-clamp-two app-title-small">{{lecturesevent.title}}</h2>
+        <p class="app-text-default app-text-border left app-font-size-80 success">{{"("+(lecturesevent.location_alias | uppercase)+ ") " +lecturesevent.location}}</p>
+        <p class="app-text-default app-text-border left app-font-size-80 {{lecturesevent.status.color}}">{{lecturesevent.status.desc1+" "+lecturesevent.status.desc2}}</p>
+      </a>
+    </div>
+
+  </ion-content>
+  <div class="bar bar-footer bar-light">
+    <div class="button-bar">
+        <a class="button button-small button-outline button-light app-text-info"> Cursos</a>
+        <a class="button button-small button-outline button-light app-text-info"> Eventos</a>
+      </div>
+  </div>
+  
+</ion-view>

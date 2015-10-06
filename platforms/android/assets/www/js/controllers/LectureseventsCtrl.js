@@ -8,19 +8,18 @@ angular.module('isgh.LectureseventsCtrl', ['ngSanitize'])
 	// refresh na pagina sera incluido em breve
 	$scope.doRefresh = function () {
 		LecturesEvents.populate(true).then(function (response) {
-			LecturesEvents.all().then(function (response) {
-				angular.forEach(response, function (item) {
-					item.status = JSON.parse(item.status);
-				});
-
-				$scope.lecturesevents = response;
-				$scope.$broadcast('scroll.refreshComplete');
+			angular.forEach(response, function (item) {
+				item.status = JSON.parse(item.status);
 			});
+			$scope.lecturesevents = response;
+			$scope.$broadcast('scroll.refreshComplete');
+		}, function (erro) {
+			console.log(erro);
 		});
 	}
 	
 })
-.controller('LectureeventCtrl', function ($scope, $sce, $css, $filter, Constant, init, $ionicModal, $ionicScrollDelegate) {
+.controller('LectureeventCtrl', function ($scope, $sce, $css, $filter, Constant, init, $ionicModal, $ionicScrollDelegate, EmailSender) {
 	
 	$scope.lectureevent = init;
 	$scope.url_site = Constant.url_site;
@@ -30,6 +29,7 @@ angular.module('isgh.LectureseventsCtrl', ['ngSanitize'])
 		animation: 'slide-in-right'
 	}).then(function (modal) {
 		$scope.modal = modal;
+		$scope.backButton = Constant.backButton;
 	});
 	
 	
@@ -70,8 +70,23 @@ angular.module('isgh.LectureseventsCtrl', ['ngSanitize'])
 		return (data !== "") ? 'positive' : 'assertive' ;
 	}
 	
-	$scope.externalLink = function (url, target) {
-		window.open(url, "_system");
+	$scope.externalLink = function (url, target, lectureevent) {
+		if (lectureevent.status.status > 1) {
+			var html = '';
+			html += 'Seu nome: \n';
+			html += 'Telefone: \n';
+			html += 'Curso(s) de interesse: '+lectureevent.title+'\n';
+			html += 'Município de interesse: \n';
+			
+			EmailSender.setSubject("Cursos 2015 Cadastro de Interessado");
+			EmailSender.setBody(html);
+			EmailSender.setTo(Constant.emails.cursos.to);
+			EmailSender.setCc(Constant.emails.cursos.cc);
+			EmailSender.send();
+
+		} else {
+			window.open(url, "_system");
+		}
 	}
 	
 })

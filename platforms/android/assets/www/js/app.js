@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-var app = angular.module('isgh', ['ionic', 'ionic.service.core', 'ngCordova', 'door3.css', 'isgh.Constant', 'isgh.dbAPIservices' ,'isgh.NewsCtrl', 'isgh.LectureseventsCtrl', 'isgh.SelectionprocessesCtrl', 'isgh.AccountCtrl', 'isgh.EllipsisFilter', 'isgh.CapcaseFilter', 'isgh.NewsFilter', 'angularMoment', 'isgh.DateRelativeFilter', 'isgh.newsAPIservices', 'isgh.lectureseventsAPIservices', 'isgh.IframeDirective'])
+var app = angular.module('isgh', ['ionic', 'ionic.service.core', 'ngCordova', 'door3.css', 'isgh.Constant', 'isgh.ionicLoadingConfig', 'isgh.emailAPIprovider', 'isgh.dbAPIservices', 'isgh.NewsCtrl', 'isgh.LectureseventsCtrl', 'isgh.SelectionProcessesCtrl', 'isgh.AccountCtrl', 'isgh.EllipsisFilter', 'isgh.CapcaseFilter', 'angularMoment', 'isgh.DateRelativeFilter', 'isgh.newsAPIservices', 'isgh.lectureseventsAPIservices'])
 
   .run(function ($ionicPlatform, $cordovaInAppBrowser, $cordovaSQLite, amMoment, DB, News, LecturesEvents) {
 
@@ -29,7 +29,7 @@ var app = angular.module('isgh', ['ionic', 'ionic.service.core', 'ngCordova', 'd
       News.populate();
       LecturesEvents.populate();
       amMoment.changeLocale('pt');
-    
+
     });
   });
 
