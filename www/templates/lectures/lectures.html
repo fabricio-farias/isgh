@@ -17,26 +17,30 @@
       <a class="item item-thumbnail-left" href="#/tab/lectures/{{lecture.id}}/{{lecture.register_planning}}" ng-repeat="lecture in lectures">
         <img ng-src="{{url_site + lecture.thumbnail}}" style="height: auto;max-height: 80%;">
         <h2 class="app-title-clamp-two app-title-small">{{lecture.title}}</h2>
-        <!--<p class="app-text-default app-text-border left app-font-size-80 success">{{"("+(lecture.location_alias | uppercase)+ ") " +lecture.location}}</p>
-        <p class="app-text-default app-text-border left app-font-size-80 {{lecture.status.color}}">{{lecture.status.desc1+" "+lecture.status.desc2}}</p>-->
-
-        <!--<div>
-          <p class="button icon ion-ios-location button-small button-clear"></p><span class="button button-small button-clear">{{lecture.location}} - {{lecture.location_alias | uppercase}}</span>
+        
+        <div ng-if="lecture.register_planning <= 0">
+          <div class="button-bar">
+            <div class="button button-small button-outline button-light active" style="max-width: 42px;"><i class="icon ion-ios-location"></i></div>
+            <div class="button button-small button-clear button-stable app-text-align-left">{{lecture.location}} - {{lecture.location_alias | uppercase}}</div>
+          </div>
+          <p></p>
+          <div class="button-bar">
+            <div class="button button-small button-outline button-{{lecture.status.color}} active" style="max-width: 42px;"><i class="icon ion-flag"></i></div>
+            <div class="button button-small button-clear button-{{lecture.status.color}} app-text-align-left">{{lecture.status.desc1+" "+lecture.status.desc2}}</div>
+          </div>
         </div>
-        <div>
-          <p class="button icon ion-flag button-small button-clear button-{{lecture.status.color}}"></p><span class="button button-small button-clear button-{{lecture.status.color}}">{{lecture.status.desc1+" "+lecture.status.desc2}}</span>
-        </div>-->
-
-        <div class="button-bar">
-          <div class="button button-small button-outline button-light active" style="max-width: 42px;"><i class="icon ion-ios-location"></i></div>
-          <div class="button button-small button-clear button-stable app-text-align-left">{{lecture.location}} - {{lecture.location_alias | uppercase}}</div>
+        
+        <div ng-if="lecture.register_planning > 0">
+          <div class="button-bar">
+            <div class="button button-small button-outline button-light active" style="max-width: 42px;"><i class="icon ion-ios-location"></i></div>
+            <div class="button button-small button-clear button-stable app-text-align-left">{{lecture.location}} - {{lecture.location_alias | uppercase}}</div>
+          </div>
+          <p></p>
+          <div class="button-bar">
+            <div class="button button-small button-outline button-dark active" style="max-width: 42px;"><i class="icon ion-flag"></i></div>
+            <div class="button button-small button-clear button-dark app-text-align-left">{{lecture.status.desc1+" "+lecture.status.desc2}}</div>
+          </div>
         </div>
-        <p></p>
-        <div class="button-bar">
-          <div class="button button-small button-outline button-{{lecture.status.color}} active" style="max-width: 42px;"><i class="icon ion-flag"></i></div>
-          <div class="button button-small button-clear button-{{lecture.status.color}} app-text-align-left">{{lecture.status.desc1+" "+lecture.status.desc2}}</div>
-        </div>
-
       </a>
     </div>
 
