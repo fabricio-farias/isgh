@@ -1,17 +1,17 @@
-angular.module('isgh.lectureseventsAPIservices', ['isgh.dbAPIservices'])
+angular.module('isgh.lecturesAPIservices', ['isgh.dbAPIservices'])
 
-  .factory('LecturesEvents', function ($q, $state, $http, Constant, DB, $cordovaSQLite) {
+  .factory('FactoryLectures', function ($q, $state, $http, Constant, DB, $cordovaSQLite) {
     
     var db = DB;
-    var table = Constant.database.tables.lecturesevents;
+    var table = Constant.database.tables.lectures;
     var columns = db.getColumns(table);
     var fields = Array.apply(null, Array(columns.length)).map(function(){return "?"})
     
     // GET NEW ROWS
-    var _lectureseventsWSget = function () {
+    var _lecturesWSget = function () {
       var deferred = $q.defer();
 
-      $http.get(Constant.url_wsapp + 'site/?func=letsAll').then(function (response) {
+      $http.get(Constant.url_wsapp + 'site/?op=lectures&fu=All').then(function (response) {
         deferred.resolve(response);
       }, function (erro) {
         deferred.reject("Sem conexão com a Internet");
@@ -28,11 +28,11 @@ angular.module('isgh.lectureseventsAPIservices', ['isgh.dbAPIservices'])
         if (response.length > 0) {
           deferred.resolve({ data: response });
         } else {
-          _lectureseventsWSget().then(function (response) {
+          _lecturesWSget().then(function (response) {
             if (response.data.length > 0) {
               angular.forEach(response.data, function (obj) {
                 var query = "INSERT INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
-                db.query(query, [obj.id, obj.title, obj.image, obj.thumbnail, obj.location, obj.location_alias, obj.date, obj.filename, obj.form_date_up, obj.form_date_down, obj.form_workload, obj.form_location, obj.form_speaker, obj.form_audience, obj.form_investment, obj.form_content_1, obj.form_content_2, obj.form_content_3, obj.form_content_4, obj.form_link, obj.register_link, obj.register_planning, obj.status]);
+                db.query(query, [obj.id, obj.title, obj.image, obj.thumbnail, obj.location, obj.location_alias, obj.date, obj.filename, obj.form_date_up, obj.form_date_down, obj.form_workload, obj.form_location, obj.form_speaker, obj.form_audience, obj.form_investment, obj.form_content_1, obj.form_content_2, obj.form_content_3, obj.form_content_4, obj.form_link, obj.register_link, obj.register_planning, obj.status, obj.widgetkit_module, obj.widgetkit]);
               });
               deferred.resolve(response);
             } else {
@@ -50,7 +50,7 @@ angular.module('isgh.lectureseventsAPIservices', ['isgh.dbAPIservices'])
     // REFRESH TABLE
     var _refresh = function () {
       var deferred = $q.defer();
-      _lectureseventsWSget().then(function (response) {
+      _lecturesWSget().then(function (response) {
         if (response.data.length > 0) {
 
           db.dropTable(table);
@@ -58,7 +58,7 @@ angular.module('isgh.lectureseventsAPIservices', ['isgh.dbAPIservices'])
           
           angular.forEach(response.data, function (obj) {
             var query = "INSERT INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
-            db.query(query, [obj.id, obj.title, obj.image, obj.thumbnail, obj.location, obj.location_alias, obj.date, obj.filename, obj.form_date_up, obj.form_date_down, obj.form_workload, obj.form_location, obj.form_speaker, obj.form_audience, obj.form_investment, obj.form_content_1, obj.form_content_2, obj.form_content_3, obj.form_content_4, obj.form_link, obj.register_link, obj.register_planning, obj.status]);
+            db.query(query, [obj.id, obj.title, obj.image, obj.thumbnail, obj.location, obj.location_alias, obj.date, obj.filename, obj.form_date_up, obj.form_date_down, obj.form_workload, obj.form_location, obj.form_speaker, obj.form_audience, obj.form_investment, obj.form_content_1, obj.form_content_2, obj.form_content_3, obj.form_content_4, obj.form_link, obj.register_link, obj.register_planning, obj.status, obj.widgetkit_module, obj.widgetkit]);
           });
           deferred.resolve(response);
         } else {
@@ -91,7 +91,7 @@ angular.module('isgh.lectureseventsAPIservices', ['isgh.dbAPIservices'])
     }
         
     return {
-      lectureseventsWSget: _lectureseventsWSget,
+      lecturesWSget: _lecturesWSget,
       populate: _populate,
       refresh: _refresh,
       all: _all,

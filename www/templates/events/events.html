@@ -1,0 +1,36 @@
+<ion-view hide-back-button="true" view-title="Ensino e Pesquisa">
+  
+  <ui-alert-bar alert="alert"></ui-alert-bar>
+  
+  <div ng-if="isIOS" class="bar bar-light bar-subheader">
+    <div class="button-bar bar-dashed">
+      <a nav-transition="none" class="button app-font-size-90 button-clear button-info active" href="#/tab/lectures"> CURSOS</a>
+      <a nav-transition="none" class="button app-font-size-90 button-clear button-info" href="#/tab/events"> EVENTOS</a>
+    </div>
+  </div>
+  
+  
+  <ion-content ng-class="{'has-subheader': isIOS, 'has-footer': isAndroid}">
+    
+    <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+    
+
+    <div class="list list-inset card-radius-10" ng-repeat="itemEvents in events">
+      <a class="item item-avatar item-text-wrap item-icon-right" href="#/tab/events/{{itemEvents.id}}">
+        <div class="item-image app-units" ng-class="checkColor(itemEvents.unit)">{{itemEvents.unit || "ISGH"}}</div>
+        <h2>{{itemEvents.title}}</h2>
+        <p>{{itemEvents.date | DateRelativeFilter}}</p>
+        <i class="icon ion-chevron-right app-font-size-100"></i>
+      </a>
+    </div>
+
+  </ion-content>
+  
+  <div ng-if="isAndroid" class="bar bar-footer bar-info">
+    <div class="button-bar bar-dashed">
+        <a nav-transition="none" class="button app-font-size-90 button-clear button-light active" href="#/tab/lectures"> CURSOS</a>
+        <a nav-transition="none" class="button app-font-size-90 button-clear button-light" href="#/tab/events"> EVENTOS</a>
+      </div>
+  </div>
+  
+</ion-view>

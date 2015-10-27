@@ -1,0 +1,20 @@
+<ion-modal-view class="modal-full">
+  <ion-header-bar class="ionic bar-stable">
+    
+    <div class="buttons">
+      <button class="button icon {{backButton}} button-clear button-positive" ng-click="closeModal()"></button>
+    </div>
+    
+    <p class="title app-font-size-100">{{event.title}}</p>
+    
+    <div class="buttons">
+      <button class="button icon app-units" disabled="disabled" ng-class="checkColor(event.unit)">{{event.unit || "ISGH"}}</button>
+    </div>
+    
+  </ion-header-bar>
+
+  <ion-scroll zooming="true" delegate-handle="modalScroll" direction="xy" class="app-full-size">
+    <ion-content padding="true" scroll="true" overflow-scroll="true" class="app-item-page padding" ng-bind-html="renderHTML(event.introtext)"></ion-content>
+ </ion-scroll>
+
+</ion-modal-view>

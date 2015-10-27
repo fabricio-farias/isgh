@@ -16,6 +16,8 @@ angular.module('isgh.dbAPIservices', ['isgh.Constant'])
             deferred.resolve(self.db);
             
             angular.forEach(Constant.database.tables, function (table) {
+                
+                // self.dropTable(table);
                 var columns = [];
 
                 angular.forEach(table.columns, function (column) {

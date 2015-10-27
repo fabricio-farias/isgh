@@ -14,6 +14,7 @@
     <!-- <link href="css/ionic.app.css" rel="stylesheet"> -->
     
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style-colors.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <!--<link href="lib/pace/pace.css" rel="stylesheet">-->
   <!--CSS-->
@@ -32,7 +33,8 @@
 
     <!--CONTROLLERS-->
     <script src="js/controllers/NewsCtrl.js"></script>
-    <script src="js/controllers/LectureseventsCtrl.js"></script>
+    <script src="js/controllers/LecturesCtrl.js"></script>
+    <script src="js/controllers/EventsCtrl.js"></script>
     <script src="js/controllers/SelectionProcessesCtrl.js"></script>
     <script src="js/controllers/AccountCtrl.js"></script>
     
@@ -51,7 +53,8 @@
     <!--SERVICES-->
     <script src="js/services/dbAPIservices.js"></script>
     <script src="js/services/newsAPIservices.js"></script>
-    <script src="js/services/lectureseventsAPIservices.js"></script>
+    <script src="js/services/lecturesAPIservices.js"></script>
+    <script src="js/services/eventsAPIservices.js"></script>
     
     <!--MOMENT-->
     <script src="lib/moment/moment-with-locales.js"></script>
@@ -74,10 +77,9 @@
     <!--
       The nav bar that will be updated as we navigate between views.
     -->
-    <ion-nav-bar class="bar-positive" align-title="center">
+    <ion-nav-bar class="bar-info has-tabs-top" align-title="center">
       <ion-nav-back-button class="button-clear"></ion-nav-back-button>
     </ion-nav-bar>
-    
     <!--
       The views will be rendered in the <ion-nav-view> directive below
       Templates are in the /templates folder (but you could also

@@ -1,17 +1,17 @@
-angular.module('isgh.NewsCtrl', ['ngSanitize']).controller('NewsCtrl', function ($scope, $filter, $sce, $css, $ionicModal, $ionicScrollDelegate, init, News, Constant) {
+angular.module('isgh.NewsCtrl', ['ngSanitize']).controller('NewsCtrl', function ($scope, $filter, $sce, $css, $ionicModal, $ionicScrollDelegate, ResolveNews, FactoryNews, Constant) {
 
 	$scope.url_intranet = Constant.url_intranet;
 
-	if (angular.isArray(init)) {
-		$scope.news = init;
+	if (angular.isArray(ResolveNews)) {
+		$scope.news = ResolveNews;
 	} else {
-		$scope.alert = init;
+		$scope.alert = ResolveNews;
 	}
 	
 	// REFRESH NOTICIAS
 	$scope.doRefresh = function () {
 		$scope.alert = null;
-		News.refresh().then(function (response) {
+		FactoryNews.refresh().then(function (response) {
 			angular.forEach(response.data, function (item) {
 				item.images = JSON.parse(item.images);
 			});
@@ -24,7 +24,7 @@ angular.module('isgh.NewsCtrl', ['ngSanitize']).controller('NewsCtrl', function 
 	}
 	
 	// DEFININDO MODAL
-	$ionicModal.fromTemplateUrl('templates/new.html', {
+	$ionicModal.fromTemplateUrl('templates/news/new.html', {
 		scope: $scope,
 		animation: 'slide-in-right'
 	}).then(function (modal) {
@@ -74,33 +74,9 @@ angular.module('isgh.NewsCtrl', ['ngSanitize']).controller('NewsCtrl', function 
 
 	};
 	
-	// GATILHO PARA ALTERAR A COR DA UNIDADE
-	$scope.checkColor = function (elem) {
-
-		switch (elem) {
-			case "ISGH":
-				return "info";
-				break;
-			case "HGWA":
-			case "HRC":
-			case "HRN":
-				return "success";
-				break;
-			case "UPA":
-				return "danger";
-				break;
-			case 'APS':
-				return "warning";
-				break;
-			default:
-				return "info";
-				break;
-		}
-	}
-	
 	
 	//GATILHO MODAL IMAGES
-	$ionicModal.fromTemplateUrl('templates/new-images.html', {
+	$ionicModal.fromTemplateUrl('templates/news/new-images.html', {
 		scope: $scope,
 		animation: 'slide-in-up'
 	}).then(function (modal) {
