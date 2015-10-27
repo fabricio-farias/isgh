@@ -9,8 +9,7 @@ app.config(function ($stateProvider, $urlRouterProvider,  $httpProvider, $sceDel
 
   $sceDelegateProvider.resourceUrlWhitelist(['.*']);
 
-  $ionicConfigProvider.backButton.text('').previousTitleText(false);
-  // $ionicConfigProvider.backButton.text('').icon('ion-ios-arrow-back').previousTitleText(false);
+  $ionicConfigProvider.backButton.text('').previousTitleText(true);
   // $ionicConfigProvider.tabs.position('bottom');
   // $ionicConfigProvider.tabs.style('standard');
     
@@ -33,14 +32,9 @@ app.config(function ($stateProvider, $urlRouterProvider,  $httpProvider, $sceDel
   
   // setup an abstract state for the tabs directive
     .state('tab', {
-      url: "/tab",
+      url: '/tab',
       abstract: true,
-      templateUrl: function () {
-        if (ionic.Platform.isAndroid()) {
-          return  "templates/tabs-android.html";
-        }
-        return "templates/tabs-ios.html";
-      }
+      templateUrl: 'templates/tabs.html'
     })
 
   // Each tab has its own nav history stack:
@@ -49,45 +43,50 @@ app.config(function ($stateProvider, $urlRouterProvider,  $httpProvider, $sceDel
       url: '/news',
       views: {
         'tab-news': {
-          templateUrl: 'templates/tab-news.html',
+          templateUrl: 'templates/news/news.html',
           controller: 'NewsCtrl',
           resolve: {
-            init: function (News, $ionicLoading) {
+            ResolveNews: function (FactoryNews, $ionicLoading) {
               $ionicLoading.show();
-              return News.all().then(function (response) {
-                angular.forEach(response, function (item) {
+              
+              return FactoryNews.populate().then(function (response) {
+                angular.forEach(response.data, function (item) {
                   item.images = JSON.parse(item.images);
                 });
+                
                 $ionicLoading.hide();
-                return response;
+                return response.data;
+                
               }, function (erro) {
                 $ionicLoading.hide();
-                console.log(erro);
+                return { type: "", message: erro };
               });
             }
           }
         }
       }
     })
-
-    .state('tab.lectures-events', {
-      url: '/lectures-events',
+    
+    .state('tab.lectures', {
+      url: '/lectures',
       views: {
-        'tab-lectures-events': {
-          templateUrl: 'templates/tab-lectures-events.html',
-          controller: 'LectureseventsCtrl',
+        'tab-lectures': {
+          templateUrl: 'templates/lectures/lectures.html',
+          controller: 'LecturesCtrl',
           resolve: {
-            init: function (LecturesEvents, $ionicLoading) {
+            ResolveLectures: function (FactoryLectures, $ionicLoading) {
               $ionicLoading.show();
-              return LecturesEvents.all().then(function (response) {
-                angular.forEach(response, function (item) {
+
+              return FactoryLectures.populate().then(function (response) {
+                angular.forEach(response.data, function (item) {
                   item.status = JSON.parse(item.status);
                 });
                 $ionicLoading.hide();
-                return response;
+                return response.data;
+                
               }, function (erro) {
                 $ionicLoading.hide();
-                console.log(erro);
+                return { type: "", message: erro };
               });
             }
           }
@@ -95,15 +94,16 @@ app.config(function ($stateProvider, $urlRouterProvider,  $httpProvider, $sceDel
       }
     })
 
-    .state('tab.lecture-event', {
-      url: '/lectures-events/:id/:planning',
+    .state('tab.lecture', {
+      url: '/lectures/:id/:planning',
       views: {
-        'tab-lectures-events': {
-          templateUrl: 'templates/lecture-event.html',
-          controller: 'LectureeventCtrl',
+        'tab-lectures': {
+          templateUrl: 'templates/lectures/lecture.html',
+          controller: 'LectureCtrl',
           resolve: {
-            init: function (LecturesEvents, $stateParams, Constant, EmailSender, $state) {
-              return LecturesEvents.get($stateParams.id).then(function (response) {
+            ResolveLecture: function (FactoryLectures, $stateParams, Constant, EmailSender, $state) {
+              return FactoryLectures.get($stateParams.id).then(function (response) {
+                var year = new Date();
 
                 if ($stateParams.planning > 0) {
                   var html = '';
@@ -112,7 +112,7 @@ app.config(function ($stateProvider, $urlRouterProvider,  $httpProvider, $sceDel
                   html += 'Curso(s) de interesse: '+response.title+'\n';
                   html += 'Município de interesse: \n';
                   
-                  EmailSender.setSubject("Cursos 2015 Cadastro de Interessado");
+                  EmailSender.setSubject("Cursos "+year.getFullYear()+" Cadastro de Interessado");
                   EmailSender.setBody(html);
                   EmailSender.setTo(Constant.emails.cursos.to);
                   EmailSender.setCc(Constant.emails.cursos.cc);
@@ -122,6 +122,10 @@ app.config(function ($stateProvider, $urlRouterProvider,  $httpProvider, $sceDel
                 }
                 
                 response.status = JSON.parse(response.status);
+                if (response.widgetkit_module > 0) {
+                  response.widgetkit = JSON.parse(response.widgetkit);
+                }
+                
                 return response;
 
               });
@@ -130,7 +134,57 @@ app.config(function ($stateProvider, $urlRouterProvider,  $httpProvider, $sceDel
         }
       }
     })
+    
+    .state('tab.events', {
+      url: '/events',
+      views: {
+        'tab-lectures': {
+          templateUrl: 'templates/events/events.html',
+          controller: 'EventsCtrl',
+          resolve: {
+            ResolveEvents: function (FactoryEvents, $ionicLoading) {
+              $ionicLoading.show();
 
+              return FactoryEvents.populate().then(function (response) {
+                $ionicLoading.hide();
+                return response.data;
+                
+              }, function (erro) {
+                $ionicLoading.hide();
+                return { type: "", message: erro };
+              });
+            }
+          }
+        }
+      }
+    })
+    
+    .state('tab.event', {
+      url: '/events/:id',
+      views: {
+        'tab-lectures': {
+          templateUrl: 'templates/events/event.html',
+          controller: 'EventCtrl',
+          resolve: {
+            ResolveEvent: function (FactoryEvents, $stateParams, Constant) {
+              return FactoryEvents.get($stateParams.id).then(function (response) {
+                return response;
+              });
+            }
+          }
+        }
+      }
+    })
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     .state('tab.selection-processes', {
       url: '/selection-processes',
       views: {
@@ -149,7 +203,10 @@ app.config(function ($stateProvider, $urlRouterProvider,  $httpProvider, $sceDel
           controller: 'AccountCtrl'
         }
       }
-    });
+    })
+    
+    
+    
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/news');

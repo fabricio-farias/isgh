@@ -93,6 +93,7 @@
 .app-item-no-margin{margin: -1px!important;}
 .app-item-no-border{border:none!important;}
 .app-item-image-title{position: absolute;bottom: 0;padding: 15px 5px 15px 100px;text-align: left;margin-bottom: 0!important;width:100%;color:#FFF;}
+.app-item-divider-last{border-bottom-width: 0;}
 .app-no-margin-top{margin-top: 0!important;}
 .app-no-white-space{white-space: normal!important;}
 .app-img-transparent{opacity: .15;}

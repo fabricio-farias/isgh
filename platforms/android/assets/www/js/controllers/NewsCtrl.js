@@ -1,25 +1,30 @@
-angular.module('isgh.NewsCtrl', ['ngSanitize']).controller('NewsCtrl', function ($scope, $filter, $sce, $css, $ionicModal, $ionicScrollDelegate, init, News, Constant) {
+angular.module('isgh.NewsCtrl', ['ngSanitize']).controller('NewsCtrl', function ($scope, $filter, $sce, $css, $ionicModal, $ionicScrollDelegate, ResolveNews, FactoryNews, Constant) {
 
-	$scope.news = init;
 	$scope.url_intranet = Constant.url_intranet;
-	// para redirecionar para pagina de erro
-	// $state.go("error", {title: "ISGH", message: "Não foi possivel carregar o feed de notícias", icon: "ion-android-wifi"});
-			
-	// refresh na pagina sera incluido em breve
+
+	if (angular.isArray(ResolveNews)) {
+		$scope.news = ResolveNews;
+	} else {
+		$scope.alert = ResolveNews;
+	}
+	
+	// REFRESH NOTICIAS
 	$scope.doRefresh = function () {
-		News.populate(true).then(function (response) {
-			angular.forEach(response, function (item) {
+		$scope.alert = null;
+		FactoryNews.refresh().then(function (response) {
+			angular.forEach(response.data, function (item) {
 				item.images = JSON.parse(item.images);
 			});
-			$scope.news = response;
-			$scope.$broadcast('scroll.refreshComplete');
+			$scope.news = response.data;
 		}, function (erro) {
-			console.log(erro);
+			$scope.alert = { type: "", message: erro };
 		});
+		
+		$scope.$broadcast('scroll.refreshComplete');
 	}
 	
 	// DEFININDO MODAL
-	$ionicModal.fromTemplateUrl('templates/new.html', {
+	$ionicModal.fromTemplateUrl('templates/news/new.html', {
 		scope: $scope,
 		animation: 'slide-in-right'
 	}).then(function (modal) {
@@ -69,33 +74,9 @@ angular.module('isgh.NewsCtrl', ['ngSanitize']).controller('NewsCtrl', function 
 
 	};
 	
-	// GATILHO PARA ALTERAR A COR DA UNIDADE
-	$scope.checkColor = function (elem) {
-
-		switch (elem) {
-			case "ISGH":
-				return "info";
-				break;
-			case "HGWA":
-			case "HRC":
-			case "HRN":
-				return "success";
-				break;
-			case "UPA":
-				return "danger";
-				break;
-			case 'APS':
-				return "warning";
-				break;
-			default:
-				return "info";
-				break;
-		}
-	}
-	
 	
 	//GATILHO MODAL IMAGES
-	$ionicModal.fromTemplateUrl('templates/new-images.html', {
+	$ionicModal.fromTemplateUrl('templates/news/new-images.html', {
 		scope: $scope,
 		animation: 'slide-in-up'
 	}).then(function (modal) {

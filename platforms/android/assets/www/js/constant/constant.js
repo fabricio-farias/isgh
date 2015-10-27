@@ -28,8 +28,8 @@ angular.module('isgh.Constant', []).constant("Constant", {
 					{ name: 'unit', type: 'text' }
 				]	
 			},
-			lecturesevents: {
-				name: 'lecturesevents',
+			lectures: {
+				name: 'lectures',
 				columns: [
 					{ name: 'id', type: 'integer primary key' },
 					{ name: 'title', type: 'text' },
@@ -53,8 +53,28 @@ angular.module('isgh.Constant', []).constant("Constant", {
 					{ name: 'form_link', type: 'text' },
 					{ name: 'register_link', type: 'text' },
 					{ name: 'register_planning', type: 'integer' },
-					{ name: 'status', type: 'text' }
+					{ name: 'status', type: 'text' },
+					{ name: 'widgetkit_module', type: 'integer' },
+					{ name: 'widgetkit', type: 'text'}
 					
+				]
+			},
+			events: {
+				name: 'events',
+				columns: [
+					{ name: 'id', type: 'integer primary key' },
+					{ name: 'title', type: 'text' },
+					{ name: 'unit', type: 'text' },
+					{ name: 'date', type: 'numeric' },
+					{ name: 'form_date_up', type: 'text' },
+					{ name: 'form_date_down', type: 'text' },
+					{ name: 'form_workload', type: 'text' },
+					{ name: 'form_location', type: 'text' },
+					{ name: 'form_speaker', type: 'text' },
+					{ name: 'form_audience', type: 'text' },
+					{ name: 'form_investment', type: 'text' },
+					{ name: 'form_link', type: 'text' },
+					{ name: 'introtext', type: 'text' }
 				]
 			}
 		}

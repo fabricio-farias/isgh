@@ -1,37 +1,44 @@
-angular.module('isgh.LectureseventsCtrl', ['ngSanitize'])
+angular.module('isgh.LecturesCtrl', ['ngSanitize'])
 
-.controller('LectureseventsCtrl', function ($scope, $filter, Constant, init, LecturesEvents) {
-	
-	$scope.lecturesevents = init;
+.controller('LecturesCtrl', function ($scope, $filter, Constant, ResolveLectures, FactoryLectures) {
+
 	$scope.url_site = Constant.url_site;
+
+	if (angular.isArray(ResolveLectures)) {
+		$scope.lectures = ResolveLectures;
+	} else {
+		$scope.alert = ResolveLectures;
+	}
+	
 	
 	// refresh na pagina sera incluido em breve
 	$scope.doRefresh = function () {
-		LecturesEvents.populate(true).then(function (response) {
-			angular.forEach(response, function (item) {
+		$scope.alert = null;
+		FactoryLectures.refresh().then(function (response) {
+			angular.forEach(response.data, function (item) {
 				item.status = JSON.parse(item.status);
 			});
-			$scope.lecturesevents = response;
-			$scope.$broadcast('scroll.refreshComplete');
+			$scope.lectures = response.data;
 		}, function (erro) {
-			console.log(erro);
+			$scope.alert = { type: "", message: erro };
 		});
+		
+		$scope.$broadcast('scroll.refreshComplete');
 	}
 	
 })
-.controller('LectureeventCtrl', function ($scope, $sce, $css, $filter, Constant, init, $ionicModal, $ionicScrollDelegate, EmailSender) {
+.controller('LectureCtrl', function ($scope, $sce, $css, $filter, Constant, ResolveLecture, $ionicModal, $ionicScrollDelegate, EmailSender) {
 	
-	$scope.lectureevent = init;
+	$scope.lecture = ResolveLecture;
 	$scope.url_site = Constant.url_site;
 	
-	$ionicModal.fromTemplateUrl('templates/lecture-event-content.html', {
+	$ionicModal.fromTemplateUrl('templates/lectures/lecture-addons.html', {
 		scope: $scope,
 		animation: 'slide-in-right'
 	}).then(function (modal) {
 		$scope.modal = modal;
 		$scope.backButton = Constant.backButton;
 	});
-	
 	
 	// GATILHO PRA FECHAR MODAL
 	$scope.closeModal = function() {
@@ -48,7 +55,7 @@ angular.module('isgh.LectureseventsCtrl', ['ngSanitize'])
 	// RENDERIZAR O HTML
 	$scope.renderHTML = function (html) {
 		if (html) {
-			var newHTML = String(html).replace(/src=\"/igm, 'src="' + Constant.url_intranet);
+			var newHTML = String(html).replace(/src=\"/igm, 'src="' + Constant.url_site);
 			return $sce.trustAsHtml(newHTML);
 		}
     };
@@ -70,15 +77,17 @@ angular.module('isgh.LectureseventsCtrl', ['ngSanitize'])
 		return (data !== "") ? 'positive' : 'assertive' ;
 	}
 	
-	$scope.externalLink = function (url, target, lectureevent) {
-		if (lectureevent.status.status > 1) {
+	$scope.externalLink = function (url, target, lecture) {
+		var year = new Date();
+		
+		if (lecture.status.status > 1) {
 			var html = '';
 			html += 'Seu nome: \n';
 			html += 'Telefone: \n';
-			html += 'Curso(s) de interesse: '+lectureevent.title+'\n';
+			html += 'Curso(s) de interesse: '+lecture.title+'\n';
 			html += 'Município de interesse: \n';
 			
-			EmailSender.setSubject("Cursos 2015 Cadastro de Interessado");
+			EmailSender.setSubject("Cursos "+year.getFullYear()+" Cadastro de Interessado");
 			EmailSender.setBody(html);
 			EmailSender.setTo(Constant.emails.cursos.to);
 			EmailSender.setCc(Constant.emails.cursos.cc);
