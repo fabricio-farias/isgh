@@ -33,6 +33,9 @@
         },
         "com.jcjee.plugins.emailcomposer": {
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
+        },
+        "cordova-sqlite-storage": {
+            "PACKAGE_NAME": "com.ionicframework.isgh900684"
         }
     },
     "dependent_plugins": {}
