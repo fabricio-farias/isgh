@@ -42,6 +42,8 @@
 		F7AEC5FD9B924167ADC19A51 /* EmailComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3406566A442949FB9D8123BA /* EmailComposer.m */; };
 		7EE03D8050F4497EB8ABC2FB /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1AFC394DF543269E33FE03 /* NSData+Base64.m */; };
 		1B1D558651CD43378F4B0B77 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E6BC7992974151BA79D67F /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		C897A1C812754FF3826C4411 /* SQLitePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6CF749CB76405BB3C7C6CF /* SQLitePlugin.m */; };
+		4E0291D41536445EB66F69C8 /* sqlite3.c in Resources */ = {isa = PBXBuildFile; fileRef = FC5C80BEC7F647B685421FE8 /* sqlite3.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +114,10 @@
 		543C95984A534B3BBC9F70A2 /* EmailComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "EmailComposer.h"; path = "com.jcjee.plugins.emailcomposer/EmailComposer.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		508A454B618B4C5ABBE8FE56 /* NSData+Base64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSData+Base64.h"; path = "com.jcjee.plugins.emailcomposer/NSData+Base64.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		E1E6BC7992974151BA79D67F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "MessageUI.framework"; path = "System/Library/Frameworks/MessageUI.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		0F6CF749CB76405BB3C7C6CF /* SQLitePlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "SQLitePlugin.m"; path = "cordova-sqlite-storage/SQLitePlugin.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		FC5C80BEC7F647B685421FE8 /* sqlite3.c */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = "sqlite3.c"; path = "cordova-sqlite-storage/sqlite3.c"; sourceTree = "<group>"; fileEncoding = 4; };
+		52A78782DB9C427F907085D9 /* SQLitePlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SQLitePlugin.h"; path = "cordova-sqlite-storage/SQLitePlugin.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		31AB8D07782642A7941E5050 /* sqlite3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "sqlite3.h"; path = "cordova-sqlite-storage/sqlite3.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +222,10 @@
 				0F1AFC394DF543269E33FE03 /* NSData+Base64.m */,
 				543C95984A534B3BBC9F70A2 /* EmailComposer.h */,
 				508A454B618B4C5ABBE8FE56 /* NSData+Base64.h */,
+				0F6CF749CB76405BB3C7C6CF /* SQLitePlugin.m */,
+				FC5C80BEC7F647B685421FE8 /* sqlite3.c */,
+				52A78782DB9C427F907085D9 /* SQLitePlugin.h */,
+				31AB8D07782642A7941E5050 /* sqlite3.h */,
 			);
 			name = Plugins;
 			path = "ISGH/Plugins";
@@ -402,6 +412,8 @@
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				F7AEC5FD9B924167ADC19A51 /* EmailComposer.m in Sources */,
 				7EE03D8050F4497EB8ABC2FB /* NSData+Base64.m in Sources */,
+				C897A1C812754FF3826C4411 /* SQLitePlugin.m in Sources */,
+				4E0291D41536445EB66F69C8 /* sqlite3.c in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

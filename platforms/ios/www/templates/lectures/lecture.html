@@ -1,0 +1,114 @@
+<ion-view view-title="Curso">
+  <ion-content>
+
+    <div class="list">
+      <!--<div ng-if="lecture.image" class="item item-image item-{{lecture.status.color}}" style="height: 100px;">
+        <h2 class="app-item-image-title app-no-white-space">{{lecture.title}}</h2>
+        <ion-scroll zooming="true" delegate-handle="backgroundScroll" direction="xy" class="app-full-size">
+          <img class="app-img-transparent" ng-src="{{url_site + lecture.image}}"/>
+        </ion-scroll>
+      </div>-->
+      
+      <div class="item item-avatar item-divider" style="padding:20px 10px 20px 100px;">
+        <h2 class="app-no-margin-top app-no-white-space">{{lecture.title}}</h2>
+      </div>
+
+      <div class="item item-thumbnail-left item-thumbnail-img">
+          <img ng-src="{{url_site + lecture.thumbnail}}">
+          <div class="item-display-table">
+            <span class="item-note">
+              <span><i class="ion-flag"></i> {{lecture.status.desc1+" "+lecture.status.desc2}}</span>
+              <span><i class="ion-ios-location"></i> {{lecture.location}} - {{lecture.location_alias | uppercase}}</span>
+            </span> 
+          </div>
+          <div class="item-display-table">
+            <a class="button button-small button-block button-{{lecture.status.color}}" ng-click="externalLink(lecture.register_link, '_system', lecture)">
+              {{lecture.status.desc1+" "+lecture.status.desc2}}
+            </a>
+          </div>
+      </div>
+      
+      <!--<div class="item item-divider">
+        <h2 class="app-no-white-space app-font-size-90">{{lecture.title}}</h2>
+      </div>-->
+      
+      <div class="item" ng-if="lecture.form_date_up">
+        <span class="input-label app-font-size-80 positive">Data Início</span>
+        <p class="app-no-white-space">{{lecture.form_date_up}}</p>
+      </div>
+      
+      <div class="item" ng-if="lecture.form_date_down">
+        <span class="input-label app-font-size-80 positive">Data Fim</span>
+        <p class="app-no-white-space">{{lecture.form_date_down}}</p>
+      </div>
+      
+      <div class="item" ng-if="lecture.form_workload">
+        <span class="input-label app-font-size-80 positive">Carga Horária</span>
+        <p class="app-no-white-space">{{lecture.form_workload}}</p>
+      </div>
+      
+      <div class="item" ng-if="lecture.form_location">
+        <span class="input-label app-font-size-80 positive">Local</span>
+        <p class="app-no-white-space">{{lecture.form_location}}</p>
+      </div>
+      
+      <div class="item" ng-if="lecture.form_speaker">
+        <span class="input-label app-font-size-80 positive">Ministrante</span>
+        <p class="app-no-white-space">{{lecture.form_speaker}}</p>
+      </div>
+      
+      <div class="item" ng-if="lecture.form_audience">
+        <span class="input-label app-font-size-80 positive">Público Alvo</span>
+        <p class="app-no-white-space">{{lecture.form_audience}}</p>
+      </div>
+      
+      <div class="item" ng-if="lecture.form_investment">
+        <span class="input-label app-font-size-80 positive">Investimento</span>
+        <p class="app-no-white-space">{{lecture.form_investment}}</p>
+      </div>
+      
+      <div class="item item-divider" style="padding-top: 15px;">
+        <h2 class="app-no-white-space app-font-size-70">MAIS INFORMAÇÕES</h2>
+      </div>
+      
+      <div ng-if="lecture.widgetkit_module == 0">
+        <a class="item item-icon-right app-font-size-100" ng-class="ifExists(lecture.form_content_1)" href="#" ng-click="openModal(lecture.form_content_1, 'Sobre o Curso')">
+          Sobre o Curso
+          <i class="icon ion-chevron-right app-font-size-100" ng-class="ifExists(lecture.form_content_1)"></i>
+        </a>
+        <a class="item item-icon-right app-font-size-100" ng-class="ifExists(lecture.form_content_2)" href="#" ng-click="openModal(lecture.form_content_2, 'Cronograma')">
+          Cronograma
+          <i class="icon ion-chevron-right app-font-size-100" ng-class="ifExists(lecture.form_content_2)"></i>
+        </a>
+        <a class="item item-icon-right app-font-size-100" ng-class="ifExists(lecture.form_content_3)" href="#" ng-click="openModal(lecture.form_content_3, 'Ministrantes')">
+          Ministrantes
+          <i class="icon ion-chevron-right app-font-size-100" ng-class="ifExists(lecture.form_content_3)"></i>
+        </a>
+        <a class="item item-icon-right app-font-size-100" ng-class="ifExists(lecture.form_content_4)" href="#" ng-click="openModal(lecture.form_content_4, 'Informações')">
+          Informações
+          <i class="icon ion-chevron-right app-font-size-100" ng-class="ifExists(lecture.form_content_4)"></i>
+        </a>
+      </div>
+      
+      <div ng-if="lecture.widgetkit_module > 0">
+        <a class="item item-icon-right app-font-size-100" ng-repeat="widgetkit in lecture.widgetkit" ng-class="ifExists(widgetkit.content)" href="#" ng-click="openModal(widgetkit.content, widgetkit.title)">
+          {{widgetkit.title}}
+          <i class="icon ion-chevron-right app-font-size-100" ng-class="ifExists(widgetkit.content)"></i>
+        </a>
+      </div>
+      
+      <div class="item item-divider" style="padding-top: 15px;">
+        <h2 class="app-no-white-space app-font-size-70">PARA ACESSAR A PROGRAMAÇÃO</h2>
+      </div>
+      
+      <a class="item item-icon-left item-icon-right positive" ng-click="externalLink(url_site+'lecturesevents/'+lecture.filename, '_system',lecture)">
+        <i class="icon ion-document-text assertive"></i>
+        Edital
+        <i class="icon ion-chevron-right app-font-size-100"></i>
+      </a>
+      
+      <div class="item item-divider app-item-divider-last" style="border-bottom-width: 0;"></div>
+    </div>
+    
+  </ion-content>
+</ion-view>

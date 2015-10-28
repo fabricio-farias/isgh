@@ -1,38 +1,38 @@
-angular.module('isgh.newsAPIservices', ['isgh.dbAPIservices'])
+angular.module('isgh.lecturesAPIservices', ['isgh.dbAPIservices'])
 
-  .factory('FactoryNews', function ($q, $http, Constant, DB, $cordovaSQLite) {
-
+  .factory('FactoryLectures', function ($q, $state, $http, Constant, DB, $cordovaSQLite) {
+    
     var db = DB;
-    var table = Constant.database.tables.news;
+    var table = Constant.database.tables.lectures;
     var columns = db.getColumns(table);
-    var fields = Array.apply(null, Array(columns.length)).map(function () { return "?" });
+    var fields = Array.apply(null, Array(columns.length)).map(function(){return "?"})
     
     // GET NEW ROWS
-    var _newsWSget = function () {
+    var _lecturesWSget = function () {
       var deferred = $q.defer();
 
-      $http.get(Constant.url_wsapp + 'intranet/?op=news&fu=All').then(function (response) {
+      $http.get(Constant.url_wsapp + 'site/?op=lectures&fu=All').then(function (response) {
         deferred.resolve(response);
       }, function (erro) {
         deferred.reject("Sem conexão com a Internet");
       });
 
       return deferred.promise;
-    };
+    }
     
     // INSERT ROWS IN TABLE
     var _populate = function () {
       var deferred = $q.defer();
-
+      
       _all().then(function (response) {
         if (response.length > 0) {
           deferred.resolve({ data: response });
         } else {
-          _newsWSget().then(function (response) {
+          _lecturesWSget().then(function (response) {
             if (response.data.length > 0) {
               angular.forEach(response.data, function (obj) {
                 var query = "INSERT INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
-                db.query(query, [obj.id, obj.title, obj.images, obj.created, obj.introtext, obj.striptext, obj.category, obj.unit]);
+                db.query(query, [obj.id, obj.title, obj.image, obj.thumbnail, obj.location, obj.location_alias, obj.date, obj.filename, obj.form_date_up, obj.form_date_down, obj.form_workload, obj.form_location, obj.form_speaker, obj.form_audience, obj.form_investment, obj.form_content_1, obj.form_content_2, obj.form_content_3, obj.form_content_4, obj.form_link, obj.register_link, obj.register_planning, obj.status, obj.widgetkit_module, obj.widgetkit]);
               });
               deferred.resolve(response);
             } else {
@@ -43,14 +43,14 @@ angular.module('isgh.newsAPIservices', ['isgh.dbAPIservices'])
           });
         }
       });
-      
+
       return deferred.promise;
     }
     
     // REFRESH TABLE
     var _refresh = function () {
       var deferred = $q.defer();
-      _newsWSget().then(function (response) {
+      _lecturesWSget().then(function (response) {
         if (response.data.length > 0) {
 
           db.dropTable(table);
@@ -58,7 +58,7 @@ angular.module('isgh.newsAPIservices', ['isgh.dbAPIservices'])
           
           angular.forEach(response.data, function (obj) {
             var query = "INSERT INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
-            db.query(query, [obj.id, obj.title, obj.images, obj.created, obj.introtext, obj.striptext, obj.category, obj.unit]);
+            db.query(query, [obj.id, obj.title, obj.image, obj.thumbnail, obj.location, obj.location_alias, obj.date, obj.filename, obj.form_date_up, obj.form_date_down, obj.form_workload, obj.form_location, obj.form_speaker, obj.form_audience, obj.form_investment, obj.form_content_1, obj.form_content_2, obj.form_content_3, obj.form_content_4, obj.form_link, obj.register_link, obj.register_planning, obj.status, obj.widgetkit_module, obj.widgetkit]);
           });
           deferred.resolve(response);
         } else {
@@ -73,19 +73,29 @@ angular.module('isgh.newsAPIservices', ['isgh.dbAPIservices'])
     
     //SELECT ALL
     var _all = function () {
-      var query = "SELECT * FROM " + table.name + " ORDER BY created DESC";
+      var query = "SELECT * FROM "+table.name+" ORDER BY id DESC";
       return db.query(query).then(function (result) {
         return db.fetchAll(result);
       }, function (erro) {
         console.log(erro);
       });
     };
-
+    
+    var _get = function (id) {
+      var query = "SELECT * FROM " + table.name + " WHERE id = " + id;
+      return db.query(query).then(function (result) {
+        return db.fetch(result);
+      }, function (erro) {
+        console.log(erro);
+      });
+    }
+        
     return {
-      newsWSget: _newsWSget,
+      lecturesWSget: _lecturesWSget,
       populate: _populate,
       refresh: _refresh,
-      all: _all
+      all: _all,
+      get: _get
     };
-
-  });
+    
+});

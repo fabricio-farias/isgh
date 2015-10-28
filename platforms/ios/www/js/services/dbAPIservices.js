@@ -1,18 +1,23 @@
 angular.module('isgh.dbAPIservices', ['isgh.Constant'])
 
-    .factory('DB', function ($q, Constant, $cordovaSQLite, $ionicPopup, $ionicPlatform) {
+    .factory('DB', function ($q, Constant, $cordovaSQLite, $ionicPlatform) {
 
         var self = this;
         self.db = null;
-
+        
         self.init = function () {
+            var deferred = $q.defer();
+            
             if (window.cordova) {
                 self.db = $cordovaSQLite.openDB({ name: Constant.database.name, bgType: 1 });
             } else {
                 self.db = window.openDatabase(Constant.database.name, '1', 'database', -1);
             }
-
+            deferred.resolve(self.db);
+            
             angular.forEach(Constant.database.tables, function (table) {
+                
+                // self.dropTable(table);
                 var columns = [];
 
                 angular.forEach(table.columns, function (column) {
@@ -22,6 +27,8 @@ angular.module('isgh.dbAPIservices', ['isgh.Constant'])
                 var query = 'CREATE TABLE IF NOT EXISTS ' + table.name + '(' + columns.join(',') + ')';
                 self.query(query);
             });
+            
+            return deferred.promise;
         };
 
         self.query = function (query, bindings) {
@@ -32,7 +39,7 @@ angular.module('isgh.dbAPIservices', ['isgh.Constant'])
                 $cordovaSQLite.execute(self.db, query, bindings).then(function (result) {
                     deferred.resolve(result);
                 }, function (error) {
-                    deferred.reject(error);
+                    deferred.reject("SQLErro: "+error.message+" Código: "+error.code);
                 });
             });
 

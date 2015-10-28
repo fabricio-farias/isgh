@@ -1,3 +1,3 @@
-angular.module('isgh.SelectionprocessesCtrl', []).controller('SelectionprocessesCtrl', function ($scope) {
+angular.module('isgh.SelectionProcessesCtrl', []).controller('SelectionProcessesCtrl', function ($scope) {
 	
 })
