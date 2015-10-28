@@ -22,7 +22,7 @@
   <!--JS-->
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
-<script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
+    <script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
     <script src="lib/ionic-service-core/ionic-core.js"></script>
     <script src="lib/ionic/js/ionic-angular-locale_pt-br.js"></script>
     <script src="lib/css/angular-css.min.js"></script>
@@ -79,7 +79,11 @@
     <!--
       The nav bar that will be updated as we navigate between views.
     -->
-    <ion-nav-bar class="bar-info has-tabs-top" align-title="center">
+    <ion-nav-bar ng-if="isIOS" class="bar-light">
+      <ion-nav-back-button class="button-clear button-positive"></ion-nav-back-button>
+    </ion-nav-bar>
+    
+    <ion-nav-bar ng-if="isAndroid" class="bar-info has-tabs-top">
       <ion-nav-back-button class="button-clear"></ion-nav-back-button>
     </ion-nav-bar>
     <!--
