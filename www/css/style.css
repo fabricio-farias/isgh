@@ -2,12 +2,12 @@
 .app-item-page{width: 960px;height: 10000px}
 
 /*REEFRESHER*/
-/*.spinner{stroke: #666}*/
-/*.scroll-refresher .ionic-refresher-content{color: #666;}*/
+.spinner{padding: 2px;border-radius: 50%;-webkit-border-radius: 50%;display: inline-block;}
+.spinner svg{width: 20px;height: 20px;}
 
 /*LOADING*/
-.loading-container .loading{background-color: rgba(245,245,245, 0.25); padding: 3px;font-size: 26px;border-radius: 50%;-webkit-border-radius: 50%;}
-/*.loading-container .loading .spinner{}*/
+.loading-container .loading{background-color: rgba(255,255,255, .8); padding: 3px;font-size: 26px;border-radius: 50%;-webkit-border-radius: 50%;}
+.loading-container .loading .spinner svg{stroke: #0d4772; height: 28px; width: 28px;}
 
 /*BARS TABS COLORS*/
 .bar.bar-black, .bar.bar-black.bar-footer{background-color:#000000;color:#b2b2b2;border-bottom-width: 0;}
@@ -157,9 +157,12 @@ iframe, .app-iframe-issue .scroll{width: 100%!important;height: 100%!important;}
 
 /*ALERT BAR*/
 /*===============================*/
-.alert-bar{transition: top 0.25s ease;-webkit-transition: top 0.25s ease;position:absolute;top:0;padding:5px 10px;background-color: black;color: white;text-align: center;width: 100%;z-index: 10;visibility: hidden;}
-.alert-bar i{float: right;}
-.bar-active{visibility: visible;top: 44px;}
+.alert-bar{transition: top 0.25s ease;-webkit-transition: top 0.25s ease;position:absolute;padding:5px 10px;background-color: black;color: white;text-align: center;width: 100%;visibility: hidden;}
+.alert-bar i{float: right;padding: 0 10px;}
+.platform-ios .alert-bar{top: 0;z-index:9;}
+.platform-ios .bar-active{visibility: visible;top: 44px;}
+.platform-android .alert-bar{top: 44px;z-index: 4;}
+.platform-android .bar-active{visibility: visible;top: 93px;}
 
 .alert-bar-error{background-color: orangered;}
 .alert-bar-success{background-color: seagreen;}

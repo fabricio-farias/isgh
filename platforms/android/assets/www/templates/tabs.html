@@ -4,51 +4,50 @@ Each tab's child <ion-nav-view> directive will have its own
 navigation history that also transitions its views in and out.
 -->
 
-<ion-tabs ng-if="isIOS" class="tabs-light tabs-striped tabs-bottom tabs-color-info tabs-icon-only">
+<ion-tabs ng-if="isIOS" class="tabs-light tabs-icon-top tabs-bottom tabs-color-info">
 
   <!-- Página Inicial Tab -->
-  <ion-tab title="ISGH" icon-off="ion-ios-home" icon-on="ion-ios-home" href="#/tab/news">
+  <ion-tab title="Notícias" icon-off="ion-ios-world-outline" icon-on="ion-ios-world" href="#/tab/news">
     <ion-nav-view name="tab-news"></ion-nav-view>
   </ion-tab>
 
   <!-- Cursos e Eventos Tab -->
-  <ion-tab title="Cursos e Eventos" icon-off="ion-university" icon-on="ion-university" href="#/tab/lectures">
+  <ion-tab title="Educação" icon-off="ion-ios-book-outline" icon-on="ion-ios-book" href="#/tab/lectures">
     <ion-nav-view name="tab-lectures"></ion-nav-view>
   </ion-tab>
 
   <!-- Processos Seletivos Tab -->
-  <ion-tab title="Processos Seletivos" icon-off="ion-ios-briefcase" icon-on="ion-ios-briefcase" href="#/tab/selection-processes">
+  <ion-tab title="Seleção" icon-off="ion-ios-people-outline" icon-on="ion-ios-people" href="#/tab/selection-processes">
     <ion-nav-view name="tab-selection-processes"></ion-nav-view>
   </ion-tab>
   
   <!-- Perfil Usuário Tab -->
-  <ion-tab title="Perfil" icon-off="ion-person" icon-on="ion-person" href="#/tab/account">
+  <ion-tab title="Perfil" icon-off="ion-ios-person-outline" icon-on="ion-person" href="#/tab/account">
     <ion-nav-view name="tab-account"></ion-nav-view>
   </ion-tab>
 
 
 </ion-tabs>
 
-<ion-tabs ng-if="isAndroid" class="tabs-striped tabs-top tabs-background-info tabs-color-light">
-<!--<ion-tabs ng-if="isAndroid" class="tabs-striped tabs-top tabs-background-info tabs-color-light">  -->
+<ion-tabs ng-if="isAndroid" class="tabs-striped tabs-top tabs-background-light tabs-color-info">
 
   <!-- Página Inicial Tab -->
-  <ion-tab title="ISGH" icon-off="ion-ios-home" icon-on="ion-ios-home" href="#/tab/news">
+  <ion-tab title="Notícias" icon-off="ion-ios-world-outline" icon-on="ion-ios-world" href="#/tab/news">
     <ion-nav-view name="tab-news"></ion-nav-view>
   </ion-tab>
 
   <!-- Cursos e Eventos Tab -->
-  <ion-tab title="Cursos e Eventos" icon-off="ion-university" icon-on="ion-university" href="#/tab/lectures">
+  <ion-tab title="Educação" icon-off="ion-ios-book-outline" icon-on="ion-ios-book" href="#/tab/lectures">
     <ion-nav-view name="tab-lectures"></ion-nav-view>
   </ion-tab>
 
   <!-- Processos Seletivos Tab -->
-  <ion-tab title="Processos Seletivos" icon-off="ion-ios-briefcase" icon-on="ion-ios-briefcase" href="#/tab/selection-processes">
+  <ion-tab title="Seleção" icon-off="ion-ios-people-outline" icon-on="ion-ios-people" href="#/tab/selection-processes">
     <ion-nav-view name="tab-selection-processes"></ion-nav-view>
   </ion-tab>
   
   <!-- Perfil Usuário Tab -->
-  <ion-tab title="Perfil" icon-off="ion-person" icon-on="ion-person" href="#/tab/account">
+  <ion-tab title="Perfil" icon-off="ion-ios-person-outline" icon-on="ion-person" href="#/tab/account">
     <ion-nav-view name="tab-account"></ion-nav-view>
   </ion-tab>
 

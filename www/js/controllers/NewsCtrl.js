@@ -1,26 +1,30 @@
-angular.module('isgh.NewsCtrl', ['ngSanitize']).controller('NewsCtrl', function ($scope, $filter, $sce, $css, $ionicModal, $ionicScrollDelegate, ResolveNews, FactoryNews, Constant) {
+angular.module('isgh.NewsCtrl', ['ngSanitize']).controller('NewsCtrl', function ($scope, $filter, $sce, $css, $ionicModal, $ionicScrollDelegate, $rootScope, ResolveNews, FactoryNews, Constant) {
 
 	$scope.url_intranet = Constant.url_intranet;
 
 	if (angular.isArray(ResolveNews)) {
 		$scope.news = ResolveNews;
 	} else {
-		$scope.alert = ResolveNews;
+		$rootScope.alert = ResolveNews;
 	}
 	
 	// REFRESH NOTICIAS
 	$scope.doRefresh = function () {
-		$scope.alert = null;
+		$rootScope.alert = null;
+
 		FactoryNews.refresh().then(function (response) {
 			angular.forEach(response.data, function (item) {
 				item.images = JSON.parse(item.images);
 			});
+			
 			$scope.news = response.data;
+			
 		}, function (erro) {
-			$scope.alert = { type: "", message: erro };
+			$rootScope.alert = { type: "", message: erro };
 		});
 		
-		$scope.$broadcast('scroll.refreshComplete');
+		$rootScope.$broadcast('scroll.refreshComplete');
+		
 	}
 	
 	// DEFININDO MODAL

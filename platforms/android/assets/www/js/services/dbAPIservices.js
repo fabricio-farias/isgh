@@ -8,14 +8,11 @@ angular.module('isgh.dbAPIservices', ['isgh.Constant'])
         self.init = function () {
             var deferred = $q.defer();
             
-            // if (window.cordova) {
-            //     self.db = $cordovaSQLite.openDB({ name: Constant.database.name, bgType: 1 });
-            // } else {
-            //     self.db = window.openDatabase(Constant.database.name, '1', 'database', -1);
-            // }
-            
-            self.db = window.openDatabase(Constant.database.name, '1', 'database', -1);
-            
+            if (window.cordova) {
+                self.db = $cordovaSQLite.openDB({ name: Constant.database.name, bgType: 1 });
+            } else {
+                self.db = window.openDatabase(Constant.database.name, '1', 'database', -1);
+            }
             deferred.resolve(self.db);
             
             angular.forEach(Constant.database.tables, function (table) {

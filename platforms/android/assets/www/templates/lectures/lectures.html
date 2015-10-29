@@ -1,15 +1,25 @@
-<ion-view hide-back-button="true" view-title="Ensino e Pesquisa">
+<ion-view hide-back-button="true">
+  <ion-nav-buttons side="primary">
+    <button class="button icon ion-person button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}"></button>
+  </ion-nav-buttons>
+  
+  <ion-nav-title>
+    <div class="bar bar-header" ng-if="isIOS">
+      <div class="button-bar button-bar-group">
+        <a nav-transition="none" class="button button-outline active" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" href="#/tab/lectures">Cursos</a>
+        <a nav-transition="none" class="button button-outline" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" href="#/tab/events">Eventos</a>
+      </div>
+    </div>
+    <div ng-if="isAndroid">Ensino e Pesquisa</div>
+  </ion-nav-title>
+  
+  <ion-nav-buttons side="secondary">
+    <button class="button icon ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}"></button>
+  </ion-nav-buttons>
+  
   <ui-alert-bar alert="alert"></ui-alert-bar>
 
-
-  <div ng-if="isIOS" class="bar bar-light bar-subheader">
-    <div class="button-bar bar-dashed">
-      <a nav-transition="none" class="button app-font-size-90 button-clear button-info" href="#/tab/lectures"> CURSOS</a>
-      <a nav-transition="none" class="button app-font-size-90 button-clear button-info active" href="#/tab/events"> EVENTOS</a>
-    </div>
-  </div>
-
-  <ion-content ng-class="{'has-subheader': isIOS, 'has-footer': isAndroid}">
+  <ion-content ng-class="{'has-header': isIOS, 'has-footer': isAndroid}">
 
     <ion-refresher on-refresh="doRefresh()"></ion-refresher>
 
@@ -46,11 +56,11 @@
 
   </ion-content>
 
-  <div ng-if="isAndroid" class="bar bar-footer bar-info">
-    <div class="button-bar bar-dashed">
-      <a nav-transition="none" class="button app-font-size-90 button-clear button-light" href="#/tab/lectures"> CURSOS</a>
-      <a nav-transition="none" class="button app-font-size-90 button-clear button-light active" href="#/tab/events"> EVENTOS</a>
-    </div>
+  <div ng-if="isAndroid" class="bar bar-footer bar-light">
+      <div class="button-bar button-bar-group">
+        <a nav-transition="none" class="button button-outline button-info active" href="#/tab/lectures">Cursos</a>
+        <a nav-transition="none" class="button button-outline button-info" href="#/tab/events">Eventos</a>
+      </div>
   </div>
 
 </ion-view>
