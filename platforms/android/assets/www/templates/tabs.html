@@ -4,10 +4,10 @@ Each tab's child <ion-nav-view> directive will have its own
 navigation history that also transitions its views in and out.
 -->
 
-<ion-tabs ng-if="isIOS" class="tabs-light tabs-icon-top tabs-bottom tabs-color-info">
+<ion-tabs ng-if="isIOS" class="tabs-icon-top tabs-bottom tabs-background-info tabs-color-light">
 
   <!-- Página Inicial Tab -->
-  <ion-tab title="Notícias" icon-off="ion-ios-world-outline" icon-on="ion-ios-world" href="#/tab/news">
+  <ion-tab title="Notícias" icon-off="ion-ios-home-outline" icon-on="ion-ios-home" href="#/tab/news">
     <ion-nav-view name="tab-news"></ion-nav-view>
   </ion-tab>
 
@@ -29,10 +29,10 @@ navigation history that also transitions its views in and out.
 
 </ion-tabs>
 
-<ion-tabs ng-if="isAndroid" class="tabs-striped tabs-top tabs-background-light tabs-color-info">
+<ion-tabs ng-if="isAndroid" class="tabs-striped tabs-top tabs-background-info tabs-color-light">
 
   <!-- Página Inicial Tab -->
-  <ion-tab title="Notícias" icon-off="ion-ios-world-outline" icon-on="ion-ios-world" href="#/tab/news">
+  <ion-tab title="Notícias" icon-off="ion-ios-home-outline" icon-on="ion-ios-home" href="#/tab/news">
     <ion-nav-view name="tab-news"></ion-nav-view>
   </ion-tab>
 
@@ -53,3 +53,4 @@ navigation history that also transitions its views in and out.
 
 
 </ion-tabs>
+<ui-alert-bar alert="alert"></ui-alert-bar>

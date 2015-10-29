@@ -1,23 +1,23 @@
 angular.module('isgh.EventsCtrl', ['ngSanitize'])
 
-.controller('EventsCtrl', function ($scope, $filter, Constant, ResolveEvents, FactoryEvents) {
+.controller('EventsCtrl', function ($scope, $filter, $rootScope, Constant, ResolveEvents, FactoryEvents) {
 
 	$scope.url_site = Constant.url_site;
 
 	if (angular.isArray(ResolveEvents)) {
 		$scope.events = ResolveEvents;
 	} else {
-		$scope.alert = ResolveEvents;
+		$rootScope.alert = ResolveEvents;
 	}
 	
 	
 	// refresh na pagina sera incluido em breve
 	$scope.doRefresh = function () {
-		$scope.alert = null;
+		$rootScope.alert = null;
 		FactoryEvents.refresh().then(function (response) {
 			$scope.events = response.data;
 		}, function (erro) {
-			$scope.alert = { type: "", message: erro };
+			$rootScope.alert = { type: "", message: erro };
 		});
 		
 		$scope.$broadcast('scroll.refreshComplete');

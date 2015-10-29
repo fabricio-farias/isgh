@@ -1,11 +1,11 @@
 var IonicDeploy = {
-  init: function(app_id, success, failure) {
+  init: function(app_id, server_host, success, failure) {
     cordova.exec(
       success,
       failure,
       'IonicDeploy',
       'initialize',
-      [app_id]
+      [app_id, server_host]
     );
   },
   check: function(app_id, channel_tag, success, failure) {
@@ -51,6 +51,33 @@ var IonicDeploy = {
       'IonicDeploy',
       'info',
       [app_id]
+    );
+  },
+  getVersions: function(app_id, success, failure) {
+    cordova.exec(
+      success,
+      failure,
+      'IonicDeploy',
+      'getVersions',
+      [app_id]
+    );
+  },
+  deleteVersion: function(app_id, version, success, failure) {
+    cordova.exec(
+      success,
+      failure,
+      'IonicDeploy',
+      'deleteVersion',
+      [app_id, version]
+    );
+  },
+  getMetadata: function(app_id, uuid, success, failure) {
+    cordova.exec(
+      success,
+      failure,
+      'IonicDeploy',
+      'getMetadata',
+      [app_id, uuid]
     );
   }
 }
