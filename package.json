@@ -30,7 +30,8 @@
       "id": "cordova-plugin-statusbar"
     },
     "cordova-plugin-whitelist@1",
-    "org.apache.cordova.inappbrowser"
+    "org.apache.cordova.network-information",
+    "cordova-plugin-inappbrowser"
   ],
   "cordovaPlatforms": [
     "ios",

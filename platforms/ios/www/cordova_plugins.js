@@ -64,17 +64,33 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/org.apache.cordova.inappbrowser/www/inappbrowser.js",
-        "id": "org.apache.cordova.inappbrowser.inappbrowser",
-        "clobbers": [
-            "window.open"
-        ]
-    },
-    {
         "file": "plugins/cordova-sqlite-storage/www/SQLitePlugin.js",
         "id": "cordova-sqlite-storage.SQLitePlugin",
         "clobbers": [
             "SQLitePlugin"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.network-information/www/network.js",
+        "id": "org.apache.cordova.network-information.network",
+        "clobbers": [
+            "navigator.connection",
+            "navigator.network.connection"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.network-information/www/Connection.js",
+        "id": "org.apache.cordova.network-information.Connection",
+        "clobbers": [
+            "Connection"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+        "id": "cordova-plugin-inappbrowser.inappbrowser",
+        "clobbers": [
+            "cordova.InAppBrowser.open",
+            "window.open"
         ]
     }
 ];
@@ -90,8 +106,9 @@ module.exports.metadata =
     "com.phonegap.plugins.PushPlugin": "2.5.0",
     "cordova-plugin-statusbar": "2.0.0-dev",
     "com.jcjee.plugins.emailcomposer": "1.4.6",
-    "org.apache.cordova.inappbrowser": "0.6.0",
-    "cordova-sqlite-storage": "0.7.11"
+    "cordova-sqlite-storage": "0.7.11",
+    "org.apache.cordova.network-information": "0.2.15",
+    "cordova-plugin-inappbrowser": "1.0.1"
 }
 // BOTTOM OF METADATA
 });

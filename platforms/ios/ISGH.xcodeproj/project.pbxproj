@@ -87,9 +87,12 @@
 		14F0660E13DE4B4094CA931D /* EmailComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 41091F3AD6F64EAB8B348090 /* EmailComposer.m */; };
 		E0C4AE93F3A9432CA94F369A /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BF96E71A7D4DAEB8A0F48C /* NSData+Base64.m */; };
 		08BABCCF830B4E4DAFDE6FF0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7145FDE39CA4837ADCC49AD /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		F04DEA5EFB7F4D1384909AF2 /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A9D585D5740B19C36FD58 /* CDVInAppBrowser.m */; };
 		02831A69BEA14202A61412C5 /* SQLitePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 76544FD09CF24DD2899E3CF5 /* SQLitePlugin.m */; };
 		5B5B2060F596459A895C4EE0 /* sqlite3.c in Resources */ = {isa = PBXBuildFile; fileRef = 83D4B554C64E4D0584C20C27 /* sqlite3.c */; };
+		7B50C62621EB4FBE8EB7D7E2 /* CDVConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = A66826FEA7144B4987208EEB /* CDVConnection.m */; };
+		8C22575B87A34EFAB5E7613C /* CDVReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 389C1A4CE3E4477592DC4D13 /* CDVReachability.m */; };
+		8CB7B718669D4061B960D1D9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75CC2DAFFB5F484F98750A70 /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		7DE4AD6C8FDC4BC8896DB150 /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AF074B4F2F4E9C8615A286 /* CDVInAppBrowser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -249,12 +252,17 @@
 		A495D96AE18C4BCB99C40988 /* EmailComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "EmailComposer.h"; path = "com.jcjee.plugins.emailcomposer/EmailComposer.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		9679043EB3604CBAA0A1789A /* NSData+Base64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSData+Base64.h"; path = "com.jcjee.plugins.emailcomposer/NSData+Base64.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		F7145FDE39CA4837ADCC49AD /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "MessageUI.framework"; path = "System/Library/Frameworks/MessageUI.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
-		7D1A9D585D5740B19C36FD58 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVInAppBrowser.m"; path = "org.apache.cordova.inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		E8AF4F90B38F49A698855460 /* CDVInAppBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVInAppBrowser.h"; path = "org.apache.cordova.inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		76544FD09CF24DD2899E3CF5 /* SQLitePlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "SQLitePlugin.m"; path = "cordova-sqlite-storage/SQLitePlugin.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		83D4B554C64E4D0584C20C27 /* sqlite3.c */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = "sqlite3.c"; path = "cordova-sqlite-storage/sqlite3.c"; sourceTree = "<group>"; fileEncoding = 4; };
 		E02764B192BD4FC185810742 /* SQLitePlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SQLitePlugin.h"; path = "cordova-sqlite-storage/SQLitePlugin.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		EF17F6E958BD41ABB516543E /* sqlite3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "sqlite3.h"; path = "cordova-sqlite-storage/sqlite3.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		A66826FEA7144B4987208EEB /* CDVConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVConnection.m"; path = "org.apache.cordova.network-information/CDVConnection.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		389C1A4CE3E4477592DC4D13 /* CDVReachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVReachability.m"; path = "org.apache.cordova.network-information/CDVReachability.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		7FE71B0FDC4746D991DEBD82 /* CDVConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVConnection.h"; path = "org.apache.cordova.network-information/CDVConnection.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		D2B0146277CC4F2FAF076131 /* CDVReachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVReachability.h"; path = "org.apache.cordova.network-information/CDVReachability.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		75CC2DAFFB5F484F98750A70 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "SystemConfiguration.framework"; path = "System/Library/Frameworks/SystemConfiguration.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		27AF074B4F2F4E9C8615A286 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVInAppBrowser.m"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		333F4372F2BD4DBDACFF51F0 /* CDVInAppBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVInAppBrowser.h"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +275,7 @@
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
 				08BABCCF830B4E4DAFDE6FF0 /* MessageUI.framework in Frameworks */,
+				8CB7B718669D4061B960D1D9 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +349,7 @@
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */,
 				F7145FDE39CA4837ADCC49AD /* MessageUI.framework */,
+				75CC2DAFFB5F484F98750A70 /* SystemConfiguration.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -448,12 +458,16 @@
 				B1BF96E71A7D4DAEB8A0F48C /* NSData+Base64.m */,
 				A495D96AE18C4BCB99C40988 /* EmailComposer.h */,
 				9679043EB3604CBAA0A1789A /* NSData+Base64.h */,
-				7D1A9D585D5740B19C36FD58 /* CDVInAppBrowser.m */,
-				E8AF4F90B38F49A698855460 /* CDVInAppBrowser.h */,
 				76544FD09CF24DD2899E3CF5 /* SQLitePlugin.m */,
 				83D4B554C64E4D0584C20C27 /* sqlite3.c */,
 				E02764B192BD4FC185810742 /* SQLitePlugin.h */,
 				EF17F6E958BD41ABB516543E /* sqlite3.h */,
+				A66826FEA7144B4987208EEB /* CDVConnection.m */,
+				389C1A4CE3E4477592DC4D13 /* CDVReachability.m */,
+				7FE71B0FDC4746D991DEBD82 /* CDVConnection.h */,
+				D2B0146277CC4F2FAF076131 /* CDVReachability.h */,
+				27AF074B4F2F4E9C8615A286 /* CDVInAppBrowser.m */,
+				333F4372F2BD4DBDACFF51F0 /* CDVInAppBrowser.h */,
 			);
 			name = Plugins;
 			path = "ISGH/Plugins";
@@ -685,9 +699,11 @@
 				AA755BE2358B43F2A8CE5C0A /* CDVStatusBar.m in Sources */,
 				14F0660E13DE4B4094CA931D /* EmailComposer.m in Sources */,
 				E0C4AE93F3A9432CA94F369A /* NSData+Base64.m in Sources */,
-				F04DEA5EFB7F4D1384909AF2 /* CDVInAppBrowser.m in Sources */,
 				02831A69BEA14202A61412C5 /* SQLitePlugin.m in Sources */,
 				5B5B2060F596459A895C4EE0 /* sqlite3.c in Resources */,
+				7B50C62621EB4FBE8EB7D7E2 /* CDVConnection.m in Sources */,
+				8C22575B87A34EFAB5E7613C /* CDVReachability.m in Sources */,
+				7DE4AD6C8FDC4BC8896DB150 /* CDVInAppBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

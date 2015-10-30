@@ -13,6 +13,14 @@
                             "count": 1
                         },
                         {
+                            "xml": "<feature name=\"EmailComposer\"><param name=\"android-package\" value=\"com.jcjee.plugins.EmailComposer\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"PushPlugin\"><param name=\"android-package\" value=\"com.plugin.gcm.PushPlugin\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
                             "count": 1
                         },
@@ -21,7 +29,15 @@
                             "count": 1
                         },
                         {
+                            "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SQLitePlugin\"><param name=\"android-package\" value=\"io.liteglue.SQLitePlugin\" /></feature>",
                             "count": 1
                         },
                         {
@@ -29,23 +45,11 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"PushPlugin\"><param name=\"android-package\" value=\"com.plugin.gcm.PushPlugin\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"EmailComposer\"><param name=\"android-package\" value=\"com.jcjee.plugins.EmailComposer\" /></feature>",
+                            "xml": "<feature name=\"NetworkStatus\"><param name=\"android-package\" value=\"org.apache.cordova.networkinformation.NetworkManager\" /></feature>",
                             "count": 1
                         },
                         {
                             "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"SQLitePlugin\"><param name=\"android-package\" value=\"io.liteglue.SQLitePlugin\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -53,6 +57,12 @@
             },
             "AndroidManifest.xml": {
                 "parents": {
+                    "application": [
+                        {
+                            "xml": "<provider android:authorities=\"com.ionicframework.isgh900684.plugins.emailcomposer.provider\" android:name=\"com.jcjee.plugins.EmailAttachmentProvider\" />",
+                            "count": 1
+                        }
+                    ],
                     "/manifest": [
                         {
                             "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
@@ -97,9 +107,9 @@
                             "count": 1
                         }
                     ],
-                    "application": [
+                    "/*": [
                         {
-                            "xml": "<provider android:authorities=\"com.ionicframework.isgh900684.plugins.emailcomposer.provider\" android:name=\"com.jcjee.plugins.EmailAttachmentProvider\" />",
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
                             "count": 1
                         }
                     ]
@@ -111,6 +121,12 @@
         "com.ionic.keyboard": {
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
         },
+        "com.jcjee.plugins.emailcomposer": {
+            "PACKAGE_NAME": "com.ionicframework.isgh900684"
+        },
+        "com.phonegap.plugins.PushPlugin": {
+            "PACKAGE_NAME": "com.ionicframework.isgh900684"
+        },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
         },
@@ -120,25 +136,22 @@
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
         },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.ionicframework.isgh900684"
+        },
         "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.ionicframework.isgh900684"
+        },
+        "cordova-sqlite-storage": {
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
         },
         "ionic-plugin-deploy": {
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
         },
-        "com.phonegap.plugins.PushPlugin": {
+        "org.apache.cordova.network-information": {
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
         },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.ionicframework.isgh900684"
-        },
-        "com.jcjee.plugins.emailcomposer": {
-            "PACKAGE_NAME": "com.ionicframework.isgh900684"
-        },
-        "org.apache.cordova.inappbrowser": {
-            "PACKAGE_NAME": "com.ionicframework.isgh900684"
-        },
-        "cordova-sqlite-storage": {
+        "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
         }
     },
