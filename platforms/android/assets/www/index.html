@@ -22,6 +22,7 @@
   <!--JS-->
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+<script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
     
     <script src="lib/ionic-service-core/ionic-core.js"></script>
     <script src="lib/ionic/js/ionic-angular-locale_pt-br.js"></script>
@@ -31,7 +32,8 @@
     <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
     <!--<script src="lib/ngCordova/dist/ng-cordova-mocks.min.js"></script>-->
     <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
-    <script src="cordova.js"></script>
+    <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
+<!-- <script src="cordova.js"></script> -->
 
     <!--CONTROLLERS-->
     <script src="js/controllers/NewsCtrl.js"></script>
@@ -84,7 +86,7 @@
       <ion-nav-back-button class="button-clear button-info"></ion-nav-back-button>
     </ion-nav-bar>
     
-    <ion-nav-bar ng-if="isAndroid" align-title="center" class="bar-info has-tabs-top">
+    <ion-nav-bar ng-if="isAndroid" class="bar-info has-tabs-top">
       <ion-nav-back-button class="button-clear"></ion-nav-back-button>
     </ion-nav-bar>
     <!--
