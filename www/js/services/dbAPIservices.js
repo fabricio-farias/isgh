@@ -16,16 +16,8 @@ angular.module('isgh.dbAPIservices', ['isgh.Constant'])
             deferred.resolve(self.db);
             
             angular.forEach(Constant.database.tables, function (table) {
-                
                 // self.dropTable(table);
-                var columns = [];
-
-                angular.forEach(table.columns, function (column) {
-                    columns.push(column.name + ' ' + column.type);
-                });
-
-                var query = 'CREATE TABLE IF NOT EXISTS ' + table.name + '(' + columns.join(',') + ')';
-                self.query(query);
+                self.createTable(table);
             });
             
             return deferred.promise;
@@ -70,6 +62,9 @@ angular.module('isgh.dbAPIservices', ['isgh.Constant'])
 
                 var query = 'CREATE TABLE IF NOT EXISTS ' + table.name + '(' + columns.join(',') + ')';
                 self.query(query);
+                
+                var indexed = 'CREATE INDEX IF NOT EXISTS ' + table.name + '_idx ON ' + table.name + '(id)';
+                self.query(indexed);
             }
         }
 

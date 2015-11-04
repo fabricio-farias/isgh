@@ -9,7 +9,8 @@ angular.module('isgh.dbAPIservices', ['isgh.Constant'])
             var deferred = $q.defer();
             
             if (window.cordova) {
-                self.db = $cordovaSQLite.openDB({ name: Constant.database.name, bgType: 1 });
+                self.db = sqlitePlugin.openDatabase({name: Constant.database.name, location: 2, createFromLocation: 1});
+                // self.db = $cordovaSQLite.openDB({ name: Constant.database.name, bgType: 1 });
             } else {
                 self.db = window.openDatabase(Constant.database.name, '1', 'database', -1);
             }

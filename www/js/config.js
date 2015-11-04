@@ -9,7 +9,8 @@ app.config(function ($stateProvider, $urlRouterProvider,  $httpProvider, $sceDel
 
   $sceDelegateProvider.resourceUrlWhitelist(['.*']);
 
-  //$ionicConfigProvider.backButton.text('').previousTitleText(true);
+  $ionicConfigProvider.backButton.text('').previousTitleText(false);
+  //$ionicConfigProvider.scrolling.jsScrolling(false);
   // $ionicConfigProvider.tabs.position('bottom');
   // $ionicConfigProvider.tabs.style('standard');
     
@@ -176,15 +177,6 @@ app.config(function ($stateProvider, $urlRouterProvider,  $httpProvider, $sceDel
       }
     })
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
     .state('tab.selection-processes', {
       url: '/selection-processes',
       views: {
@@ -199,8 +191,7 @@ app.config(function ($stateProvider, $urlRouterProvider,  $httpProvider, $sceDel
       url: '/account',
       views: {
         'tab-account': {
-          templateUrl: 'templates/tab-account.html',
-          controller: 'AccountCtrl'
+          templateUrl: 'templates/tab-account.html'
         }
       }
     })

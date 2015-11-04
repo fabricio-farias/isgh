@@ -18,7 +18,7 @@ angular.module('isgh.Constant', []).constant("Constant", {
 			news: {
 				name: 'news',
 				columns: [
-					{ name: 'id', type: 'integer primary key' },
+					{ name: 'id', type: 'integer' },
 					{ name: 'title', type: 'text' },
 					{ name: 'images', type: 'text' },
 					{ name: 'created', type: 'numeric' },
@@ -31,7 +31,7 @@ angular.module('isgh.Constant', []).constant("Constant", {
 			lectures: {
 				name: 'lectures',
 				columns: [
-					{ name: 'id', type: 'integer primary key' },
+					{ name: 'id', type: 'integer' },
 					{ name: 'title', type: 'text' },
 					{ name: 'image', type: 'text' },
 					{ name: 'thumbnail', type: 'text' },
@@ -62,7 +62,7 @@ angular.module('isgh.Constant', []).constant("Constant", {
 			events: {
 				name: 'events',
 				columns: [
-					{ name: 'id', type: 'integer primary key' },
+					{ name: 'id', type: 'integer' },
 					{ name: 'title', type: 'text' },
 					{ name: 'unit', type: 'text' },
 					{ name: 'date', type: 'numeric' },

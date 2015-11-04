@@ -30,11 +30,9 @@
 .app-units.danger{background-color: #b80b24}
 .app-units-iframe{min-width: 32px;max-height: 32px;line-height: 32px;}
 
-/*teste*/
 .bar .button-bar.button-bar-group {display: table;text-align: center;}
 .bar .button-bar.button-bar-group > .button {display: inline-table}
 .bar .button-bar.button-bar-group > .button-small {display: inline}
-/*teste*/
 
 /*TEXT*/
 /*TEXT-COLOR*/
