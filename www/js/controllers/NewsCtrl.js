@@ -1,30 +1,26 @@
-angular.module('isgh.NewsCtrl', ['ngSanitize']).controller('NewsCtrl', function ($scope, $filter, $sce, $css, $ionicModal, $ionicScrollDelegate, $rootScope, ResolveNews, FactoryNews, Constant) {
+angular.module('isgh.NewsCtrl', ['ngSanitize'])
+
+.controller('NewsCtrl', function ($scope, $filter, $sce, $css, $ionicModal, $ionicScrollDelegate, $rootScope, ResolveNews, FactoryNews, Constant) {
 
 	$scope.url_intranet = Constant.url_intranet;
-
-	if (angular.isArray(ResolveNews)) {
-		$scope.news = ResolveNews;
-	} else {
-		$rootScope.alert = ResolveNews;
-	}
+	$scope.news = ResolveNews.map(function (item) {
+		item.images = JSON.parse(item.images);
+		return item;
+	});
 	
 	// REFRESH NOTICIAS
 	$scope.doRefresh = function () {
 		$rootScope.alert = null;
-
 		FactoryNews.refresh().then(function (response) {
-			angular.forEach(response.data, function (item) {
+			$scope.news = response.data.map(function (item) {
 				item.images = JSON.parse(item.images);
+				return item;
 			});
-			
-			$scope.news = response.data;
-			
 		}, function (erro) {
 			$rootScope.alert = { type: "", message: erro };
 		});
 		
 		$rootScope.$broadcast('scroll.refreshComplete');
-		
 	}
 	
 	// DEFININDO MODAL
@@ -77,7 +73,6 @@ angular.module('isgh.NewsCtrl', ['ngSanitize']).controller('NewsCtrl', function 
 		$scope.itemNew = itemNew;
 
 	};
-	
 	
 	//GATILHO MODAL IMAGES
 	$ionicModal.fromTemplateUrl('templates/news/new-images.html', {

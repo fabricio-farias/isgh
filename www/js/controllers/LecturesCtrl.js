@@ -3,22 +3,19 @@ angular.module('isgh.LecturesCtrl', ['ngSanitize'])
 .controller('LecturesCtrl', function ($scope, $filter, $rootScope, Constant, ResolveLectures, FactoryLectures) {
 
 	$scope.url_site = Constant.url_site;
-
-	if (angular.isArray(ResolveLectures)) {
-		$scope.lectures = ResolveLectures;
-	} else {
-		$rootScope.alert = ResolveLectures;
-	}
-	
+	$scope.lectures = ResolveLectures.map(function (item) {
+		item.status = JSON.parse(item.status);
+		return item;
+	});
 	
 	// refresh na pagina sera incluido em breve
 	$scope.doRefresh = function () {
 		$rootScope.alert = null;
 		FactoryLectures.refresh().then(function (response) {
-			angular.forEach(response.data, function (item) {
+			$scope.lectures = ResolveLectures.map(function (item) {
 				item.status = JSON.parse(item.status);
+				return item;
 			});
-			$scope.lectures = response.data;
 		}, function (erro) {
 			$rootScope.alert = { type: "", message: erro };
 		});

@@ -1,0 +1,36 @@
+<ion-view view-title="Processos Seletivos">
+
+  <ion-nav-buttons side="primary">
+    <button class="button icon ion-person button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}"></button>
+  </ion-nav-buttons>
+
+  <ion-nav-buttons side="secondary">
+    <button class="button icon ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}"></button>
+  </ion-nav-buttons>
+
+  <ion-content ng-class="{'has-header': isIOS, 'has-footer': isAndroid}">
+
+    <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+
+    <div class="list card" ng-repeat="item in locations">
+
+      <div class="item item-avatar">
+        <div class="item-image app-units info app-text-uppercase">{{item.location.substring(0,3)}}</div>
+        <h2>{{item.location | uppercase}}</h2>
+        <p>
+          <span ng-class="checkColor(unit.unit)" ng-repeat="unit in item.units">
+            {{unit.unit}}
+          </span>
+        </p>
+      </div>
+
+      <a class="item item-body" href="#/tab/procselets/categories/{{item.locid}}/{{status}}" ng-repeat="status in statusObj">
+        <span class="app-font-size-90">{{status.name}}</span>
+        <span class="badge badge-assertive">{{getTotal(item.locid,status.id)}}</span>
+      </a>
+
+    </div>
+
+  </ion-content>
+
+</ion-view>

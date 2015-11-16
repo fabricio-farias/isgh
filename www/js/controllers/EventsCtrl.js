@@ -3,13 +3,7 @@ angular.module('isgh.EventsCtrl', ['ngSanitize'])
 .controller('EventsCtrl', function ($scope, $filter, $rootScope, Constant, ResolveEvents, FactoryEvents) {
 
 	$scope.url_site = Constant.url_site;
-
-	if (angular.isArray(ResolveEvents)) {
-		$scope.events = ResolveEvents;
-	} else {
-		$rootScope.alert = ResolveEvents;
-	}
-	
+	$scope.events = ResolveEvents;
 	
 	// refresh na pagina sera incluido em breve
 	$scope.doRefresh = function () {

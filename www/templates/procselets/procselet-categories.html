@@ -1,0 +1,22 @@
+<ion-view view-title="{{sname}}">
+
+
+  <ion-nav-buttons side="secondary">
+    <button class="button icon ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}"></button>
+  </ion-nav-buttons>
+
+  <ion-content ng-class="{'has-header': isIOS, 'has-footer': isAndroid}">
+
+    <div class="list">
+      
+      <a class="item item-avatar" href="#/tab/procselets/files/{{category.catid}}/{{sname}}" ng-repeat="category in categories">
+        <div class="item-image app-units app-text-uppercase" ng-class="checkColor(category.unit)">{{category.unit}}</div>
+        <h2 class="app-title-clamp-two">{{category.category[0]}}</h2>
+        <p><i class="icon ion-document-text"></i> {{category.file}}</p>
+        <p><span class="item-note"><i class="icon ion-ios-pricetag-outline"></i> {{category.category[1]}}</span></p>
+      </a>
+
+    </div>
+
+  </ion-content>
+</ion-view>

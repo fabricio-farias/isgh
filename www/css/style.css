@@ -23,7 +23,7 @@
 .slider-slide {text-align: center;font-weight: 300;}
 
 /*AVATAR COLORS*/
-.app-units{line-height: 40px; color: #ffffff!important;border-radius: 0!important;-webkit-border-radius: 0!important;font-size:80%;opacity: 1!important;}
+.app-units{line-height: 40px; color: #ffffff!important;font-size:80%;opacity: 1!important;}
 .app-units.info{background-color: #0d4772}
 .app-units.success{background-color: #19839b}
 .app-units.warning{background-color: #f5ae33}
@@ -45,6 +45,8 @@
 .blue, a.blue {color: #012B81;}
 .red, a.red {color: #A01027;}
 
+/*TEXT TRANSFORM*/
+.app-text-uppercase{text-transform: uppercase;}
 /*TEXT-ALIGN*/
 .app-text-align-left{text-align: left!important}
 .app-text-align-justfy{text-align: justify!important}
@@ -81,6 +83,8 @@
 .app-border-blue{border-color: #012B81!important}
 .app-border-red{border-color: #A01027!important}
 .app-border-dark{border-color: #2A2D31!important}
+
+.app-border-bottom{border-bottom: 1px solid #DDD;}
 
 /*BUTTONS*/
 .button-circle{border-radius: 50%;-webkit-border-radius: 50%;}
@@ -192,9 +196,15 @@ iframe, .app-iframe-issue .scroll{width: 100%!important;height: 100%!important;}
 .item-note > span:last-child{border-right-width: 0;}
 /*===============================*/
 
-/*border-radius 10*/
+/*border-radius 10, 8, 6*/
 /*===============================*/
 .card.card-radius-10, .list-inset.card-radius-10{border-radius: 10px;-webkit-border-radius: 10px;}
 .card.card-radius-10 .item:first-child, .list-inset.card-radius-10 .item:first-child, .padding > .list.card-radius-10 .item:first-child{border-top-left-radius: 10px;border-top-right-radius: 10px;}
 .card.card-radius-10 .item:last-child, .list-inset.card-radius-10 .item:last-child, .padding > .list.card-radius-10 .item:last-child{border-bottom-right-radius: 10px;border-bottom-left-radius: 10px;}
+.card.card-radius-8, .list-inset.card-radius-8{border-radius: 8px;-webkit-border-radius: 8px;}
+.card.card-radius-8 .item:first-child, .list-inset.card-radius-8 .item:first-child, .padding > .list.card-radius-8 .item:first-child{border-top-left-radius: 8px;border-top-right-radius: 8px;}
+.card.card-radius-8 .item:last-child, .list-inset.card-radius-8 .item:last-child, .padding > .list.card-radius-8 .item:last-child{border-bottom-right-radius: 8px;border-bottom-left-radius: 8px;}
+.card.card-radius-6, .list-inset.card-radius-6{border-radius: 6px;-webkit-border-radius: 6px;}
+.card.card-radius-6 .item:first-child, .list-inset.card-radius-6 .item:first-child, .padding > .list.card-radius-6 .item:first-child{border-top-left-radius: 6px;border-top-right-radius: 6px;}
+.card.card-radius-6 .item:last-child, .list-inset.card-radius-6 .item:last-child, .padding > .list.card-radius-6 .item:last-child{border-bottom-right-radius: 6px;border-bottom-left-radius: 6px;}
 /*===============================*/
