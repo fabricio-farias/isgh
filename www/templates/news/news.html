@@ -14,7 +14,11 @@
   <ion-content class="has-header">
 
     <ion-refresher on-refresh="doRefresh()"></ion-refresher>
-
+    
+    <div ng-if="news.length == 0">
+      <ui-jumbotron icon="ion-ios-home">Não há Notícia no momento</ui-jumbotron>
+    </div>
+    
     <div class="list" ng-repeat="itemNew in news">
 
       <div class="item item-avatar">

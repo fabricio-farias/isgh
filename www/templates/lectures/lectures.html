@@ -23,7 +23,11 @@
   <ion-content ng-class="{'has-header': isIOS, 'has-footer': isAndroid}">
 
     <ion-refresher on-refresh="doRefresh()"></ion-refresher>
-
+    
+    <div ng-if="lectures.length == 0">
+      <ui-jumbotron icon="ion-ios-book">Não há Cursos no momento</ui-jumbotron>
+    </div>
+    
     <div class="list">
       <a class="item item-thumbnail-left" href="#/tab/lectures/{{lecture.id}}/{{lecture.register_planning}}" ng-repeat="lecture in lectures">
         <img ng-src="{{url_site + lecture.thumbnail}}" style="height: auto;max-height: 80%;">

@@ -9,7 +9,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
 
   $sceDelegateProvider.resourceUrlWhitelist(['.*']);
 
-  $ionicConfigProvider.backButton.text('').previousTitleText(false);
+  $ionicConfigProvider.backButton.text('');
   //$ionicConfigProvider.scrolling.jsScrolling(false);
   // $ionicConfigProvider.tabs.position('bottom');
   // $ionicConfigProvider.tabs.style('standard');
