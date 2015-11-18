@@ -2,37 +2,25 @@
   <ion-content class="has-header">
 
     <div class="list">
-      <!--<div ng-if="lecture.image" class="item item-image item-{{lecture.status.color}}" style="height: 100px;">
-        <h2 class="app-item-image-title app-no-white-space">{{lecture.title}}</h2>
-        <ion-scroll zooming="true" delegate-handle="backgroundScroll" direction="xy" class="app-full-size">
-          <img class="app-img-transparent" ng-src="{{url_site + lecture.image}}"/>
-        </ion-scroll>
-      </div>-->
       
-      <div class="item item-avatar item-divider" style="padding:20px 10px 20px 100px;">
+      <div class="item item-avatar item-divider" style="padding:20px 10px 20px 106px;">
         <h2 class="app-no-margin-top app-no-white-space">{{lecture.title}}</h2>
       </div>
 
       <div class="item item-thumbnail-left item-thumbnail-img">
           <img ng-src="{{url_site + lecture.thumbnail}}">
-          <div class="item-display-table">
-            <span class="item-note">
-              <span><i class="ion-flag"></i> {{lecture.status.desc1+" "+lecture.status.desc2}}</span>
-              <span><i class="ion-ios-location"></i> {{lecture.location}} - {{lecture.location_alias | uppercase}}</span>
-            </span> 
+          <div class="item-input app-item-bordered">
+            <span class="item-inline">
+              <span class="app-font-color-stable app-font-size-90"><i class="ion-ios-flag"></i> {{lecture.status.desc1+" "+lecture.status.desc2}}</span>
+              <span class="app-font-color-stable app-font-size-90"><i class="ion-ios-location"></i> {{lecture.location}}</span>
+            </span>
           </div>
-          <div class="item-display-table">
-            <!--<span class="item-note">-->
-            <a class="button button-small button-block button-{{lecture.status.color}}" ng-click="externalLink(lecture.register_link, '_system', lecture)">
-              {{lecture.status.desc1+" "+lecture.status.desc2}}
-            </a>
-            <!--</span>-->
+          <div class="item-input app-item-bordered">
+              <button class="button button-small button-block button-{{lecture.status.color}} app-font-size-100" ng-click="externalLink(lecture.register_link, '_system', lecture)">
+                {{lecture.status.desc1+" "+lecture.status.desc2}}
+              </button>
           </div>
       </div>
-      
-      <!--<div class="item item-divider">
-        <h2 class="app-no-white-space app-font-size-90">{{lecture.title}}</h2>
-      </div>-->
       
       <div class="item" ng-if="lecture.form_date_up">
         <span class="input-label app-font-size-80 positive">Data Início</span>

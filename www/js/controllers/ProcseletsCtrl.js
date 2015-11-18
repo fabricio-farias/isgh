@@ -31,12 +31,14 @@ angular.module('isgh.ProcseletsCtrl', ['ngSanitize'])
 		$scope.doRefresh = function () {
 			$rootScope.alert = null;
 			FactoryProcselets.refresh().then(function (response) {
+				$scope.$broadcast('scroll.refreshComplete');
 				$scope.procselets = response;
 			}, function (erro) {
+				$scope.$broadcast('scroll.refreshComplete');
 				$rootScope.alert = { type: "", message: erro };
 			});
 
-			$scope.$broadcast('scroll.refreshComplete');
+			// $scope.$broadcast('scroll.refreshComplete');
 		}
 
 	})
@@ -61,14 +63,21 @@ angular.module('isgh.ProcseletsCtrl', ['ngSanitize'])
 			return item;
 		});
 		
-		$scope.url_procseletivo = Constant.url_procseletivo;
 		$scope.sname = ResolveProcseletsFiles.sname;
 		
 		$scope.parseDate = function (date) {
 			return new Date(date);
 		}
 		
-		$scope.externalLink = function (url) {
-			window.open(url, "_system");
+		$scope.externalLink = function (file) {
+			if (file) {
+				return (file.link_external !== "") ? window.open(file.link_external, "_system") : window.open(Constant.url_procseletivo+'phocadownload/'+file.filename, "_system"); 
+			}
+		}
+		
+		$scope.getIcon = function (file) {
+			if (file) {
+				return (file.link_external !== "") ? 'ion-link positive' : 'ion-document-text assertive'; 
+			}
 		}
 	})

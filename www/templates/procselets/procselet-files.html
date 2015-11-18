@@ -15,10 +15,10 @@
         <p><i class="icon ion-ios-pricetag-outline"></i> {{files[0].category[1]}}</p>
       </div>
 
-      <a class="item item-icon-left" ng-click="externalLink(url_procseletivo+'phocadownload/'+file.filename)" ng-repeat="file in files[0].files">
-        <i class="icon ion-document-text assertive"></i>
+      <a class="item item-icon-left" ng-click="externalLink(file)" ng-repeat="file in files[0].files">
+        <i class="icon" ng-class="getIcon(file)"></i>
         <h2 class="app-font-size-90">{{file.title}}</h2>
-        <p><i class="ion-ios-calendar-outline"></i> {{parseDate(file.date) | date:'dd/MM/yyyy'}}</p>
+        <p><i class="ion-android-calendar"></i> {{parseDate(file.date) | date:'dd/MM/yyyy'}}</p>
       </a>
 
     </div>

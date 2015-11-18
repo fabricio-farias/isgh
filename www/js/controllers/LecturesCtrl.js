@@ -12,15 +12,17 @@ angular.module('isgh.LecturesCtrl', ['ngSanitize'])
 	$scope.doRefresh = function () {
 		$rootScope.alert = null;
 		FactoryLectures.refresh().then(function (response) {
-			$scope.lectures = ResolveLectures.map(function (item) {
+			$scope.lectures = response.data.map(function (item) {
 				item.status = JSON.parse(item.status);
 				return item;
 			});
+			$scope.$broadcast('scroll.refreshComplete');
 		}, function (erro) {
+			$scope.$broadcast('scroll.refreshComplete');
 			$rootScope.alert = { type: "", message: erro };
 		});
 		
-		$scope.$broadcast('scroll.refreshComplete');
+		// $scope.$broadcast('scroll.refreshComplete');
 	}
 	
 })

@@ -9,12 +9,14 @@ angular.module('isgh.EventsCtrl', ['ngSanitize'])
 	$scope.doRefresh = function () {
 		$rootScope.alert = null;
 		FactoryEvents.refresh().then(function (response) {
+			$scope.$broadcast('scroll.refreshComplete');
 			$scope.events = response.data;
 		}, function (erro) {
+			$scope.$broadcast('scroll.refreshComplete');
 			$rootScope.alert = { type: "", message: erro };
 		});
 		
-		$scope.$broadcast('scroll.refreshComplete');
+		// $scope.$broadcast('scroll.refreshComplete');
 	}
 	
 })

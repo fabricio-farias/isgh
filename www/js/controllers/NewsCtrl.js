@@ -16,11 +16,13 @@ angular.module('isgh.NewsCtrl', ['ngSanitize'])
 				item.images = JSON.parse(item.images);
 				return item;
 			});
+			$scope.$broadcast('scroll.refreshComplete');
 		}, function (erro) {
+			$scope.$broadcast('scroll.refreshComplete');
 			$rootScope.alert = { type: "", message: erro };
 		});
 		
-		$rootScope.$broadcast('scroll.refreshComplete');
+		// $rootScope.$broadcast('scroll.refreshComplete');
 	}
 	
 	// DEFININDO MODAL

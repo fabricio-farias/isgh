@@ -34,28 +34,23 @@
         <h2 class="app-title-clamp-two app-title-small">{{lecture.title}}</h2>
         
         <div ng-if="lecture.register_planning <= 0">
-          <div class="button-bar">
-            <div class="button button-small button-outline button-light active" style="max-width: 42px;"><i class="icon ion-ios-location"></i></div>
-            <div class="button button-small button-clear button-stable app-text-align-left">{{lecture.location}} - {{lecture.location_alias | uppercase}}</div>
+          <div class="item-input">
+            <p><div class="button button-small button-outline icon ion-ios-location button-light active"></div><span class="app-font-size-90 app-font-color-stable" style="margin-left: 10px;">{{lecture.location}}</span></p>
           </div>
-          <p></p>
-          <div class="button-bar">
-            <div class="button button-small button-outline button-{{lecture.status.color}} active" style="max-width: 42px;"><i class="icon ion-flag"></i></div>
-            <div class="button button-small button-clear button-{{lecture.status.color}} app-text-align-left">{{lecture.status.desc1+" "+lecture.status.desc2}}</div>
+          <div class="item-input">
+            <p><div class="button button-small button-outline icon ion-ios-flag button-{{lecture.status.color}} active"></div><span class="app-font-size-90 {{lecture.status.color}}" style="margin-left: 10px;">{{lecture.status.desc1+" "+lecture.status.desc2}}</span></p>
           </div>
         </div>
         
         <div ng-if="lecture.register_planning > 0">
-          <div class="button-bar">
-            <div class="button button-small button-outline button-light active" style="max-width: 42px;"><i class="icon ion-ios-location"></i></div>
-            <div class="button button-small button-clear button-stable app-text-align-left">{{lecture.location}} - {{lecture.location_alias | uppercase}}</div>
+          <div class="item-input">
+            <p><div class="button button-small button-outline icon ion-ios-location button-light active"></div><span class="app-font-size-90 app-font-color-stable" style="margin-left: 10px;">{{lecture.location}}</span></p>
           </div>
-          <p></p>
-          <div class="button-bar">
-            <div class="button button-small button-outline button-dark active" style="max-width: 42px;"><i class="icon ion-flag"></i></div>
-            <div class="button button-small button-clear button-dark app-text-align-left">{{lecture.status.desc1+" "+lecture.status.desc2}}</div>
+          <div class="item-input">
+            <p><div class="button button-small button-outline icon ion-ios-flag button-dark active"></div><span class="app-font-size-90 dark" style="margin-left: 10px;">{{lecture.status.desc1+" "+lecture.status.desc2}}</span></p>
           </div>
         </div>
+        
       </a>
     </div>
 
