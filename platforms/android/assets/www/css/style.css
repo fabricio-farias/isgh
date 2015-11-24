@@ -122,6 +122,7 @@
 .app-no-margin-top{margin-top: 0!important;}
 .app-no-white-space{white-space: normal!important;}
 .app-img-transparent{opacity: .15;}
+.app-item-select{padding: 14px 24px 16px 16px!important;}
 
 /*CONTENT DOS ARTIGOS*/
 .padding .content-article{text-align: justify;}

@@ -50,23 +50,30 @@
       
     </div>
 
-    <div class="list">
-      <div class="item item-divider app-item-no-border">
-        <h2 class="app-no-white-space app-font-size-70">ANIVERSARIANTES</h2>
+    <div class="list card" ng-repeat="birthday in birthdays">
+      <div class="item item-avatar item-divider item-{{checkColor(birthday.dsc_filial)}}" style="padding-top: 12px;padding-bottom: 12px;">
+        {{birthday.dsc_nome}}
       </div>
-      
-      <div class="item item-avatar" ng-repeat="birthday in birthdays">
-        <div class="item-image app-units stable"><i class="icon ion-person app-font-size-300"></i></div>
-        <h2>{{birthday.dsc_nome}}</h2>
-        <p><i class="icon ion-android-more-vertical"></i> {{birthday.dsc_setor}}</p>
-        <p><i class="icon ion-android-more-vertical"></i> {{birthday.dsc_funcao}}</p>
-        <p><i class="icon ion-android-calendar"></i> {{birthday.dat_nasc}}</p>
 
-        <span class="item-note">
-          <div class="item-input">
-            <div class="button button-small button-outline icon button-{{checkColor(birthday.dsc_filial)}} active">{{birthday.dsc_filial}}</div>
-          </div>
-        </span>
+      <div class="item item-avatar item-image-top">
+
+        <div class="item-image item-image-top app-units stable"><i class="icon ion-person app-font-size-300"></i></div>
+        
+        <label class="item item-input item-divider item-light app-item-no-border">
+          <span class="input-label app-input-label app-font-size-80">Setor:</span>
+          <p>{{birthday.dsc_setor}}</p>
+        </label>
+        <label class="item item-input item-divider item-light">
+          <span class="input-label app-input-label app-font-size-80">Função:</span>
+          <p>{{birthday.dsc_funcao}}</p>
+        </label>
+        <label class="item item-input item-divider item-light">
+          <span class="input-label app-input-label app-font-size-80">&nbsp;</span>
+          <p>
+            <span class="app-font-color-stable"><i class="icon ion-android-calendar"></i> {{birthday.dat_nasc}}</span>
+            <span ng-class="checkColor(birthday.dsc_filial)"><i class="icon ion-location"></i> {{birthday.dsc_filial}}</span>
+          </p>
+        </label>
 
       </div>
     </div>

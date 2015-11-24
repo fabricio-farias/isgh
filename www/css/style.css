@@ -59,6 +59,7 @@
 .blue, a.blue {color: #012B81;}
 .red, a.red {color: #A01027;}
 .app-font-color-stable{color: #b2b2b2;}
+.app-font-color-label{color: #576B95!important;}
 
 /*TEXT TRANSFORM*/
 .app-text-uppercase{text-transform: uppercase;}
@@ -100,7 +101,6 @@
 .app-border-blue{border-color: #012B81!important}
 .app-border-red{border-color: #A01027!important}
 .app-border-dark{border-color: #2A2D31!important}
-
 .app-border-bottom{border-bottom: 1px solid #DDD;}
 
 /*BUTTONS*/
@@ -123,6 +123,7 @@
 .app-no-white-space{white-space: normal!important;}
 .app-img-transparent{opacity: .15;}
 .app-item-select{padding: 14px 24px 16px 16px!important;}
+.app-input-label{color: #576B95; width: 25%;}
 
 /*CONTENT DOS ARTIGOS*/
 .padding .content-article{text-align: justify;}
@@ -196,6 +197,13 @@ iframe, .app-iframe-issue .scroll{width: 100%!important;height: 100%!important;}
 .jumbotron {padding-top: 20%;color: inherit;background-color: #eee;position: relative;text-align: center;height: inherit;top: 44px;}
 .jumbotron .h1, .jumbotron h1 {font-size: 63px;color: #999;text-shadow: 1px 1px 1px #fff;-webkit-text-shadow: 1px 1px 1px #fff;}
 .jumbotron p {margin-bottom: 15px;font-size: 21px;font-weight: 200;color: #999;text-shadow: 1px 1px 1px #fff;-webkit-text-shadow: 1px 1px 1px #fff;}
+/*===============================*/
+
+
+/*ITEM AVATAR*/
+/*===============================*/
+.item-image-top{overflow: visible;}
+.item-avatar .item-image-top{top: -16px;}
 /*===============================*/
 
 

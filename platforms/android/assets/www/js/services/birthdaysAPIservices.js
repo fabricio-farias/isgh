@@ -78,9 +78,24 @@ angular.module('isgh.birthdaysAPIservices', ['isgh.dbAPIservices'])
         console.log(erro);
       });
     };
+    
+    // GET NEW BIRTHDATES SERVER
+    
+    var _birthdaysWSgetByDate = function (data) {
+      var deferred = $q.defer();
+      var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' } };
+      $http.post(Constant.url_wsapp + 'intranet/?op=birthdays&fu=ByDate', data, headers).then(function (response) {
+        deferred.resolve(response);
+      }, function (erro) {
+        deferred.reject("Sem conexão com a Internet");
+      });
+
+      return deferred.promise;
+    };
 
     return {
       birthdaysWSget: _birthdaysWSget,
+      birthdaysWSgetByDate: _birthdaysWSgetByDate,
       populate: _populate,
       refresh: _refresh,
       all: _all

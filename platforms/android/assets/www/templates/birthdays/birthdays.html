@@ -10,21 +10,51 @@
 
   <ion-content ng-class="{'has-header': isIOS}">
 
-    <!--<ion-refresher on-refresh="doRefresh()"></ion-refresher>-->
+    <ion-refresher on-refresh="doRefresh()"></ion-refresher>
 
     <div class="list">
-      <label class="item item-input item-select">
-        <div class="input-label">
-          Lightsaber
-        </div>
-        <select>
-          <option>Blue</option>
-          <option selected>Green</option>
-          <option>Red</option>
-        </select>
-      </label>
+      <div class="item item-divider app-item-no-border">
+        <h2 class="app-no-white-space app-font-size-80 app-font-color-stable">Você pode realizar pesquisas dos aniversariantes através de uma data específica</h2>
+      </div>
       
+      <form name="dataForm">
+        <div class="item tabs tabs-secondary tabs-icon-left" style="background-color: #FFF;border-color: #DDD;">
+          <div class="tab-item">
+            <label class="item item-light item-input item-select app-item-no-border">
+              <div class="input-label">
+                <span class="app-font-size-90">Dia</span>
+              </div>
+              <select class="app-font-size-90 app-item-select" ng-model="data.day" name="day" ng-required="true">
+                <option value=""></option>
+                <option ng-repeat="d in getDays() track by $index" value="{{d}}" ng-selected="checkSelectedDay(d)">{{d}}</option>
+              </select>
+            </label>
+          </div>
+          <div class="tab-item">
+            <label class="item item-light item-input item-select app-item-no-border">
+              <div class="input-label">
+                <span class="app-font-size-90">Mês</span>
+              </div>
+              <select class="app-font-size-90 app-item-select" ng-model="data.month" name="month" ng-required="true">
+                <option value=""></option>
+                <option ng-repeat="m in getMonths() track by $index" value="{{m}}" ng-selected="checkSelectedMonths(m)">{{m}}</option>
+              </select>
+            </label>
+          </div>
+          <div class="tab-item">
+            <button ng-click="searchBirthday(data)" class="button button-clear button-positive" ng-disabled="!dataForm.$valid">Pesquisar</button>
+          </div>
+        </div>
+        
+      </form>
+      
+    </div>
 
+    <div class="list">
+      <div class="item item-divider app-item-no-border">
+        <h2 class="app-no-white-space app-font-size-70">ANIVERSARIANTES</h2>
+      </div>
+      
       <div class="item item-avatar" ng-repeat="birthday in birthdays">
         <div class="item-image app-units stable"><i class="icon ion-person app-font-size-300"></i></div>
         <h2>{{birthday.dsc_nome}}</h2>
