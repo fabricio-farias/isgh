@@ -14,7 +14,11 @@
   <ion-content class="has-header">
 
     <ion-refresher on-refresh="doRefresh()"></ion-refresher>
-
+    
+    <div ng-if="news.length == 0">
+      <ui-jumbotron icon="ion-ios-home">Não há Notícia no momento</ui-jumbotron>
+    </div>
+    
     <div class="list" ng-repeat="itemNew in news">
 
       <div class="item item-avatar">
@@ -32,7 +36,7 @@
       <div class="item app-item-no-padding">
         <div class="button-bar bar-light">
           <!--ABRINDO DENTRO DO MODAL COM IFRAME-->
-          <a class="button" ng-click="openModal(itemNew)"><i class="ion-ios-plus-empty"></i> Leia mais</a>
+          <a class="button" ng-click="openModal(itemNew)"><span class="positive"><i class="ion-ios-plus-empty positive"></i> Leia mais</span></a>
 
           <!--VISUALIZANDO NO APP SEM FORMATAÇÃO ORIGINAL DO ARTIGO-->
           <!--<a class="button" href="#/tab/news/{{itemNew.id}}"><i class="ion-ios-plus-empty"></i> Leia mais</a>-->

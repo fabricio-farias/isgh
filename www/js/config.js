@@ -233,16 +233,28 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
       }
     })
 
-    .state('tab.account', {
-      url: '/account',
+    .state('tab.birthdays', {
+      url: '/birthdays',
       views: {
-        'tab-account': {
-          templateUrl: 'templates/tab-account.html'
+        'tab-birthdays': {
+          templateUrl: 'templates/birthdays/birthdays.html',
+          controller: 'BirthdaysCtrl',
+          resolve: {
+            ResolveBirthDays: function (FactoryBirthdays, $ionicLoading, $rootScope) {
+              $ionicLoading.show();
+              return FactoryBirthdays.populate().then(function (response) {
+                $ionicLoading.hide();
+                return response.data;
+                
+              }, function (erro) {
+                $ionicLoading.hide();
+                return $rootScope.alert = { type: "", message: erro };
+              });
+            }
+          }
         }
       }
     })
-    
-    
     
 
   // if none of the above states are matched, use this as the fallback

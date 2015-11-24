@@ -5,11 +5,12 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-app.config(function ($stateProvider, $urlRouterProvider,  $httpProvider, $sceDelegateProvider, $ionicConfigProvider) {
+app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDelegateProvider, $ionicConfigProvider) {
 
   $sceDelegateProvider.resourceUrlWhitelist(['.*']);
 
-  //$ionicConfigProvider.backButton.text('').previousTitleText(true);
+  $ionicConfigProvider.backButton.text('');
+  //$ionicConfigProvider.scrolling.jsScrolling(false);
   // $ionicConfigProvider.tabs.position('bottom');
   // $ionicConfigProvider.tabs.style('standard');
     
@@ -19,16 +20,6 @@ app.config(function ($stateProvider, $urlRouterProvider,  $httpProvider, $sceDel
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
-
-    // .state('error', {
-    //   url: "/error/:title/:message/:icon",
-    //   templateUrl: "templates/error.html",
-    //   controller: function ($scope, $stateParams) {
-    //     $scope.title = $stateParams.title;
-    //     $scope.message = $stateParams.message;
-    //     $scope.icon = $stateParams.icon;
-    //   }
-    // })
   
   // setup an abstract state for the tabs directive
     .state('tab', {
@@ -46,27 +37,23 @@ app.config(function ($stateProvider, $urlRouterProvider,  $httpProvider, $sceDel
           templateUrl: 'templates/news/news.html',
           controller: 'NewsCtrl',
           resolve: {
-            ResolveNews: function (FactoryNews, $ionicLoading) {
+            ResolveNews: function (FactoryNews, $ionicLoading, $rootScope) {
               $ionicLoading.show();
-              
+
               return FactoryNews.populate().then(function (response) {
-                angular.forEach(response.data, function (item) {
-                  item.images = JSON.parse(item.images);
-                });
-                
                 $ionicLoading.hide();
                 return response.data;
-                
+
               }, function (erro) {
                 $ionicLoading.hide();
-                return { type: "", message: erro };
+                return $rootScope.alert = { type: "", message: erro };
               });
             }
           }
         }
       }
     })
-    
+
     .state('tab.lectures', {
       url: '/lectures',
       views: {
@@ -74,19 +61,16 @@ app.config(function ($stateProvider, $urlRouterProvider,  $httpProvider, $sceDel
           templateUrl: 'templates/lectures/lectures.html',
           controller: 'LecturesCtrl',
           resolve: {
-            ResolveLectures: function (FactoryLectures, $ionicLoading) {
+            ResolveLectures: function (FactoryLectures, $ionicLoading, $rootScope) {
               $ionicLoading.show();
 
               return FactoryLectures.populate().then(function (response) {
-                angular.forEach(response.data, function (item) {
-                  item.status = JSON.parse(item.status);
-                });
                 $ionicLoading.hide();
                 return response.data;
-                
+
               }, function (erro) {
                 $ionicLoading.hide();
-                return { type: "", message: erro };
+                return $rootScope.alert = { type: "", message: erro };
               });
             }
           }
@@ -109,10 +93,10 @@ app.config(function ($stateProvider, $urlRouterProvider,  $httpProvider, $sceDel
                   var html = '';
                   html += 'Seu nome: \n';
                   html += 'Telefone: \n';
-                  html += 'Curso(s) de interesse: '+response.title+'\n';
+                  html += 'Curso(s) de interesse: ' + response.title + '\n';
                   html += 'Município de interesse: \n';
-                  
-                  EmailSender.setSubject("Cursos "+year.getFullYear()+" Cadastro de Interessado");
+
+                  EmailSender.setSubject("Cursos " + year.getFullYear() + " Cadastro de Interessado");
                   EmailSender.setBody(html);
                   EmailSender.setTo(Constant.emails.cursos.to);
                   EmailSender.setCc(Constant.emails.cursos.cc);
@@ -120,12 +104,12 @@ app.config(function ($stateProvider, $urlRouterProvider,  $httpProvider, $sceDel
 
                   $state.go($state.current, $stateParams, { reload: false, inherit: false });
                 }
-                
+
                 response.status = JSON.parse(response.status);
                 if (response.widgetkit_module > 0) {
                   response.widgetkit = JSON.parse(response.widgetkit);
                 }
-                
+
                 return response;
 
               });
@@ -134,7 +118,7 @@ app.config(function ($stateProvider, $urlRouterProvider,  $httpProvider, $sceDel
         }
       }
     })
-    
+
     .state('tab.events', {
       url: '/events',
       views: {
@@ -142,23 +126,23 @@ app.config(function ($stateProvider, $urlRouterProvider,  $httpProvider, $sceDel
           templateUrl: 'templates/events/events.html',
           controller: 'EventsCtrl',
           resolve: {
-            ResolveEvents: function (FactoryEvents, $ionicLoading) {
+            ResolveEvents: function (FactoryEvents, $ionicLoading, $rootScope) {
               $ionicLoading.show();
 
               return FactoryEvents.populate().then(function (response) {
                 $ionicLoading.hide();
                 return response.data;
-                
+
               }, function (erro) {
                 $ionicLoading.hide();
-                return { type: "", message: erro };
+                return $rootScope.alert = { type: "", message: erro };
               });
             }
           }
         }
       }
     })
-    
+
     .state('tab.event', {
       url: '/events/:id',
       views: {
@@ -175,37 +159,102 @@ app.config(function ($stateProvider, $urlRouterProvider,  $httpProvider, $sceDel
         }
       }
     })
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    .state('tab.selection-processes', {
-      url: '/selection-processes',
+
+    .state('tab.procselets', {
+      url: '/procselets',
       views: {
-        'tab-selection-processes': {
-          templateUrl: 'templates/tab-selection-processes.html',
-          controller: 'SelectionProcessesCtrl'
+        'tab-procselets': {
+          templateUrl: 'templates/procselets/procselets.html',
+          controller: 'ProcseletsCtrl',
+          resolve: {
+            ResolveProcselets: function (FactoryProcselets, $ionicLoading, $rootScope) {
+              $ionicLoading.show();
+
+              return FactoryProcselets.populate().then(function (response) {
+                $ionicLoading.hide();
+                return response.data;
+
+              }, function (erro) {
+                $ionicLoading.hide();
+                return $rootScope.alert = { type: "", message: erro };
+              });
+            }
+          }
         }
       }
     })
 
-    .state('tab.account', {
-      url: '/account',
+    .state('tab.procselets-categories', {
+      url: '/procselets/categories/:locid/:status',
       views: {
-        'tab-account': {
-          templateUrl: 'templates/tab-account.html',
-          controller: 'AccountCtrl'
+        'tab-procselets': {
+          templateUrl: 'templates/procselets/procselet-categories.html',
+          controller: 'ProcseletsCategoriesCtrl',
+          resolve: {
+            ResolveProcseletsCategories: function (FactoryProcselets, $stateParams, $ionicLoading, $rootScope) {
+              $ionicLoading.show();
+
+              var status = JSON.parse($stateParams.status);
+              return FactoryProcselets.getProcSeletsByLoc($stateParams.locid, status.id).then(function (response) {
+                $ionicLoading.hide();
+                return { data: response, sname: status.name };
+
+              }, function (erro) {
+                $ionicLoading.hide();
+                return $rootScope.alert = { type: "", message: erro };
+              });
+            }
+          }
         }
       }
     })
-    
-    
+
+    .state('tab.procselets-files', {
+      url: '/procselets/files/:catid/:sname',
+      views: {
+        'tab-procselets': {
+          templateUrl: 'templates/procselets/procselet-files.html',
+          controller: 'ProcseletsFilesCtrl',
+          resolve: {
+            ResolveProcseletsFiles: function (FactoryProcselets, $stateParams, $ionicLoading, $rootScope) {
+              $ionicLoading.show();
+
+              return FactoryProcselets.getProcSeletsFiles($stateParams.catid).then(function (response) {
+                $ionicLoading.hide();
+                return { data: response, sname: $stateParams.sname };
+                
+              }, function (erro) {
+                $ionicLoading.hide();
+                return $rootScope.alert = { type: "", message: erro };
+              });
+            }
+          }
+        }
+      }
+    })
+
+    .state('tab.birthdays', {
+      url: '/birthdays',
+      views: {
+        'tab-birthdays': {
+          templateUrl: 'templates/birthdays/birthdays.html',
+          controller: 'BirthdaysCtrl',
+          resolve: {
+            ResolveBirthDays: function (FactoryBirthdays, $ionicLoading, $rootScope) {
+              $ionicLoading.show();
+              return FactoryBirthdays.populate().then(function (response) {
+                $ionicLoading.hide();
+                return response.data;
+                
+              }, function (erro) {
+                $ionicLoading.hide();
+                return $rootScope.alert = { type: "", message: erro };
+              });
+            }
+          }
+        }
+      }
+    })
     
 
   // if none of the above states are matched, use this as the fallback

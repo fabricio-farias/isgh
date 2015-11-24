@@ -17,64 +17,116 @@ angular.module('isgh.Constant', []).constant("Constant", {
 		tables: {
 			news: {
 				name: 'news',
+				indexes: [
+					'id',
+					'title',
+					'created',
+					'striptext',
+					'unit'
+				],
 				columns: [
-					{ name: 'id', type: 'integer primary key' },
-					{ name: 'title', type: 'text' },
-					{ name: 'images', type: 'text' },
-					{ name: 'created', type: 'numeric' },
-					{ name: 'introtext', type: 'text' },
-					{ name: 'striptext', type: 'text' },
-					{ name: 'category', type: 'text' },
-					{ name: 'unit', type: 'text' }
+					'id integer',
+					'title text',
+					'images text',
+					'created numeric',
+					'introtext text',
+					'striptext text',
+					'category text',
+					'unit text'
 				]	
 			},
 			lectures: {
 				name: 'lectures',
+				indexes: [
+					'id',
+					'title',
+					'location'
+				],
 				columns: [
-					{ name: 'id', type: 'integer primary key' },
-					{ name: 'title', type: 'text' },
-					{ name: 'image', type: 'text' },
-					{ name: 'thumbnail', type: 'text' },
-					{ name: 'location', type: 'text' },
-					{ name: 'location_alias', type: 'text' },
-					{ name: 'date', type: 'numeric' },
-					{ name: 'filename', type: 'text' },
-					{ name: 'form_date_up', type: 'text' },
-					{ name: 'form_date_down', type: 'text' },
-					{ name: 'form_workload', type: 'text' },
-					{ name: 'form_location', type: 'text' },
-					{ name: 'form_speaker', type: 'text' },
-					{ name: 'form_audience', type: 'text' },
-					{ name: 'form_investment', type: 'text' },
-					{ name: 'form_content_1', type: 'text' },
-					{ name: 'form_content_2', type: 'text' },
-					{ name: 'form_content_3', type: 'text' },
-					{ name: 'form_content_4', type: 'text' },
-					{ name: 'form_link', type: 'text' },
-					{ name: 'register_link', type: 'text' },
-					{ name: 'register_planning', type: 'integer' },
-					{ name: 'status', type: 'text' },
-					{ name: 'widgetkit_module', type: 'integer' },
-					{ name: 'widgetkit', type: 'text'}
-					
+					'id integer',
+					'title text',
+					'image text',
+					'thumbnail text',
+					'location text',
+					'location_alias text',
+					'date numeric',
+					'filename text',
+					'form_date_up text',
+					'form_date_down text',
+					'form_workload text',
+					'form_location text',
+					'form_speaker text',
+					'form_audience text',
+					'form_investment text',
+					'form_content_1 text',
+					'form_content_2 text',
+					'form_content_3 text',
+					'form_content_4 text',
+					'form_link text',
+					'register_link text',
+					'register_planning integer',
+					'status text',
+					'widgetkit_module integer',
+					'widgetkit text'
 				]
 			},
 			events: {
 				name: 'events',
+				indexes: [
+					'id',
+					'title',
+					'unit'
+				],
 				columns: [
-					{ name: 'id', type: 'integer primary key' },
-					{ name: 'title', type: 'text' },
-					{ name: 'unit', type: 'text' },
-					{ name: 'date', type: 'numeric' },
-					{ name: 'form_date_up', type: 'text' },
-					{ name: 'form_date_down', type: 'text' },
-					{ name: 'form_workload', type: 'text' },
-					{ name: 'form_location', type: 'text' },
-					{ name: 'form_speaker', type: 'text' },
-					{ name: 'form_audience', type: 'text' },
-					{ name: 'form_investment', type: 'text' },
-					{ name: 'form_link', type: 'text' },
-					{ name: 'introtext', type: 'text' }
+					'id integer',
+					'title text',
+					'unit text',
+					'date numeric',
+					'form_date_up text',
+					'form_date_down text',
+					'form_workload text',
+					'form_location text',
+					'form_speaker text',
+					'form_audience text',
+					'form_investment text',
+					'form_link text',
+					'introtext text'
+				]
+			},
+			procselets: {
+				name: 'procselets',
+				indexes: [
+					'catid',
+					'category',
+					'unit'
+				],
+				columns: [
+					'catid integer',
+					'category text',
+					'file text',
+					'unid integer',
+					'unit text',
+					'status integer',
+					'created numeric',
+					'locid integer',
+					'location text',
+					'files text'
+				]
+			},
+			birthdays: {
+				name: 'birthdays',
+				indexes: [
+					'num_matricula',
+					'dsc_nome',
+					'dsc_filial'
+				],
+				columns: [
+					'num_matricula integer',
+					'dsc_nome text',
+					'dsc_funcao text',
+					'dsc_setor text',
+					'dsc_filial text',
+					'dat_nasc text'
 				]
 			}
 		}

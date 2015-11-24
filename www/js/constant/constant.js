@@ -112,6 +112,22 @@ angular.module('isgh.Constant', []).constant("Constant", {
 					'location text',
 					'files text'
 				]
+			},
+			birthdays: {
+				name: 'birthdays',
+				indexes: [
+					'num_matricula',
+					'dsc_nome',
+					'dsc_filial'
+				],
+				columns: [
+					'num_matricula integer',
+					'dsc_nome text',
+					'dsc_funcao text',
+					'dsc_setor text',
+					'dsc_filial text',
+					'dat_nasc text'
+				]
 			}
 		}
 	}

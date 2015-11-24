@@ -1,0 +1,46 @@
+<ion-view view-title="Aniversários">
+
+  <ion-nav-buttons side="primary">
+    <button class="button icon ion-person button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}"></button>
+  </ion-nav-buttons>
+
+  <ion-nav-buttons side="secondary">
+    <button class="button icon ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}"></button>
+  </ion-nav-buttons>
+
+  <ion-content ng-class="{'has-header': isIOS}">
+
+    <!--<ion-refresher on-refresh="doRefresh()"></ion-refresher>-->
+
+    <div class="list">
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Lightsaber
+        </div>
+        <select>
+          <option>Blue</option>
+          <option selected>Green</option>
+          <option>Red</option>
+        </select>
+      </label>
+      
+
+      <div class="item item-avatar" ng-repeat="birthday in birthdays">
+        <div class="item-image app-units stable"><i class="icon ion-person app-font-size-300"></i></div>
+        <h2>{{birthday.dsc_nome}}</h2>
+        <p><i class="icon ion-android-more-vertical"></i> {{birthday.dsc_setor}}</p>
+        <p><i class="icon ion-android-more-vertical"></i> {{birthday.dsc_funcao}}</p>
+        <p><i class="icon ion-android-calendar"></i> {{birthday.dat_nasc}}</p>
+
+        <span class="item-note">
+          <div class="item-input">
+            <div class="button button-small button-outline icon button-{{checkColor(birthday.dsc_filial)}} active">{{birthday.dsc_filial}}</div>
+          </div>
+        </span>
+
+      </div>
+    </div>
+
+  </ion-content>
+
+</ion-view>

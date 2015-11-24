@@ -27,13 +27,15 @@
     
     <ion-refresher on-refresh="doRefresh()"></ion-refresher>
     
-
-    <div class="list list-inset card-radius-10" ng-repeat="itemEvents in events">
-      <a class="item item-avatar item-text-wrap item-icon-right" href="#/tab/events/{{itemEvents.id}}">
+    <div ng-if="events.length == 0">
+      <ui-jumbotron icon="ion-ios-book">Não há Eventos no momento</ui-jumbotron>
+    </div>
+    
+    <div class="list">
+      <a class="item item-avatar item-text-wrap" href="#/tab/events/{{itemEvents.id}}" ng-repeat="itemEvents in events">
         <div class="item-image app-units" ng-class="checkColor(itemEvents.unit)">{{itemEvents.unit || "ISGH"}}</div>
         <h2>{{itemEvents.title}}</h2>
         <p>{{itemEvents.date | DateRelativeFilter}}</p>
-        <i class="icon ion-chevron-right app-font-size-100"></i>
       </a>
     </div>
 
