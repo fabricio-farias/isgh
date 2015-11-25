@@ -23,23 +23,31 @@ angular.module('isgh.birthdaysAPIservices', ['isgh.dbAPIservices'])
     // INSERT ROWS IN TABLE
     var _populate = function () {
       var deferred = $q.defer();
-
-      _birthdaysWSget().then(function (response) {
-        if (response.data.length > 0) {
-          
-          db.dropTable(table);
-          db.createTable(table);
-          
-          angular.forEach(response.data, function (obj) {
-            var query = "INSERT INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
-            db.query(query, [obj.num_matricula, obj.dsc_nome, obj.dsc_funcao, obj.dsc_setor, obj.dsc_filial, obj.dat_nasc]);
-          });
-          deferred.resolve(response);
+      
+      _all().then(function (response) {
+        if (response.length > 0) {
+          deferred.resolve({ data: response });
         } else {
-          deferred.reject("Restabelecendo conexão perdida com ISGH");
+          
+          _birthdaysWSget().then(function (response) {
+            if (response.data.length > 0) {
+              
+              db.dropTable(table);
+              db.createTable(table);
+              
+              angular.forEach(response.data, function (obj) {
+                var query = "INSERT INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
+                db.query(query, [obj.num_matricula, obj.dsc_nome, obj.dsc_funcao, obj.dsc_setor, obj.dsc_filial, obj.dat_nasc]);
+              });
+              deferred.resolve(response);
+            } else {
+              deferred.reject("Restabelecendo conexão perdida com ISGH");
+            }
+          }, function (erro) {
+            deferred.reject(erro);
+          });
+          
         }
-      }, function (erro) {
-        deferred.reject(erro);
       });
       
       return deferred.promise;
@@ -79,8 +87,7 @@ angular.module('isgh.birthdaysAPIservices', ['isgh.dbAPIservices'])
       });
     };
     
-    // GET NEW BIRTHDATES SERVER
-    
+    // GET NEW BIRTHDATES SERVER BY DATE
     var _birthdaysWSgetByDate = function (data) {
       var deferred = $q.defer();
       var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' } };
@@ -92,10 +99,24 @@ angular.module('isgh.birthdaysAPIservices', ['isgh.dbAPIservices'])
 
       return deferred.promise;
     };
+    
+    // GET NEW BIRTHDATES SERVER BY LIKE NAME
+    var _birthdaysWSgetByLike = function (data) {
+      var deferred = $q.defer();
+      var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' } };
+      $http.post(Constant.url_wsapp + 'intranet/?op=birthdays&fu=ByLike', data, headers).then(function (response) {
+        deferred.resolve(response);
+      }, function (erro) {
+        deferred.reject("Sem conexão com a Internet");
+      });
+
+      return deferred.promise;
+    };
 
     return {
       birthdaysWSget: _birthdaysWSget,
       birthdaysWSgetByDate: _birthdaysWSgetByDate,
+      birthdaysWSgetByLike: _birthdaysWSgetByLike,
       populate: _populate,
       refresh: _refresh,
       all: _all

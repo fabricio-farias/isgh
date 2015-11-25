@@ -1,9 +1,20 @@
 angular.module('isgh.EventsCtrl', ['ngSanitize'])
 
-.controller('EventsCtrl', function ($scope, $filter, $rootScope, Constant, ResolveEvents, FactoryEvents) {
+.controller('EventsCtrl', function ($scope, $filter, $rootScope, $ionicFilterBar, Constant, ResolveEvents, FactoryEvents) {
 
 	$scope.url_site = Constant.url_site;
 	$scope.events = ResolveEvents;
+	
+	$scope.showFilterBar = function () {
+		$ionicFilterBar.show({
+		cancelText: 'Cancelar',
+        items: $scope.events,
+        update: function (filtered) {
+          $scope.events = filtered;
+        },
+		filterProperties: 'title'
+      });
+    };
 	
 	// refresh na pagina sera incluido em breve
 	$scope.doRefresh = function () {

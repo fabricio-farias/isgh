@@ -43,25 +43,46 @@ angular.module('isgh.ProcseletsCtrl', ['ngSanitize'])
 
 	})
 	
-	.controller('ProcseletsCategoriesCtrl', function ($scope, Constant, ResolveProcseletsCategories) {
+	.controller('ProcseletsCategoriesCtrl', function ($scope, $ionicFilterBar, Constant, ResolveProcseletsCategories) {
 
 		$scope.categories = ResolveProcseletsCategories.data.map(function (item) {
 			item.category = item.category.split("::");
 			return item;
 		});
-
+		
+		$scope.showFilterBar = function () {
+			$ionicFilterBar.show({
+				cancelText: 'Cancelar',
+				items: $scope.categories,
+				update: function (filtered) {
+					$scope.categories = filtered;
+				},
+				filterProperties: 'category'
+			});
+		};
+		
 		$scope.sname = ResolveProcseletsCategories.sname;
 		//$ionicConfig.backButton.text(ResolveProcselet.lname);
 		
 	})
 	
-	.controller('ProcseletsFilesCtrl', function ($scope, Constant, ResolveProcseletsFiles) {
+	.controller('ProcseletsFilesCtrl', function ($scope, $ionicFilterBar, Constant, ResolveProcseletsFiles) {
 
 		$scope.files = ResolveProcseletsFiles.data.map(function (item) {
 			item.category = item.category.split("::");
 			item.files = JSON.parse(item.files);
 			return item;
 		});
+		
+		$scope.showFilterBar = function () {
+			$ionicFilterBar.show({
+				cancelText: 'Cancelar',
+				items: $scope.files[0].files,
+				update: function (filtered) {
+					$scope.files[0].files = filtered;
+				}
+			});
+		};
 		
 		$scope.sname = ResolveProcseletsFiles.sname;
 		

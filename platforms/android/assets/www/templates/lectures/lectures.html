@@ -14,8 +14,8 @@
     <div ng-if="isAndroid">Ensino e Pesquisa</div>
   </ion-nav-title>
   
-  <ion-nav-buttons side="secondary">
-    <button class="button icon ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}"></button>
+  <ion-nav-buttons side="primary">
+    <button class="button ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" ng-click="showFilterBar()"></button>
   </ion-nav-buttons>
   
   <!--<ui-alert-bar alert="alert"></ui-alert-bar>-->
@@ -25,7 +25,7 @@
     <ion-refresher on-refresh="doRefresh()"></ion-refresher>
     
     <div ng-if="lectures.length == 0">
-      <ui-jumbotron icon="ion-ios-book">Não há Cursos no momento</ui-jumbotron>
+      <ui-jumbotron icon="ion-ios-book">Não há Cursos para exibir</ui-jumbotron>
     </div>
     
     <div class="list">

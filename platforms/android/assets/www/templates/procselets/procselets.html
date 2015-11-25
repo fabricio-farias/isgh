@@ -1,13 +1,5 @@
 <ion-view view-title="Processos Seletivos">
 
-  <ion-nav-buttons side="primary">
-    <button class="button icon ion-person button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}"></button>
-  </ion-nav-buttons>
-
-  <ion-nav-buttons side="secondary">
-    <button class="button icon ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}"></button>
-  </ion-nav-buttons>
-
   <ion-content ng-class="{'has-header': isIOS}">
 
     <ion-refresher on-refresh="doRefresh()"></ion-refresher>

@@ -1,14 +1,37 @@
 angular.module('isgh.BirthdaysCtrl', ['ngSanitize'])
 
-	.controller('BirthdaysCtrl', function ($scope, $filter, $rootScope, ResolveBirthDays, FactoryBirthdays, Constant) {
+	.controller('BirthdaysCtrl', function ($scope, $filter, $rootScope, $timeout, $ionicFilterBar, $ionicLoading, ResolveBirthDays, FactoryBirthdays, Constant) {
 
 		$scope.birthdays = ResolveBirthDays;
+		var filterBarInstance ;
+		
+		$scope.showFilterBar = function () {
+			filterBarInstance = $ionicFilterBar.show({
+				cancelText: 'Cancelar',
+				items: $scope.birthdays,
+				filterProperties: 'dsc_nome',
+				expression: function (filterText, value, index, array) {
+					if (filterText.length >= 3) {
+						$ionicLoading.show();
+						$timeout(function() {
+							FactoryBirthdays.birthdaysWSgetByLike(filterText).then(function (response) {
+								$ionicLoading.hide();
+								$scope.birthdays = response.data;
+							}, function (erro) {
+								$ionicLoading.hide();
+								$rootScope.alert = { type: "", message: erro };
+							});
+						}, 2500);
+					}
+				}
+			});
+		};
 	
 		// REFRESH NOTICIAS
 		$scope.doRefresh = function () {
 			$rootScope.alert = null;
-			FactoryBirthdays.all().then(function (response) {
-				$scope.birthdays = response;
+			FactoryBirthdays.refresh().then(function (response) {
+				$scope.birthdays = response.data;
 				$scope.reset();
 				$scope.$broadcast('scroll.refreshComplete');
 			}, function (erro) {
@@ -29,7 +52,12 @@ angular.module('isgh.BirthdaysCtrl', ['ngSanitize'])
 		
 		$scope.reset = function () {
 			var date = new Date();
-			$scope.data = {"day":date.getDate(), "month":date.getMonth()+1};
+			$scope.data = { "day": date.getDate(), "month": date.getMonth() + 1 };
+			if (filterBarInstance) {
+				filterBarInstance();
+				filterBarInstance = null;
+			}
+
 		};
 		$scope.reset();
 		
@@ -52,15 +80,19 @@ angular.module('isgh.BirthdaysCtrl', ['ngSanitize'])
 		
 		$scope.searchBirthday = function (data) {
 			if (data) {
-
+				$ionicLoading.show();
 				$rootScope.alert = null;
+				if (filterBarInstance) {
+					filterBarInstance();
+					filterBarInstance = null;
+				}
 				//data.day = (data.day < 10) ? ('0' + data.day) : data.day;
 				//data.month = (data.month < 10) ? ('0' + data.month) : data.month;
 				FactoryBirthdays.birthdaysWSgetByDate(data).then(function (response) {
-					$scope.$broadcast('scroll.refreshComplete');
+					$ionicLoading.hide();
 					$scope.birthdays = response.data;
 				}, function (erro) {
-					$scope.$broadcast('scroll.refreshComplete');
+					$ionicLoading.hide();
 					$rootScope.alert = { type: "", message: erro };
 				});
 

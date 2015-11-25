@@ -8,7 +8,6 @@ angular.module('isgh.NewsCtrl', ['ngSanitize'])
 		return item;
 	});
 	
-	
 	$scope.showFilterBar = function () {
 		$ionicFilterBar.show({
 		cancelText: 'Cancelar',
@@ -19,9 +18,6 @@ angular.module('isgh.NewsCtrl', ['ngSanitize'])
 		filterProperties: 'title'
       });
     };
-	
-	
-	
 	
 	// REFRESH NOTICIAS
 	$scope.doRefresh = function () {
