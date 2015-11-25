@@ -1,22 +1,15 @@
 <ion-view view-title="Notícias">
 
   <ion-nav-buttons side="primary">
-    <button class="button icon ion-person button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}"></button>
+    <button class="button ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" ng-click="showFilterBar()"></button>
   </ion-nav-buttons>
-  <ion-nav-buttons side="secondary">
-    <button class="button icon ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}"></button>
-  </ion-nav-buttons>
-
-  <!--<ui-alert-bar alert="alert"></ui-alert-bar>-->
-
-  <!--<ui-jumbotron icon="ion-ios-home">Não há notícias para exibir</ui-jumbotron>-->
 
   <ion-content class="has-header">
 
     <ion-refresher on-refresh="doRefresh()"></ion-refresher>
     
     <div ng-if="news.length == 0">
-      <ui-jumbotron icon="ion-ios-home">Não há Notícia no momento</ui-jumbotron>
+      <ui-jumbotron icon="ion-ios-home">Não há Notícia para exibir</ui-jumbotron>
     </div>
     
     <div class="list" ng-repeat="itemNew in news">

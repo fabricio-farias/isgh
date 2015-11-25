@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDelegateProvider, $ionicConfigProvider) {
+app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDelegateProvider, $ionicConfigProvider, $ionicFilterBarConfigProvider) {
 
   $sceDelegateProvider.resourceUrlWhitelist(['.*']);
 
@@ -13,8 +13,13 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
   //$ionicConfigProvider.scrolling.jsScrolling(false);
   // $ionicConfigProvider.tabs.position('bottom');
   // $ionicConfigProvider.tabs.style('standard');
-    
-    
+  $ionicFilterBarConfigProvider.placeholder('Buscar');
+  if (ionic.Platform.isIOS()) {
+    $ionicFilterBarConfigProvider.theme('light');
+  } else if (ionic.Platform.isAndroid()) {
+    $ionicFilterBarConfigProvider.theme('info');
+  }
+      
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.

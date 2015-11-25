@@ -55,6 +55,7 @@
   <platform name="ios">
       <allow-intent href="itms:*" />
       <allow-intent href="itms-apps:*" />
+      <preference name="KeyboardDisplayRequiresUserAction" value="false"/>
   </platform>
   
 </widget>

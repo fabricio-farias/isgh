@@ -1,17 +1,13 @@
 <ion-view view-title="Aniversários">
 
   <ion-nav-buttons side="primary">
-    <button class="button icon ion-person button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}"></button>
-  </ion-nav-buttons>
-
-  <ion-nav-buttons side="secondary">
-    <button class="button icon ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}"></button>
+    <button class="button ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" ng-click="showFilterBar()"></button>
   </ion-nav-buttons>
 
   <ion-content ng-class="{'has-header': isIOS}">
 
     <ion-refresher on-refresh="doRefresh()"></ion-refresher>
-
+    
     <div class="list">
       <div class="item item-divider app-item-no-border">
         <h2 class="app-no-white-space app-font-size-80 app-font-color-stable">Você pode realizar pesquisas dos aniversariantes através de uma data específica</h2>
@@ -47,7 +43,10 @@
         </div>
         
       </form>
-      
+    </div>
+    
+    <div ng-if="birthdays.length == 0">
+      <ui-jumbotron icon="ion-ios-home">Não há Aniversariantes para exibir</ui-jumbotron>
     </div>
 
     <div class="list card" ng-repeat="birthday in birthdays">

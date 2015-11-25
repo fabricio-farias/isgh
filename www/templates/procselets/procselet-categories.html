@@ -1,9 +1,13 @@
 <ion-view view-title="{{sname}}">
 
+  <ion-nav-buttons side="secondary">
+    <button class="button ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" ng-click="showFilterBar()"></button>
+  </ion-nav-buttons>
+  
   <ion-content ng-class="{'has-header': isIOS}">
 
     <div ng-if="categories.length == 0">
-      <ui-jumbotron icon="ion-ios-people">Não há {{sname}} no momento</ui-jumbotron>
+      <ui-jumbotron icon="ion-ios-people">Não há {{sname}} para exibir</ui-jumbotron>
     </div>
 
     <div class="list">

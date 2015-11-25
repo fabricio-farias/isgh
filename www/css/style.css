@@ -194,7 +194,7 @@ iframe, .app-iframe-issue .scroll{width: 100%!important;height: 100%!important;}
 
 /*JUMBOTRON*/
 /*===============================*/
-.jumbotron {padding-top: 20%;color: inherit;background-color: #eee;position: relative;text-align: center;height: inherit;top: 44px;}
+.jumbotron {padding-top: 20%;color: inherit;position: relative;text-align: center;height: inherit;top: 44px;}
 .jumbotron .h1, .jumbotron h1 {font-size: 63px;color: #999;text-shadow: 1px 1px 1px #fff;-webkit-text-shadow: 1px 1px 1px #fff;}
 .jumbotron p {margin-bottom: 15px;font-size: 21px;font-weight: 200;color: #999;text-shadow: 1px 1px 1px #fff;-webkit-text-shadow: 1px 1px 1px #fff;}
 /*===============================*/
@@ -233,3 +233,6 @@ iframe, .app-iframe-issue .scroll{width: 100%!important;height: 100%!important;}
 .card.card-radius-6 .item:first-child, .list-inset.card-radius-6 .item:first-child, .padding > .list.card-radius-6 .item:first-child{border-top-left-radius: 6px;border-top-right-radius: 6px;}
 .card.card-radius-6 .item:last-child, .list-inset.card-radius-6 .item:last-child, .padding > .list.card-radius-6 .item:last-child{border-bottom-right-radius: 6px;border-bottom-left-radius: 6px;}
 /*===============================*/
+
+
+/*.filter-bar .filter-bar-wrapper .item-input-inset .item-input-wrapper{background: #305788;color:#FFF;}*/

@@ -1,12 +1,23 @@
 angular.module('isgh.LecturesCtrl', ['ngSanitize'])
 
-.controller('LecturesCtrl', function ($scope, $filter, $rootScope, Constant, ResolveLectures, FactoryLectures) {
+.controller('LecturesCtrl', function ($scope, $filter, $rootScope, $ionicFilterBar, Constant, ResolveLectures, FactoryLectures) {
 
 	$scope.url_site = Constant.url_site;
 	$scope.lectures = ResolveLectures.map(function (item) {
 		item.status = JSON.parse(item.status);
 		return item;
 	});
+	
+	$scope.showFilterBar = function () {
+		$ionicFilterBar.show({
+		cancelText: 'Cancelar',
+        items: $scope.lectures,
+        update: function (filtered) {
+          $scope.lectures = filtered;
+        },
+		filterProperties: 'title'
+      });
+    };
 	
 	// refresh na pagina sera incluido em breve
 	$scope.doRefresh = function () {
