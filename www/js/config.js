@@ -26,6 +26,21 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
   // Each state's controller can be found in controllers.js
   $stateProvider
   
+    .state('login', {
+      url: '/login',
+      templateUrl: 'templates/login/login.html',
+      controller: 'LoginCtrl',
+      resolve: {
+        ResolveLogin: function (FactoryProfile, $state) {
+          FactoryProfile.checkLogin().then(function (response) {
+            if (response[0].dsc_logged === 1) {
+              $state.go('tab.news');
+            }
+          });
+        }
+      }
+    })
+    
   // setup an abstract state for the tabs directive
     .state('tab', {
       url: '/tab',
@@ -261,8 +276,28 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
       }
     })
     
-
+    .state('tab.profile', {
+      url: '/profile',
+      views: {
+        'tab-profile': {
+          templateUrl: 'templates/profile/profile.html',
+          controller: 'ProfileCtrl',
+          resolve: {
+            ResolveProfile: function (FactoryProfile, $ionicLoading, $rootScope) {
+              $ionicLoading.show();
+              return FactoryProfile.getProfile().then(function (response) {
+                $ionicLoading.hide();
+                return response;
+              }, function (erro) {
+                $ionicLoading.hide();
+                return $rootScope.alert = { type: "", message: erro };
+              })
+            }
+          }
+        }
+      }
+    })
+    
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/news');
-
+   $urlRouterProvider.otherwise('/login');
 });

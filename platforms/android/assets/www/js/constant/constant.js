@@ -128,6 +128,24 @@ angular.module('isgh.Constant', []).constant("Constant", {
 					'dsc_filial text',
 					'dat_nasc text'
 				]
+			},
+			profile: {
+				name: 'profile',
+				indexes: [
+					'num_matricula',
+					'dsc_nome',
+					'dsc_filial'
+				],
+				columns: [
+					'num_matricula integer',
+					'num_pis text',
+					'dsc_nome text',
+					'dsc_funcao text',
+					'dsc_setor text',
+					'dsc_filial text',
+					'dat_nasc text',
+					'dsc_logged integer'
+				]
 			}
 		}
 	}

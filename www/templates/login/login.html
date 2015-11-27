@@ -1,0 +1,40 @@
+<ion-view hide-nav-bar="true" class="bg-light">
+  <ion-content padding="false">
+
+    <img class="app-full-size" src="img/login-top.png"/>
+
+    <form name="loginForm" style="margin-top: 50px;">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label app-input-label app-font-size-80">Matrícula:</span>
+          <input type="text" ng-model="login.num_matricula" name="num_matricula" ng-required="true">
+        </label>
+        <label class="item item-input">
+          <span class="input-label app-input-label app-font-size-80">Senha:</span>
+          <input type="password" ng-model="login.dsc_senha" name="dsc_senha" ng-required="true">
+        </label>
+
+        <label class="item item-input item-select">
+          <div class="input-label app-input-label app-font-size-80">
+            Filial:
+          </div>
+          <select class="app-font-size-70 app-item-select" ng-model="login.isn_filial" name="isn_filial" ng-required="true">
+            <option value="">Selecione</option>
+            <option ng-repeat="f in filiais" value="{{f.isn_filial}}">{{f.dsc_filial}}</option>
+          </select>
+        </label>
+      </div>
+      
+      <div class="padding">
+        <div class="item item-info app-item-no-padding">
+          <button class="button button-block button-clear button-light app-item-no-margin" ng-click="searchProfile(login)" ng-disabled="!loginForm.$valid">
+            Entrar
+          </button>
+        </div>
+      </div>
+    </form>
+    
+    <img class="app-full-size" src="img/login-footer.png"/>
+
+  </ion-content>
+</ion-view>
