@@ -11,6 +11,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
 
   $ionicConfigProvider.backButton.text('');
   $ionicConfigProvider.backButton.previousTitleText(false);
+  $ionicConfigProvider.scrolling.jsScrolling(true);
   
   $ionicFilterBarConfigProvider.placeholder('Buscar');
   if (ionic.Platform.isIOS()) {

@@ -239,6 +239,7 @@ typedef struct JsonHttpResponse {
             [SSZipArchive unzipFileAtPath:filePath toDestination:extractPath delegate:self];
             [self saveVersion:upstream_uuid];
             [self excludeVersionFromBackup:uuid];
+            [self updateVersionLabel:NOTHING_TO_IGNORE];
             BOOL success = [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
             NSLog(@"Unzipped...");
             NSLog(@"Removing www.zip %d", success);

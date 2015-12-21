@@ -14,6 +14,7 @@
     <!-- <link href="css/ionic.app.css" rel="stylesheet"> -->
     
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="lib/ionic-filter-bar/dist/ionic.filter.bar.css" rel="stylesheet">
     <link href="css/style-colors.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <!--<link href="lib/pace/pace.css" rel="stylesheet">-->
@@ -23,22 +24,26 @@
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
     <script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
+    
     <script src="lib/ionic-service-core/ionic-core.js"></script>
     <script src="lib/ionic/js/ionic-angular-locale_pt-br.js"></script>
     <script src="lib/css/angular-css.min.js"></script>
+    <script src="lib/ionic-filter-bar/dist/ionic.filter.bar.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
     <!--<script src="lib/ngCordova/dist/ng-cordova-mocks.min.js"></script>-->
     <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
-<!-- <script src="cordova.js"></script> -->
+    <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
+    <!-- <script src="cordova.js"></script> -->
 
     <!--CONTROLLERS-->
     <script src="js/controllers/NewsCtrl.js"></script>
     <script src="js/controllers/LecturesCtrl.js"></script>
     <script src="js/controllers/EventsCtrl.js"></script>
-    <script src="js/controllers/SelectionProcessesCtrl.js"></script>
-    <script src="js/controllers/AccountCtrl.js"></script>
+    <script src="js/controllers/ProcseletsCtrl.js"></script>
+    <script src="js/controllers/BirthdaysCtrl.js"></script>
+    <script src="js/controllers/ProfileCtrl.js"></script>
     
     <!--FILTERS-->
     <script src="js/filters/EllipsisFilter.js"></script>
@@ -57,6 +62,9 @@
     <script src="js/services/newsAPIservices.js"></script>
     <script src="js/services/lecturesAPIservices.js"></script>
     <script src="js/services/eventsAPIservices.js"></script>
+    <script src="js/services/procseletsAPIservices.js"></script>
+    <script src="js/services/birthdaysAPIservices.js"></script>
+    <script src="js/services/profileAPIservices.js"></script>
     
     <!--MOMENT-->
     <script src="lib/moment/moment-with-locales.js"></script>
@@ -65,6 +73,7 @@
     <!--DIRECTIVES-->
     <script src="js/directives/uiAlertBar.js"></script>
     <script src="js/directives/uiJumbotron.js"></script>
+    <script src="js/directives/hideTabs.js"></script>
     
     <!--PACE-->
     <!--<script src="lib/pace/pace.min.js"></script>-->
@@ -75,7 +84,7 @@
     
   <!--JS-->
   </head>
-  <body ng-app="isgh" class="platform-ios platform-cordova platform-webview">
+  <body ng-app="isgh">
     <!--
       The nav bar that will be updated as we navigate between views.
     -->
@@ -84,7 +93,7 @@
       <ion-nav-back-button class="button-clear button-info"></ion-nav-back-button>
     </ion-nav-bar>
     
-    <ion-nav-bar ng-if="isAndroid" align-title="center" class="bar-info has-tabs-top">
+    <ion-nav-bar ng-if="isAndroid" class="bar-info has-tabs-top" align-title="center">
       <ion-nav-back-button class="button-clear"></ion-nav-back-button>
     </ion-nav-bar>
     <!--

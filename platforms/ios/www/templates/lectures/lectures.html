@@ -1,11 +1,8 @@
 <ion-view hide-back-button="true">
-  <ion-nav-buttons side="primary">
-    <button class="button icon ion-person button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}"></button>
-  </ion-nav-buttons>
   
   <ion-nav-title>
     <div class="bar bar-header" ng-if="isIOS">
-      <div class="button-bar button-bar-group">
+      <div class="button-bar bar-small">
         <a nav-transition="none" class="button button-outline active" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" href="#/tab/lectures">Cursos</a>
         <a nav-transition="none" class="button button-outline" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" href="#/tab/events">Eventos</a>
       </div>
@@ -13,8 +10,8 @@
     <div ng-if="isAndroid">Ensino e Pesquisa</div>
   </ion-nav-title>
   
-  <ion-nav-buttons side="secondary">
-    <button class="button icon ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}"></button>
+  <ion-nav-buttons side="primary">
+    <button class="button ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" ng-click="showFilterBar()"></button>
   </ion-nav-buttons>
   
   <!--<ui-alert-bar alert="alert"></ui-alert-bar>-->
@@ -22,44 +19,43 @@
   <ion-content ng-class="{'has-header': isIOS, 'has-footer': isAndroid}">
 
     <ion-refresher on-refresh="doRefresh()"></ion-refresher>
-
+    
+    <div ng-if="lectures.length == 0">
+      <ui-jumbotron icon="ion-ios-book">Não há Cursos para exibir</ui-jumbotron>
+    </div>
+    
     <div class="list">
-      <a class="item item-thumbnail-left" href="#/tab/lectures/{{lecture.id}}/{{lecture.register_planning}}" ng-repeat="lecture in lectures">
-        <img ng-src="{{url_site + lecture.thumbnail}}" style="height: auto;max-height: 80%;">
+      <a class="item item-thumbnail-left" ui-sref="tab.lecture({lecture: lecture})" ng-repeat="lecture in lectures">
+        <img ng-if="(lecture.thumbnail)" ng-src="{{url_site + lecture.thumbnail}}" style="height: auto;max-height: 80%;">
         <h2 class="app-title-clamp-two app-title-small">{{lecture.title}}</h2>
         
         <div ng-if="lecture.register_planning <= 0">
-          <div class="button-bar">
-            <div class="button button-small button-outline button-light active" style="max-width: 42px;"><i class="icon ion-ios-location"></i></div>
-            <div class="button button-small button-clear button-stable app-text-align-left">{{lecture.location}} - {{lecture.location_alias | uppercase}}</div>
+          <div class="item-input">
+            <p><div class="button button-small button-outline icon ion-ios-location button-light active"></div><span class="app-font-size-90 app-font-color-stable" style="margin-left: 10px;">{{lecture.location}}</span></p>
           </div>
-          <p></p>
-          <div class="button-bar">
-            <div class="button button-small button-outline button-{{lecture.status.color}} active" style="max-width: 42px;"><i class="icon ion-flag"></i></div>
-            <div class="button button-small button-clear button-{{lecture.status.color}} app-text-align-left">{{lecture.status.desc1+" "+lecture.status.desc2}}</div>
+          <div class="item-input">
+            <p><div class="button button-small button-outline icon ion-ios-flag button-{{lecture.status.color}} active"></div><span class="app-font-size-90 {{lecture.status.color}}" style="margin-left: 10px;">{{lecture.status.desc1+" "+lecture.status.desc2}}</span></p>
           </div>
         </div>
         
         <div ng-if="lecture.register_planning > 0">
-          <div class="button-bar">
-            <div class="button button-small button-outline button-light active" style="max-width: 42px;"><i class="icon ion-ios-location"></i></div>
-            <div class="button button-small button-clear button-stable app-text-align-left">{{lecture.location}} - {{lecture.location_alias | uppercase}}</div>
+          <div class="item-input">
+            <p><div class="button button-small button-outline icon ion-ios-location button-light active"></div><span class="app-font-size-90 app-font-color-stable" style="margin-left: 10px;">{{lecture.location}}</span></p>
           </div>
-          <p></p>
-          <div class="button-bar">
-            <div class="button button-small button-outline button-dark active" style="max-width: 42px;"><i class="icon ion-flag"></i></div>
-            <div class="button button-small button-clear button-dark app-text-align-left">{{lecture.status.desc1+" "+lecture.status.desc2}}</div>
+          <div class="item-input">
+            <p><div class="button button-small button-outline icon ion-ios-flag button-dark active"></div><span class="app-font-size-90 dark" style="margin-left: 10px;">{{lecture.status.desc1+" "+lecture.status.desc2}}</span></p>
           </div>
         </div>
+
       </a>
     </div>
 
   </ion-content>
 
-  <div ng-if="isAndroid" class="bar bar-footer bar-light">
-      <div class="button-bar button-bar-group">
-        <a nav-transition="none" class="button button-outline button-info active" href="#/tab/lectures">Cursos</a>
-        <a nav-transition="none" class="button button-outline button-info" href="#/tab/events">Eventos</a>
+  <div ng-if="isAndroid" class="bar bar-footer">
+      <div class="button-bar bar-light">
+        <a nav-transition="none" class="button info active" href="#/tab/lectures">Cursos</a>
+        <a nav-transition="none" class="button info" href="#/tab/events">Eventos</a>
       </div>
   </div>
 

@@ -1,6 +1,6 @@
 angular.module("uiAlertBar", []);
 angular.module("uiAlertBar").run(function ($templateCache) {
-	var html = '<div id="alert-bar" class="alert-bar" ng-class="[getColor(alert.type), isActive(alert)]"><div>{{alert.message}}<i class="ion-android-close" ng-click="hideBar()"></i></div></div>';
+	var html = '<div id="alert-bar" class="alert-bar" ng-class="[getColor(alert.type), isActive(alert)]"><div>{{alert.message}}</div><i class="ion-android-close" ng-click="hideBar()"></i></div>';
 	$templateCache.put("templates/directives/alert-bar.html", html);
 });
 

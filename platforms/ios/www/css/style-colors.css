@@ -814,7 +814,7 @@
     border-width: 2px 0 0 0;
     border-color: #fff; }
 	
-	.tabs-striped.tabs-background-info .tabs {
+.tabs-striped.tabs-background-info .tabs {
   background-color: #37639B;
   background-image: none; }
 .tabs-striped.tabs-background-success .tabs {
@@ -943,42 +943,42 @@
       top: 2px;
       opacity: 1; }
 
-.tabs-background-info .tabs, .tabs-background-info > .tabs {
+.tabs-background-info.tabs, .tabs-background-info > .tabs {
   background-color: #37639B;
   background-image: linear-gradient(0deg, #305788, #305788 50%, transparent 50%);
   border-color: #305788; }
 
-.tabs-background-success .tabs, .tabs-background-success > .tabs {
+.tabs-background-success.tabs, .tabs-background-success > .tabs {
   background-color: #19839b;
   background-image: linear-gradient(0deg, #157085, #157085 50%, transparent 50%);
   border-color: #157085; }
 
-.tabs-background-warning .tabs, .tabs-background-warning > .tabs {
+.tabs-background-warning.tabs, .tabs-background-warning > .tabs {
   background-color: #f5ae33;
   background-image: linear-gradient(0deg, #f39f0c, #f39f0c 50%, transparent 50%);
   border-color: #f39f0c; }
 
-.tabs-background-danger .tabs, .tabs-background-danger > .tabs {
+.tabs-background-danger.tabs, .tabs-background-danger > .tabs {
   background-color: #b80b24;
   background-image: linear-gradient(0deg, #a00a1f, #a00a1f 50%, transparent 50%);
   border-color: #a00a1f; }
 
-.tabs-background-green .tabs, .tabs-background-green > .tabs {
+.tabs-background-green.tabs, .tabs-background-green > .tabs {
   background-color: #2D6534;
   background-image: linear-gradient(0deg, #25532b, #25532b 50%, transparent 50%);
   border-color: #25532b; }
 
-.tabs-background-tang .tabs, .tabs-background-tang > .tabs {
+.tabs-background-tang.tabs, .tabs-background-tang > .tabs {
   background-color: #CB6018;
   background-image: linear-gradient(0deg, #b45515, #b45515 50%, transparent 50%);
   border-color: #b45515; }
 
-.tabs-background-blue .tabs, .tabs-background-blue > .tabs {
+.tabs-background-blue.tabs, .tabs-background-blue > .tabs {
   background-color: #0d4772;
   background-image: linear-gradient(0deg, #0a395b, #0a395b 50%, transparent 50%);
   border-color: #0a395b; }
 
-.tabs-background-red .tabs, .tabs-background-red > .tabs {
+.tabs-background-red.tabs, .tabs-background-red > .tabs {
   background-color: #A01027;
   background-image: linear-gradient(0deg, #890e21, #890e21 50%, transparent 50%);
   border-color: #890e21; }

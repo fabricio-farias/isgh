@@ -1,6 +1,11 @@
 Changelog
 =========
 
+
+## 0.4.1
+
+* (fix) iOS now correctly updates the version label on deploy extraction
+
 ## 0.4.0
 
 * Added `getMetadata` method to fetch deploy metadata

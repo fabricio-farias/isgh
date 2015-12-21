@@ -14,7 +14,7 @@ angular.module('isgh.lecturesAPIservices', ['isgh.dbAPIservices'])
       $http.get(Constant.url_wsapp + 'site/?op=lectures&fu=All').then(function (response) {
         deferred.resolve(response);
       }, function (erro) {
-        deferred.reject("Sem conexão com a Internet");
+        deferred.reject("Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente");
       });
 
       return deferred.promise;
@@ -36,7 +36,7 @@ angular.module('isgh.lecturesAPIservices', ['isgh.dbAPIservices'])
               });
               deferred.resolve(response);
             } else {
-              deferred.reject("Restabelecendo conexão perdida com ISGH");
+              deferred.reject("Restabelecendo conexão perdida com servidor");
             }
           }, function (erro) {
             deferred.reject(erro);
@@ -62,7 +62,7 @@ angular.module('isgh.lecturesAPIservices', ['isgh.dbAPIservices'])
           });
           deferred.resolve(response);
         } else {
-          deferred.reject("Restabelecendo conexão perdida com ISGH");
+          deferred.reject("Restabelecendo conexão perdida com servidor");
         }
       }, function (erro) {
         deferred.reject(erro);

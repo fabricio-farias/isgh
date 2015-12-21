@@ -4,7 +4,7 @@ Each tab's child <ion-nav-view> directive will have its own
 navigation history that also transitions its views in and out.
 -->
 
-<ion-tabs ng-if="isIOS" class="tabs-icon-top tabs-bottom tabs-background-info tabs-color-light">
+<ion-tabs ng-if="isIOS" class="tabs-icon-top tabs-bottom tabs-background-info tabs-color-light" ng-class="{'tabs-item-hide': hideTabs}">
 
   <!-- Página Inicial Tab -->
   <ion-tab title="Notícias" icon-off="ion-ios-home-outline" icon-on="ion-ios-home" href="#/tab/news">
@@ -17,19 +17,24 @@ navigation history that also transitions its views in and out.
   </ion-tab>
 
   <!-- Processos Seletivos Tab -->
-  <ion-tab title="Seleção" icon-off="ion-ios-people-outline" icon-on="ion-ios-people" href="#/tab/selection-processes">
-    <ion-nav-view name="tab-selection-processes"></ion-nav-view>
+  <ion-tab title="Processos Seletivos" icon-off="ion-ios-people-outline" icon-on="ion-ios-people" href="#/tab/procselets">
+    <ion-nav-view name="tab-procselets"></ion-nav-view>
   </ion-tab>
   
-  <!-- Perfil Usuário Tab -->
-  <ion-tab title="Perfil" icon-off="ion-ios-person-outline" icon-on="ion-person" href="#/tab/account">
-    <ion-nav-view name="tab-account"></ion-nav-view>
+  <!-- Perfil Aniverários Tab -->
+  <ion-tab title="Aniversários" icon-off="ion-ios-calendar-outline" icon-on="ion-ios-calendar" href="#/tab/birthdays">
+    <ion-nav-view name="tab-birthdays"></ion-nav-view>
+  </ion-tab>
+  
+  <!-- Perfil Usuarios Tab -->
+  <ion-tab title="Usuário" icon-off="ion-ios-person-outline" icon-on="ion-ios-person" href="#/tab/profile">
+    <ion-nav-view name="tab-profile"></ion-nav-view>
   </ion-tab>
 
 
 </ion-tabs>
 
-<ion-tabs ng-if="isAndroid" class="tabs-striped tabs-top tabs-background-info tabs-color-light">
+<ion-tabs ng-if="isAndroid" class="tabs-striped tabs-top tabs-background-info tabs-color-light" ng-class="{'tabs-item-hide': hideTabs}">
 
   <!-- Página Inicial Tab -->
   <ion-tab title="Notícias" icon-off="ion-ios-home-outline" icon-on="ion-ios-home" href="#/tab/news">
@@ -42,13 +47,18 @@ navigation history that also transitions its views in and out.
   </ion-tab>
 
   <!-- Processos Seletivos Tab -->
-  <ion-tab title="Seleção" icon-off="ion-ios-people-outline" icon-on="ion-ios-people" href="#/tab/selection-processes">
-    <ion-nav-view name="tab-selection-processes"></ion-nav-view>
+  <ion-tab title="Processos Seletivos" icon-off="ion-ios-people-outline" icon-on="ion-ios-people" href="#/tab/procselets">
+    <ion-nav-view name="tab-procselets"></ion-nav-view>
   </ion-tab>
   
-  <!-- Perfil Usuário Tab -->
-  <ion-tab title="Perfil" icon-off="ion-ios-person-outline" icon-on="ion-person" href="#/tab/account">
-    <ion-nav-view name="tab-account"></ion-nav-view>
+  <!-- Perfil Aniversarios Tab -->
+  <ion-tab title="Aniversários" icon-off="ion-ios-calendar-outline" icon-on="ion-ios-calendar" href="#/tab/birthdays">
+    <ion-nav-view name="tab-birthdays"></ion-nav-view>
+  </ion-tab>
+  
+  <!-- Perfil Usuarios Tab -->
+  <ion-tab title="Usuário" icon-off="ion-ios-person-outline" icon-on="ion-ios-person" href="#/tab/profile">
+    <ion-nav-view name="tab-profile"></ion-nav-view>
   </ion-tab>
 
 

@@ -1,4 +1,11 @@
 {
   "name": "isgh",
-  "app_id": "62db4c01"
+  "app_id": "62db4c01",
+  "browsers": [
+    {
+      "platform": "android",
+      "browser": "crosswalk",
+      "version": "12.41.296.5"
+    }
+  ]
 }

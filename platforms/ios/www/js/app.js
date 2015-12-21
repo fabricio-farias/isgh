@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-var app = angular.module('isgh', ['ionic','ionic.service.core',  'ngCordova', 'door3.css', 'isgh.Constant', 'isgh.ionicLoadingConfig', 'isgh.emailAPIprovider', 'isgh.dbAPIservices', 'isgh.NewsCtrl', 'isgh.LecturesCtrl', 'isgh.EventsCtrl', 'isgh.SelectionProcessesCtrl', 'isgh.AccountCtrl', 'isgh.EllipsisFilter', 'isgh.CapcaseFilter', 'angularMoment', 'isgh.DateRelativeFilter', 'isgh.newsAPIservices', 'isgh.lecturesAPIservices', 'isgh.eventsAPIservices', 'uiAlertBar','uiJumbotron'])
+var app = angular.module('isgh', ['ionic','ionic.service.core', 'jett.ionic.filter.bar', 'ngCordova', 'door3.css', 'isgh.Constant', 'isgh.ionicLoadingConfig', 'isgh.emailAPIprovider', 'isgh.dbAPIservices', 'isgh.NewsCtrl', 'isgh.LecturesCtrl', 'isgh.EventsCtrl', 'isgh.ProcseletsCtrl', 'isgh.BirthdaysCtrl', 'isgh.profileAPIservices', 'isgh.ProfileCtrl', 'isgh.EllipsisFilter', 'isgh.CapcaseFilter', 'angularMoment', 'isgh.DateRelativeFilter', 'isgh.newsAPIservices', 'isgh.lecturesAPIservices', 'isgh.eventsAPIservices', 'isgh.procseletsAPIservices', 'isgh.birthdaysAPIservices', 'isgh.profileAPIservices', 'uiAlertBar','uiJumbotron','hideTabs'])
 
   .run(function ($ionicPlatform, $cordovaInAppBrowser, $rootScope, $cordovaSQLite, amMoment, DB) {
 
@@ -31,27 +31,26 @@ var app = angular.module('isgh', ['ionic','ionic.service.core',  'ngCordova', 'd
       
       // GATILHO PARA ALTERAR A COR DA UNIDADE
       $rootScope.checkColor = function (elem) {
-        switch (elem) {
-          case "ISGH":
-            return "info";
-            break;
-          case "HGWA":
-          case "HRC":
-          case "HRN":
-            return "success";
-            break;
-          case "UPA":
-            return "danger";
-            break;
-          case 'APS':
-            return "warning";
-            break;
-          default:
-            return "info";
-            break;
-        }
+        
+        var units = [
+          { name: "ISGH", color: "info" },
+          { name: "HGWA", color: "success" },
+          { name: "HRN", color: "success" },
+          { name: "HRC", color: "success" },
+          { name: "UPA", color: "danger" },
+          { name: "APS", color: "warning" },
+          { name: "SMS", color: "warning" },
+        ];
+        
+        var filtered = units.filter(function (unit) {
+          var search = new RegExp(unit.name, "i");
+          return search.test(elem);
+        });
+        
+        return ((filtered[0]) ? filtered[0].color : 'isgh');
+        
       }
-      
+            
       DB.init();
       amMoment.changeLocale('pt');
 
