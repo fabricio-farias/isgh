@@ -13,7 +13,7 @@
     <div class="list">
 
       <a class="item item-avatar" href="#/tab/procselets/files/{{category.catid}}/{{sname}}" ng-repeat="category in categories">
-        <div class="item-image app-units app-text-uppercase" ng-class="checkColor(category.unit)">{{category.unit}}</div>
+        <div class="item-image app-units app-text-uppercase app-units-{{checkColor(category.unit)}}">{{category.unit}}</div>
 
         <div class="item-input">
           <h2 class="app-title-clamp-two">{{category.category[0]}}</h2>

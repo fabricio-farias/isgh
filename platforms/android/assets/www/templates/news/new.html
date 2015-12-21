@@ -1,22 +1,21 @@
-<ion-modal-view class="modal-full">
-  <ion-header-bar class="ionic bar-stable">
-    
-    <div class="buttons">
-      <button class="button icon {{backButton}} button-clear button-positive" ng-click="closeModal()"></button>
-    </div>
-    
-    <p class="title app-font-size-100">{{itemNew.title}}</p>
-    
-    <div class="buttons">
-      <button class="button icon app-units" disabled="disabled" ng-class="checkColor(itemNew.unit)">{{itemNew.unit || "ISGH"}}</button>
-    </div>
-    
-  </ion-header-bar>
+<ion-view view-title="" class="bg-light" hide-tabs>
+  
+  <ion-nav-title>
+      <small>{{new.category}}</small>
+      <small class="tiny">{{new.created | DateRelativeFilter}}</small>
+  </ion-nav-title>
+  
+  <ion-nav-buttons side="right">
+    <button class="button button-clear app-item-no-opacity" disabled ng-class="{'button-light':isAndroid, 'button-{{checkColor(new.unit)}}':isIOS}">{{new.unit || "ISGH"}}</button>
+  </ion-nav-buttons>
+  
+  <div class="item item-{{checkColor(new.unit)}} item-text-wrap has-header app-font-size-100" style="padding: 6px 10px;">
+    {{new.title}}
+  </div>
+  <ion-scroll zooming="true" direction="xy" delegate-handle="mimagesScroll" class="app-full-size has-header" min-zoom="1">
+    <ion-content class="bg-light app-zoom-page padding jcontent" padding="true" scroll="true" overflow-scroll="true" ng-bind-html="renderHTML(new)"></ion-content>
+  </ion-scroll>
+  
+  
 
-  <ion-scroll zooming="true" delegate-handle="modalScroll" direction="xy" class="app-full-size">
-    <ion-content padding="true" scroll="true" overflow-scroll="true" class="app-item-page padding" ng-bind-html="renderHTML(itemNew.introtext)"></ion-content>
- </ion-scroll>
-    
-    <!--<ion-content padding="true" class="app-iframe-issue" ng-bind-html="renderIFRAME(itemNew.newsid)"></ion-content>-->
-
-</ion-modal-view>
+</ion-view>

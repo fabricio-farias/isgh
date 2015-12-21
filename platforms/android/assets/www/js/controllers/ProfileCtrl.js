@@ -1,28 +1,39 @@
 angular.module('isgh.ProfileCtrl', ['ngSanitize'])
 
-	.controller('LoginCtrl', function ($scope, $filter, $ionicLoading, $rootScope, $ionicPopup, $state, Constant, FactoryProfile) {
+	.controller('LoginCtrl', function ($scope, $filter, $ionicLoading, $rootScope, $ionicPopup, $state, Constant, FactoryProfile, FactoryProfileLocal, FactoryNews) {
+		
+		$scope.profile = FactoryProfileLocal.getTbProfile();
+
+		if ($scope.profile != null && $scope.profile.dsc_logged == 1) {
+			$state.go('tab.news');
+		}
 		
 		var objFiliais = [
-			{isb_filial: "8", dsc_filial: "HGWA"},
-			{isb_filial: "2", dsc_filial: "HRC"},
-			{isb_filial: "7", dsc_filial: "HRN"},
-			{isb_filial: "1", dsc_filial: "ISGH"},
-			{isb_filial: "15", dsc_filial: "PRIMILAB GESTÃO DE LABORATÓRIO"},
-			{isb_filial: "9", dsc_filial: "SMS"},
-			{isb_filial: "4", dsc_filial: "UPA A. NUNES"},
-			{isb_filial: "6", dsc_filial: "UPA CANINDEZINHO"},
-			{isb_filial: "11", dsc_filial: "UPA C. CEARÁ"},
-			{isb_filial: "13", dsc_filial: "UPA ITAPERY"},
-			{isb_filial: "14", dsc_filial: "UPA JANGURUSSU"},
-			{isb_filial: "10", dsc_filial: "UPA J. WALTER"},
-			{isb_filial: "5", dsc_filial: "UPA MESSEJANA"},
-			{isb_filial: "3", dsc_filial: "UPA P. FUTURO"},
-			{isb_filial: "12", dsc_filial: "UPA PIRAMBU"}
+			{isn_filial: "8", dsc_filial: "HGWA"},
+			{isn_filial: "2", dsc_filial: "HRC"},
+			{isn_filial: "7", dsc_filial: "HRN"},
+			{isn_filial: "1", dsc_filial: "ISGH"},
+			{isn_filial: "15", dsc_filial: "PRIMILAB GESTÃO DE LABORATÓRIO"},
+			{isn_filial: "9", dsc_filial: "SMS"},
+			{isn_filial: "4", dsc_filial: "UPA A. NUNES"},
+			{isn_filial: "6", dsc_filial: "UPA CANINDEZINHO"},
+			{isn_filial: "11", dsc_filial: "UPA C. CEARÁ"},
+			{isn_filial: "13", dsc_filial: "UPA ITAPERY"},
+			{isn_filial: "14", dsc_filial: "UPA JANGURUSSU"},
+			{isn_filial: "10", dsc_filial: "UPA J. WALTER"},
+			{isn_filial: "5", dsc_filial: "UPA MESSEJANA"},
+			{isn_filial: "3", dsc_filial: "UPA P. FUTURO"},
+			{isn_filial: "12", dsc_filial: "UPA PIRAMBU"}
 		]
 		
-		FactoryProfile.profileWSgetFilial().then(function (response) {
-			return (response.data.length > 0) ? $scope.filiais = response.data : $scope.filiais = objFiliais;
-		})
+        FactoryProfile.profileWSgetFilial().then(function (response) {
+			$scope.filiais = (response.data.length > 0) ? response.data : objFiliais;
+        }, function (erro) {
+            $ionicPopup.alert({
+                title: 'Sem conexão com a internet',
+                template: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente"
+            });
+        });
 		
 		$scope.searchProfile = function (login) {
 			if (login) {
@@ -31,8 +42,16 @@ angular.module('isgh.ProfileCtrl', ['ngSanitize'])
 				
 				FactoryProfile.doLogin(login).then(function (response) {
 					$ionicLoading.hide();
-					if (response.data.length > 0) {
-						$ionicLoading.hide();
+					if (response.data !== "false") {
+						response.data.isn_filial = login.isn_filial; 
+						response.data.dsc_senha = login.dsc_senha; 
+						response.data.dsc_logged = 1;
+						localStorage.setItem("profile", JSON.stringify(response.data));
+						
+						FactoryNews.newsWSgetToggleLikeds(response.data).then(function (resp) {
+							localStorage.setItem(response.data.num_matricula + "_liked", JSON.stringify(resp.data));
+						});
+						
 						$state.go('tab.news');
 					} else {
 						$ionicPopup.alert({
@@ -42,13 +61,37 @@ angular.module('isgh.ProfileCtrl', ['ngSanitize'])
 					}
 					
 				}, function (erro) {
-					$ionicLoading.hide();
-					$rootScope.alert = { type: "", message: erro };
+					$ionicPopup.alert({
+                        title: 'Sem conexão com a internet',
+                        template: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente"
+                    });
 				});
 			}
 
 		}
 
+		$scope.relogProfile = function (profile) {
+			if (profile) {
+				profile.dsc_logged = 1;
+				localStorage.setItem("profile", JSON.stringify(profile));
+                FactoryNews.newsWSgetToggleLikeds(profile).then(function (response) {
+                    localStorage.setItem(profile.num_matricula + "_liked", JSON.stringify(response.data));
+                    $state.go('tab.news');
+				}, function (erro) {
+					$ionicPopup.alert({
+                        title: 'Sem conexão com a internet',
+                        template: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente"
+                    });
+				});
+			}
+		}
+		
+		$scope.clearProfile = function (profile) {
+			$scope.profile = null;
+			localStorage.removeItem("profile");
+			localStorage.removeItem(profile.num_matricula + "_liked");
+		}
+		
 	})
 	
 	.controller('ProfileCtrl', function ($scope, $filter, $rootScope, ResolveProfile, Constant, FactoryProfile, $state) {
@@ -56,11 +99,9 @@ angular.module('isgh.ProfileCtrl', ['ngSanitize'])
 		
 		$scope.logoutProfile = function (profile) { 
 			if (profile) {
-				FactoryProfile.setLogout().then(function (response) {
-					if (response.rowsAffected > 0) {
-						$state.go('login');
-					}
-				})
+				profile.dsc_logged = 0;
+				localStorage.setItem("profile", JSON.stringify(profile));
+				$state.go('login');
 			}
 		}
 

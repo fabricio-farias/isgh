@@ -62,26 +62,26 @@
       </div>
       
       <div ng-if="lecture.widgetkit_module == 0">
-        <a class="item item-icon-right app-font-size-100" ng-class="ifExists(lecture.form_content_1)" href="#" ng-click="openModal(lecture.form_content_1, 'Sobre o Curso')">
+        <a class="item item-icon-right app-font-size-100" ng-class="ifExists(lecture.form_content_1)" ui-sref="tab.lecture-addons({content: lecture.form_content_1, title: 'Sobre o Curso'})">
           Sobre o Curso
           <i class="icon ion-chevron-right app-font-size-100" ng-class="ifExists(lecture.form_content_1)"></i>
         </a>
-        <a class="item item-icon-right app-font-size-100" ng-class="ifExists(lecture.form_content_2)" href="#" ng-click="openModal(lecture.form_content_2, 'Cronograma')">
+        <a class="item item-icon-right app-font-size-100" ng-class="ifExists(lecture.form_content_2)" ui-sref="tab.lecture-addons({content: lecture.form_content_2, title: 'Cronograma'})">
           Cronograma
           <i class="icon ion-chevron-right app-font-size-100" ng-class="ifExists(lecture.form_content_2)"></i>
         </a>
-        <a class="item item-icon-right app-font-size-100" ng-class="ifExists(lecture.form_content_3)" href="#" ng-click="openModal(lecture.form_content_3, 'Ministrantes')">
+        <a class="item item-icon-right app-font-size-100" ng-class="ifExists(lecture.form_content_3)" ui-sref="tab.lecture-addons({content: lecture.form_content_3, title: 'Ministrantes'})">
           Ministrantes
           <i class="icon ion-chevron-right app-font-size-100" ng-class="ifExists(lecture.form_content_3)"></i>
         </a>
-        <a class="item item-icon-right app-font-size-100" ng-class="ifExists(lecture.form_content_4)" href="#" ng-click="openModal(lecture.form_content_4, 'Informações')">
+        <a class="item item-icon-right app-font-size-100" ng-class="ifExists(lecture.form_content_4)" ui-sref="tab.lecture-addons({content: lecture.form_content_4, title: 'Informações'})">
           Informações
           <i class="icon ion-chevron-right app-font-size-100" ng-class="ifExists(lecture.form_content_4)"></i>
         </a>
       </div>
       
       <div ng-if="lecture.widgetkit_module > 0">
-        <a class="item item-icon-right app-font-size-100" ng-repeat="widgetkit in lecture.widgetkit" ng-class="ifExists(widgetkit.content)" href="#" ng-click="openModal(widgetkit.content, widgetkit.title)">
+        <a class="item item-icon-right app-font-size-100" ng-repeat="widgetkit in lecture.widgetkit" ng-class="ifExists(widgetkit.content)" ui-sref="tab.lecture-addons({content: widgetkit.content, title: widgetkit.title})">
           {{widgetkit.title}}
           <i class="icon ion-chevron-right app-font-size-100" ng-class="ifExists(widgetkit.content)"></i>
         </a>

@@ -58,11 +58,11 @@
     <splash density="port-xxhdpi" src="resources\android\splash\drawable-port-xxhdpi-screen.png" />
     <splash density="port-xxxhdpi" src="resources\android\splash\drawable-port-xxxhdpi-screen.png" />
     <name>ISGH</name>
-    <description>
-        ISGH App Mobile.
+    <description>
+        ISGH App Mobile.
     </description>
-    <author email="fabriciorelicario@gmail.com" href="http://www.isgh.org.br">
-        ISGH - Conteúdo
+    <author email="fabriciorelicario@gmail.com" href="http://www.isgh.org.br">
+        ISGH - Conteúdo
     </author>
     <content src="index.html" />
     <access origin="*" />

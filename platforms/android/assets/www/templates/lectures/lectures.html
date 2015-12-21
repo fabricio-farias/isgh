@@ -1,12 +1,8 @@
 <ion-view hide-back-button="true">
   
-  <ion-nav-buttons side="primary">
-    <button class="button icon ion-person button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}"></button>
-  </ion-nav-buttons>
-  
   <ion-nav-title>
     <div class="bar bar-header" ng-if="isIOS">
-      <div class="button-bar button-bar-group">
+      <div class="button-bar bar-small">
         <a nav-transition="none" class="button button-outline active" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" href="#/tab/lectures">Cursos</a>
         <a nav-transition="none" class="button button-outline" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" href="#/tab/events">Eventos</a>
       </div>
@@ -29,8 +25,8 @@
     </div>
     
     <div class="list">
-      <a class="item item-thumbnail-left" href="#/tab/lectures/{{lecture.id}}/{{lecture.register_planning}}" ng-repeat="lecture in lectures">
-        <img ng-src="{{url_site + lecture.thumbnail}}" style="height: auto;max-height: 80%;">
+      <a class="item item-thumbnail-left" ui-sref="tab.lecture({lecture: lecture})" ng-repeat="lecture in lectures">
+        <img ng-if="(lecture.thumbnail)" ng-src="{{url_site + lecture.thumbnail}}" style="height: auto;max-height: 80%;">
         <h2 class="app-title-clamp-two app-title-small">{{lecture.title}}</h2>
         
         <div ng-if="lecture.register_planning <= 0">
@@ -50,16 +46,16 @@
             <p><div class="button button-small button-outline icon ion-ios-flag button-dark active"></div><span class="app-font-size-90 dark" style="margin-left: 10px;">{{lecture.status.desc1+" "+lecture.status.desc2}}</span></p>
           </div>
         </div>
-        
+
       </a>
     </div>
 
   </ion-content>
 
-  <div ng-if="isAndroid" class="bar bar-footer bar-light">
-      <div class="button-bar button-bar-group">
-        <a nav-transition="none" class="button button-outline button-info active" href="#/tab/lectures">Cursos</a>
-        <a nav-transition="none" class="button button-outline button-info" href="#/tab/events">Eventos</a>
+  <div ng-if="isAndroid" class="bar bar-footer">
+      <div class="button-bar bar-small bar-light">
+        <a nav-transition="none" class="button info active" href="#/tab/lectures">Cursos</a>
+        <a nav-transition="none" class="button info" href="#/tab/events">Eventos</a>
       </div>
   </div>
 

@@ -1,42 +1,43 @@
 <ion-view hide-back-button="true">
-  
+
   <ion-nav-buttons side="primary">
     <button class="button ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" ng-click="showFilterBar()"></button>
   </ion-nav-buttons>
-  
+
   <ion-nav-title>
     <div class="bar bar-header" ng-if="isIOS">
-      <div class="button-bar button-bar-group">
+      <div class="button-bar bar-small">
         <a nav-transition="none" class="button button-outline" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" href="#/tab/lectures">Cursos</a>
-        <a nav-transition="none" class="button button-outline active" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" href="#/tab/events">Eventos</a>
+        <a nav-transition="none" class="button button-outline active" ng-class="{'button-light':isAndroid, 'button-info':isIOS}"
+        href="#/tab/events">Eventos</a>
       </div>
     </div>
     <div ng-if="isAndroid">Ensino e Pesquisa</div>
   </ion-nav-title>
-  
+
   <ion-content ng-class="{'has-header': isIOS, 'has-footer': isAndroid}">
-    
+
     <ion-refresher on-refresh="doRefresh()"></ion-refresher>
-    
+
     <div ng-if="events.length == 0">
       <ui-jumbotron icon="ion-ios-book">Não há Eventos para exibir</ui-jumbotron>
     </div>
-    
+
     <div class="list">
-      <a class="item item-avatar item-text-wrap" href="#/tab/events/{{itemEvents.id}}" ng-repeat="itemEvents in events">
-        <div class="item-image app-units" ng-class="checkColor(itemEvents.unit)">{{itemEvents.unit || "ISGH"}}</div>
+      <a class="item item-avatar item-text-wrap" ui-sref="tab.event({event: itemEvents})" ng-repeat="itemEvents in events">
+        <div class="item-image app-units app-units-{{checkColor(itemEvents.unit)}}">{{itemEvents.unit || "ISGH"}}</div>
         <h2>{{itemEvents.title}}</h2>
         <p>{{itemEvents.date | DateRelativeFilter}}</p>
       </a>
     </div>
 
   </ion-content>
-  
-  <div ng-if="isAndroid" class="bar bar-footer bar-light">
-      <div class="button-bar button-bar-group">
-        <a nav-transition="none" class="button button-outline button-info" href="#/tab/lectures">Cursos</a>
-        <a nav-transition="none" class="button button-outline button-info active" href="#/tab/events">Eventos</a>
-      </div>
+
+  <div ng-if="isAndroid" class="bar bar-footer">
+    <div class="button-bar bar-small bar-light">
+      <a nav-transition="none" class="button info" href="#/tab/lectures">Cursos</a>
+      <a nav-transition="none" class="button info active" href="#/tab/events">Eventos</a>
+    </div>
   </div>
-  
+
 </ion-view>

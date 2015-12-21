@@ -10,7 +10,7 @@
     
     <div class="list">
       <div class="item item-divider app-item-no-border">
-        <h2 class="app-no-white-space app-font-size-80 app-font-color-stable">Você pode realizar pesquisas dos aniversariantes através de uma data específica</h2>
+        <h2 class="app-no-white-space app-font-size-80 app-font-color-stable">Você pode realizar buscas dos aniversariantes através de uma data específica</h2>
       </div>
       
       <form name="dataForm">
@@ -38,7 +38,7 @@
             </label>
           </div>
           <div class="tab-item">
-            <button ng-click="searchBirthday(data)" class="button button-clear button-positive" ng-disabled="!dataForm.$valid">Pesquisar</button>
+            <button ng-click="searchBirthday(data)" class="button button-clear button-positive" ng-disabled="!dataForm.$valid">Buscar</button>
           </div>
         </div>
         
@@ -50,13 +50,13 @@
     </div>
 
     <div class="list card" ng-repeat="birthday in birthdays">
-      <div class="item item-avatar item-divider item-{{checkColor(birthday.dsc_filial)}}" style="padding-top: 12px;padding-bottom: 12px;">
+      <div class="item item-avatar item-divider item-info" style="padding-top: 12px;padding-bottom: 12px;">
         {{birthday.dsc_nome}}
       </div>
 
       <div class="item item-avatar item-image-top">
 
-        <div class="item-image item-image-top app-units stable"><i class="icon ion-person app-font-size-300"></i></div>
+        <div class="item-image item-image-top app-units app-units-stable"><i class="icon ion-person app-font-size-300"></i></div>
         
         <label class="item item-input item-divider item-light app-item-no-border">
           <span class="input-label app-input-label app-font-size-80">Setor:</span>

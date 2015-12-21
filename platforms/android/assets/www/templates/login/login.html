@@ -1,9 +1,16 @@
 <ion-view hide-nav-bar="true" class="bg-light">
   <ion-content padding="false">
 
-    <img class="app-full-size" src="img/login-top.png"/>
+    <img class="app-full-size" src="img/login-top.png" style="margin-bottom: 50px;" />
 
-    <form name="loginForm" style="margin-top: 50px;">
+    <a class="item item-avatar" ng-if="profile !== null" ng-click="relogProfile(profile)">
+      <div class="item-image app-units app-units-stable"><i class="icon ion-person app-font-size-300"></i></div>
+      <h2>{{profile.dsc_nome}}</h2>
+      <span class="item-note app-float-left"><span class="app-font-size-80">Função: </span>{{profile.dsc_funcao}}</span>
+      <span class="item-note"><span class="app-font-size-80">Matrícula: </span>{{profile.num_matricula}}</span>
+    </a>
+    
+    <form name="loginForm" ng-if="profile === null">
       <div class="list">
         <label class="item item-input">
           <span class="input-label app-input-label app-font-size-80">Matrícula:</span>
@@ -24,7 +31,7 @@
           </select>
         </label>
       </div>
-      
+
       <div class="padding">
         <div class="item item-info app-item-no-padding">
           <button class="button button-block button-clear button-light app-item-no-margin" ng-click="searchProfile(login)" ng-disabled="!loginForm.$valid">
@@ -33,8 +40,15 @@
         </div>
       </div>
     </form>
-    
-    <img class="app-full-size" src="img/login-footer.png"/>
+
 
   </ion-content>
+  
+  <a class="bar bar-footer" ng-if="profile !== null" style="bottom:95px;" ng-click="clearProfile(profile)">
+    <div class="title app-font-size-100 app-font-color-stable">Entrar em outra conta</div>
+  </a>
+  
+  <div class="bar bar-footer" style="height: auto">
+    <img class="app-full-size" src="img/login-footer.png" />
+  </div>
 </ion-view>

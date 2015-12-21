@@ -1,8 +1,8 @@
 angular.module('isgh.Constant', []).constant("Constant", {
 	
-	url_wsapp: "http://177.136.74.42/appserver/", 
+	url_wsapp: "http://177.136.74.42/appWSisgh/", 
 	url_intranet: "http://177.136.74.42/intranet/",
-	url_site: "http://177.136.74.42/site/",
+	url_site: "http://177.136.74.42/",
 	url_procseletivo: "http://177.136.74.42/processos_seletivos/",
 
 	backButton: (ionic.Platform.isAndroid()) ? 'ion-android-arrow-back' : 'ion-ios-arrow-back',
@@ -32,7 +32,10 @@ angular.module('isgh.Constant', []).constant("Constant", {
 					'introtext text',
 					'striptext text',
 					'category text',
-					'unit text'
+					'unit text',
+					'hits integer',
+					'liked_sum integer',
+					'unliked_sum integer'
 				]	
 			},
 			lectures: {
@@ -127,24 +130,6 @@ angular.module('isgh.Constant', []).constant("Constant", {
 					'dsc_setor text',
 					'dsc_filial text',
 					'dat_nasc text'
-				]
-			},
-			profile: {
-				name: 'profile',
-				indexes: [
-					'num_matricula',
-					'dsc_nome',
-					'dsc_filial'
-				],
-				columns: [
-					'num_matricula integer',
-					'num_pis text',
-					'dsc_nome text',
-					'dsc_funcao text',
-					'dsc_setor text',
-					'dsc_filial text',
-					'dat_nasc text',
-					'dsc_logged integer'
 				]
 			}
 		}

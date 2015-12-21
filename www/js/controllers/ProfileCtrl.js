@@ -26,9 +26,14 @@ angular.module('isgh.ProfileCtrl', ['ngSanitize'])
 			{isn_filial: "12", dsc_filial: "UPA PIRAMBU"}
 		]
 		
-		FactoryProfile.profileWSgetFilial().then(function (response) {
-			return (response.data.length > 0) ? $scope.filiais = response.data : $scope.filiais = objFiliais;
-		})
+        FactoryProfile.profileWSgetFilial().then(function (response) {
+			$scope.filiais = (response.data.length > 0) ? response.data : objFiliais;
+        }, function (erro) {
+            $ionicPopup.alert({
+                title: 'Sem conexão com a internet',
+                template: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente"
+            });
+        });
 		
 		$scope.searchProfile = function (login) {
 			if (login) {
@@ -56,8 +61,10 @@ angular.module('isgh.ProfileCtrl', ['ngSanitize'])
 					}
 					
 				}, function (erro) {
-					$ionicLoading.hide();
-					$rootScope.alert = { type: "", message: erro };
+					$ionicPopup.alert({
+                        title: 'Sem conexão com a internet',
+                        template: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente"
+                    });
 				});
 			}
 
@@ -71,7 +78,10 @@ angular.module('isgh.ProfileCtrl', ['ngSanitize'])
                     localStorage.setItem(profile.num_matricula + "_liked", JSON.stringify(response.data));
                     $state.go('tab.news');
 				}, function (erro) {
-					$rootScope.alert = { type: "", message: erro };
+					$ionicPopup.alert({
+                        title: 'Sem conexão com a internet',
+                        template: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente"
+                    });
 				});
 			}
 		}
