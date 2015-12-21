@@ -22,9 +22,9 @@ angular.module('isgh.ProcseletsCtrl', ['ngSanitize'])
 		
 		$scope.getTotal = function (locid, n) {
 			var filtered = ResolveProcselets.filter(function (item) {
-				return (locid === item.locid && n === item.status);
+				return (locid == item.locid && n == item.status);
 			});
-			return (filtered[0] !== undefined) ? filtered[0].total : 0 
+			return (filtered[0] !== undefined) ? filtered[0].total : 0;
 		}
 		
 		// refresh na pagina sera incluido em breve

@@ -10,9 +10,8 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
   $sceDelegateProvider.resourceUrlWhitelist(['.*']);
 
   $ionicConfigProvider.backButton.text('');
-  //$ionicConfigProvider.scrolling.jsScrolling(false);
-  // $ionicConfigProvider.tabs.position('bottom');
-  // $ionicConfigProvider.tabs.style('standard');
+  $ionicConfigProvider.backButton.previousTitleText(false);
+  
   $ionicFilterBarConfigProvider.placeholder('Buscar');
   if (ionic.Platform.isIOS()) {
     $ionicFilterBarConfigProvider.theme('light');
@@ -30,25 +29,16 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
       url: '/login',
       templateUrl: 'templates/login/login.html',
       controller: 'LoginCtrl',
-      resolve: {
-        ResolveLogin: function (FactoryProfile, $state) {
-          FactoryProfile.checkLogin().then(function (response) {
-            if (response[0].dsc_logged === 1) {
-              $state.go('tab.news');
-            }
-          });
-        }
-      }
+      cache: false
     })
     
-    // setup an abstract state for the tabs directive
+    //TAB
     .state('tab', {
       url: '/tab',
       abstract: true,
       templateUrl: 'templates/tabs.html'
     })
-
-    // Each tab has its own nav history stack:
+    //TAB.NEWS
     .state('tab.news', {
       url: '/news',
       views: {
@@ -57,6 +47,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
           controller: 'NewsCtrl',
           resolve: {
             ResolveNews: function (FactoryNews, $ionicLoading, $rootScope) {
+              $rootScope.alert = null;
               $ionicLoading.show();
 
               return FactoryNews.populate().then(function (response) {
@@ -67,12 +58,30 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
                 $ionicLoading.hide();
                 return $rootScope.alert = { type: "", message: erro };
               });
+              
+              $ionicLoading.hide();
             }
           }
         }
       }
     })
-
+    //TAB.NEW
+    .state('tab.new', {
+      url: '/news',
+      params: {itemNew: null},
+      views: {
+        'tab-news': {
+          templateUrl: 'templates/news/new.html',
+          controller: 'NewCtrl',
+          resolve: {
+            ResolveNew: function (FactoryNews, $stateParams) {
+              return $stateParams.itemNew;
+            }
+          }
+        }
+      }
+    })
+    //TAB.LECTURES
     .state('tab.lectures', {
       url: '/lectures',
       views: {
@@ -81,6 +90,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
           controller: 'LecturesCtrl',
           resolve: {
             ResolveLectures: function (FactoryLectures, $ionicLoading, $rootScope) {
+              $rootScope.alert = null;
               $ionicLoading.show();
 
               return FactoryLectures.populate().then(function (response) {
@@ -91,53 +101,68 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
                 $ionicLoading.hide();
                 return $rootScope.alert = { type: "", message: erro };
               });
+
+              $ionicLoading.hide();
             }
           }
         }
       }
     })
-
+    //TAB.LECTURE
     .state('tab.lecture', {
-      url: '/lectures/:id/:planning',
+      url: '/lectures',
+      params: {lecture: null},
       views: {
         'tab-lectures': {
           templateUrl: 'templates/lectures/lecture.html',
           controller: 'LectureCtrl',
           resolve: {
-            ResolveLecture: function (FactoryLectures, $stateParams, Constant, EmailSender, $state) {
-              return FactoryLectures.get($stateParams.id).then(function (response) {
-                var year = new Date();
+            ResolveLecture: function ($stateParams, Constant, EmailSender, $state) {
+               
+              var year = new Date();
+              if ($stateParams.lecture.register_planning > 0) {
+                var html = '';
+                html += 'Seu nome: \n';
+                html += 'Telefone: \n';
+                html += 'Curso(s) de interesse: ' + $stateParams.lecture.title + '\n';
+                html += 'Município de interesse: \n';
 
-                if ($stateParams.planning > 0) {
-                  var html = '';
-                  html += 'Seu nome: \n';
-                  html += 'Telefone: \n';
-                  html += 'Curso(s) de interesse: ' + response.title + '\n';
-                  html += 'Município de interesse: \n';
+                EmailSender.setSubject("Cursos " + year.getFullYear() + " Cadastro de Interessado");
+                EmailSender.setBody(html);
+                EmailSender.setTo(Constant.emails.cursos.to);
+                EmailSender.setCc(Constant.emails.cursos.cc);
+                EmailSender.send();
 
-                  EmailSender.setSubject("Cursos " + year.getFullYear() + " Cadastro de Interessado");
-                  EmailSender.setBody(html);
-                  EmailSender.setTo(Constant.emails.cursos.to);
-                  EmailSender.setCc(Constant.emails.cursos.cc);
-                  EmailSender.send();
-
-                  $state.go($state.current, $stateParams, { reload: false, inherit: false });
+                $state.go($state.current, $stateParams.lecture, { reload: false, inherit: false });
+                
+              } else {
+                if ($stateParams.lecture.widgetkit_module > 0) {
+                  $stateParams.lecture.widgetkit = JSON.parse($stateParams.lecture.widgetkit);
                 }
-
-                response.status = JSON.parse(response.status);
-                if (response.widgetkit_module > 0) {
-                  response.widgetkit = JSON.parse(response.widgetkit);
-                }
-
-                return response;
-
-              });
+                return $stateParams.lecture;
+              }
             }
           }
         }
       }
     })
-
+    //TAB.LECTURE-ADDONS
+    .state('tab.lecture-addons', {
+      url: '/lectures/addons',
+      params: {content: null, title: null},
+      views: {
+        'tab-lectures': {
+          templateUrl: 'templates/lectures/lecture-addons.html',
+          controller: 'LectureAddonsCtrl',
+          resolve: {
+            ResolveLectureAddons: function ($stateParams) {
+              return $stateParams;
+            }
+          }
+        }
+      }
+    })
+    //TAB.EVENTS
     .state('tab.events', {
       url: '/events',
       views: {
@@ -146,6 +171,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
           controller: 'EventsCtrl',
           resolve: {
             ResolveEvents: function (FactoryEvents, $ionicLoading, $rootScope) {
+              $rootScope.alert = null;
               $ionicLoading.show();
 
               return FactoryEvents.populate().then(function (response) {
@@ -156,29 +182,46 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
                 $ionicLoading.hide();
                 return $rootScope.alert = { type: "", message: erro };
               });
+
+              $ionicLoading.hide();
             }
           }
         }
       }
     })
-
+    //TAB.EVENT
     .state('tab.event', {
-      url: '/events/:id',
+      url: '/events',
+      params: {event: null},
       views: {
         'tab-lectures': {
           templateUrl: 'templates/events/event.html',
           controller: 'EventCtrl',
           resolve: {
-            ResolveEvent: function (FactoryEvents, $stateParams, Constant) {
-              return FactoryEvents.get($stateParams.id).then(function (response) {
-                return response;
-              });
+            ResolveEvent: function ($stateParams, Constant) {
+              return $stateParams.event;
             }
           }
         }
       }
     })
-
+    //TAB.EVENT-ADDONS
+    .state('tab.event-addons', {
+      url: '/events/addons',
+      params: {title: null,created: null,unit: null,introtext: null},
+      views: {
+        'tab-lectures': {
+          templateUrl: 'templates/events/event-addons.html',
+          controller: 'EventAddonsCtrl',
+          resolve: {
+            ResolveEventAddons: function ($stateParams) {
+              return $stateParams;
+            }
+          }
+        }
+      }
+    })
+    //TAB.PROCSELETS
     .state('tab.procselets', {
       url: '/procselets',
       views: {
@@ -187,6 +230,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
           controller: 'ProcseletsCtrl',
           resolve: {
             ResolveProcselets: function (FactoryProcselets, $ionicLoading, $rootScope) {
+              $rootScope.alert = null;
               $ionicLoading.show();
 
               return FactoryProcselets.populate().then(function (response) {
@@ -197,6 +241,8 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
                 $ionicLoading.hide();
                 return $rootScope.alert = { type: "", message: erro };
               });
+
+              $ionicLoading.hide();
             }
           }
         }
@@ -204,7 +250,8 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
     })
 
     .state('tab.procselets-categories', {
-      url: '/procselets/categories/:locid/:status',
+      url: '/procselets/categories',
+      params: {locid: null, status: null},
       views: {
         'tab-procselets': {
           templateUrl: 'templates/procselets/procselet-categories.html',
@@ -222,6 +269,8 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
                 $ionicLoading.hide();
                 return $rootScope.alert = { type: "", message: erro };
               });
+
+              $ionicLoading.hide();
             }
           }
         }
@@ -229,7 +278,8 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
     })
 
     .state('tab.procselets-files', {
-      url: '/procselets/files/:catid/:sname',
+      url: '/procselets/files',
+      params: {catid: null, sname: null},
       views: {
         'tab-procselets': {
           templateUrl: 'templates/procselets/procselet-files.html',
@@ -246,6 +296,8 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
                 $ionicLoading.hide();
                 return $rootScope.alert = { type: "", message: erro };
               });
+
+              $ionicLoading.hide();
             }
           }
         }
@@ -260,6 +312,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
           controller: 'BirthdaysCtrl',
           resolve: {
             ResolveBirthDays: function (FactoryBirthdays, $ionicLoading, $rootScope) {
+              $rootScope.alert = null;
               $ionicLoading.show();
               return FactoryBirthdays.populate().then(function (response) {
                 $ionicLoading.hide();
@@ -269,6 +322,8 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
                 $ionicLoading.hide();
                 return $rootScope.alert = { type: "", message: erro };
               });
+              
+              $ionicLoading.hide();
             }
           }
         }
@@ -282,15 +337,8 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
           templateUrl: 'templates/profile/profile.html',
           controller: 'ProfileCtrl',
           resolve: {
-            ResolveProfile: function (FactoryProfile, $ionicLoading, $rootScope) {
-              $ionicLoading.show();
-              return FactoryProfile.getProfile().then(function (response) {
-                $ionicLoading.hide();
-                return response;
-              }, function (erro) {
-                $ionicLoading.hide();
-                return $rootScope.alert = { type: "", message: erro };
-              })
+            ResolveProfile: function (FactoryProfileLocal, $ionicLoading, $rootScope) {
+              return FactoryProfileLocal.getTbProfile();
             }
           }
         }

@@ -3,12 +3,16 @@
   <ion-content ng-class="{'has-header': isIOS}">
 
     <ion-refresher on-refresh="doRefresh()"></ion-refresher>
-
+    
+    <div ng-if="locations.length == 0">
+      <ui-jumbotron icon="ion-ios-people">Não há Processos Seletivos para exibir</ui-jumbotron>
+    </div>
+    
     <div class="list card" ng-repeat="item in locations">
 
       <div class="item item-avatar">
         <!--<div class="item-image app-units stable app-text-uppercase">{{item.location.substring(0,3)}}</div>-->
-        <div class="item-image app-units stable"><i class="icon ion-location app-font-size-300"></i></div>
+        <div class="item-image app-units app-units-stable"><i class="icon ion-location app-font-size-300"></i></div>
         <h2>{{item.location | uppercase}}</h2>
         <p>
           <span ng-class="checkColor(unit.unit)" ng-repeat="unit in item.units">

@@ -4,9 +4,12 @@
     <div class="buttons">
       <button class="button button-clear icon {{closeButton}}" ng-click="closeMimages()"></button>
     </div>
-    <p class="title app-font-size-100">{{itemNew.created | DateRelativeFilter}}</p>
+    <p class="title app-font-size-100">
+      <small>{{itemNew.category}}</small>
+      <small class="tiny">{{itemNew.created | DateRelativeFilter}}</small>
+    </p>
     <div class="buttons">
-      <button class="button icon app-units" disabled="disabled" ng-class="checkColor(itemNew.unit)">{{itemNew.unit || "ISGH"}}</button>
+      <div class="button button-clear app-item-no-opacity" disabled>{{itemNew.unit || "ISGH"}}</div>
     </div>
   </ion-header-bar>
 
