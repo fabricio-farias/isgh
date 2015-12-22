@@ -6,12 +6,17 @@
   </ion-nav-title>
   
   <ion-nav-buttons side="right">
-    <button class="button button-clear app-item-no-opacity" disabled ng-class="{'button-light':isAndroid, 'button-{{checkColor(new.unit)}}':isIOS}">{{new.unit || "ISGH"}}</button>
+    <button ng-if="isIOS" class="button button-clear app-item-no-opacity" disabled ng-class="checkColor(new.unit, 'button-')">{{new.unit || "ISGH"}}</button>
+    <button ng-if="isAndroid" class="button button-clear button-light app-item-no-opacity" disabled>{{new.unit || "ISGH"}}</button>
   </ion-nav-buttons>
   
-  <div class="item item-{{checkColor(new.unit)}} item-text-wrap has-header app-font-size-100" style="padding: 6px 10px;">
+  <div ng-if="isIOS" class="item item-text-wrap has-header app-font-size-100" ng-class="checkColor(new.unit, 'item-')" style="padding: 6px 10px;">
     {{new.title}}
   </div>
+  <div ng-if="isAndroid" class="item item-stable item-text-wrap has-header app-font-size-100" style="padding: 6px 10px;">
+    {{new.title}}
+  </div>
+  
   <ion-scroll zooming="true" direction="xy" delegate-handle="mimagesScroll" class="app-full-size has-header" min-zoom="1">
     <ion-content class="bg-light app-zoom-page padding jcontent" padding="true" scroll="true" overflow-scroll="true" ng-bind-html="renderHTML(new)"></ion-content>
   </ion-scroll>

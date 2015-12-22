@@ -25,7 +25,7 @@
 
     <div class="list">
       <a class="item item-avatar item-text-wrap" ui-sref="tab.event({event: itemEvents})" ng-repeat="itemEvents in events">
-        <div class="item-image app-units app-units-{{checkColor(itemEvents.unit)}}">{{itemEvents.unit || "ISGH"}}</div>
+        <div class="item-image app-units" ng-class="checkColor(itemEvents.unit,'app-units-')">{{itemEvents.unit || "ISGH"}}</div>
         <h2>{{itemEvents.title}}</h2>
         <p>{{itemEvents.date | DateRelativeFilter}}</p>
       </a>

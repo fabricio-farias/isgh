@@ -30,8 +30,9 @@ var app = angular.module('isgh', ['ionic','ionic.service.core', 'jett.ionic.filt
       $rootScope.isWindowsPhone = ionic.Platform.isWindowsPhone();
       
       // GATILHO PARA ALTERAR A COR DA UNIDADE
-      $rootScope.checkColor = function (elem) {
-        
+      $rootScope.checkColor = function (elem, prefix) {
+        var binding = (prefix !== undefined) ? prefix : "";
+          
         var units = [
           { name: "ISGH", color: "info" },
           { name: "HGWA", color: "success" },
@@ -47,7 +48,7 @@ var app = angular.module('isgh', ['ionic','ionic.service.core', 'jett.ionic.filt
           return search.test(elem);
         });
         
-        return ((filtered[0]) ? filtered[0].color : 'isgh');
+        return binding + ((filtered[0]) ? filtered[0].color : 'isgh');
         
       }
             

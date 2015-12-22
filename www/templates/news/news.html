@@ -15,7 +15,7 @@
     <div class="list" ng-repeat="itemNew in news">
 
       <div class="item item-avatar">
-        <div class="item-image app-units app-units-{{checkColor(itemNew.unit)}}">{{itemNew.unit || "ISGH"}}</div>
+        <div class="item-image app-units" ng-class="checkColor(itemNew.unit, 'app-units-')">{{itemNew.unit || "ISGH"}}</div>
         <h2>{{itemNew.category}}</h2>
         <p>{{itemNew.created | DateRelativeFilter}}</p>
       </div>
