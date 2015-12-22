@@ -76,7 +76,7 @@ angular.module('isgh.LecturesCtrl', ['ngSanitize'])
 				
                 $ionicScrollDelegate.$getByHandle('maddonScroll').zoomTo(1);
                 // .replace(/href=\"[^http://]/igm, 'href="' + Constant.url_site)
-				var newHTML = String(html).replace(/src=\"/ig, 'src="' + Constant.url_site).replace(/href=\"/ig, 'href="' + Constant.url_site).replace(/style="[^"]*"/ig, "").replace((/<div class=\"rt-content-vote\"(.)*<\/div>/ig), "");
+				var newHTML = String(html).replace(/src=\"/ig, 'src="' + Constant.url_site).replace(/href=\"/ig, 'href="' + Constant.url_site).replace(/onclick="[^"]*"/ig, "").replace(/style="[^"]*"/ig, "").replace((/<div class=\"rt-content-vote\"(.)*<\/div>/ig), "");
 				return $sce.trustAsHtml(newHTML);
 			}
 		};

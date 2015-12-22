@@ -286,13 +286,13 @@ iframe, .app-iframe-issue .scroll{width: 100%!important;height: 100%!important;}
 .item-checkbox.item-checkbox-like, .item-checkbox.item-checkbox-unlike{padding-left: 48px;padding-right: 5px;}
 
 .checkbox.checkbox-like input:before, .checkbox-icon.checkbox-like:before,
-.checkbox.checkbox-unlike input:before, .checkbox-icon.checkbox-unlike:before{font-family: "Ionicons";content: '\f251';padding: 0 5px;line-height: 24px;font-size: 20px;color: #757575;background: #EEEEEE;border-color: transparent;}
+.checkbox.checkbox-unlike input:before, .checkbox-icon.checkbox-unlike:before{font-family: "Ionicons";content: '\f251';padding: 0 5px;line-height: 24px;font-size: 32px;color: #757575;background: transparent;border-color: transparent;}
 
 .checkbox.checkbox-unlike input:before, .checkbox-icon.checkbox-unlike:before{content: '\f250';border-top-width: 3px;}
 	
 .checkbox.checkbox-like input:checked:before, .checkbox.checkbox-like input:checked + .checkbox-icon.checkbox-like:before,
-.checkbox.checkbox-unlike input:checked:before, .checkbox.checkbox-unlike input:checked + .checkbox-icon.checkbox-unlike:before{background: #37639b;border-color: transparent;/*border-width: 1px;*/color: #f5f5f5;}
-.checkbox.checkbox-unlike input:checked:before, .checkbox.checkbox-unlike input:checked + .checkbox-icon.checkbox-unlike:before{/*border-width: 3px 1px 1px;*/}
+.checkbox.checkbox-unlike input:checked:before, .checkbox.checkbox-unlike input:checked + .checkbox-icon.checkbox-unlike:before{background: transparent;border-color: transparent;border-width: 1px;color: #37639b;}
+.checkbox.checkbox-unlike input:checked:before, .checkbox.checkbox-unlike input:checked + .checkbox-icon.checkbox-unlike:before{border-width: 3px 1px 1px;}
 
 .checkbox.checkbox-like input:after, .checkbox-icon.checkbox-like:after,
 .checkbox.checkbox-unlike input:after, .checkbox-icon.checkbox-unlike:after{border: none;}

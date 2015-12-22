@@ -119,7 +119,6 @@ module.exports.metadata =
     "com.phonegap.plugins.PushPlugin": "2.5.0",
     "cordova-plugin-statusbar": "2.0.0-dev",
     "com.jcjee.plugins.emailcomposer": "1.4.6",
-    "cordova-plugin-crosswalk-webview": "1.4.0",
     "cordova-sqlite-storage": "0.7.11",
     "org.apache.cordova.network-information": "0.2.15",
     "cordova-plugin-inappbrowser": "1.1.1"

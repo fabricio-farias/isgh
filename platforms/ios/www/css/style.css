@@ -321,8 +321,8 @@ iframe, .app-iframe-issue .scroll{width: 100%!important;height: 100%!important;}
 .platform-ios .tabs-item-hide > .tabs, .platform-ios .tabs.tabs-item-hide{-webkit-transition: all linear 0.2s;transition: all linear 0.2s;bottom: -49px;display: flex;}
 .platform-ios .tabs-top.tabs-item-hide > .tabs, .platform-ios .tabs-top.tabs.tabs-item-hide{-webkit-transition: all linear 0.2s;transition: all linear 0.2s;top: -44px;display: flex;}
 /*ANDROID*/
-.platform-android .tabs-item-hide > .tabs, .platform-android .tabs.tabs-item-hide{-webkit-transition: all linear 0.1s;transition: all linear 0.1s;bottom: -49px;display: flex;}
-.platform-android .tabs-top.tabs-item-hide > .tabs, .platform-android .tabs-top.tabs.tabs-item-hide{-webkit-transition: all linear 0.1s;transition: all linear 0.1s;top: -44px;display: flex;}
+.platform-android .tabs-item-hide > .tabs, .platform-android .tabs.tabs-item-hide{-webkit-transition: all linear 0.2s;transition: all linear 0.2s;bottom: -49px;display: flex;}
+.platform-android .tabs-top.tabs-item-hide > .tabs, .platform-android .tabs-top.tabs.tabs-item-hide{-webkit-transition: all linear 0.2s;transition: all linear 0.2s;top: -44px;display: flex;}
 /*TABS AND TABS HIDE*/
 
 

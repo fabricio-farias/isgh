@@ -31,8 +31,7 @@
     },
     "cordova-plugin-whitelist@1",
     "org.apache.cordova.network-information",
-    "cordova-plugin-inappbrowser",
-    "cordova-plugin-crosswalk-webview"
+    "cordova-plugin-inappbrowser"
   ],
   "cordovaPlatforms": [
     "ios",

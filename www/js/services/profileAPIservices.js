@@ -54,7 +54,8 @@ angular.module('isgh.profileAPIservices', ['isgh.dbAPIservices'])
   .factory('FactoryProfileLocal', function ($q, $http, Constant) { 
     
     function _getTbProfile () {
-      var tbProfile = localStorage.getItem("profile");
+      var tbProfile = null;
+      tbProfile = localStorage.getItem("profile");
       return (tbProfile !== null) ? JSON.parse(tbProfile) : tbProfile;  
     }
     

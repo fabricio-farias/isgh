@@ -51,26 +51,6 @@
                         {
                             "xml": "<feature name=\"NetworkStatus\"><param name=\"android-package\" value=\"org.apache.cordova.networkinformation.NetworkManager\" /></feature>",
                             "count": 1
-                        },
-                        {
-                            "xml": "<preference name=\"webView\" value=\"org.crosswalk.engine.XWalkWebViewEngine\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<preference default=\"15+\" name=\"xwalkVersion\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<preference default=\"--disable-pull-to-refresh-effect\" name=\"xwalkCommandLine\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<preference default=\"embedded\" name=\"xwalkMode\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<preference default=\"true\" name=\"xwalkMultipleApk\" />",
-                            "count": 1
                         }
                     ]
                 }
@@ -130,10 +110,6 @@
                     "/*": [
                         {
                             "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
-                            "count": 2
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\" />",
                             "count": 1
                         }
                     ]
@@ -177,9 +153,6 @@
         },
         "org.apache.cordova.network-information": {
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
-        },
-        "cordova-plugin-crosswalk-webview": {
-            "PACKAGE_NAME": "com.ionicframework.isgh900684"
         }
     },
     "dependent_plugins": {},
@@ -206,22 +179,6 @@
             "pluginId": "com.phonegap.plugins.PushPlugin",
             "clobbers": [
                 "PushNotification"
-            ]
-        },
-        {
-            "file": "plugins/cordova-plugin-console/www/logger.js",
-            "id": "cordova-plugin-console.logger",
-            "pluginId": "cordova-plugin-console",
-            "clobbers": [
-                "cordova.logger"
-            ]
-        },
-        {
-            "file": "plugins/cordova-plugin-console/www/console-via-logger.js",
-            "id": "cordova-plugin-console.console",
-            "pluginId": "cordova-plugin-console",
-            "clobbers": [
-                "console"
             ]
         },
         {
@@ -301,15 +258,14 @@
         "com.ionic.keyboard": "1.0.4",
         "com.jcjee.plugins.emailcomposer": "1.4.6",
         "com.phonegap.plugins.PushPlugin": "2.5.0",
-        "cordova-plugin-console": "1.0.1",
-        "cordova-plugin-device": "1.0.1",
-        "cordova-plugin-inappbrowser": "1.0.1",
-        "cordova-plugin-splashscreen": "2.1.0",
+        "cordova-plugin-console": "1.0.2",
+        "cordova-plugin-device": "1.1.0",
+        "cordova-plugin-inappbrowser": "1.1.1",
+        "cordova-plugin-splashscreen": "3.0.0",
         "cordova-plugin-statusbar": "2.0.0-dev",
-        "cordova-plugin-whitelist": "1.0.0",
+        "cordova-plugin-whitelist": "1.2.0",
         "cordova-sqlite-storage": "0.7.11",
-        "ionic-plugin-deploy": "0.4.0",
-        "org.apache.cordova.network-information": "0.2.15",
-        "cordova-plugin-crosswalk-webview": "1.4.0"
+        "ionic-plugin-deploy": "0.4.1",
+        "org.apache.cordova.network-information": "0.2.15"
     }
 }
