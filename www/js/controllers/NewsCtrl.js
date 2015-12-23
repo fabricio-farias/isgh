@@ -61,7 +61,13 @@ angular.module('isgh.NewsCtrl', ['ngSanitize'])
 				$rootScope.alert = { type: "", message: erro };
 			});
 	
-		}
+        }
+        
+        // $scope.$on('$stateChangeSuccess', function () {
+        //     SEMPRE QUE ENTRAR NO STATE DO NEWS TRAGA MAIS DO BANCO DE HOUVER
+        //     console.log('stateChangeSuccess');
+        // });
+        
 
 		//ADICIONAR AO CONTADOR VISUALIZAÇÕES
 		$scope.setHits = function (data) {

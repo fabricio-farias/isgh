@@ -10,7 +10,7 @@ var app = angular.module('isgh', ['ionic','ionic.service.core', 'jett.ionic.filt
   .run(function ($ionicPlatform, $cordovaInAppBrowser, $rootScope, $cordovaSQLite, amMoment, DB) {
 
     $ionicPlatform.ready(function () {
-       
+        console.log("**********************************************ESTOU AKI NO INICIO***********************************************");
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs) 
       if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
