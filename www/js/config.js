@@ -139,7 +139,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
 
                             } else {
                                 if ($stateParams.lecture.widgetkit_module > 0) {
-                                    $stateParams.lecture.widgetkit = (typeof($stateParams.lecture.widgetkit) === 'string') ? JSON.parse($stateParams.lecture.widgetkit) : $stateParams.lecture.widgetkit;
+                                    $stateParams.lecture.widgetkit = (typeof ($stateParams.lecture.widgetkit) === 'string') ? JSON.parse($stateParams.lecture.widgetkit) : $stateParams.lecture.widgetkit;
                                 }
                                 return $stateParams.lecture;
                             }
