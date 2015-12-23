@@ -55,8 +55,8 @@ angular.module('isgh.EventsCtrl', ['ngSanitize'])
 				
                 $ionicScrollDelegate.$getByHandle('maddonScroll').zoomTo(1);
                 // .replace(/href=\"[^http://]/igm, 'href="' + Constant.url_site)
-				var newHTML = String(html).replace(/src=\"/ig, 'src="' + Constant.url_intranet).replace(/href=\"/ig, 'href="' + Constant.url_intranet).replace(/style="[^"]*"/ig, "").replace((/<div class=\"rt-content-vote\"(.)*<\/div>/ig), "");
-				return $sce.trustAsHtml(newHTML);
+				//var newHTML = String(html).replace(/src=\"/ig, 'src="' + Constant.url_intranet).replace(/href=\"/ig, 'href="' + Constant.url_intranet).replace(/style="[^"]*"/ig, "").replace((/<div class=\"rt-content-vote\"(.)*<\/div>/ig), "");
+				return $sce.trustAsHtml(html);
 			}
 		};
 	});
