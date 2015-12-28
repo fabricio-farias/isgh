@@ -61,7 +61,13 @@ angular.module('isgh.NewsCtrl', ['ngSanitize'])
 				$rootScope.alert = { type: "", message: erro };
 			});
 	
-		}
+        }
+        
+        // $scope.$on('$stateChangeSuccess', function () {
+        //     SEMPRE QUE ENTRAR NO STATE DO NEWS TRAGA MAIS DO BANCO DE HOUVER
+        //     console.log('stateChangeSuccess');
+        // });
+        
 
 		//ADICIONAR AO CONTADOR VISUALIZAÇÕES
 		$scope.setHits = function (data) {
@@ -162,10 +168,8 @@ angular.module('isgh.NewsCtrl', ['ngSanitize'])
 		// RENDERIZAR O HTML
 		$scope.renderHTML = function (html) {
 			if (html) {
-				
-				$ionicScrollDelegate.$getByHandle('mimagesScroll').zoomTo(1); ///href=\"(\b(https?:\/\/)?)/ig
-				var newHTML = String(html.introtext).replace(/src=\"/ig, 'src="' + Constant.url_intranet).replace(/href=\"/ig, 'href="' + Constant.url_intranet).replace(/style="[^"]*"/ig, "").replace(/onclick="[^"]*"/ig, "").replace((/<div class=\"rt-content-vote\"(.)*<\/div>/ig), "");
-				return $sce.trustAsHtml(newHTML);
+				$ionicScrollDelegate.$getByHandle('mimagesScroll').zoomTo(1);
+				return $sce.trustAsHtml(html.introtext);
 			}
 		};
 	});

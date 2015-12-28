@@ -4,10 +4,10 @@ angular.module('isgh.dbAPIservices', ['isgh.Constant'])
 
         var self = this;
         self.db = null;
-        
+
         self.init = function () {
             var deferred = $q.defer();
-            
+
             if (window.cordova) {
                 self.db = $cordovaSQLite.openDB({ name: Constant.database.name, bgType: 1 });
             } else {
@@ -19,7 +19,7 @@ angular.module('isgh.dbAPIservices', ['isgh.Constant'])
                 // self.dropTable(table);
                 self.createTable(table);
             });
-            
+
             return deferred.promise;
         };
 
@@ -28,7 +28,7 @@ angular.module('isgh.dbAPIservices', ['isgh.Constant'])
             var deferred = $q.defer();
 
             $ionicPlatform.ready(function () {
-                
+
                 self.db.transaction(function (tx) {
                     tx.executeSql(query, bindings, function (tx, result) {
                         deferred.resolve(result);
@@ -36,7 +36,7 @@ angular.module('isgh.dbAPIservices', ['isgh.Constant'])
                         deferred.reject("SQLiteErro: " + error.message + " Código: " + error.code);
                     });
                 });
-                
+
             });
 
             return deferred.promise;
@@ -89,7 +89,7 @@ angular.module('isgh.dbAPIservices', ['isgh.Constant'])
                 self.query(query);
             }
         }
-        
+
         self.getColumns = function (table) {
             var output = [];
             for (var i = 0; i < table.columns.length; i++) {
@@ -97,6 +97,6 @@ angular.module('isgh.dbAPIservices', ['isgh.Constant'])
             }
             return output;
         }
-        
+
         return self;
     });

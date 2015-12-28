@@ -2,7 +2,7 @@
   
   <ion-nav-title>
       <small>Evento</small>
-      <small class="tiny">{{addon.created | DateRelativeFilter}}</small>
+      <small class="tiny">{{addon.date | DateRelativeFilter}}</small>
   </ion-nav-title>
   
   <ion-nav-buttons side="right">
@@ -10,7 +10,10 @@
     <button ng-if="isAndroid" class="button button-clear button-light app-item-no-opacity" disabled>{{addon.unit || "ISGH"}}</button>
   </ion-nav-buttons>
   
-  <div class="item item-text-wrap has-header app-font-size-100" ng-class="checkColor(addon.unit, 'item-')" style="padding: 6px 10px;">
+  <div ng-if="isIOS" class="item item-text-wrap has-header app-font-size-100" ng-class="checkColor(addon.unit, 'item-')" style="padding: 6px 10px;">
+    {{addon.title}}
+  </div>
+  <div ng-if="isAndroid" class="item item-stable item-text-wrap has-header app-font-size-100" style="padding: 6px 10px;">
     {{addon.title}}
   </div>
   <ion-scroll zooming="true" direction="xy" delegate-handle="maddonScroll" class="app-full-size has-header" min-zoom="1">

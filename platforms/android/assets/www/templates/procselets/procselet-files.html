@@ -1,4 +1,4 @@
-<ion-view view-title="{{sname}}">
+<ion-view view-title="{{stitle}}">
 
   <ion-nav-buttons side="secondary">
     <button class="button ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" ng-click="showFilterBar()"></button>
@@ -6,21 +6,21 @@
 
   <ion-content ng-class="{'has-header': isIOS}">
 
-    <div class="list">
+    <ion-list class="list">
       
-      <div class="item item-avatar">
-        <div class="item-image app-units app-text-uppercase" ng-class="checkColor(files[0].unit, 'app-units-')">{{files[0].unit}}</div>
-        <h2 class="app-title-clamp-two">{{files[0].category[0]}}</h2>
-        <p><i class="icon ion-ios-pricetag-outline"></i> {{files[0].category[1]}}</p>
-      </div>
+      <ion-item class="item item-avatar">
+        <div class="item-image app-units app-text-uppercase" ng-class="checkColor(files.unit, 'app-units-')">{{files.unit}}</div>
+        <h2 class="app-title-clamp-two">{{files.category}}</h2>
+        <p><i class="icon ion-ios-pricetag-outline"></i> {{files.code}}</p>
+      </ion-item>
 
-      <a class="item item-icon-left" ng-click="externalLink(file)" ng-repeat="file in files[0].files">
+      <ion-item class="item item-icon-left" ng-click="externalLink(file)" collection-repeat="file in files.files" item-width="100%">
         <i class="icon" ng-class="getIcon(file)"></i>
         <h2 class="app-font-size-90">{{file.title}}</h2>
         <p><i class="ion-android-calendar"></i> {{parseDate(file.date) | date:'dd/MM/yyyy'}}</p>
-      </a>
+      </ion-item>
 
-    </div>
+    </ion-list>
 
   </ion-content>
 </ion-view>
