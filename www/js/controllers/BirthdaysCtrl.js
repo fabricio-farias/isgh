@@ -12,16 +12,13 @@ angular.module('isgh.BirthdaysCtrl', ['ngSanitize'])
 				filterProperties: 'dsc_nome',
 				expression: function (filterText, value, index, array) {
 					if (filterText.length >= 3) {
-						$ionicLoading.show();
-						$timeout(function() {
-							FactoryBirthdays.birthdaysWSgetByLike(filterText).then(function (response) {
-								$ionicLoading.hide();
-								$scope.birthdays = response.data;
-							}, function (erro) {
-								$ionicLoading.hide();
-								$rootScope.alert = { type: "", message: erro };
-							});
-						}, 2500);
+
+                        FactoryBirthdays.birthdaysWSgetByLike(filterText).then(function (response) {
+                            $scope.birthdays = response.data;
+                        }, function (erro) {
+                            $rootScope.alert = { type: "", message: erro };
+                        });
+
 					}
 				}
 			});

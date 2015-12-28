@@ -47,12 +47,11 @@ angular.module('isgh.EventsCtrl', ['ngSanitize'])
     })
     .controller('EventAddonsCtrl', function ($scope, $sce, $filter, Constant, ResolveEventAddons, $ionicScrollDelegate) {
 
-        $scope.addon = ResolveEventAddons;
+        $scope.addon = ResolveEventAddons.event;
         $scope.url_intranet = Constant.url_intranet;
 
         $scope.renderHTML = function (html) {
             if (html) {
-
                 $ionicScrollDelegate.$getByHandle('maddonScroll').zoomTo(1);
                 return $sce.trustAsHtml(html);
             }

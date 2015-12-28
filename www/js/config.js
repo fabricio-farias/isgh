@@ -210,7 +210,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
     //TAB.EVENT-ADDONS
         .state('tab.event-addons', {
             url: '/events/addons',
-            params: { title: null, created: null, unit: null, introtext: null },
+            params: { event: null },
             views: {
                 'tab-lectures': {
                     templateUrl: 'templates/events/event-addons.html',
