@@ -1,54 +1,36 @@
 angular.module('isgh.ProcseletsCtrl', ['ngSanitize'])
 
-    .controller('ProcseletsCtrl', function ($scope, $filter, $rootScope, Constant, ResolveProcselets, FactoryProcselets) {
+    .controller('ProcseletsCtrl', function ($scope, $filter, $rootScope, Constant, ResolveProcselets, FactoryProcseletsLocal) {
 
         $scope.url_site = Constant.url_site;
-
-        $scope.statusObj = [
-            { id: 1, name: 'Inscrições Abertas' },
-            { id: 2, name: 'Em andamento' },
-            { id: 3, name: 'Processo Finalizado' }
-        ];
-
-        FactoryProcselets.allLocations().then(function (locations) {
-            locations.map(function (l) {
-                FactoryProcselets.getUnitsById(l.locid).then(function (result) {
-                    return l.units = result;
-                });
-            });
-
-            $scope.locations = locations;
+        $scope.locations = ResolveProcselets.map(function (item) {
+            item.status = JSON.parse(item.status);
+            item.units = JSON.parse(item.units);
+            return item;
         });
-
-        $scope.getTotal = function (locid, n) {
-            var filtered = ResolveProcselets.filter(function (item) {
-                return (locid == item.locid && n == item.status);
-            });
-            return (filtered[0] !== undefined) ? filtered[0].total : 0;
-        }
-		
+        
         // refresh na pagina sera incluido em breve
         $scope.doRefresh = function () {
             $rootScope.alert = null;
-            FactoryProcselets.refresh().then(function (response) {
+            FactoryProcseletsLocal.refreshTbProcselets().then(function (response) {
                 $scope.$broadcast('scroll.refreshComplete');
-                $scope.procselets = response;
+                $scope.locations = response.data.map(function (item) {
+                    item.status = JSON.parse(item.status);
+                    item.units = JSON.parse(item.units);
+                    return item;
+                });
             }, function (erro) {
                 $scope.$broadcast('scroll.refreshComplete');
                 $rootScope.alert = { type: "", message: erro };
             });
 
-            // $scope.$broadcast('scroll.refreshComplete');
         }
 
     })
 
     .controller('ProcseletsCategoriesCtrl', function ($scope, $ionicFilterBar, Constant, ResolveProcseletsCategories) {
 
-        $scope.categories = ResolveProcseletsCategories.data.map(function (item) {
-            item.category = item.category.split("::");
-            return item;
-        });
+        $scope.categories = ResolveProcseletsCategories.data
 
         $scope.showFilterBar = function () {
             $ionicFilterBar.show({
@@ -61,30 +43,26 @@ angular.module('isgh.ProcseletsCtrl', ['ngSanitize'])
             });
         };
 
-        $scope.sname = ResolveProcseletsCategories.sname;
-        //$ionicConfig.backButton.text(ResolveProcselet.lname);
+        $scope.stitle = ResolveProcseletsCategories.stitle;
+        ////$ionicConfig.backButton.text(ResolveProcselet.lname);
 		
     })
 
     .controller('ProcseletsFilesCtrl', function ($scope, $ionicFilterBar, Constant, ResolveProcseletsFiles) {
-
-        $scope.files = ResolveProcseletsFiles.data.map(function (item) {
-            item.category = item.category.split("::");
-            item.files = JSON.parse(item.files);
-            return item;
-        });
+        
+        $scope.files = ResolveProcseletsFiles.category;
 
         $scope.showFilterBar = function () {
             $ionicFilterBar.show({
                 cancelText: 'Cancelar',
-                items: $scope.files[0].files,
+                items: $scope.files.files,
                 update: function (filtered) {
-                    $scope.files[0].files = filtered;
+                    $scope.files.files = filtered;
                 }
             });
         };
 
-        $scope.sname = ResolveProcseletsFiles.sname;
+        $scope.stitle = ResolveProcseletsFiles.stitle;
 
         $scope.parseDate = function (date) {
             return new Date(date);

@@ -231,11 +231,11 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
                     templateUrl: 'templates/procselets/procselets.html',
                     controller: 'ProcseletsCtrl',
                     resolve: {
-                        ResolveProcselets: function (FactoryProcselets, $ionicLoading, $rootScope) {
+                        ResolveProcselets: function (FactoryProcseletsLocal, $ionicLoading, $rootScope) {
                             $rootScope.alert = null;
                             $ionicLoading.show();
 
-                            return FactoryProcselets.populate().then(function (response) {
+                            return FactoryProcseletsLocal.populateTbProcselets().then(function (response) {
                                 $ionicLoading.hide();
                                 return response.data;
 
@@ -253,7 +253,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
 
         .state('tab.procselets-categories', {
             url: '/procselets/categories',
-            params: { locid: null, status: null },
+            params: { units: null, status: null, stitle: null },
             views: {
                 'tab-procselets': {
                     templateUrl: 'templates/procselets/procselet-categories.html',
@@ -261,12 +261,12 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
                     resolve: {
                         ResolveProcseletsCategories: function (FactoryProcselets, $stateParams, $ionicLoading, $rootScope) {
                             $ionicLoading.show();
-
-                            var status = JSON.parse($stateParams.status);
-                            return FactoryProcselets.getProcSeletsByLoc($stateParams.locid, status.id).then(function (response) {
+                            
+                            var units = $stateParams.units.map(function (e) { return e.id; });
+                            return FactoryProcselets.populateByLocationStatus({ units: units, status: $stateParams.status }).then(function (response) {
                                 $ionicLoading.hide();
-                                return { data: response, sname: status.name };
-
+                                response.stitle = $stateParams.stitle; 
+                                return response;
                             }, function (erro) {
                                 $ionicLoading.hide();
                                 return $rootScope.alert = { type: "", message: erro };
@@ -281,25 +281,15 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
 
         .state('tab.procselets-files', {
             url: '/procselets/files',
-            params: { catid: null, sname: null },
+            params: { category: null, stitle: null },
             views: {
                 'tab-procselets': {
                     templateUrl: 'templates/procselets/procselet-files.html',
                     controller: 'ProcseletsFilesCtrl',
                     resolve: {
-                        ResolveProcseletsFiles: function (FactoryProcselets, $stateParams, $ionicLoading, $rootScope) {
-                            $ionicLoading.show();
-
-                            return FactoryProcselets.getProcSeletsFiles($stateParams.catid).then(function (response) {
-                                $ionicLoading.hide();
-                                return { data: response, sname: $stateParams.sname };
-
-                            }, function (erro) {
-                                $ionicLoading.hide();
-                                return $rootScope.alert = { type: "", message: erro };
-                            });
-
-                            $ionicLoading.hide();
+                        ResolveProcseletsFiles: function ($stateParams) {
+                            $stateParams.category.files = (typeof ($stateParams.category.files) === 'string') ? JSON.parse($stateParams.category.files) : $stateParams.category.files;
+                            return $stateParams;
                         }
                     }
                 }

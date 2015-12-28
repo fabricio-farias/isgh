@@ -104,15 +104,15 @@ angular.module('isgh.Constant', []).constant("Constant", {
 					'unit'
 				],
 				columns: [
-					'catid integer',
-					'category text',
-					'file text',
-					'unid integer',
-					'unit text',
-					'status integer',
-					'created numeric',
-					'locid integer',
-					'location text',
+                    'catid integer',
+                    'code text',
+                    'category text',
+                    'description text',
+                    'file text',
+                    'unid integer',
+                    'unit text',
+                    'status integer',
+                    'created numeric',
 					'files text'
 				]
 			},
