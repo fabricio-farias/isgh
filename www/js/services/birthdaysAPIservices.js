@@ -19,6 +19,19 @@ angular.module('isgh.birthdaysAPIservices', ['isgh.dbAPIservices'])
 
             return deferred.promise;
         };
+        
+        // GET NEW ROWS
+        var _birthdaysWSgetEveryone = function () {
+            var deferred = $q.defer();
+
+            $http.get(Constant.url_wsapp + 'intranet/?op=birthdays&fu=Everyone').then(function (response) {
+                deferred.resolve(response);
+            }, function (erro) {
+                deferred.reject("Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente");
+            });
+
+            return deferred.promise;
+        };
     
         // INSERT ROWS IN TABLE
         var _populate = function () {
@@ -117,6 +130,7 @@ angular.module('isgh.birthdaysAPIservices', ['isgh.dbAPIservices'])
             birthdaysWSget: _birthdaysWSget,
             birthdaysWSgetByDate: _birthdaysWSgetByDate,
             birthdaysWSgetByLike: _birthdaysWSgetByLike,
+            birthdaysWSgetEveryone: _birthdaysWSgetEveryone,
             populate: _populate,
             refresh: _refresh,
             all: _all

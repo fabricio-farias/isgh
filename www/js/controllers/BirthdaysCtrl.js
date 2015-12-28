@@ -2,27 +2,32 @@ angular.module('isgh.BirthdaysCtrl', ['ngSanitize'])
 
 	.controller('BirthdaysCtrl', function ($scope, $filter, $rootScope, $timeout, $ionicFilterBar, $ionicLoading, ResolveBirthDays, FactoryBirthdays, Constant) {
 
-		$scope.birthdays = ResolveBirthDays;
+        $scope.birthdays = ResolveBirthDays;
 		var filterBarInstance ;
-		
-		$scope.showFilterBar = function () {
-			filterBarInstance = $ionicFilterBar.show({
-				cancelText: 'Cancelar',
-				items: $scope.birthdays,
-				filterProperties: 'dsc_nome',
-				expression: function (filterText, value, index, array) {
-					if (filterText.length >= 3) {
 
-                        FactoryBirthdays.birthdaysWSgetByLike(filterText).then(function (response) {
-                            $scope.birthdays = response.data;
-                        }, function (erro) {
-                            $rootScope.alert = { type: "", message: erro };
-                        });
-
-					}
-				}
-			});
-		};
+        $scope.showFilterBar = function () {
+            filterBarInstance = $ionicFilterBar.show({
+                cancelText: 'Cancelar',
+                items: $scope.birthdays,
+                update: function (filteredItems) {
+                    $scope.birthdays = filteredItems;
+                },
+                filterProperties: 'dsc_nome'
+            });
+        };
+        
+        // $scope.showFilterBar = function () {
+        //     FactoryBirthdays.birthdaysWSgetEveryone().then(function (response) {
+        //         filterBarInstance = $ionicFilterBar.show({
+        //             cancelText: 'Cancelar',
+        //             items: response.data,
+        //             update: function (filteredItems) {
+        //                 $scope.birthdays = filteredItems;
+        //             },
+        //             filterProperties: 'dsc_nome'
+        //         });
+        //     });
+        // };
 	
 		// REFRESH NOTICIAS
 		$scope.doRefresh = function () {
