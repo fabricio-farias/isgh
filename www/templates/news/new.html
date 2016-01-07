@@ -17,7 +17,7 @@
     {{new.title}}
   </div>
   
-  <ion-scroll zooming="true" direction="xy" delegate-handle="mimagesScroll" class="app-full-size has-header" min-zoom="1">
+  <ion-scroll on-double-tap="zoomOut()" zooming="true" direction="xy" delegate-handle="mimagesScroll" class="app-full-size has-header" min-zoom="1">
     <ion-content class="bg-light app-zoom-page padding jcontent" padding="true" scroll="true" overflow-scroll="true" ng-bind-html="renderHTML(new)"></ion-content>
   </ion-scroll>
   

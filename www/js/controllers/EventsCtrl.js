@@ -50,6 +50,10 @@ angular.module('isgh.EventsCtrl', ['ngSanitize'])
         $scope.addon = ResolveEventAddons.event;
         $scope.url_intranet = Constant.url_intranet;
 
+        $scope.zoomOut = function () {
+            $ionicScrollDelegate.$getByHandle('maddonScroll').zoomTo(1);
+        }
+        
         $scope.renderHTML = function (html) {
             if (html) {
                 $ionicScrollDelegate.$getByHandle('maddonScroll').zoomTo(1);

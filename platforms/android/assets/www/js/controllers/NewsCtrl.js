@@ -165,6 +165,9 @@ angular.module('isgh.NewsCtrl', ['ngSanitize'])
 		$scope.new = ResolveNew;
 		$scope.url_intranet = Constant.url_intranet;
 		
+        $scope.zoomOut = function () {
+            $ionicScrollDelegate.$getByHandle('mimagesScroll').zoomTo(1);
+        }
 		// RENDERIZAR O HTML
 		$scope.renderHTML = function (html) {
 			if (html) {

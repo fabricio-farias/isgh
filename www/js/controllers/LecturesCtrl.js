@@ -71,9 +71,12 @@ angular.module('isgh.LecturesCtrl', ['ngSanitize'])
         $scope.addon = ResolveLectureAddons;
         $scope.url_site = Constant.url_site;
 
+        $scope.zoomOut = function () {
+            $ionicScrollDelegate.$getByHandle('maddonScroll').zoomTo(1);
+        }
+
         $scope.renderHTML = function (html) {
             if (html) {
-
                 $ionicScrollDelegate.$getByHandle('maddonScroll').zoomTo(1);
                 return $sce.trustAsHtml(html);
             }
