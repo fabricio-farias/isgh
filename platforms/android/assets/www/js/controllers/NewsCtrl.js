@@ -58,7 +58,7 @@ angular.module('isgh.NewsCtrl', ['ngSanitize'])
 				$scope.$broadcast('scroll.refreshComplete');
 			}, function (erro) {
 				$scope.$broadcast('scroll.refreshComplete');
-				$rootScope.alert = { type: "", message: erro };
+				$rootScope.alert = erro;
 			});
 	
         }
@@ -78,7 +78,7 @@ angular.module('isgh.NewsCtrl', ['ngSanitize'])
 					return data.hits;
 
 				}, function (erro) {
-					$rootScope.alert = { type: "", message: erro };
+					$rootScope.alert = erro;
 				});
 			}
 		}

@@ -15,7 +15,7 @@ angular.module('isgh.procseletsAPIservices', ['isgh.dbAPIservices'])
             $http.post(Constant.url_wsapp + 'processos_seletivos/?op=procselets&fu=GetByLocStatus', data, headers).then(function (response) {
                 deferred.resolve(response);
             }, function (erro) {
-                deferred.reject({ type: "", message: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente" });
+                deferred.reject({ type: "alert-bar-dark", message: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente" });
             });
 
             return deferred.promise;
@@ -39,7 +39,7 @@ angular.module('isgh.procseletsAPIservices', ['isgh.dbAPIservices'])
                         } else if (response.status == 204) {
                             deferred.reject({ type: "alert-bar-assertive", message: "Não há "+Constant.procseletsTitles[response.statusText]+" disponíveis no momento" });
                         } else {
-                            deferred.reject({ type: "", message: "Restabelecendo conexão perdida com servidor" });
+                            deferred.reject({ type: "alert-bar-dark", message: "Restabelecendo conexão perdida com servidor" });
                         }
                     }, function (erro) {
                         deferred.reject(erro);
@@ -103,7 +103,7 @@ angular.module('isgh.procseletsAPIservices', ['isgh.dbAPIservices'])
             $http.get(Constant.url_wsapp + 'processos_seletivos/?op=procselets&fu=All').then(function (response) {
                 deferred.resolve(response);
             }, function (erro) {
-                deferred.reject({ type: "", message: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente" });
+                deferred.reject({ type: "alert-bar-dark", message: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente" });
             });
 
             return deferred.promise;
@@ -132,7 +132,7 @@ angular.module('isgh.procseletsAPIservices', ['isgh.dbAPIservices'])
                     } else if (response.status == 204) {
                         deferred.reject({ type: "alert-bar-assertive", message: "Não há Processos disponíveis no momento" });
                     } else {
-                        deferred.reject({ type: "", message: "Restabelecendo conexão perdida com servidor" });
+                        deferred.reject({ type: "alert-bar-dark", message: "Restabelecendo conexão perdida com servidor" });
                     }
                 }, function (erro) {
                     deferred.reject(erro);
@@ -157,7 +157,7 @@ angular.module('isgh.procseletsAPIservices', ['isgh.dbAPIservices'])
                     db.truncateTable(table);
                     deferred.reject({ type: "alert-bar-assertive", message: "Não há Processos disponíveis no momento" });
                 } else {
-                    deferred.reject({ type: "", message: "Restabelecendo conexão perdida com servidor" });
+                    deferred.reject({ type: "alert-bar-dark", message: "Restabelecendo conexão perdida com servidor" });
                 }
             }, function (erro) {
                 deferred.reject(erro);

@@ -14,7 +14,7 @@ angular.module('isgh.newsAPIservices', ['isgh.dbAPIservices'])
             $http.get(Constant.url_wsapp + 'intranet/?op=news&fu=All').then(function (response) {
                 deferred.resolve(response);
             }, function (erro) {
-                deferred.reject("Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente");
+                deferred.reject({ type: "alert-bar-dark", message: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente" });
             });
 
             return deferred.promise;
@@ -29,14 +29,16 @@ angular.module('isgh.newsAPIservices', ['isgh.dbAPIservices'])
                     deferred.resolve({ data: response });
                 } else {
                     _newsWSget().then(function (response) {
-                        if (response.data.length > 0) {
+                        if (response.status == 200) {
                             angular.forEach(response.data, function (obj) {
                                 var query = "INSERT OR REPLACE INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
                                 db.query(query, [obj.id, obj.title, obj.images, obj.created, obj.introtext, obj.striptext, obj.category, obj.unit, obj.hits, obj.liked_sum, obj.unliked_sum]);
                             });
                             deferred.resolve(response);
+                        } else if (response.status == 204) {
+                            deferred.reject({ type: "alert-bar-assertive", message: "Não há Notícias disponíveis no momento" });
                         } else {
-                            deferred.reject("Restabelecendo conexão perdida com servidor");
+                            deferred.reject({ type: "alert-bar-dark", message: "Restabelecendo conexão perdida com servidor" });
                         }
                     }, function (erro) {
                         deferred.reject(erro);
@@ -51,10 +53,9 @@ angular.module('isgh.newsAPIservices', ['isgh.dbAPIservices'])
         var _refresh = function () {
             var deferred = $q.defer();
             _newsWSget().then(function (response) {
-                if (response.data.length > 0) {
+                if (response.status == 200) {
 
-                    //db.dropTable(table);
-                    //db.createTable(table);
+                    db.truncateTable(table);
 
                     angular.forEach(response.data, function (obj) {
                         var query = "INSERT OR REPLACE INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
@@ -62,8 +63,11 @@ angular.module('isgh.newsAPIservices', ['isgh.dbAPIservices'])
                     });
 
                     deferred.resolve(response);
+                } else if (response.status == 204) {
+                    db.truncateTable(table);
+                    deferred.reject({ type: "alert-bar-assertive", message: "Não há Notícias disponíveis no momento" });
                 } else {
-                    deferred.reject("Restabelecendo conexão perdida com servidor");
+                    deferred.reject({ type: "alert-bar-dark", message: "Restabelecendo conexão perdida com servidor" });
                 }
             }, function (erro) {
                 deferred.reject(erro);
@@ -88,7 +92,7 @@ angular.module('isgh.newsAPIservices', ['isgh.dbAPIservices'])
             $http.post(Constant.url_wsapp + 'intranet/?op=news&fu=SetHits', data, headers).then(function (response) {
                 deferred.resolve(response);
             }, function (erro) {
-                deferred.reject("Restabelecendo conexão perdida com servidor");
+                deferred.reject({ type: "alert-bar-dark", message: "Restabelecendo conexão perdida com servidor" });
             });
 
             return deferred.promise;
@@ -110,7 +114,7 @@ angular.module('isgh.newsAPIservices', ['isgh.dbAPIservices'])
             $http.post(Constant.url_wsapp + 'intranet/?op=news&fu=ToggleLike', data, headers).then(function (response) {
                 deferred.resolve(response);
             }, function (erro) {
-                deferred.reject("Restabelecendo conexão perdida com servidor");
+                deferred.reject({ type: "alert-bar-dark", message: "Restabelecendo conexão perdida com servidor" });
             });
 
             return deferred.promise;
@@ -122,7 +126,7 @@ angular.module('isgh.newsAPIservices', ['isgh.dbAPIservices'])
             $http.post(Constant.url_wsapp + 'intranet/?op=news&fu=ToggleUnlike', data, headers).then(function (response) {
                 deferred.resolve(response);
             }, function (erro) {
-                deferred.reject("Restabelecendo conexão perdida com servidor");
+                deferred.reject({ type: "alert-bar-dark", message: "Restabelecendo conexão perdida com servidor" });
             });
 
             return deferred.promise;
@@ -134,7 +138,7 @@ angular.module('isgh.newsAPIservices', ['isgh.dbAPIservices'])
             $http.post(Constant.url_wsapp + 'intranet/?op=news&fu=GetToggleLikeds', profile, headers).then(function (response) {
                 deferred.resolve(response);
             }, function (erro) {
-                deferred.reject("Restabelecendo conexão perdida com servidor");
+                deferred.reject({ type: "alert-bar-dark", message: "Restabelecendo conexão perdida com servidor" });
             });
 
             return deferred.promise;

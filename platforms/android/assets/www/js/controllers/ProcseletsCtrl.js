@@ -21,7 +21,7 @@ angular.module('isgh.ProcseletsCtrl', ['ngSanitize'])
                 });
             }, function (erro) {
                 $scope.$broadcast('scroll.refreshComplete');
-                $rootScope.alert = { type: "", message: erro };
+                $rootScope.alert = erro;
             });
 
         }
@@ -34,7 +34,7 @@ angular.module('isgh.ProcseletsCtrl', ['ngSanitize'])
             item.created = new Date(item.created);
             return item;
         });
-        
+                
         $scope.showFilterBar = function () {
             $ionicFilterBar.show({
                 cancelText: 'Cancelar',

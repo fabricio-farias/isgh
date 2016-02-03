@@ -20,11 +20,9 @@
 
     <ion-refresher on-refresh="doRefresh()"></ion-refresher>
     
-    <div ng-if="lectures.length == 0">
-      <ui-jumbotron icon="ion-ios-book">Não há Cursos para exibir</ui-jumbotron>
-    </div>
+    <ui-jumbotron ng-if="lectures.message || lectures.length == 0" icon="ion-ios-book">{{lectures.message || 'Não há Cursos para exibir no momento'}}</ui-jumbotron>
     
-    <div class="list">
+    <div class="list" ng-if="lectures.length > 0">
       <a class="item item-thumbnail-left" ui-sref="tab.lecture({lecture: lecture})" ng-repeat="lecture in lectures">
         <img ng-if="(lecture.thumbnail)" ng-src="{{url_site + lecture.thumbnail}}" style="height: auto;max-height: 80%;">
         <h2 class="app-title-clamp-two app-title-small">{{lecture.title}}</h2>

@@ -5,9 +5,14 @@ angular.module('isgh.Constant', []).constant("Constant", {
 	url_site: "http://177.136.74.42/",
 	url_procseletivo: "http://177.136.74.42/processos_seletivos/",
 
+    // url_wsapp: "http://127.0.0.1/build/appWSisgh/", 
+	// url_intranet: "http://127.0.0.1/build/intranet/",
+	// url_site: "http://127.0.0.1/build/site/",
+	// url_procseletivo: "http://127.0.0.1/build/processos_seletivos/",
+
 	backButton: (ionic.Platform.isAndroid()) ? 'ion-android-arrow-back' : 'ion-ios-arrow-back',
 	closeButton: (ionic.Platform.isAndroid()) ? 'ion-android-close' : 'ion-ios-close-empty',
-	
+	procseletsTitles: ['','Inscrições Abertas', 'Em Andamento','Processos Finalizados'],
 	emails: {
 		cursos: {to: "cepep@isgh.org.br", cc: "contato@isgh.org.br"} 
 	},

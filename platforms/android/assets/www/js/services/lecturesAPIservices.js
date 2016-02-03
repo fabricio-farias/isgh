@@ -14,7 +14,7 @@ angular.module('isgh.lecturesAPIservices', ['isgh.dbAPIservices'])
             $http.get(Constant.url_wsapp + 'site/?op=lectures&fu=All').then(function (response) {
                 deferred.resolve(response);
             }, function (erro) {
-                deferred.reject("Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente");
+                deferred.reject({ type: "alert-bar-dark", message: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente" });
             });
 
             return deferred.promise;
@@ -29,14 +29,16 @@ angular.module('isgh.lecturesAPIservices', ['isgh.dbAPIservices'])
                     deferred.resolve({ data: response });
                 } else {
                     _lecturesWSget().then(function (response) {
-                        if (response.data.length > 0) {
+                        if (response.status == 200) {
                             angular.forEach(response.data, function (obj) {
                                 var query = "INSERT OR REPLACE INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
                                 db.query(query, [obj.id, obj.title, obj.image, obj.thumbnail, obj.location, obj.location_alias, obj.date, obj.filename, obj.form_date_up, obj.form_date_down, obj.form_workload, obj.form_location, obj.form_speaker, obj.form_audience, obj.form_investment, obj.form_content_1, obj.form_content_2, obj.form_content_3, obj.form_content_4, obj.form_link, obj.register_link, obj.register_planning, obj.status, obj.widgetkit_module, obj.widgetkit]);
                             });
                             deferred.resolve(response);
+                        } else if (response.status == 204) {
+                            deferred.reject({ type: "alert-bar-assertive", message: "Não há Cursos disponíveis no momento" });
                         } else {
-                            deferred.reject("Restabelecendo conexão perdida com servidor");
+                            deferred.reject({ type: "alert-bar-dark", message: "Restabelecendo conexão perdida com servidor" });
                         }
                     }, function (erro) {
                         deferred.reject(erro);
@@ -51,18 +53,20 @@ angular.module('isgh.lecturesAPIservices', ['isgh.dbAPIservices'])
         var _refresh = function () {
             var deferred = $q.defer();
             _lecturesWSget().then(function (response) {
-                if (response.data.length > 0) {
+                if (response.status == 200) {
 
-                    //db.dropTable(table);
-                    //db.createTable(table);
+                    db.truncateTable(table);
 
                     angular.forEach(response.data, function (obj) {
                         var query = "INSERT OR REPLACE INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
                         db.query(query, [obj.id, obj.title, obj.image, obj.thumbnail, obj.location, obj.location_alias, obj.date, obj.filename, obj.form_date_up, obj.form_date_down, obj.form_workload, obj.form_location, obj.form_speaker, obj.form_audience, obj.form_investment, obj.form_content_1, obj.form_content_2, obj.form_content_3, obj.form_content_4, obj.form_link, obj.register_link, obj.register_planning, obj.status, obj.widgetkit_module, obj.widgetkit]);
                     });
                     deferred.resolve(response);
+                } else if (response.status == 204) {
+                    db.truncateTable(table);
+                    deferred.reject({ type: "alert-bar-assertive", message: "Não há Cursos disponíveis no momento" });
                 } else {
-                    deferred.reject("Restabelecendo conexão perdida com servidor");
+                    deferred.reject({ type: "alert-bar-dark", message: "Restabelecendo conexão perdida com servidor" });
                 }
             }, function (erro) {
                 deferred.reject(erro);

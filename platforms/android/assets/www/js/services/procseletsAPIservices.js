@@ -15,7 +15,7 @@ angular.module('isgh.procseletsAPIservices', ['isgh.dbAPIservices'])
             $http.post(Constant.url_wsapp + 'processos_seletivos/?op=procselets&fu=GetByLocStatus', data, headers).then(function (response) {
                 deferred.resolve(response);
             }, function (erro) {
-                deferred.reject("Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente");
+                deferred.reject({ type: "alert-bar-dark", message: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente" });
             });
 
             return deferred.promise;
@@ -30,14 +30,16 @@ angular.module('isgh.procseletsAPIservices', ['isgh.dbAPIservices'])
                     deferred.resolve({ data: response });
                 } else {
                     _procseletsWSgetLocStatus(data).then(function (response) {
-                        if (response.data.length > 0) {
+                        if (response.status == 200) {
                             angular.forEach(response.data, function (obj) {
                                 var query = "INSERT OR REPLACE INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
                                 db.query(query, [obj.catid, obj.code, obj.category, obj.description, obj.file, obj.unid, obj.unit, obj.status, obj.created, obj.files]);
                             });
                             deferred.resolve(response);
+                        } else if (response.status == 204) {
+                            deferred.reject({ type: "alert-bar-assertive", message: "Não há "+Constant.procseletsTitles[response.statusText]+" disponíveis no momento" });
                         } else {
-                            deferred.resolve(response);
+                            deferred.reject({ type: "alert-bar-dark", message: "Restabelecendo conexão perdida com servidor" });
                         }
                     }, function (erro) {
                         deferred.reject(erro);
@@ -101,7 +103,7 @@ angular.module('isgh.procseletsAPIservices', ['isgh.dbAPIservices'])
             $http.get(Constant.url_wsapp + 'processos_seletivos/?op=procselets&fu=All').then(function (response) {
                 deferred.resolve(response);
             }, function (erro) {
-                deferred.reject("Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente");
+                deferred.reject({ type: "alert-bar-dark", message: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente" });
             });
 
             return deferred.promise;
@@ -124,11 +126,13 @@ angular.module('isgh.procseletsAPIservices', ['isgh.dbAPIservices'])
             } else {
 
                 _procseletsWSgetcounts().then(function (response) {
-                    if (response.data.length > 0) {
+                    if (response.status == 200) {
                         localStorage.setItem("procselets", JSON.stringify(response.data));
                         deferred.resolve(response);
+                    } else if (response.status == 204) {
+                        deferred.reject({ type: "alert-bar-assertive", message: "Não há Processos disponíveis no momento" });
                     } else {
-                        deferred.reject("Restabelecendo conexão perdida com servidor");
+                        deferred.reject({ type: "alert-bar-dark", message: "Restabelecendo conexão perdida com servidor" });
                     }
                 }, function (erro) {
                     deferred.reject(erro);
@@ -144,14 +148,16 @@ angular.module('isgh.procseletsAPIservices', ['isgh.dbAPIservices'])
             var deferred = $q.defer();
             _procseletsWSgetcounts().then(function (response) {
                 
-                db.dropTable(table);
-                db.createTable(table);
+                db.truncateTable(table);
                 
-                if (response.data.length > 0) {
+                if (response.status == 200) {
                     localStorage.setItem("procselets", JSON.stringify(response.data));
                     deferred.resolve(response);
+                } else if (response.status == 204) {
+                    db.truncateTable(table);
+                    deferred.reject({ type: "alert-bar-assertive", message: "Não há Processos disponíveis no momento" });
                 } else {
-                    deferred.reject("Restabelecendo conexão perdida com servidor");
+                    deferred.reject({ type: "alert-bar-dark", message: "Restabelecendo conexão perdida com servidor" });
                 }
             }, function (erro) {
                 deferred.reject(erro);

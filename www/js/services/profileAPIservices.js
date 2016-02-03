@@ -10,7 +10,7 @@ angular.module('isgh.profileAPIservices', ['isgh.dbAPIservices'])
             $http.post(Constant.url_wsapp + 'rheventos/?op=profile&fu=Get', data, headers).then(function (response) {
                 deferred.resolve(response);
             }, function (erro) {
-                deferred.reject({ type: "", message: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente" });
+                deferred.reject({ type: "alert-bar-dark", message: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente" });
             });
 
             return deferred.promise;
@@ -37,7 +37,7 @@ angular.module('isgh.profileAPIservices', ['isgh.dbAPIservices'])
             $http.get(Constant.url_wsapp + 'rheventos/?op=profile&fu=FilialGet').then(function (response) {
                 deferred.resolve(response);
             }, function (erro) {
-                deferred.reject({ type: "", message: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente" });
+                deferred.reject({ type: "alert-bar-dark", message: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente" });
             });
 
             return deferred.promise;

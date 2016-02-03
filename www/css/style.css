@@ -237,8 +237,8 @@ iframe, .app-iframe-issue .scroll{width: 100%!important;height: 100%!important;}
 
 /*ALERT BAR*/
 /*===============================*/
-/*.alert-bar{transition: top 0.25s ease;-webkit-transition: top 0.25s ease;position:absolute;padding:5px 10px;background-color: #171717;color: white;text-align: center;width: 100%;visibility: hidden;display: table;}*/
-.alert-bar{transition: all 400ms cubic-bezier(0.1, 0.7, 0.1, 1) 0s;-webkit-transition: all 400ms cubic-bezier(0.1, 0.7, 0.1, 1) 0s;position:absolute;padding:5px 10px;background-color: #171717;color: white;text-align: center;width: 100%;visibility: hidden;display: table;transform: translate3d(0, -100%, 0);-webkit-transform: translate3d(0, -100%, 0);}
+/*.alert-bar{transition: top 0.25s ease;-webkit-transition: top 0.25s ease;position:absolute;padding:5px 10px;color: white;text-align: center;width: 100%;visibility: hidden;display: table;}*/
+.alert-bar{transition: top 400ms cubic-bezier(0.1, 0.7, 0.1, 1) 0s;-webkit-transition: top 400ms cubic-bezier(0.1, 0.7, 0.1, 1) 0s;position:absolute;min-height: 30px;padding:5px 10px;color: white;text-align: center;width: 100%;visibility: hidden;display: table;transform: translate3d(0, -100%, 0);-webkit-transform: translate3d(0, -100%, 0);}
 .alert-bar div{display: table-cell;}
 .alert-bar i{padding: 0 10px;display: table-cell;vertical-align: middle;}
 .platform-ios .alert-bar{top: 0;z-index:9;}
@@ -246,6 +246,7 @@ iframe, .app-iframe-issue .scroll{width: 100%!important;height: 100%!important;}
 .platform-android .alert-bar{top: 44px;z-index: 4;}
 .platform-android .bar-active{visibility: visible;top: 93px;transform: translate3d(0, 0, 0);-webkit-transform: translate3d(0, 0, 0);}
 
+.alert-bar-dark{background-color: #171717;}
 .alert-bar-assertive{background-color: #EF473A;}
 .alert-bar-balanced{background-color: #33CD5F;}
 .alert-bar-info{background-color: #37639b;}
@@ -255,7 +256,7 @@ iframe, .app-iframe-issue .scroll{width: 100%!important;height: 100%!important;}
 
 /*JUMBOTRON*/
 /*===============================*/
-.jumbotron {color: inherit;position: absolute;text-align: center; display: table; top: 100%; left: 50%; right: 0; bottom: 0; width: auto; height: auto;z-index:1;transform: translate(-50%,100%);-webkit-transform: translate(-50%,100%);}
+.jumbotron {color: inherit;position: absolute;text-align: center; display: table; top: 50%; left: 50%; right: 0; bottom: 0; width: auto; height: auto;overflow: hidden;margin-top: -1px;padding-top: 1px;margin-bottom: -1px; z-index:1;transform: translate(-50%,50%);-webkit-transform: translate(-50%,50%);}
 .jumbotron .h1, .jumbotron h1 {font-size: 63px;color: #999;text-shadow: 1px 1px 1px #fff;-webkit-text-shadow: 1px 1px 1px #fff;}
 .jumbotron p {margin-bottom: 15px;font-size: 21px;font-weight: 200;color: #999;text-shadow: 1px 1px 1px #fff;-webkit-text-shadow: 1px 1px 1px #fff;}
 /*===============================*/

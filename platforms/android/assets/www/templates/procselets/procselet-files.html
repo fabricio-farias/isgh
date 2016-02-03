@@ -5,7 +5,9 @@
   </ion-nav-buttons>
 
   <ion-content ng-class="{'has-header': isIOS}">
-
+    
+    <ui-jumbotron ng-if="files.length == 0" icon="ion-ios-people">Não há arquivos para exibir</ui-jumbotron>
+      
     <ion-list class="list">
       
       <ion-item class="item item-avatar">

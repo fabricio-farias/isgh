@@ -14,7 +14,7 @@ angular.module('isgh.birthdaysAPIservices', ['isgh.dbAPIservices'])
             $http.get(Constant.url_wsapp + 'intranet/?op=birthdays&fu=All').then(function (response) {
                 deferred.resolve(response);
             }, function (erro) {
-                deferred.reject({ type: "", message: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente" });
+                deferred.reject({ type: "alert-bar-dark", message: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente" });
             });
 
             return deferred.promise;
@@ -27,7 +27,7 @@ angular.module('isgh.birthdaysAPIservices', ['isgh.dbAPIservices'])
             $http.get(Constant.url_wsapp + 'intranet/?op=birthdays&fu=Everyone').then(function (response) {
                 deferred.resolve(response);
             }, function (erro) {
-                deferred.reject({ type: "", message: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente" });
+                deferred.reject({ type: "alert-bar-dark", message: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente" });
             });
 
             return deferred.promise;
@@ -55,7 +55,7 @@ angular.module('isgh.birthdaysAPIservices', ['isgh.dbAPIservices'])
                         } else if (response.status == 204) {
                             deferred.reject({ type: "alert-bar-assertive", message: "Não há aniversariantes disponíveis no momento" });
                         } else {
-                            deferred.reject({ type: "", message: "Restabelecendo conexão perdida com servidor" });
+                            deferred.reject({ type: "alert-bar-dark", message: "Restabelecendo conexão perdida com servidor" });
                         }
                     }, function (erro) {
                         deferred.reject(erro);
@@ -84,7 +84,7 @@ angular.module('isgh.birthdaysAPIservices', ['isgh.dbAPIservices'])
                     db.truncateTable(table);
                     deferred.reject({ type: "alert-bar-assertive", message: "Não há aniversariantes disponíveis no momento" });
                 } else {
-                    deferred.reject({ type: "", message: "Restabelecendo conexão perdida com servidor" });
+                    deferred.reject({ type: "alert-bar-dark", message: "Restabelecendo conexão perdida com servidor" });
                 }
             }, function (erro) {
                 deferred.reject(erro);
@@ -110,7 +110,7 @@ angular.module('isgh.birthdaysAPIservices', ['isgh.dbAPIservices'])
             $http.post(Constant.url_wsapp + 'intranet/?op=birthdays&fu=ByDate', data, headers).then(function (response) {
                 deferred.resolve(response);
             }, function (erro) {
-                deferred.reject({ type: "", message: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente" });
+                deferred.reject({ type: "alert-bar-dark", message: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente" });
             });
 
             return deferred.promise;
@@ -123,7 +123,7 @@ angular.module('isgh.birthdaysAPIservices', ['isgh.dbAPIservices'])
             $http.post(Constant.url_wsapp + 'intranet/?op=birthdays&fu=ByLike', data, headers).then(function (response) {
                 deferred.resolve(response);
             }, function (erro) {
-                deferred.reject({ type: "", message: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente" });
+                deferred.reject({ type: "alert-bar-dark", message: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente" });
             });
 
             return deferred.promise;
