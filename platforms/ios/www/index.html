@@ -15,6 +15,8 @@
     
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="lib/ionic-filter-bar/dist/ionic.filter.bar.css" rel="stylesheet">
+    <link href="lib/ion-gallery/dist/ion-gallery.css" rel="stylesheet">
+    <link href="css/timeline.css" rel="stylesheet">
     <link href="css/style-colors.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <!--<link href="lib/pace/pace.css" rel="stylesheet">-->
@@ -26,9 +28,10 @@
     <script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
     
     <script src="lib/ionic-service-core/ionic-core.js"></script>
-    <script src="lib/ionic/js/ionic-angular-locale_pt-br.js"></script>
+    <script src="lib/ionic-angular-locale_pt-br.js"></script>
     <script src="lib/css/angular-css.min.js"></script>
     <script src="lib/ionic-filter-bar/dist/ionic.filter.bar.js"></script>
+    <script src="lib/ion-gallery/dist/ion-gallery.min.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
@@ -74,6 +77,7 @@
     <script src="js/directives/uiAlertBar.js"></script>
     <script src="js/directives/uiJumbotron.js"></script>
     <script src="js/directives/hideTabs.js"></script>
+    <script src="js/directives/compileHtml.js"></script>
     
     <!--PACE-->
     <!--<script src="lib/pace/pace.min.js"></script>-->
@@ -88,12 +92,11 @@
     <!--
       The nav bar that will be updated as we navigate between views.
     -->
-    
     <ion-nav-bar ng-if="isIOS" class="bar-light">
       <ion-nav-back-button class="button-clear button-info"></ion-nav-back-button>
     </ion-nav-bar>
     
-    <ion-nav-bar ng-if="isAndroid" class="bar-info has-tabs-top" align-title="center">
+    <ion-nav-bar ng-if="isAndroid" class="bar-info has-tabs-top" align-title="left">
       <ion-nav-back-button class="button-clear"></ion-nav-back-button>
     </ion-nav-bar>
     <!--

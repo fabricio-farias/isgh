@@ -89,6 +89,13 @@ angular.module('isgh.dbAPIservices', ['isgh.Constant'])
                 self.query(query);
             }
         }
+        
+        self.truncateTable = function (table) {
+            if (table) {
+                var query = 'DELETE FROM ' + table.name;
+                self.query(query);
+            }
+        }
 
         self.getColumns = function (table) {
             var output = [];

@@ -21,7 +21,7 @@ angular.module('isgh.ProcseletsCtrl', ['ngSanitize'])
                 });
             }, function (erro) {
                 $scope.$broadcast('scroll.refreshComplete');
-                $rootScope.alert = { type: "", message: erro };
+                $rootScope.alert = erro;
             });
 
         }
@@ -30,8 +30,11 @@ angular.module('isgh.ProcseletsCtrl', ['ngSanitize'])
 
     .controller('ProcseletsCategoriesCtrl', function ($scope, $ionicFilterBar, Constant, ResolveProcseletsCategories) {
 
-        $scope.categories = ResolveProcseletsCategories.data
-
+        $scope.categories = ResolveProcseletsCategories.data.map(function (item) {
+            item.created = new Date(item.created);
+            return item;
+        });
+                
         $scope.showFilterBar = function () {
             $ionicFilterBar.show({
                 cancelText: 'Cancelar',
@@ -48,7 +51,7 @@ angular.module('isgh.ProcseletsCtrl', ['ngSanitize'])
 		
     })
 
-    .controller('ProcseletsFilesCtrl', function ($scope, $ionicFilterBar, Constant, ResolveProcseletsFiles) {
+    .controller('ProcseletsFilesCtrl', function ($scope, $ionicFilterBar, $rootScope, Constant, ResolveProcseletsFiles) {
         
         $scope.files = ResolveProcseletsFiles.category;
 
@@ -67,10 +70,17 @@ angular.module('isgh.ProcseletsCtrl', ['ngSanitize'])
         $scope.parseDate = function (date) {
             return new Date(date);
         }
-
+        
+        var openPDF = function (url) {
+            var nUrl = ($rootScope.isAndroid) ? 'http://docs.google.com/viewer?url=' + encodeURIComponent(url) + '&embedded=true' : url;
+            var options = ($rootScope.isAndroid) ? 'location=yes' : 'location=no';
+            window.open(nUrl, '_blank', options);
+        }
+        
         $scope.externalLink = function (file) {
             if (file) {
-                return (file.link_external !== "") ? window.open(file.link_external, "_system") : window.open(Constant.url_procseletivo + 'phocadownload/' + file.filename, "_system");
+                var options = ($rootScope.isAndroid) ? 'location=yes' : 'location=no';
+                return (file.link_external !== "") ? window.open(file.link_external, "_blank", options) : openPDF(Constant.url_procseletivo + 'phocadownload/' + file.filename);
             }
         }
 

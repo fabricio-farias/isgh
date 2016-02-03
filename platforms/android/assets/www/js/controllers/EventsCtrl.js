@@ -40,16 +40,16 @@ angular.module('isgh.EventsCtrl', ['ngSanitize'])
             return (data !== "") ? 'positive' : 'assertive';
         }
 
-        $scope.externalLink = function (url) {
-            window.open(url, "_system");
-        }
-
     })
     .controller('EventAddonsCtrl', function ($scope, $sce, $filter, Constant, ResolveEventAddons, $ionicScrollDelegate) {
 
         $scope.addon = ResolveEventAddons.event;
         $scope.url_intranet = Constant.url_intranet;
 
+        $scope.zoomOut = function () {
+            $ionicScrollDelegate.$getByHandle('maddonScroll').zoomTo(1);
+        }
+        
         $scope.renderHTML = function (html) {
             if (html) {
                 $ionicScrollDelegate.$getByHandle('maddonScroll').zoomTo(1);

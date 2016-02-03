@@ -11,19 +11,18 @@
     <div class="list card" ng-repeat="item in locations">
 
       <div class="item item-avatar">
-        <!--<div class="item-image app-units stable app-text-uppercase">{{item.location.substring(0,3)}}</div>-->
         <div class="item-image app-units app-units-stable"><i class="icon ion-location app-font-size-300"></i></div>
-        <h2>{{item.location | uppercase}}</h2>
+        <h2>{{item.title | uppercase}}</h2>
         <p>
-          <span ng-class="checkColor(unit.unit)" ng-repeat="unit in item.units">
-            {{unit.unit}}
+          <span ng-class="checkColor(unit.short_title)" ng-repeat="unit in item.units">
+            {{unit.short_title}}
           </span>
         </p>
       </div>
 
-      <a class="item item-body" href="#/tab/procselets/categories/{{item.locid}}/{{status}}" ng-repeat="status in statusObj">
-        <span class="app-font-size-90">{{status.name}}</span>
-        <span class="badge badge-assertive">{{getTotal(item.locid,status.id)}}</span>
+      <a class="item item-body" ui-sref="tab.procselets-categories({units: item.units, status: key, stitle: value.title})" ng-repeat="(key, value) in item.status">
+        <span class="app-font-size-90">{{value.title}}</span>
+        <span class="badge badge-assertive">{{value.total}}</span>
       </a>
 
     </div>

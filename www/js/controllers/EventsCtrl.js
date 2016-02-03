@@ -24,7 +24,7 @@ angular.module('isgh.EventsCtrl', ['ngSanitize'])
                 $scope.events = response.data;
             }, function (erro) {
                 $scope.$broadcast('scroll.refreshComplete');
-                $rootScope.alert = { type: "", message: erro };
+                $rootScope.alert = erro;
             });
 		
             // $scope.$broadcast('scroll.refreshComplete');
@@ -38,10 +38,6 @@ angular.module('isgh.EventsCtrl', ['ngSanitize'])
 
         $scope.ifExists = function (data) {
             return (data !== "") ? 'positive' : 'assertive';
-        }
-
-        $scope.externalLink = function (url) {
-            window.open(url, "_system");
         }
 
     })

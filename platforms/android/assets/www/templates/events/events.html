@@ -1,4 +1,4 @@
-<ion-view hide-back-button="true">
+<ion-view hide-back-button="true" class="bg-light">
 
   <ion-nav-buttons side="primary">
     <button class="button ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" ng-click="showFilterBar()"></button>
@@ -33,10 +33,10 @@
 
   </ion-content>
 
-  <div ng-if="isAndroid" class="bar bar-footer">
-    <div class="button-bar bar-light">
-      <a nav-transition="none" class="button info" href="#/tab/lectures">Cursos</a>
-      <a nav-transition="none" class="button info active" href="#/tab/events">Eventos</a>
+  <div ng-if="isAndroid" class="bar bar-footer bar-info">
+    <div class="button-bar bar-info">
+      <a nav-transition="none" class="button button-clear" href="#/tab/lectures">Cursos</a>
+      <a nav-transition="none" class="button button-clear active" href="#/tab/events">Eventos</a>
     </div>
   </div>
 

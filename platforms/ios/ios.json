@@ -33,18 +33,6 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"StatusBar\"><param name=\"ios-package\" value=\"CDVStatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<preference name=\"StatusBarOverlaysWebView\" value=\"true\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<preference name=\"StatusBarStyle\" value=\"lightcontent\" />",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"EmailComposer\"><param name=\"ios-package\" value=\"EmailComposer\" /></feature>",
                             "count": 1
                         },
@@ -58,6 +46,18 @@
                         },
                         {
                             "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"StatusBar\"><param name=\"ios-package\" value=\"CDVStatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<preference name=\"StatusBarOverlaysWebView\" value=\"true\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<preference name=\"StatusBarStyle\" value=\"lightcontent\" />",
                             "count": 1
                         }
                     ]
@@ -87,9 +87,6 @@
         "com.phonegap.plugins.PushPlugin": {
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
         },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.ionicframework.isgh900684"
-        },
         "com.jcjee.plugins.emailcomposer": {
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
         },
@@ -100,6 +97,9 @@
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
         },
         "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.ionicframework.isgh900684"
+        },
+        "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
         }
     },
@@ -162,14 +162,6 @@
             ]
         },
         {
-            "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
-            "id": "cordova-plugin-statusbar.statusbar",
-            "pluginId": "cordova-plugin-statusbar",
-            "clobbers": [
-                "window.StatusBar"
-            ]
-        },
-        {
             "file": "plugins/com.jcjee.plugins.emailcomposer/www/EmailComposer.js",
             "id": "com.jcjee.plugins.emailcomposer.EmailComposer",
             "pluginId": "com.jcjee.plugins.emailcomposer",
@@ -210,6 +202,14 @@
                 "cordova.InAppBrowser.open",
                 "window.open"
             ]
+        },
+        {
+            "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+            "id": "cordova-plugin-statusbar.statusbar",
+            "pluginId": "cordova-plugin-statusbar",
+            "clobbers": [
+                "window.StatusBar"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -220,10 +220,10 @@
         "com.ionic.keyboard": "1.0.4",
         "ionic-plugin-deploy": "0.4.1",
         "com.phonegap.plugins.PushPlugin": "2.5.0",
-        "cordova-plugin-statusbar": "2.0.0-dev",
         "com.jcjee.plugins.emailcomposer": "1.4.6",
         "cordova-sqlite-storage": "0.7.11",
         "org.apache.cordova.network-information": "0.2.15",
-        "cordova-plugin-inappbrowser": "1.1.1"
+        "cordova-plugin-inappbrowser": "1.1.1",
+        "cordova-plugin-statusbar": "2.1.0"
     }
 }

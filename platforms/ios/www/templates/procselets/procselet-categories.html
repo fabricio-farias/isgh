@@ -1,4 +1,4 @@
-<ion-view view-title="{{sname}}">
+<ion-view view-title="{{stitle}}">
 
   <ion-nav-buttons side="secondary">
     <button class="button ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" ng-click="showFilterBar()"></button>
@@ -7,27 +7,21 @@
   <ion-content ng-class="{'has-header': isIOS}">
 
     <div ng-if="categories.length == 0">
-      <ui-jumbotron icon="ion-ios-people">Não há {{sname}} para exibir</ui-jumbotron>
+      <ui-jumbotron icon="ion-ios-people">Não há {{stitle}} para exibir</ui-jumbotron>
     </div>
 
-    <div class="list">
-
-      <a class="item item-avatar" href="#/tab/procselets/files/{{category.catid}}/{{sname}}" ng-repeat="category in categories">
-        <div class="item-image app-units app-text-uppercase app-units-{{checkColor(category.unit)}}">{{category.unit}}</div>
-
-        <div class="item-input">
-          <h2 class="app-title-clamp-two">{{category.category[0]}}</h2>
-        </div>
-        <div class="item-input">
-          <p><i class="icon ion-android-document"></i> {{category.file}}</p>
-        </div>
-        <div class="item-input">
-          <p><i class="icon ion-ios-pricetag"></i> {{category.category[1]}}</p>
-        </div>
-      </a>
-
-    </div>
-
+    <ion-list type="list card" collection-repeat="category in categories" item-width="100%" item-height="120px" ui-sref="tab.procselets-files({category: category, stitle: stitle})">
+      <ion-item class="item item-avatar">
+        <div class="item-image app-units app-text-uppercase" ng-class="checkColor(category.unit, 'app-units-')">{{category.unit}}</div>
+        <h2 class="">{{category.category}}</h2>
+        <p><i class="icon ion-ios-pricetag"></i> {{category.code}}</p>
+      </ion-item>
+      <ion-item class="item item-divider">
+        <span class="item-note item-note-mini app-float-left"><i class="icon ion-document-text"></i> {{category.file}}</span>
+        <span class="item-note item-note-mini"><i class="icon ion-android-calendar"></i> {{category.created | date:'dd/MM/yyyy'}}</span>
+      </ion-item>
+    </ion-list>
+    <ion-item class="item item-divider app-item-divider-last" style="border-bottom-width: 0;"></ion-item>
   </ion-content>
 
 </ion-view>

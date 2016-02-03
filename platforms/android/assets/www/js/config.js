@@ -5,20 +5,27 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDelegateProvider, $ionicConfigProvider, $ionicFilterBarConfigProvider) {
+app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDelegateProvider, $ionicConfigProvider, $ionicFilterBarConfigProvider, ionGalleryConfigProvider, Constant) {
 
     $sceDelegateProvider.resourceUrlWhitelist(['.*']);
 
     $ionicConfigProvider.backButton.text('');
     $ionicConfigProvider.backButton.previousTitleText(false);
     $ionicConfigProvider.scrolling.jsScrolling(true);
-
+    
     $ionicFilterBarConfigProvider.placeholder('Buscar');
     if (ionic.Platform.isIOS()) {
         $ionicFilterBarConfigProvider.theme('light');
     } else if (ionic.Platform.isAndroid()) {
         $ionicFilterBarConfigProvider.theme('info');
     }
+    
+    ionGalleryConfigProvider.setGalleryConfig({
+        action_label: '<i class="icon '+Constant.closeButton+'"></i>',
+        toggle: false,
+        row_size: 4
+    });
+
   
     // Ionic uses AngularUI Router which uses the concept of states
     // Learn more here: https://github.com/angular-ui/ui-router
@@ -42,7 +49,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
     //TAB.NEWS
         .state('tab.news', {
             url: '/news',
-            cache: false,
+            //cache: false,
             views: {
                 'tab-news': {
                     templateUrl: 'templates/news/news.html',

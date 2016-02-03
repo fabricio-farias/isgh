@@ -109,9 +109,6 @@
         "com.phonegap.plugins.PushPlugin": {
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
         },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.ionicframework.isgh900684"
-        },
         "com.jcjee.plugins.emailcomposer": {
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
         },
@@ -122,6 +119,9 @@
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
         },
         "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.ionicframework.isgh900684"
+        },
+        "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
         }
     },

@@ -4,11 +4,9 @@
 
     <ion-refresher on-refresh="doRefresh()"></ion-refresher>
     
-    <div ng-if="locations.length == 0">
-      <ui-jumbotron icon="ion-ios-people">Não há Processos Seletivos para exibir</ui-jumbotron>
-    </div>
-    
-    <div class="list card" ng-repeat="item in locations">
+    <ui-jumbotron ng-if="locations.message || locations.length == 0" icon="ion-ios-people">{{locations.message || 'Não há Processos para exibir no momento'}}</ui-jumbotron>
+
+    <div class="list card" ng-if="locations.length > 0" ng-repeat="item in locations">
 
       <div class="item item-avatar">
         <div class="item-image app-units app-units-stable"><i class="icon ion-location app-font-size-300"></i></div>

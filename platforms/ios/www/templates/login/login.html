@@ -10,6 +10,11 @@
       <span class="item-note"><span class="app-font-size-80">Matrícula: </span>{{profile.num_matricula}}</span>
     </a>
     
+    <div class="item" ng-if="profile !== null"></div>
+    <a class="item app-item-no-border" ng-if="profile !== null" ng-click="clearProfile(profile)">
+        <div class="title app-text-align-center app-font-size-100 app-font-color-stable">Entrar em outra conta</div>
+    </a>
+    
     <form name="loginForm" ng-if="profile === null">
       <div class="list">
         <label class="item item-input">
@@ -44,9 +49,9 @@
 
   </ion-content>
   
-  <a class="bar bar-footer" ng-if="profile !== null" style="bottom:95px;" ng-click="clearProfile(profile)">
+  <!--<a class="bar bar-footer" ng-if="profile !== null" style="bottom:95px;" ng-click="clearProfile(profile)">
     <div class="title app-font-size-100 app-font-color-stable">Entrar em outra conta</div>
-  </a>
+  </a>-->
   
   <div class="bar bar-footer" style="height: auto">
     <img class="app-full-size" src="img/login-footer.png" />

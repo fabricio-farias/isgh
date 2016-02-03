@@ -10,18 +10,18 @@
       <ui-jumbotron icon="ion-ios-people">Não há {{stitle}} para exibir</ui-jumbotron>
     </div>
 
-    <ion-list class="list">
-
-      <ion-item class="item item-avatar" ui-sref="tab.procselets-files({category: category, stitle: stitle})"  collection-repeat="category in categories" item-width="100%">
+    <ion-list type="list card" collection-repeat="category in categories" item-width="100%" item-height="120px" ui-sref="tab.procselets-files({category: category, stitle: stitle})">
+      <ion-item class="item item-avatar">
         <div class="item-image app-units app-text-uppercase" ng-class="checkColor(category.unit, 'app-units-')">{{category.unit}}</div>
-
         <h2 class="">{{category.category}}</h2>
-        <span class="item-note"><i class="icon ion-ios-pricetag"></i> {{category.code}}</span>
-        <p><i class="icon ion-android-document"></i> {{category.file}}</p>
+        <p><i class="icon ion-ios-pricetag"></i> {{category.code}}</p>
       </ion-item>
-
+      <ion-item class="item item-divider">
+        <span class="item-note item-note-mini app-float-left"><i class="icon ion-document-text"></i> {{category.file}}</span>
+        <span class="item-note item-note-mini"><i class="icon ion-android-calendar"></i> {{category.created | date:'dd/MM/yyyy'}}</span>
+      </ion-item>
     </ion-list>
-
+    <ion-item class="item item-divider app-item-divider-last" style="border-bottom-width: 0;"></ion-item>
   </ion-content>
 
 </ion-view>

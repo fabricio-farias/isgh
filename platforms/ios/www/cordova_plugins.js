@@ -57,14 +57,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
-        "id": "cordova-plugin-statusbar.statusbar",
-        "pluginId": "cordova-plugin-statusbar",
-        "clobbers": [
-            "window.StatusBar"
-        ]
-    },
-    {
         "file": "plugins/com.jcjee.plugins.emailcomposer/www/EmailComposer.js",
         "id": "com.jcjee.plugins.emailcomposer.EmailComposer",
         "pluginId": "com.jcjee.plugins.emailcomposer",
@@ -105,6 +97,14 @@ module.exports = [
             "cordova.InAppBrowser.open",
             "window.open"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+        "id": "cordova-plugin-statusbar.statusbar",
+        "pluginId": "cordova-plugin-statusbar",
+        "clobbers": [
+            "window.StatusBar"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -117,11 +117,11 @@ module.exports.metadata =
     "com.ionic.keyboard": "1.0.4",
     "ionic-plugin-deploy": "0.4.1",
     "com.phonegap.plugins.PushPlugin": "2.5.0",
-    "cordova-plugin-statusbar": "2.0.0-dev",
     "com.jcjee.plugins.emailcomposer": "1.4.6",
     "cordova-sqlite-storage": "0.7.11",
     "org.apache.cordova.network-information": "0.2.15",
-    "cordova-plugin-inappbrowser": "1.1.1"
+    "cordova-plugin-inappbrowser": "1.1.1",
+    "cordova-plugin-statusbar": "2.1.0"
 }
 // BOTTOM OF METADATA
 });

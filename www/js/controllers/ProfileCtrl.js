@@ -94,13 +94,15 @@ angular.module('isgh.ProfileCtrl', ['ngSanitize'])
 
     })
 
-    .controller('ProfileCtrl', function ($scope, $filter, $rootScope, ResolveProfile, Constant, FactoryProfile, $state) {
+    .controller('ProfileCtrl', function ($scope, $filter, $rootScope, ResolveProfile, Constant, FactoryProfile, $state, $ionicHistory) {
         $scope.profile = ResolveProfile;
 
         $scope.logoutProfile = function (profile) {
             if (profile) {
                 profile.dsc_logged = 0;
                 localStorage.setItem("profile", JSON.stringify(profile));
+                $ionicHistory.clearCache();
+                $ionicHistory.clearHistory();
                 $state.go('login');
             }
         }

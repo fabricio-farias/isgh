@@ -31,7 +31,7 @@ angular.module('isgh.newsAPIservices', ['isgh.dbAPIservices'])
                     _newsWSget().then(function (response) {
                         if (response.data.length > 0) {
                             angular.forEach(response.data, function (obj) {
-                                var query = "INSERT INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
+                                var query = "INSERT OR REPLACE INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
                                 db.query(query, [obj.id, obj.title, obj.images, obj.created, obj.introtext, obj.striptext, obj.category, obj.unit, obj.hits, obj.liked_sum, obj.unliked_sum]);
                             });
                             deferred.resolve(response);
@@ -53,11 +53,11 @@ angular.module('isgh.newsAPIservices', ['isgh.dbAPIservices'])
             _newsWSget().then(function (response) {
                 if (response.data.length > 0) {
 
-                    db.dropTable(table);
-                    db.createTable(table);
+                    //db.dropTable(table);
+                    //db.createTable(table);
 
                     angular.forEach(response.data, function (obj) {
-                        var query = "INSERT INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
+                        var query = "INSERT OR REPLACE INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
                         db.query(query, [obj.id, obj.title, obj.images, obj.created, obj.introtext, obj.striptext, obj.category, obj.unit, obj.hits, obj.liked_sum, obj.unliked_sum]);
                     });
 

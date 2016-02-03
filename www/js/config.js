@@ -5,20 +5,27 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDelegateProvider, $ionicConfigProvider, $ionicFilterBarConfigProvider) {
+app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDelegateProvider, $ionicConfigProvider, $ionicFilterBarConfigProvider, ionGalleryConfigProvider, Constant) {
 
     $sceDelegateProvider.resourceUrlWhitelist(['.*']);
 
     $ionicConfigProvider.backButton.text('');
     $ionicConfigProvider.backButton.previousTitleText(false);
     $ionicConfigProvider.scrolling.jsScrolling(true);
-
+    
     $ionicFilterBarConfigProvider.placeholder('Buscar');
     if (ionic.Platform.isIOS()) {
         $ionicFilterBarConfigProvider.theme('light');
     } else if (ionic.Platform.isAndroid()) {
         $ionicFilterBarConfigProvider.theme('info');
     }
+    
+    ionGalleryConfigProvider.setGalleryConfig({
+        action_label: '<i class="icon '+Constant.closeButton+'"></i>',
+        toggle: false,
+        row_size: 4
+    });
+
   
     // Ionic uses AngularUI Router which uses the concept of states
     // Learn more here: https://github.com/angular-ui/ui-router
@@ -42,7 +49,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
     //TAB.NEWS
         .state('tab.news', {
             url: '/news',
-            cache: false,
+            //cache: false,
             views: {
                 'tab-news': {
                     templateUrl: 'templates/news/news.html',
@@ -58,7 +65,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
 
                             }, function (erro) {
                                 $ionicLoading.hide();
-                                return $rootScope.alert = { type: "", message: erro };
+                                return $rootScope.alert = erro;
                             });
 
                             $ionicLoading.hide();
@@ -101,7 +108,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
 
                             }, function (erro) {
                                 $ionicLoading.hide();
-                                return $rootScope.alert = { type: "", message: erro };
+                                return $rootScope.alert = erro;
                             });
 
                             $ionicLoading.hide();
@@ -182,7 +189,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
 
                             }, function (erro) {
                                 $ionicLoading.hide();
-                                return $rootScope.alert = { type: "", message: erro };
+                                return $rootScope.alert = erro;
                             });
 
                             $ionicLoading.hide();
@@ -241,7 +248,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
 
                             }, function (erro) {
                                 $ionicLoading.hide();
-                                return $rootScope.alert = { type: "", message: erro };
+                                return $rootScope.alert = erro;
                             });
 
                             $ionicLoading.hide();
@@ -259,17 +266,18 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
                     templateUrl: 'templates/procselets/procselet-categories.html',
                     controller: 'ProcseletsCategoriesCtrl',
                     resolve: {
-                        ResolveProcseletsCategories: function (FactoryProcselets, $stateParams, $ionicLoading, $rootScope) {
+                        ResolveProcseletsCategories: function (FactoryProcselets, $stateParams, $ionicLoading, $rootScope, $state) {
                             $ionicLoading.show();
-                            
+                            $rootScope.alert = '';
                             var units = $stateParams.units.map(function (e) { return e.id; });
                             return FactoryProcselets.populateByLocationStatus({ units: units, status: $stateParams.status }).then(function (response) {
                                 $ionicLoading.hide();
-                                response.stitle = $stateParams.stitle; 
+                                response.stitle = $stateParams.stitle;
                                 return response;
                             }, function (erro) {
                                 $ionicLoading.hide();
-                                return $rootScope.alert = { type: "", message: erro };
+                                $state.go($state.current, $stateParams.lecture, { reload: false, inherit: false });
+                                return $rootScope.alert = erro;
                             });
 
                             $ionicLoading.hide();
@@ -312,7 +320,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
 
                             }, function (erro) {
                                 $ionicLoading.hide();
-                                return $rootScope.alert = { type: "", message: erro };
+                                return $rootScope.alert = erro;
                             });
 
                             $ionicLoading.hide();

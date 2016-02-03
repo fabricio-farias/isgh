@@ -31,7 +31,7 @@ angular.module('isgh.lecturesAPIservices', ['isgh.dbAPIservices'])
                     _lecturesWSget().then(function (response) {
                         if (response.data.length > 0) {
                             angular.forEach(response.data, function (obj) {
-                                var query = "INSERT INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
+                                var query = "INSERT OR REPLACE INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
                                 db.query(query, [obj.id, obj.title, obj.image, obj.thumbnail, obj.location, obj.location_alias, obj.date, obj.filename, obj.form_date_up, obj.form_date_down, obj.form_workload, obj.form_location, obj.form_speaker, obj.form_audience, obj.form_investment, obj.form_content_1, obj.form_content_2, obj.form_content_3, obj.form_content_4, obj.form_link, obj.register_link, obj.register_planning, obj.status, obj.widgetkit_module, obj.widgetkit]);
                             });
                             deferred.resolve(response);
@@ -53,11 +53,11 @@ angular.module('isgh.lecturesAPIservices', ['isgh.dbAPIservices'])
             _lecturesWSget().then(function (response) {
                 if (response.data.length > 0) {
 
-                    db.dropTable(table);
-                    db.createTable(table);
+                    //db.dropTable(table);
+                    //db.createTable(table);
 
                     angular.forEach(response.data, function (obj) {
-                        var query = "INSERT INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
+                        var query = "INSERT OR REPLACE INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
                         db.query(query, [obj.id, obj.title, obj.image, obj.thumbnail, obj.location, obj.location_alias, obj.date, obj.filename, obj.form_date_up, obj.form_date_down, obj.form_workload, obj.form_location, obj.form_speaker, obj.form_audience, obj.form_investment, obj.form_content_1, obj.form_content_2, obj.form_content_3, obj.form_content_4, obj.form_link, obj.register_link, obj.register_planning, obj.status, obj.widgetkit_module, obj.widgetkit]);
                     });
                     deferred.resolve(response);

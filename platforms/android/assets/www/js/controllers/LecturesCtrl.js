@@ -35,7 +35,7 @@ angular.module('isgh.LecturesCtrl', ['ngSanitize'])
         }
 
     })
-    .controller('LectureCtrl', function ($scope, $filter, Constant, ResolveLecture, EmailSender) {
+    .controller('LectureCtrl', function ($scope, $filter, Constant, ResolveLecture, EmailSender, $rootScope) {
 
         $scope.lecture = ResolveLecture;
         $scope.url_site = Constant.url_site;
@@ -43,7 +43,13 @@ angular.module('isgh.LecturesCtrl', ['ngSanitize'])
         $scope.ifExists = function (data) {
             return (data !== "") ? 'positive' : 'assertive';
         }
-
+        
+        var openPDF = function (url) {
+            var nUrl = ($rootScope.isAndroid) ? 'http://docs.google.com/viewer?url=' + encodeURIComponent(url) + '&embedded=true' : url;
+            var options = ($rootScope.isAndroid) ? 'location=yes' : 'location=no';
+            window.open(nUrl, '_blank', options);
+        }
+        
         $scope.externalLink = function (url, target, lecture) {
             var year = new Date();
 
@@ -61,7 +67,7 @@ angular.module('isgh.LecturesCtrl', ['ngSanitize'])
                 EmailSender.send();
 
             } else {
-                window.open(url, "_system");
+                openPDF(url);
             }
         }
 
@@ -71,9 +77,12 @@ angular.module('isgh.LecturesCtrl', ['ngSanitize'])
         $scope.addon = ResolveLectureAddons;
         $scope.url_site = Constant.url_site;
 
+        $scope.zoomOut = function () {
+            $ionicScrollDelegate.$getByHandle('maddonScroll').zoomTo(1);
+        }
+
         $scope.renderHTML = function (html) {
             if (html) {
-
                 $ionicScrollDelegate.$getByHandle('maddonScroll').zoomTo(1);
                 return $sce.trustAsHtml(html);
             }

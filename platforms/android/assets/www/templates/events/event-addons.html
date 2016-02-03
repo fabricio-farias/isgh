@@ -16,7 +16,7 @@
   <div ng-if="isAndroid" class="item item-stable item-text-wrap has-header app-font-size-100" style="padding: 6px 10px;">
     {{addon.title}}
   </div>
-  <ion-scroll zooming="true" direction="xy" delegate-handle="maddonScroll" class="app-full-size has-header" min-zoom="1">
+  <ion-scroll on-double-tap="zoomOut()" zooming="true" direction="xy" delegate-handle="maddonScroll" class="app-full-size has-header" min-zoom="1">
     <ion-content class="bg-light app-zoom-page padding jcontent" padding="true" scroll="true" overflow-scroll="true" ng-bind-html="renderHTML(addon.introtext)"></ion-content>
   </ion-scroll>
   

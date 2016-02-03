@@ -8,10 +8,8 @@
 
         <ion-refresher on-refresh="doRefresh()"></ion-refresher>
 
-        <div ng-if="news.length == 0">
-            <ui-jumbotron icon="ion-ios-home">Não há Notícias para exibir</ui-jumbotron>
-        </div>
-
+        <ui-jumbotron ng-if="news.message || news.length == 0" icon="ion-ios-home">{{news.message || 'Não há notícias para exibir no momento'}}</ui-jumbotron>
+        
         <div class="list" ng-repeat="itemNew in news">
 
             <div class="item item-avatar">

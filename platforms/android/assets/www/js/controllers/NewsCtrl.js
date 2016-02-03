@@ -95,15 +95,18 @@ angular.module('isgh.NewsCtrl', ['ngSanitize'])
 		// GATILHO PRA ABRIR MODAL IMAGENS
 		$scope.openMimages = function (itemNew) {
 			$scope.mimages.show();
-			$scope.zoomMin = 1;
 			$scope.itemNew = itemNew;
 		};
 
 		// GATILHO PRA FECHAR MODAL IMAGENS
+        $scope.zoomOut = function () {
+            $ionicScrollDelegate.$getByHandle('mimagesScroll').zoomTo(1);
+        }
+        
 		$scope.closeMimages = function () {
 			$scope.mimages.hide();
-			$ionicScrollDelegate.$getByHandle('mimagesScroll').zoomTo(1);
-		};
+            $scope.zoomOut();
+        };
 		/****MODAL IMAGES****/
 		
 		var toggleLikeUnlike = function (itemNew) {

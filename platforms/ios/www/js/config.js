@@ -5,20 +5,27 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDelegateProvider, $ionicConfigProvider, $ionicFilterBarConfigProvider) {
+app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDelegateProvider, $ionicConfigProvider, $ionicFilterBarConfigProvider, ionGalleryConfigProvider, Constant) {
 
     $sceDelegateProvider.resourceUrlWhitelist(['.*']);
 
     $ionicConfigProvider.backButton.text('');
     $ionicConfigProvider.backButton.previousTitleText(false);
     $ionicConfigProvider.scrolling.jsScrolling(true);
-
+    
     $ionicFilterBarConfigProvider.placeholder('Buscar');
     if (ionic.Platform.isIOS()) {
         $ionicFilterBarConfigProvider.theme('light');
     } else if (ionic.Platform.isAndroid()) {
         $ionicFilterBarConfigProvider.theme('info');
     }
+    
+    ionGalleryConfigProvider.setGalleryConfig({
+        action_label: '<i class="icon '+Constant.closeButton+'"></i>',
+        toggle: false,
+        row_size: 4
+    });
+
   
     // Ionic uses AngularUI Router which uses the concept of states
     // Learn more here: https://github.com/angular-ui/ui-router
@@ -42,6 +49,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
     //TAB.NEWS
         .state('tab.news', {
             url: '/news',
+            //cache: false,
             views: {
                 'tab-news': {
                     templateUrl: 'templates/news/news.html',
@@ -138,7 +146,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
 
                             } else {
                                 if ($stateParams.lecture.widgetkit_module > 0) {
-                                    $stateParams.lecture.widgetkit = (typeof($stateParams.lecture.widgetkit) === 'string') ? JSON.parse($stateParams.lecture.widgetkit) : $stateParams.lecture.widgetkit;
+                                    $stateParams.lecture.widgetkit = (typeof ($stateParams.lecture.widgetkit) === 'string') ? JSON.parse($stateParams.lecture.widgetkit) : $stateParams.lecture.widgetkit;
                                 }
                                 return $stateParams.lecture;
                             }
@@ -209,7 +217,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
     //TAB.EVENT-ADDONS
         .state('tab.event-addons', {
             url: '/events/addons',
-            params: { title: null, created: null, unit: null, introtext: null },
+            params: { event: null },
             views: {
                 'tab-lectures': {
                     templateUrl: 'templates/events/event-addons.html',
@@ -230,11 +238,11 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
                     templateUrl: 'templates/procselets/procselets.html',
                     controller: 'ProcseletsCtrl',
                     resolve: {
-                        ResolveProcselets: function (FactoryProcselets, $ionicLoading, $rootScope) {
+                        ResolveProcselets: function (FactoryProcseletsLocal, $ionicLoading, $rootScope) {
                             $rootScope.alert = null;
                             $ionicLoading.show();
 
-                            return FactoryProcselets.populate().then(function (response) {
+                            return FactoryProcseletsLocal.populateTbProcselets().then(function (response) {
                                 $ionicLoading.hide();
                                 return response.data;
 
@@ -252,7 +260,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
 
         .state('tab.procselets-categories', {
             url: '/procselets/categories',
-            params: { locid: null, status: null },
+            params: { units: null, status: null, stitle: null },
             views: {
                 'tab-procselets': {
                     templateUrl: 'templates/procselets/procselet-categories.html',
@@ -260,12 +268,12 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
                     resolve: {
                         ResolveProcseletsCategories: function (FactoryProcselets, $stateParams, $ionicLoading, $rootScope) {
                             $ionicLoading.show();
-
-                            var status = JSON.parse($stateParams.status);
-                            return FactoryProcselets.getProcSeletsByLoc($stateParams.locid, status.id).then(function (response) {
+                            
+                            var units = $stateParams.units.map(function (e) { return e.id; });
+                            return FactoryProcselets.populateByLocationStatus({ units: units, status: $stateParams.status }).then(function (response) {
                                 $ionicLoading.hide();
-                                return { data: response, sname: status.name };
-
+                                response.stitle = $stateParams.stitle; 
+                                return response;
                             }, function (erro) {
                                 $ionicLoading.hide();
                                 return $rootScope.alert = { type: "", message: erro };
@@ -280,25 +288,15 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
 
         .state('tab.procselets-files', {
             url: '/procselets/files',
-            params: { catid: null, sname: null },
+            params: { category: null, stitle: null },
             views: {
                 'tab-procselets': {
                     templateUrl: 'templates/procselets/procselet-files.html',
                     controller: 'ProcseletsFilesCtrl',
                     resolve: {
-                        ResolveProcseletsFiles: function (FactoryProcselets, $stateParams, $ionicLoading, $rootScope) {
-                            $ionicLoading.show();
-
-                            return FactoryProcselets.getProcSeletsFiles($stateParams.catid).then(function (response) {
-                                $ionicLoading.hide();
-                                return { data: response, sname: $stateParams.sname };
-
-                            }, function (erro) {
-                                $ionicLoading.hide();
-                                return $rootScope.alert = { type: "", message: erro };
-                            });
-
-                            $ionicLoading.hide();
+                        ResolveProcseletsFiles: function ($stateParams) {
+                            $stateParams.category.files = (typeof ($stateParams.category.files) === 'string') ? JSON.parse($stateParams.category.files) : $stateParams.category.files;
+                            return $stateParams;
                         }
                     }
                 }
@@ -333,6 +331,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
 
         .state('tab.profile', {
             url: '/profile',
+            cache: false,
             views: {
                 'tab-profile': {
                     templateUrl: 'templates/profile/profile.html',

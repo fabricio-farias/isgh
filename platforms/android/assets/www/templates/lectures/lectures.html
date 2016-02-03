@@ -1,4 +1,4 @@
-<ion-view hide-back-button="true">
+<ion-view hide-back-button="true" class="bg-light">
   
   <ion-nav-title>
     <div class="bar bar-header" ng-if="isIOS">
@@ -52,10 +52,10 @@
 
   </ion-content>
 
-  <div ng-if="isAndroid" class="bar bar-footer">
-      <div class="button-bar bar-light">
-        <a nav-transition="none" class="button info active" href="#/tab/lectures">Cursos</a>
-        <a nav-transition="none" class="button info" href="#/tab/events">Eventos</a>
+  <div ng-if="isAndroid" class="bar bar-footer bar-info">
+      <div class="button-bar bar-info">
+        <a nav-transition="none" class="button button-clear active" href="#/tab/lectures">Cursos</a>
+        <a nav-transition="none" class="button button-clear" href="#/tab/events">Eventos</a>
       </div>
   </div>
 

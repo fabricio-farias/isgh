@@ -45,11 +45,11 @@ angular.module('isgh.birthdaysAPIservices', ['isgh.dbAPIservices'])
                     _birthdaysWSget().then(function (response) {
                         if (response.data.length > 0) {
 
-                            db.dropTable(table);
-                            db.createTable(table);
+                            //db.dropTable(table);
+                            //db.createTable(table);
 
                             angular.forEach(response.data, function (obj) {
-                                var query = "INSERT INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
+                                var query = "INSERT OR REPLACE INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
                                 db.query(query, [obj.num_matricula, obj.dsc_nome, obj.dsc_funcao, obj.dsc_setor, obj.dsc_filial, obj.dat_nasc]);
                             });
                             deferred.resolve(response);
@@ -72,11 +72,11 @@ angular.module('isgh.birthdaysAPIservices', ['isgh.dbAPIservices'])
             _birthdaysWSget().then(function (response) {
                 if (response.data.length > 0) {
 
-                    db.dropTable(table);
-                    db.createTable(table);
+                    //db.dropTable(table);
+                    //db.createTable(table);
 
                     angular.forEach(response.data, function (obj) {
-                        var query = "INSERT INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
+                        var query = "INSERT OR REPLACE INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
                         db.query(query, [obj.num_matricula, obj.dsc_nome, obj.dsc_funcao, obj.dsc_setor, obj.dsc_filial, obj.dat_nasc]);
                     });
                     deferred.resolve(response);

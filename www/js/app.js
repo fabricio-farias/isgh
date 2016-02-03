@@ -5,22 +5,21 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-var app = angular.module('isgh', ['ionic', 'ionic.service.core', 'jett.ionic.filter.bar', 'ngCordova', 'door3.css', 'isgh.Constant', 'isgh.ionicLoadingConfig', 'isgh.emailAPIprovider', 'isgh.dbAPIservices', 'isgh.NewsCtrl', 'isgh.LecturesCtrl', 'isgh.EventsCtrl', 'isgh.ProcseletsCtrl', 'isgh.BirthdaysCtrl', 'isgh.profileAPIservices', 'isgh.ProfileCtrl', 'isgh.EllipsisFilter', 'isgh.CapcaseFilter', 'angularMoment', 'isgh.DateRelativeFilter', 'isgh.newsAPIservices', 'isgh.lecturesAPIservices', 'isgh.eventsAPIservices', 'isgh.procseletsAPIservices', 'isgh.birthdaysAPIservices', 'isgh.profileAPIservices', 'uiAlertBar', 'uiJumbotron', 'hideTabs'])
+var app = angular.module('isgh', ['ionic', 'ionic.service.core', 'ion-gallery', 'jett.ionic.filter.bar', 'ngCordova', 'door3.css', 'isgh.Constant', 'isgh.ionicLoadingConfig', 'isgh.emailAPIprovider', 'isgh.dbAPIservices', 'isgh.NewsCtrl', 'isgh.LecturesCtrl', 'isgh.EventsCtrl', 'isgh.ProcseletsCtrl', 'isgh.BirthdaysCtrl', 'isgh.profileAPIservices', 'isgh.ProfileCtrl', 'isgh.EllipsisFilter', 'isgh.CapcaseFilter', 'angularMoment', 'isgh.DateRelativeFilter', 'isgh.newsAPIservices', 'isgh.lecturesAPIservices', 'isgh.eventsAPIservices', 'isgh.procseletsAPIservices', 'isgh.birthdaysAPIservices', 'isgh.profileAPIservices', 'uiAlertBar', 'uiJumbotron', 'hideTabs','compileHtml'])
 
-    .run(function ($ionicPlatform, $cordovaInAppBrowser, $rootScope, $cordovaSQLite, amMoment, DB) {
+    .run(function ($ionicPlatform, $rootScope, $cordovaSQLite, amMoment, DB) {
 
         $ionicPlatform.ready(function () {
 
             if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
                 cordova.plugins.Keyboard.disableScroll(true);
-                window.open = cordova.InAppBrowser.open;
             }
 
             if (window.StatusBar) {
                 StatusBar.styleLightContent();
             }
-
+            
             $rootScope.isWebView = ionic.Platform.isWebView();
             $rootScope.isIPad = ionic.Platform.isIPad();
             $rootScope.isIOS = ionic.Platform.isIOS();

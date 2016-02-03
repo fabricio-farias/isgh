@@ -32,7 +32,7 @@ angular.module('isgh.procseletsAPIservices', ['isgh.dbAPIservices'])
                     _procseletsWSgetLocStatus(data).then(function (response) {
                         if (response.data.length > 0) {
                             angular.forEach(response.data, function (obj) {
-                                var query = "INSERT INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
+                                var query = "INSERT OR REPLACE INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
                                 db.query(query, [obj.catid, obj.code, obj.category, obj.description, obj.file, obj.unid, obj.unit, obj.status, obj.created, obj.files]);
                             });
                             deferred.resolve(response);
@@ -61,7 +61,7 @@ angular.module('isgh.procseletsAPIservices', ['isgh.dbAPIservices'])
     
         //GET PROCSELECT BY LOCATION AND STATUS
         var _getProcSeletsByUnitStatus = function (data) {
-            var query = "SELECT catid, code, category, file, unit, files FROM " + table.name + " WHERE unid in(" + data.units.join(",") + ") AND status in(" + data.status + ")"
+            var query = "SELECT catid, code, category, created, file, unit, files FROM " + table.name + " WHERE unid in(" + data.units.join(",") + ") AND status in(" + data.status + ")"
             return db.query(query).then(function (result) {
                 return db.fetchAll(result);
             }, function (erro) {

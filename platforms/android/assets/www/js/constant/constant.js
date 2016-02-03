@@ -25,7 +25,7 @@ angular.module('isgh.Constant', []).constant("Constant", {
 					'unit'
 				],
 				columns: [
-					'id integer',
+					'id integer primary key',
 					'title text',
 					'images text',
 					'created numeric',
@@ -46,7 +46,7 @@ angular.module('isgh.Constant', []).constant("Constant", {
 					'location'
 				],
 				columns: [
-					'id integer',
+					'id integer primary key',
 					'title text',
 					'image text',
 					'thumbnail text',
@@ -81,7 +81,7 @@ angular.module('isgh.Constant', []).constant("Constant", {
 					'unit'
 				],
 				columns: [
-					'id integer',
+					'id integer primary key',
 					'title text',
 					'unit text',
 					'date numeric',
@@ -104,7 +104,7 @@ angular.module('isgh.Constant', []).constant("Constant", {
 					'unit'
 				],
 				columns: [
-                    'catid integer',
+                    'catid integer primary key',
                     'code text',
                     'category text',
                     'description text',
@@ -124,7 +124,7 @@ angular.module('isgh.Constant', []).constant("Constant", {
 					'dsc_filial'
 				],
 				columns: [
-					'num_matricula integer',
+					'num_matricula integer primary key',
 					'dsc_nome text',
 					'dsc_funcao text',
 					'dsc_setor text',

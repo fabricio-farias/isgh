@@ -33,12 +33,6 @@
     <feature name="PushPlugin">
         <param name="ios-package" value="PushPlugin" />
     </feature>
-    <feature name="StatusBar">
-        <param name="ios-package" value="CDVStatusBar" />
-        <param name="onload" value="true" />
-    </feature>
-    <preference name="StatusBarOverlaysWebView" value="true" />
-    <preference name="StatusBarStyle" value="lightcontent" />
     <feature name="EmailComposer">
         <param name="ios-package" value="EmailComposer" />
     </feature>
@@ -51,6 +45,12 @@
     <feature name="InAppBrowser">
         <param name="ios-package" value="CDVInAppBrowser" />
     </feature>
+    <feature name="StatusBar">
+        <param name="ios-package" value="CDVStatusBar" />
+        <param name="onload" value="true" />
+    </feature>
+    <preference name="StatusBarOverlaysWebView" value="true" />
+    <preference name="StatusBarStyle" value="lightcontent" />
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
     <preference name="KeyboardDisplayRequiresUserAction" value="false" />
@@ -81,11 +81,19 @@
     <splash height="960" src="resources\ios\splash\Default@2x~iphone.png" width="640" />
     <splash height="480" src="resources\ios\splash\Default~iphone.png" width="320" />
     <name>ISGH</name>
-    <description>
-        ISGH App Mobile.
+    <description>
+
+
+        ISGH App Mobile.
+
+
     </description>
-    <author email="fabriciorelicario@gmail.com" href="http://www.isgh.org.br">
-        ISGH - Conteúdo
+    <author email="fabriciorelicario@gmail.com" href="http://www.isgh.org.br">
+
+
+        ISGH - Conteúdo
+
+
     </author>
     <content src="index.html" />
     <access origin="*" />

@@ -13,8 +13,7 @@
     </div>
   </ion-header-bar>
 
-  <ion-scroll zooming="true" delegate-handle="mimagesScroll" direction="xy" scrollbar-x="false" scrollbar-y="false" min-zoom="{{zoomMin}}"
-  class="app-full-size">
+  <ion-scroll on-double-tap="zoomOut()" scrollbar-x="false" scrollbar-y="false" zooming="true" delegate-handle="mimagesScroll" direction="xy" min-zoom="1" class="app-full-size">
     <div class="modal-image-box" style="background-image: url( {{url_intranet + (itemNew.images.image_fulltext || itemNew.images.image_intro)}} )"></div>
   </ion-scroll>
 

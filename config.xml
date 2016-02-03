@@ -1,11 +1,19 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.ionicframework.isgh900684" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>ISGH</name>
-    <description>
-        ISGH App Mobile.
+    <description>
+
+
+        ISGH App Mobile.
+
+
     </description>
-    <author email="fabriciorelicario@gmail.com" href="http://www.isgh.org.br">
-        ISGH - Conteúdo
+    <author email="fabriciorelicario@gmail.com" href="http://www.isgh.org.br">
+
+
+        ISGH - Conteúdo
+
+
     </author>
     <content src="index.html" />
     <access origin="*" />

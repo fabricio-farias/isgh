@@ -31,7 +31,7 @@ angular.module('isgh.eventsAPIservices', ['isgh.dbAPIservices'])
                     _eventsWSget().then(function (response) {
                         if (response.data.length > 0) {
                             angular.forEach(response.data, function (obj) {
-                                var query = "INSERT INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
+                                var query = "INSERT OR REPLACE INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
                                 db.query(query, [obj.id, obj.title, obj.unit, obj.date, obj.form_date_up, obj.form_date_down, obj.form_workload, obj.form_location, obj.form_speaker, obj.form_audience, obj.form_investment, obj.form_link, obj.introtext]);
                             });
                             deferred.resolve(response);
@@ -53,11 +53,11 @@ angular.module('isgh.eventsAPIservices', ['isgh.dbAPIservices'])
             _eventsWSget().then(function (response) {
                 if (response.data.length > 0) {
 
-                    db.dropTable(table);
-                    db.createTable(table);
+                    //db.dropTable(table);
+                    //db.createTable(table);
 
                     angular.forEach(response.data, function (obj) {
-                        var query = "INSERT INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
+                        var query = "INSERT OR REPLACE INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
                         db.query(query, [obj.id, obj.title, obj.unit, obj.date, obj.form_date_up, obj.form_date_down, obj.form_workload, obj.form_location, obj.form_speaker, obj.form_audience, obj.form_investment, obj.form_link, obj.introtext]);
                     });
                     deferred.resolve(response);

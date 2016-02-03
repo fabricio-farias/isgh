@@ -29,9 +29,7 @@
       "locator": "https://github.com/apache/cordova-plugin-statusbar.git",
       "id": "cordova-plugin-statusbar"
     },
-    "cordova-plugin-whitelist@1",
-    "org.apache.cordova.network-information",
-    "cordova-plugin-inappbrowser"
+    "cordova-plugin-statusbar"
   ],
   "cordovaPlatforms": [
     "ios",

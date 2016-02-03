@@ -85,7 +85,6 @@
 		FEF4CCF3FD6940738050B485 /* UNIJsonNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA3F998890B40538F2DB933 /* UNIJsonNode.m */; };
 		F3E05F38FFEB4C82937C3EA1 /* AppDelegate+notification.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF22BA95F6743E39E5A413E /* AppDelegate+notification.m */; };
 		5D943316E7584A26A3EB48DB /* PushPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 273BDE582E544FD39F08357C /* PushPlugin.m */; };
-		C5916381C9784D00B36C4D80 /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A58E7415244C62B7E9D677 /* CDVStatusBar.m */; };
 		324048E6CA2548D39A7925DB /* EmailComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F5475FAC2884D23B1917346 /* EmailComposer.m */; };
 		8434AC1F623843C79EBBBE4E /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 4050663F37B14FB6A0978CA1 /* NSData+Base64.m */; };
 		B9C9A91F142D48EE9F6B3B54 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8728F9C5271C4968A4943653 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -94,6 +93,7 @@
 		D020697AE10D416590FBC3B4 /* CDVConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7C2DDEC4F44CA2AD333A82 /* CDVConnection.m */; };
 		A1C5857F25594ED295E37E81 /* CDVReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AFDD6F432A4676BED065B4 /* CDVReachability.m */; };
 		305439B5578846CEB7AA25EE /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5BAA776CD4AE791D160A3 /* CDVInAppBrowser.m */; };
+		8C6D59E99C7645EFBCDE55FC /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 608576A45AD6474E86FC6AD8 /* CDVStatusBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -249,8 +249,6 @@
 		273BDE582E544FD39F08357C /* PushPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "PushPlugin.m"; path = "com.phonegap.plugins.PushPlugin/PushPlugin.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		1977D6B227954E7980663E88 /* AppDelegate+notification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "AppDelegate+notification.h"; path = "com.phonegap.plugins.PushPlugin/AppDelegate+notification.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		A1A421F5BC1F454BA5DAC25A /* PushPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PushPlugin.h"; path = "com.phonegap.plugins.PushPlugin/PushPlugin.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		B5A58E7415244C62B7E9D677 /* CDVStatusBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVStatusBar.m"; path = "cordova-plugin-statusbar/CDVStatusBar.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		1036D029251F4042B60AF012 /* CDVStatusBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVStatusBar.h"; path = "cordova-plugin-statusbar/CDVStatusBar.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		2F5475FAC2884D23B1917346 /* EmailComposer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "EmailComposer.m"; path = "com.jcjee.plugins.emailcomposer/EmailComposer.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		4050663F37B14FB6A0978CA1 /* NSData+Base64.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSData+Base64.m"; path = "com.jcjee.plugins.emailcomposer/NSData+Base64.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		3B7B006EC02F45718B4E2C17 /* EmailComposer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "EmailComposer.h"; path = "com.jcjee.plugins.emailcomposer/EmailComposer.h"; sourceTree = "<group>"; fileEncoding = 4; };
@@ -266,6 +264,8 @@
 		A1A9979E7C5842E883BB8D0D /* CDVReachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVReachability.h"; path = "org.apache.cordova.network-information/CDVReachability.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		39E5BAA776CD4AE791D160A3 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVInAppBrowser.m"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		AE9CF90BF02F4E5D91375D84 /* CDVInAppBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVInAppBrowser.h"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		608576A45AD6474E86FC6AD8 /* CDVStatusBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVStatusBar.m"; path = "cordova-plugin-statusbar/CDVStatusBar.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		896113AA9D7E475F95D60202 /* CDVStatusBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVStatusBar.h"; path = "cordova-plugin-statusbar/CDVStatusBar.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -457,8 +457,6 @@
 				273BDE582E544FD39F08357C /* PushPlugin.m */,
 				1977D6B227954E7980663E88 /* AppDelegate+notification.h */,
 				A1A421F5BC1F454BA5DAC25A /* PushPlugin.h */,
-				B5A58E7415244C62B7E9D677 /* CDVStatusBar.m */,
-				1036D029251F4042B60AF012 /* CDVStatusBar.h */,
 				2F5475FAC2884D23B1917346 /* EmailComposer.m */,
 				4050663F37B14FB6A0978CA1 /* NSData+Base64.m */,
 				3B7B006EC02F45718B4E2C17 /* EmailComposer.h */,
@@ -473,6 +471,8 @@
 				A1A9979E7C5842E883BB8D0D /* CDVReachability.h */,
 				39E5BAA776CD4AE791D160A3 /* CDVInAppBrowser.m */,
 				AE9CF90BF02F4E5D91375D84 /* CDVInAppBrowser.h */,
+				608576A45AD6474E86FC6AD8 /* CDVStatusBar.m */,
+				896113AA9D7E475F95D60202 /* CDVStatusBar.h */,
 			);
 			name = Plugins;
 			path = "ISGH/Plugins";
@@ -702,7 +702,6 @@
 				FEF4CCF3FD6940738050B485 /* UNIJsonNode.m in Sources */,
 				F3E05F38FFEB4C82937C3EA1 /* AppDelegate+notification.m in Sources */,
 				5D943316E7584A26A3EB48DB /* PushPlugin.m in Sources */,
-				C5916381C9784D00B36C4D80 /* CDVStatusBar.m in Sources */,
 				324048E6CA2548D39A7925DB /* EmailComposer.m in Sources */,
 				8434AC1F623843C79EBBBE4E /* NSData+Base64.m in Sources */,
 				8C4015DC8F6A444A8CC93B8E /* SQLitePlugin.m in Sources */,
@@ -710,6 +709,7 @@
 				D020697AE10D416590FBC3B4 /* CDVConnection.m in Sources */,
 				A1C5857F25594ED295E37E81 /* CDVReachability.m in Sources */,
 				305439B5578846CEB7AA25EE /* CDVInAppBrowser.m in Sources */,
+				8C6D59E99C7645EFBCDE55FC /* CDVStatusBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
