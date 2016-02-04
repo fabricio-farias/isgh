@@ -5,9 +5,14 @@ angular.module('isgh.Constant', []).constant("Constant", {
 	url_site: "http://177.136.74.42/",
 	url_procseletivo: "http://177.136.74.42/processos_seletivos/",
 
+    // url_wsapp: "http://127.0.0.1/build/appWSisgh/", 
+	// url_intranet: "http://127.0.0.1/build/intranet/",
+	// url_site: "http://127.0.0.1/build/site/",
+	// url_procseletivo: "http://127.0.0.1/build/processos_seletivos/",
+
 	backButton: (ionic.Platform.isAndroid()) ? 'ion-android-arrow-back' : 'ion-ios-arrow-back',
 	closeButton: (ionic.Platform.isAndroid()) ? 'ion-android-close' : 'ion-ios-close-empty',
-	
+	procseletsTitles: ['','Inscrições Abertas', 'Em Andamento','Processos Finalizados'],
 	emails: {
 		cursos: {to: "cepep@isgh.org.br", cc: "contato@isgh.org.br"} 
 	},
@@ -25,7 +30,7 @@ angular.module('isgh.Constant', []).constant("Constant", {
 					'unit'
 				],
 				columns: [
-					'id integer',
+					'id integer primary key',
 					'title text',
 					'images text',
 					'created numeric',
@@ -46,7 +51,7 @@ angular.module('isgh.Constant', []).constant("Constant", {
 					'location'
 				],
 				columns: [
-					'id integer',
+					'id integer primary key',
 					'title text',
 					'image text',
 					'thumbnail text',
@@ -81,7 +86,7 @@ angular.module('isgh.Constant', []).constant("Constant", {
 					'unit'
 				],
 				columns: [
-					'id integer',
+					'id integer primary key',
 					'title text',
 					'unit text',
 					'date numeric',
@@ -104,7 +109,7 @@ angular.module('isgh.Constant', []).constant("Constant", {
 					'unit'
 				],
 				columns: [
-                    'catid integer',
+                    'catid integer primary key',
                     'code text',
                     'category text',
                     'description text',
@@ -124,7 +129,7 @@ angular.module('isgh.Constant', []).constant("Constant", {
 					'dsc_filial'
 				],
 				columns: [
-					'num_matricula integer',
+					'num_matricula integer primary key',
 					'dsc_nome text',
 					'dsc_funcao text',
 					'dsc_setor text',

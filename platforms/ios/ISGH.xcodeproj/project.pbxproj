@@ -94,6 +94,7 @@
 		A1C5857F25594ED295E37E81 /* CDVReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AFDD6F432A4676BED065B4 /* CDVReachability.m */; };
 		305439B5578846CEB7AA25EE /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5BAA776CD4AE791D160A3 /* CDVInAppBrowser.m */; };
 		8C6D59E99C7645EFBCDE55FC /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 608576A45AD6474E86FC6AD8 /* CDVStatusBar.m */; };
+		A6CCAF8483A64A5DBBE876DE /* YoikScreenOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E44184582134F7F9F7640D2 /* YoikScreenOrientation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -266,6 +267,8 @@
 		AE9CF90BF02F4E5D91375D84 /* CDVInAppBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVInAppBrowser.h"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		608576A45AD6474E86FC6AD8 /* CDVStatusBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVStatusBar.m"; path = "cordova-plugin-statusbar/CDVStatusBar.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		896113AA9D7E475F95D60202 /* CDVStatusBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVStatusBar.h"; path = "cordova-plugin-statusbar/CDVStatusBar.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		6E44184582134F7F9F7640D2 /* YoikScreenOrientation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "YoikScreenOrientation.m"; path = "cordova-plugin-screen-orientation/YoikScreenOrientation.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		3057EF5CA19043E4BE9382B5 /* YoikScreenOrientation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "YoikScreenOrientation.h"; path = "cordova-plugin-screen-orientation/YoikScreenOrientation.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -473,6 +476,8 @@
 				AE9CF90BF02F4E5D91375D84 /* CDVInAppBrowser.h */,
 				608576A45AD6474E86FC6AD8 /* CDVStatusBar.m */,
 				896113AA9D7E475F95D60202 /* CDVStatusBar.h */,
+				6E44184582134F7F9F7640D2 /* YoikScreenOrientation.m */,
+				3057EF5CA19043E4BE9382B5 /* YoikScreenOrientation.h */,
 			);
 			name = Plugins;
 			path = "ISGH/Plugins";
@@ -710,6 +715,7 @@
 				A1C5857F25594ED295E37E81 /* CDVReachability.m in Sources */,
 				305439B5578846CEB7AA25EE /* CDVInAppBrowser.m in Sources */,
 				8C6D59E99C7645EFBCDE55FC /* CDVStatusBar.m in Sources */,
+				A6CCAF8483A64A5DBBE876DE /* YoikScreenOrientation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

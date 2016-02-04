@@ -14,6 +14,7 @@ var app = angular.module('isgh', ['ionic', 'ionic.service.core', 'ion-gallery', 
             if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
                 cordova.plugins.Keyboard.disableScroll(true);
+                screen.lockOrientation('portrait');
             }
 
             if (window.StatusBar) {

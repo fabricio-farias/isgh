@@ -18,12 +18,10 @@
   <ion-content ng-class="{'has-header': isIOS, 'has-footer': isAndroid}">
 
     <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+    
+    <ui-jumbotron ng-if="events.message || events.length == 0" icon="ion-ios-book">{{events.message || 'Não há Eventos para exibir no momento'}}</ui-jumbotron>
 
-    <div ng-if="events.length == 0">
-      <ui-jumbotron icon="ion-ios-book">Não há Eventos para exibir</ui-jumbotron>
-    </div>
-
-    <div class="list">
+    <div class="list" ng-if="events.length > 0">
       <a class="item item-avatar item-text-wrap" ui-sref="tab.event({event: itemEvents})" ng-repeat="itemEvents in events">
         <div class="item-image app-units" ng-class="checkColor(itemEvents.unit,'app-units-')">{{itemEvents.unit || "ISGH"}}</div>
         <h2>{{itemEvents.title}}</h2>

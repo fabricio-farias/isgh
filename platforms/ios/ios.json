@@ -59,6 +59,10 @@
                         {
                             "xml": "<preference name=\"StatusBarStyle\" value=\"lightcontent\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"YoikScreenOrientation\"><param name=\"ios-package\" value=\"YoikScreenOrientation\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -100,6 +104,9 @@
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
         },
         "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.ionicframework.isgh900684"
+        },
+        "cordova-plugin-screen-orientation": {
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
         }
     },
@@ -210,6 +217,22 @@
             "clobbers": [
                 "window.StatusBar"
             ]
+        },
+        {
+            "file": "plugins/cordova-plugin-screen-orientation/www/screenorientation.js",
+            "id": "cordova-plugin-screen-orientation.screenorientation",
+            "pluginId": "cordova-plugin-screen-orientation",
+            "clobbers": [
+                "cordova.plugins.screenorientation"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-screen-orientation/www/screenorientation.ios.js",
+            "id": "cordova-plugin-screen-orientation.screenorientation.ios",
+            "pluginId": "cordova-plugin-screen-orientation",
+            "merges": [
+                "cordova.plugins.screenorientation"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -224,6 +247,7 @@
         "cordova-sqlite-storage": "0.7.11",
         "org.apache.cordova.network-information": "0.2.15",
         "cordova-plugin-inappbrowser": "1.1.1",
-        "cordova-plugin-statusbar": "2.1.0"
+        "cordova-plugin-statusbar": "2.1.0",
+        "cordova-plugin-screen-orientation": "1.4.0"
     }
 }

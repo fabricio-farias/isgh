@@ -123,6 +123,9 @@
         },
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
+        },
+        "cordova-plugin-screen-orientation": {
+            "PACKAGE_NAME": "com.ionicframework.isgh900684"
         }
     },
     "dependent_plugins": {}

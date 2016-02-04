@@ -6,9 +6,7 @@
   
   <ion-content ng-class="{'has-header': isIOS}">
 
-    <div ng-if="categories.length == 0">
-      <ui-jumbotron icon="ion-ios-people">Não há {{stitle}} para exibir</ui-jumbotron>
-    </div>
+    <ui-jumbotron ng-if="categories.length == 0" icon="ion-ios-people">Não há {{stitle}} para exibir</ui-jumbotron>
 
     <ion-list type="list card" collection-repeat="category in categories" item-width="100%" item-height="120px" ui-sref="tab.procselets-files({category: category, stitle: stitle})">
       <ion-item class="item item-avatar">

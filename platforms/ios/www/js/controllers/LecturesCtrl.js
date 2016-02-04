@@ -30,7 +30,7 @@ angular.module('isgh.LecturesCtrl', ['ngSanitize'])
                 $scope.$broadcast('scroll.refreshComplete');
             }, function (erro) {
                 $scope.$broadcast('scroll.refreshComplete');
-                $rootScope.alert = { type: "", message: erro };
+                $rootScope.alert = erro;
             });
         }
 

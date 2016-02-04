@@ -24,7 +24,7 @@ angular.module('isgh.EventsCtrl', ['ngSanitize'])
                 $scope.events = response.data;
             }, function (erro) {
                 $scope.$broadcast('scroll.refreshComplete');
-                $rootScope.alert = { type: "", message: erro };
+                $rootScope.alert = erro;
             });
 		
             // $scope.$broadcast('scroll.refreshComplete');

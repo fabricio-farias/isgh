@@ -20,9 +20,9 @@
               <div class="input-label">
                 <span class="app-font-size-90">Dia</span>
               </div>
-              <select class="app-font-size-90 app-item-select" ng-model="data.day" name="day" ng-required="true">
+              <select class="app-font-size-80 app-item-select" ng-model="data.day" name="day" ng-required="true">
                 <option value=""></option>
-                <option ng-repeat="d in getDays() track by $index" value="{{d}}" ng-selected="checkSelectedDay(d)">{{d}}</option>
+                <option ng-repeat="d in inputDays track by $index" value="{{d}}">{{d}}</option>
               </select>
             </label>
           </div>
@@ -31,9 +31,9 @@
               <div class="input-label">
                 <span class="app-font-size-90">Mês</span>
               </div>
-              <select class="app-font-size-90 app-item-select" ng-model="data.month" name="month" ng-required="true">
+              <select class="app-font-size-80 app-item-select" ng-model="data.month" name="month" ng-required="true">
                 <option value=""></option>
-                <option ng-repeat="m in getMonths() track by $index" value="{{m}}" ng-selected="checkSelectedMonths(m)">{{m}}</option>
+                <option ng-repeat="m in inputMonths" value="{{m.id}}">{{m.desc}}</option>
               </select>
             </label>
           </div>
@@ -41,16 +41,13 @@
             <button ng-click="searchBirthday(data)" class="button button-clear button-positive" ng-disabled="!dataForm.$valid">Buscar</button>
           </div>
         </div>
-        
       </form>
     </div>
     
-    <div ng-if="birthdays.length == 0">
-      <ui-jumbotron icon="ion-ios-home">Não há Aniversariantes para exibir</ui-jumbotron>
-    </div>
+    <ui-jumbotron ng-if="birthdays.message || birthdays.length == 0" icon="ion-ios-calendar-outline">{{birthdays.message || 'Não há Aniversariantes para exibir no momento'}}</ui-jumbotron>
 
     <div class="list card" ng-repeat="birthday in birthdays">
-      <div class="item item-avatar item-divider item-info" style="padding-top: 12px;padding-bottom: 12px;">
+      <div class="item item-avatar item-divider item-light info" style="padding-top: 12px;padding-bottom: 12px;">
         {{birthday.dsc_nome}}
       </div>
 

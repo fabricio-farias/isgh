@@ -16,16 +16,10 @@ var app = angular.module('isgh', ['ionic', 'ionic.service.core', 'ion-gallery', 
                 cordova.plugins.Keyboard.disableScroll(true);
             }
 
-            // if (window.StatusBar) {
-            //     StatusBar.styleLightContent();
-            // }
-            
             if (window.StatusBar) {
-                StatusBar.overlaysWebView(false);
-                StatusBar.styleBlackTranslucent();
-                StatusBar.backgroundColorByName('red');
+                StatusBar.styleLightContent();
             }
-
+            
             $rootScope.isWebView = ionic.Platform.isWebView();
             $rootScope.isIPad = ionic.Platform.isIPad();
             $rootScope.isIOS = ionic.Platform.isIOS();
