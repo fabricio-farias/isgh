@@ -1,9 +1,9 @@
 angular.module('isgh.NewsCtrl', ['ngSanitize'])
 
 	.controller('NewsCtrl', function ($scope, $filter, $ionicModal, $ionicScrollDelegate, $rootScope, $ionicFilterBar, FactoryNews, ResolveNews, FactoryNewsLocal, FactoryProfileLocal, Constant) {
-		
-		$scope.url_intranet = Constant.url_intranet;
-		$scope.news = ResolveNews.map(function (item) {
+        
+        $scope.url_intranet = Constant.url_intranet;
+        $scope.news = ResolveNews.map(function (item) {
 			item.images = JSON.parse(item.images);
 
 			var checkLikeUnlike = FactoryNewsLocal.getTbLikedsById(item.id);
@@ -12,8 +12,8 @@ angular.module('isgh.NewsCtrl', ['ngSanitize'])
 				item.liked = (checkLikeUnlike.length > 0) ? checkLikeUnlike[0].liked : false;
 				item.unliked = (checkLikeUnlike.length > 0) ? checkLikeUnlike[0].unliked : false;
 			} else {
-				item.liked = (item.liked !== undefined) ? item.liked : false;
-				item.unliked = (item.unliked !== undefined) ? item.unliked : false;
+				item.liked = false;
+				item.unliked = false;
 			}
 			
 			item.liked_sum = (item.liked_sum !== 'undefined') ? item.liked_sum : 0;
@@ -35,19 +35,21 @@ angular.module('isgh.NewsCtrl', ['ngSanitize'])
 	
 		// REFRESH NOTICIAS
 		$scope.doRefresh = function () {
-			$rootScope.alert = null;
-			FactoryNews.refresh().then(function (response) {
-				$scope.news = response.data.map(function (item) {
-					item.images = JSON.parse(item.images);
+            $rootScope.alert = null;
 
-					var checkLikeUnlike = FactoryNewsLocal.getTbLikedsById(item.id);
-
-					if (checkLikeUnlike !== undefined) {
+            FactoryNews.refresh().then(function (response) {
+                $scope.news = [];
+                $scope.news = response.data.map(function (item) {
+                    
+                    item.images = JSON.parse(item.images);
+                    
+                    var checkLikeUnlike = FactoryNewsLocal.getTbLikedsById(item.id);
+                    if (checkLikeUnlike !== undefined) {
 						item.liked = (checkLikeUnlike.length > 0) ? checkLikeUnlike[0].liked : false;
 						item.unliked = (checkLikeUnlike.length > 0) ? checkLikeUnlike[0].unliked : false;
-					} else {
-						item.liked = (item.liked !== undefined) ? item.liked : false;
-						item.unliked = (item.unliked !== undefined) ? item.unliked : false;
+                    } else {
+						item.liked = false;
+						item.unliked = false;
 					}
 					
 					item.liked_sum = (item.liked_sum !== 'undefined') ? item.liked_sum : 0;
@@ -55,7 +57,7 @@ angular.module('isgh.NewsCtrl', ['ngSanitize'])
 					return item;
 
 				});
-				$scope.$broadcast('scroll.refreshComplete');
+                $scope.$broadcast('scroll.refreshComplete');
 			}, function (erro) {
 				$scope.$broadcast('scroll.refreshComplete');
 				$rootScope.alert = erro;
