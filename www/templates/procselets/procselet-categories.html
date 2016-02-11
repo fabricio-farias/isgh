@@ -4,7 +4,8 @@
     <button class="button ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" ng-click="showFilterBar()"></button>
   </ion-nav-buttons>
   
-  <ion-content ng-class="{'has-header': isIOS}" scroll-sista="header-tabs-subheader" delegate-handle="procseletScroll">
+  <!--<ion-content ng-class="{'has-header': isIOS}" scroll-sista="header-tabs-subheader" delegate-handle="procseletScroll">-->
+  <ion-content ng-class="{'has-header': isIOS}">
 
     <ui-jumbotron ng-if="categories.length == 0" icon="ion-ios-people">Não há {{stitle}} para exibir</ui-jumbotron>
 

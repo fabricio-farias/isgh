@@ -10,12 +10,5 @@ angular.module("hideTabs").directive('hideTabs', function ($rootScope) {
                 $rootScope.hideTabs = false;
             });
         }
-        // restrict: 'A',
-        // link: function($scope, $el) {
-        //     $rootScope.hideTabs = 'tabs-item-hide';
-        //     $scope.$on('$destroy', function() {
-        //         $rootScope.hideTabs = '';
-        //     });
-        // }
     };
 });

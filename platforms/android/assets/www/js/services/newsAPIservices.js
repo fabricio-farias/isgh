@@ -1,6 +1,6 @@
 angular.module('isgh.newsAPIservices', ['isgh.dbAPIservices'])
 
-    .factory('FactoryNews', function ($q, $http, Constant, DB, $cordovaSQLite) {
+    .factory('FactoryNews', function ($q, $http, Constant, DB, $cordovaSQLite, FactoryProfileLocal) {
 
         var db = DB;
         var table = Constant.database.tables.news;
@@ -54,13 +54,20 @@ angular.module('isgh.newsAPIservices', ['isgh.dbAPIservices'])
             var deferred = $q.defer();
             _newsWSget().then(function (response) {
                 if (response.status == 200) {
-
+                    
                     db.truncateTable(table);
 
                     angular.forEach(response.data, function (obj) {
                         var query = "INSERT OR REPLACE INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
                         db.query(query, [obj.id, obj.title, obj.images, obj.created, obj.introtext, obj.striptext, obj.category, obj.unit, obj.hits, obj.liked_sum, obj.unliked_sum]);
                     });
+                    
+                    var profile = FactoryProfileLocal.getTbProfile();
+                    if (profile !== undefined) {
+                        _newsWSgetToggleLikeds(profile).then(function (resplikeds) {
+                            localStorage.setItem(profile.num_matricula + "_liked", JSON.stringify(resplikeds.data));
+                        });
+                    }
 
                     deferred.resolve(response);
                 } else if (response.status == 204) {
@@ -229,7 +236,7 @@ angular.module('isgh.newsAPIservices', ['isgh.dbAPIservices'])
         }
 
         function _getTbLikeds() {
-            var tbLikeds, profile = null;
+            var tbLikeds = null; var profile = null;
             profile = FactoryProfileLocal.getTbProfile();
             tbLikeds = localStorage.getItem(profile.num_matricula + "_liked");
             return (tbLikeds !== null) ? JSON.parse(tbLikeds) : tbLikeds;
