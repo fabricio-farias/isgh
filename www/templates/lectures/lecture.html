@@ -1,5 +1,9 @@
 <ion-view view-title="Curso">
-  <ion-content class="has-header">
+    <ion-nav-buttons side="secondary">
+    <!--<button class="button ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" ng-click="showFilterBar()"></button>-->
+    <a class="button ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" ui-sref="search({tab: 1})"></a>
+  </ion-nav-buttons>
+  <ion-content on-swipe-right="$ionicGoBack()" class="has-header">
 
     <div class="list">
       
@@ -91,7 +95,7 @@
         <h2 class="app-no-white-space app-font-size-70">PARA ACESSAR A PROGRAMAÇÃO</h2>
       </div>
       
-      <a class="item item-icon-left item-icon-right positive" ng-click="externalLink(url_site+'lecturesevents/'+lecture.filename, '_system',lecture)">
+      <a class="item item-icon-left item-icon-right positive" ng-click="externalLink(url_site+'lecturesevents/'+lecture.filename, '_blank',lecture)">
         <i class="icon ion-document-text assertive"></i>
         Edital
         <i class="icon ion-chevron-right app-font-size-100"></i>

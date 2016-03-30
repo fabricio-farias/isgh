@@ -20,6 +20,15 @@
 -->
 # Release Notes
 
+### 2.1.2 (Mar 09, 2016)
+* [CB-10752](https://issues.apache.org/jira/browse/CB-10752) for for status bar overlays the webview on ** iOS ** 6 in some cases
+* [CB-10683](https://issues.apache.org/jira/browse/CB-10683) Fix wrong StatusBar.isVisible initial value on ** Windows **
+* [CB-10636](https://issues.apache.org/jira/browse/CB-10636) Add JSHint for plugins
+* [CB-10047](https://issues.apache.org/jira/browse/CB-10047) fix ** iOS ** 8 deprecated warnings
+
+### 2.1.1 (Feb 09, 2016)
+* [CB-10102](https://issues.apache.org/jira/browse/CB-10102) The removeObserver code was wrong and it might crash on plugin deallocation
+
 ### 2.1.0 (Jan 15, 2016)
 * CB-9513 Allow to show/hide status bar in fullscreen mode.
 * CB-8720 Fix status bar position when app started upside down on **iOS 7**.

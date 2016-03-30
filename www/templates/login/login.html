@@ -1,59 +1,67 @@
-<ion-view hide-nav-bar="true" class="bg-light">
-  <ion-content padding="false">
+<ion-view hide-nav-bar="true" class="bg-light" style="z-index: 9">
 
-    <img class="app-full-size" src="img/login-top.png" />
+    <ion-content padding="false" has-header="false" class="bg-light">
 
-    <a class="item item-avatar" ng-if="profile !== null" ng-click="relogProfile(profile)">
-      <div class="item-image app-units app-units-stable"><i class="icon ion-person app-font-size-300"></i></div>
-      <h2>{{profile.dsc_nome}}</h2>
-      <span class="item-note app-float-left"><span class="app-font-size-80">Função: </span>{{profile.dsc_funcao}}</span>
-      <span class="item-note"><span class="app-font-size-80">Matrícula: </span>{{profile.num_matricula}}</span>
-    </a>
+        <img style="width: 100%;" src="img/login-top.png" />
+
+        <a class="item item-avatar" ng-if="profile !== null" ng-click="relogProfile(profile)">
+            <div class="item-image app-units app-units-stable"><i class="icon ion-person app-font-size-300"></i></div>
+            <h2>{{profile.dsc_nome}}</h2>
+            <span class="item-note app-float-left"><span class="app-font-size-80">Função: </span>{{profile.dsc_funcao}}</span>
+            <span class="item-note"><span class="app-font-size-80">Matrícula: </span>{{profile.num_matricula}}</span>
+        </a>
+
+        <div class="item" ng-if="profile !== null"></div>
+        <a class="item app-item-no-border" ng-if="profile !== null" ng-click="clearProfile(profile)">
+            <div class="title app-text-align-center app-font-size-100 app-font-color-stable">Entrar em outra conta</div>
+        </a>
+
+        <form name="loginForm" ng-if="profile === null" ng-submit="searchProfile(login)">
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label app-input-label app-font-size-80">Matrícula:</span>
+                    <input type="text" ng-model="login.num_matricula" name="num_matricula" ng-required="true">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label app-input-label app-font-size-80">Senha:</span>
+                    <input type="password" ng-model="login.dsc_senha" name="dsc_senha" ng-required="true">
+                </label>
+
+                <label class="item item-input item-select">
+                    <div class="input-label app-input-label app-font-size-80">
+                        Filial:
+                    </div>
+                    <select class="app-font-size-70 item-select" ng-model="login.isn_filial" name="isn_filial" ng-required="true">
+                        <option value="">Selecione</option>
+                        <option ng-repeat="f in filiais" value="{{f.isn_filial}}">{{f.dsc_filial}}</option>
+                    </select>
+                </label>
+            </div>
+            <div class="padding">
+                <div class="item item-info app-item-no-padding">
+                    <button type="submit" class="button button-block button-clear button-light app-item-no-margin" ng-disabled="!loginForm.$valid">
+                        Entrar
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </ion-content>
     
-    <div class="item" ng-if="profile !== null"></div>
-    <a class="item app-item-no-border" ng-if="profile !== null" ng-click="clearProfile(profile)">
-        <div class="title app-text-align-center app-font-size-100 app-font-color-stable">Entrar em outra conta</div>
-    </a>
-    
-    <form name="loginForm" ng-if="profile === null">
-      <div class="list">
-        <label class="item item-input">
-          <span class="input-label app-input-label app-font-size-80">Matrícula:</span>
-          <input type="text" ng-model="login.num_matricula" name="num_matricula" ng-required="true">
-        </label>
-        <label class="item item-input">
-          <span class="input-label app-input-label app-font-size-80">Senha:</span>
-          <input type="password" ng-model="login.dsc_senha" name="dsc_senha" ng-required="true">
-        </label>
-
-        <label class="item item-input item-select">
-          <div class="input-label app-input-label app-font-size-80">
-            Filial:
-          </div>
-          <select class="app-font-size-70 app-item-select" ng-model="login.isn_filial" name="isn_filial" ng-required="true">
-            <option value="">Selecione</option>
-            <option ng-repeat="f in filiais" value="{{f.isn_filial}}">{{f.dsc_filial}}</option>
-          </select>
-        </label>
-      </div>
-
-      <div class="padding">
-        <div class="item item-info app-item-no-padding">
-          <button class="button button-block button-clear button-light app-item-no-margin" ng-click="searchProfile(login)" ng-disabled="!loginForm.$valid">
-            Entrar
-          </button>
+    <!--footer-->
+    <ion-footer-bar class="hide-on-keyboard-open bar-light">
+        <!--<img style="width: 100%;" src="img/login-footer.png" />-->
+        
+        <div style="width: 100%; display: table;">
+            <div style="display: table-cell; text-align: right; padding-right: 15px; width: 50%">
+                <img height="34" src="img/gov-01.png">
+            </div>
+            <div style="display: table-cell; border-width: 0 0 0 1px;border-style: solid;border-color: #DDD;"></div>
+            <div style="display: table-cell; text-align: left; padding-left: 15px; width: 50%">
+                <img height="34" src="img/prf-01.png">
+            </div>
         </div>
-      </div>
-    </form>
+        
+    </ion-footer-bar>
 
-
-  </ion-content>
-  
-  <!--<a class="bar bar-footer" ng-if="profile !== null" style="bottom:95px;" ng-click="clearProfile(profile)">
-    <div class="title app-font-size-100 app-font-color-stable">Entrar em outra conta</div>
-  </a>-->
-  
-  <div class="bar bar-footer" style="height: auto">
-    <img class="app-full-size" src="img/login-footer.png" />
-  </div>
 </ion-view>

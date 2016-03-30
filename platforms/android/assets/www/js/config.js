@@ -12,16 +12,16 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
     $ionicConfigProvider.backButton.text('');
     $ionicConfigProvider.backButton.previousTitleText(false);
     $ionicConfigProvider.scrolling.jsScrolling(true);
-    
+
     $ionicFilterBarConfigProvider.placeholder('Buscar');
     if (ionic.Platform.isIOS()) {
         $ionicFilterBarConfigProvider.theme('light');
     } else if (ionic.Platform.isAndroid()) {
         $ionicFilterBarConfigProvider.theme('info');
     }
-    
+
     ionGalleryConfigProvider.setGalleryConfig({
-        action_label: '<i class="icon '+Constant.closeButton+'"></i>',
+        action_label: '<i class="icon ' + Constant.closeButton + '"></i>',
         toggle: false,
         row_size: 4
     });
@@ -32,15 +32,30 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
     // Set up the various states which the app can be in.
     // Each state's controller can be found in controllers.js
     $stateProvider
-
+    /*
+     * LOGIN 
+     */
         .state('login', {
             url: '/login',
             templateUrl: 'templates/login/login.html',
             controller: 'LoginCtrl',
             cache: false
         })
-    
-    //TAB
+        
+    /*
+     * SEARCH 
+     */
+        .state('search', {
+            url: '/search',
+            params: { tab: null },
+            templateUrl: 'templates/search/search.html',
+            controller: 'SearchCtrl',
+            cache: false
+        })
+        
+    /*
+     * TABS 
+     */
         .state('tab', {
             url: '/tab',
             abstract: true,
@@ -49,7 +64,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
     //TAB.NEWS
         .state('tab.news', {
             url: '/news',
-            //cache: false,
             views: {
                 'tab-news': {
                     templateUrl: 'templates/news/news.html',

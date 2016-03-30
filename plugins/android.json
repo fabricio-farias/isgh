@@ -25,7 +25,13 @@
         "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
         },
+        "cordova-plugin-screen-orientation": {
+            "PACKAGE_NAME": "com.ionicframework.isgh900684"
+        },
         "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.ionicframework.isgh900684"
+        },
+        "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
         },
         "cordova-plugin-whitelist": {
@@ -38,12 +44,6 @@
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
         },
         "org.apache.cordova.network-information": {
-            "PACKAGE_NAME": "com.ionicframework.isgh900684"
-        },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.ionicframework.isgh900684"
-        },
-        "cordova-plugin-screen-orientation": {
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
         }
     },

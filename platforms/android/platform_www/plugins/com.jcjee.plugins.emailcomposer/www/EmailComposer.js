@@ -1,4 +1,5 @@
-cordova.define("com.jcjee.plugins.emailcomposer.EmailComposer", function(require, exports, module) { function EmailComposer() {
+cordova.define("com.jcjee.plugins.emailcomposer.EmailComposer", function(require, exports, module) {
+function EmailComposer() {
 	this.resultCallback = null; // Function
 }
 

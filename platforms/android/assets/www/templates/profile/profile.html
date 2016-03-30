@@ -1,45 +1,45 @@
 <ion-view view-title="Usuário">
-  <ion-content class="has-header">
+    <ion-content class="has-header">
 
-    <div class="list">
-      <div class="item item-divider"></div>
-      <div class="item item-avatar">
-        <div class="item-image app-units app-units-stable"><i class="icon ion-person app-font-size-300"></i></div>
-        <h2>{{profile.dsc_nome}}</h2>
-        <p>{{profile.dsc_funcao}}</p>
-      </div>
-      <div class="item item-divider"></div>
-      <label class="item item-input item-divider item-light">
-        <span class="input-label app-input-label app-font-size-80">Matricula:</span>
-        <p>{{profile.num_matricula}}</p>
-      </label>
-      <label class="item item-input item-divider item-light">
-        <span class="input-label app-input-label app-font-size-80">PIS:</span>
-        <p>{{profile.num_pis}}</p>
-      </label>
-      <div class="item item-divider"></div>
-      <label class="item item-input item-divider item-light">
-        <span class="input-label app-input-label app-font-size-80">Setor:</span>
-        <p>{{profile.dsc_setor}}</p>
-      </label>
-      <label class="item item-input item-divider item-light">
-        <span class="input-label app-input-label app-font-size-80">Filial:</span>
-        <p>{{profile.dsc_filial}}</p>
-      </label>
-      <label class="item item-input item-divider item-light">
-        <span class="input-label app-input-label app-font-size-80">Aniversário:</span>
-        <p>{{profile.dat_nasc}}</p>
-      </label>
-      <div class="item item-divider"></div>
+        <div class="list">
+            <div class="item item-divider"></div>
+            <div class="item item-avatar">
+                <div class="item-image app-units app-units-stable"><i class="icon ion-person app-font-size-300"></i></div>
+                <h2>{{profile.dsc_nome}}</h2>
+                <p>{{profile.dsc_funcao}}</p>
+            </div>
+            <div class="item item-divider"></div>
+            <label class="item item-input item-divider item-light">
+                <span class="input-label app-input-label app-font-size-80">Matricula:</span>
+                <p>{{profile.num_matricula}}</p>
+            </label>
+            <label class="item item-input item-divider item-light">
+                <span class="input-label app-input-label app-font-size-80">PIS:</span>
+                <p>{{profile.num_pis}}</p>
+            </label>
+            <div class="item item-divider"></div>
+            <label class="item item-input item-divider item-light">
+                <span class="input-label app-input-label app-font-size-80">Setor:</span>
+                <p>{{profile.dsc_setor}}</p>
+            </label>
+            <label class="item item-input item-divider item-light">
+                <span class="input-label app-input-label app-font-size-80">Filial:</span>
+                <p>{{profile.dsc_filial}}</p>
+            </label>
+            <label class="item item-input item-divider item-light">
+                <span class="input-label app-input-label app-font-size-80">Aniversário:</span>
+                <p>{{profile.dat_nasc}}</p>
+            </label>
+            <div class="item item-divider"></div>
 
-      <div class="item app-item-no-padding">
-        <button class="button button-full button-clear button-assertive app-item-no-margin" ng-click="logoutProfile(profile)">
-          Sair
-        </button>
-      </div>
-      
-      <div class="item item-divider app-item-divider-last" style="border-bottom-width: 0;"></div>
-    </div>
-    
-  </ion-content>
+            <div class="item app-item-no-padding">
+                <button class="button button-full button-clear button-assertive app-item-no-margin" ng-click="logoutProfile(profile)">
+                    Sair
+                </button>
+            </div>
+
+            <div class="item item-divider app-item-divider-last" style="border-bottom-width: 0;"></div>
+        </div>
+
+    </ion-content>
 </ion-view>

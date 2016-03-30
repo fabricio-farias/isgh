@@ -1,7 +1,8 @@
 <ion-view view-title="Notícias">
 
-    <ion-nav-buttons side="primary">
-        <button class="button ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" ng-click="showFilterBar()"></button>
+    <ion-nav-buttons side="secondary">
+        <!--<button class="button ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" ng-click="showFilterBar()"></button>-->
+        <a class="button ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" ui-sref="search({tab: 0})"></a>
     </ion-nav-buttons>
 
     <!--<ion-content class="has-header" scroll-sista="header-tabs-subheader" delegate-handle="newsScroll">-->
@@ -10,7 +11,7 @@
         <ion-refresher on-refresh="doRefresh()"></ion-refresher>
 
         <ui-jumbotron ng-if="news.message || news.length == 0" icon="ion-ios-home">{{news.message || 'Não há notícias para exibir no momento'}}</ui-jumbotron>
-        
+
         <div class="list" ng-repeat="itemNew in news">
 
             <div class="item item-avatar">
@@ -60,9 +61,9 @@
             </div>
 
         </div>
-        
+
         <!--CARREGAR MAIS INFORMACOES QDO CHEGAR NO FIM DA PAGINA
         <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" icon="ion-loading-c" on-infinite="loadMoreData()"></ion-infinite-scroll>-->
-        
+
     </ion-content>
 </ion-view>

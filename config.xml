@@ -2,18 +2,10 @@
 <widget id="com.ionicframework.isgh900684" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>ISGH</name>
     <description>
-
-
         ISGH App Mobile.
-
-
     </description>
     <author email="fabriciorelicario@gmail.com" href="http://www.isgh.org.br">
-
-
         ISGH - Conteúdo
-
-
     </author>
     <content src="index.html" />
     <access origin="*" />
@@ -28,10 +20,15 @@
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="android-minSdkVersion" value="16" />
     <preference name="BackupWebStorage" value="none" />
+    
+    <!--<preference name="android-minSdkVersion" value="16" />-->
+    <preference name="android-targetSdkVersion" value="16"/>
+        
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
+    <!--<preference name="SplashScreen" value="none" />-->
+    
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>

@@ -1,5 +1,9 @@
 <ion-view view-title="Curso">
-  <ion-content class="has-header">
+    <ion-nav-buttons side="secondary">
+    <!--<button class="button ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" ng-click="showFilterBar()"></button>-->
+    <a class="button ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" ui-sref="search({tab: 1})"></a>
+  </ion-nav-buttons>
+  <ion-content on-swipe-right="$ionicGoBack()" class="has-header">
 
     <div class="list">
       

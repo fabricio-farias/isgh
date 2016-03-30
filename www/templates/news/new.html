@@ -1,24 +1,24 @@
 <ion-view view-title="" class="bg-light" hide-tabs>
-  
-  <ion-nav-title>
-      <small>{{new.category}}</small>
-      <small class="tiny">{{new.created | DateRelativeFilter}}</small>
-  </ion-nav-title>
 
-  <ion-nav-buttons side="right">
-    <button ng-if="isIOS" class="button button-clear app-item-no-opacity" disabled ng-class="checkColor(new.unit, 'button-')">{{new.unit || "ISGH"}}</button>
-    <button ng-if="isAndroid" class="button button-clear button-light app-item-no-opacity" disabled>{{new.unit || "ISGH"}}</button>
-  </ion-nav-buttons>
+    <ion-nav-title>
+        <small>{{new.category}}</small>
+        <small class="tiny">{{new.created | DateRelativeFilter}}</small>
+    </ion-nav-title>
 
-  <div ng-if="isIOS" class="item item-text-wrap has-header app-font-size-100 app-box-shadow" ng-class="checkColor(new.unit, 'item-')" style="padding: 6px 10px;">
-    {{new.title}}
-  </div>
-  <div ng-if="isAndroid" class="item item-light item-text-wrap has-header app-font-size-100 app-box-shadow" style="padding: 6px 10px;">
-    {{new.title}}
-  </div>
+    <ion-nav-buttons side="right">
+        <button ng-if="isIOS" class="button button-clear app-item-no-opacity" disabled ng-class="checkColor(new.unit, 'button-')">{{new.unit || "ISGH"}}</button>
+        <button ng-if="isAndroid" class="button button-clear button-light app-item-no-opacity" disabled>{{new.unit || "ISGH"}}</button>
+    </ion-nav-buttons>
 
-  <ion-scroll on-double-tap="zoomOut()" scrollbar-x="false" scrollbar-y="false" zooming="true" direction="y" delegate-handle="mimagesScroll" class="app-full-size has-header" min-zoom="1">
-    <ion-content class="bg-light app-zoom-page padding jcontent" padding="true" scroll="false" overflow-scroll="false" compile-html="new.introtext"></ion-content>
-  </ion-scroll>
+    <div ng-if="isIOS" class="item item-text-wrap has-header app-font-size-100 app-box-shadow" ng-class="checkColor(new.unit, 'item-')" style="padding: 6px 10px;">
+        {{new.title}}
+    </div>
+    <div ng-if="isAndroid" class="item item-light item-text-wrap has-header app-font-size-100 app-box-shadow" style="padding: 6px 10px;">
+        {{new.title}}
+    </div>
+
+    <ion-scroll on-swipe-right="$ionicGoBack()" on-double-tap="zoomOut()" scrollbar-x="false" scrollbar-y="false" zooming="true" direction="yx" delegate-handle="mimagesScroll" class="app-full-size has-header" min-zoom="1">
+        <ion-content class="bg-light app-zoom-page padding jcontent" padding="true" scroll="false" overflow-scroll="false" compile-html="new.introtext"></ion-content>
+    </ion-scroll>
 
 </ion-view>
