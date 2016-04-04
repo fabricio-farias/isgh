@@ -3,7 +3,7 @@
     <!--<button class="button ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" ng-click="showFilterBar()"></button>-->
     <a class="button ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" ui-sref="search({tab: 1})"></a>
   </ion-nav-buttons>
-  <ion-content on-swipe-right="$ionicGoBack()" class="has-header">
+  <ion-content lazy-scroll on-swipe-right="$ionicGoBack()" class="has-header">
 
     <div class="list">
       
@@ -12,7 +12,7 @@
       </div>
 
       <div class="item item-thumbnail-left item-thumbnail-img">
-          <img ng-src="{{url_site + lecture.thumbnail}}">
+          <img image-lazy-src="{{url_site + lecture.thumbnail}}">
           <div class="item-input app-item-bordered">
             <span class="item-inline">
               <span class="app-font-color-stable app-font-size-90"><i class="ion-ios-flag"></i> {{lecture.status.desc1+" "+lecture.status.desc2}}</span>

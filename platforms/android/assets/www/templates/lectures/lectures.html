@@ -1,4 +1,4 @@
-<ion-view hide-back-button="true" class="bg-light">
+<ion-view hide-back-button="true">
   
   <ion-nav-title>
     <div class="bar bar-header" ng-if="isIOS">
@@ -17,37 +17,43 @@
   
   <!--<ui-alert-bar alert="alert"></ui-alert-bar>-->
 
-  <ion-content ng-class="{'has-header': isIOS, 'has-footer': isAndroid}">
+  <ion-content lazy-scroll ng-class="{'has-header': isIOS, 'has-footer': isAndroid}">
 
     <ion-refresher on-refresh="doRefresh()"></ion-refresher>
     
     <ui-jumbotron ng-if="lectures.message || lectures.length == 0" icon="ion-ios-book">{{lectures.message || 'Não há Cursos para exibir no momento'}}</ui-jumbotron>
     
     <div class="list" ng-if="lectures.length > 0">
-      <a class="item item-thumbnail-left" ui-sref="tab.lecture({lecture: lecture})" ng-repeat="lecture in lectures">
-        <img ng-if="(lecture.thumbnail)" ng-src="{{url_site + lecture.thumbnail}}" style="height: auto;max-height: 80%;">
-        <h2 class="app-title-clamp-two app-title-small">{{lecture.title}}</h2>
         
-        <div ng-if="lecture.register_planning <= 0">
-          <div class="item-input">
-            <p><div class="button button-small button-outline icon ion-ios-location button-light active"></div><span class="app-font-size-90 app-font-color-stable" style="margin-left: 10px;">{{lecture.location}}</span></p>
-          </div>
-          <div class="item-input">
-            <p><div class="button button-small button-outline icon ion-ios-flag button-{{lecture.status.color}} active"></div><span class="app-font-size-90 {{lecture.status.color}}" style="margin-left: 10px;">{{lecture.status.desc1+" "+lecture.status.desc2}}</span></p>
-          </div>
-        </div>
-        
-        <div ng-if="lecture.register_planning > 0">
-          <div class="item-input">
-            <p><div class="button button-small button-outline icon ion-ios-location button-light active"></div><span class="app-font-size-90 app-font-color-stable" style="margin-left: 10px;">{{lecture.location}}</span></p>
-          </div>
-          <div class="item-input">
-            <p><div class="button button-small button-outline icon ion-ios-flag button-dark active"></div><span class="app-font-size-90 dark" style="margin-left: 10px;">{{lecture.status.desc1+" "+lecture.status.desc2}}</span></p>
-          </div>
-        </div>
+        <div class="row app-no-padding-horizontal" style="padding: 3px" ng-repeat="lecture in lectures" ng-if="$index % 2 == 0">
+            
+            <a class="col col-50 app-no-padding-left app-no-text-decoration" style="padding: 3px" ui-sref="tab.lecture({lecture: lectures[$index]})">
+                <div class="item item-image">
+                    <img image-lazy-src="{{url_site + lectures[$index].image}}" image-lazy-loader="{{iLLoader}}">
+                </div>
 
-      </a>
+                <div class="item" style="max-height: 122px">
+                    <h2 class="app-title-clamp-two app-font-size-90">{{lectures[$index].title | CapcaseFilter}}</h2>
+                    <p class=""><span class="app-font-size-80 app-font-color-stable"><i class="icon ion-ios-location"></i> {{lectures[$index].location}}</span></p>
+                    <p class="padding-top app-text-uppercase app-font-size-80 {{lectures[$index].status.color}}">{{lectures[$index].status.desc1+" "+lectures[$index].status.desc2}}</p>
+                </div>
+            </a>
+            <a class="col col-50 app-no-padding-right app-no-text-decoration" style="padding: 3px" ui-sref="tab.lecture({lecture: lectures[$index+1]})">
+                <div class="item item-image">
+                    <img image-lazy-src="{{url_site + lectures[$index+1].image}}" image-lazy-loader="{{iLLoader}}">
+                </div>
+
+                <div class="item" style="max-height: 122px">
+                    <h2 class="app-title-clamp-two app-font-size-90">{{lectures[$index+1].title | CapcaseFilter}}</h2>
+                    <p class=""><span class="app-font-size-80 app-font-color-stable"><i class="icon ion-ios-location"></i> {{lectures[$index+1].location}}</span></p>
+                    <p class="padding-top app-text-uppercase app-font-size-80 {{lectures[$index+1].status.color}}">{{lectures[$index+1].status.desc1+" "+lectures[$index+1].status.desc2}}</p>
+                </div>
+            </a>
+            
+        </div>
+        
     </div>
+    
 
   </ion-content>
 

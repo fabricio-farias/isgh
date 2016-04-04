@@ -17,7 +17,7 @@
   
   <!--<ui-alert-bar alert="alert"></ui-alert-bar>-->
 
-  <ion-content ng-class="{'has-header': isIOS, 'has-footer': isAndroid}">
+  <ion-content lazy-scroll ng-class="{'has-header': isIOS, 'has-footer': isAndroid}">
 
     <ion-refresher on-refresh="doRefresh()"></ion-refresher>
     
@@ -29,7 +29,7 @@
             
             <a class="col col-50 app-no-padding-left app-no-text-decoration" style="padding: 3px" ui-sref="tab.lecture({lecture: lectures[$index]})">
                 <div class="item item-image">
-                    <img class="full-image" ng-src="{{url_site + lectures[$index].image}}">
+                    <img image-lazy-src="{{url_site + lectures[$index].image}}" image-lazy-loader="{{iLLoader}}">
                 </div>
 
                 <div class="item" style="max-height: 122px">
@@ -40,7 +40,7 @@
             </a>
             <a class="col col-50 app-no-padding-right app-no-text-decoration" style="padding: 3px" ui-sref="tab.lecture({lecture: lectures[$index+1]})">
                 <div class="item item-image">
-                    <img class="full-image" ng-src="{{url_site + lectures[$index+1].image}}">
+                    <img image-lazy-src="{{url_site + lectures[$index+1].image}}" image-lazy-loader="{{iLLoader}}">
                 </div>
 
                 <div class="item" style="max-height: 122px">

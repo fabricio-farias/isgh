@@ -6,7 +6,7 @@
   <ion-content class="has-no-header" scroll="false">
     <ion-slide-box does-continue="true" active-slide="selectedSlide" show-pager="false" class="listContainer" on-slide-changed="slideChanged($index)">
       <ion-slide ng-repeat="single in slides track by $index">
-        <ion-scroll direction="xy"
+        <ion-scroll direction="yx"
                     locking="false" 
                     zooming="true"
                     min-zoom="1"
@@ -15,6 +15,7 @@
                     ion-slide-action
                     delegate-handle="slide-{{$index}}"
                     overflow-scroll="false"
+                    on-drag-down="closeModal()"
                     >
         <div class="item item-image gallery-slide-view">
           <img ng-src="{{single.src}}">

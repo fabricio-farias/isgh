@@ -31,7 +31,7 @@ angular.module('isgh.ProcseletsCtrl', ['ngSanitize'])
 
     .controller(
         'ProcseletsCategoriesCtrl',
-        function ($scope, $ionicFilterBar, $timeout, Constant, ResolveProcseletsCategories) {
+        function ($scope, $timeout, Constant, ResolveProcseletsCategories) {
 
 
             $scope.categories = [];
@@ -68,37 +68,15 @@ angular.module('isgh.ProcseletsCtrl', ['ngSanitize'])
                 return ($scope.categories.length >= total) ? false : true;
             }
 
-            $scope.showFilterBar = function () {
-                $ionicFilterBar.show({
-                    cancelText: 'Cancelar',
-                    items: $scope.categories,
-                    update: function (filtered) {
-                        $scope.categories = filtered;
-                    },
-                    filterProperties: 'category'
-                });
-            };
-
             $scope.stitle = ResolveProcseletsCategories.stitle;
             ////$ionicConfig.backButton.text(ResolveProcselet.lname);
         })
 
     .controller(
         'ProcseletsFilesCtrl',
-        function ($scope, $ionicFilterBar, $rootScope, Constant, ResolveProcseletsFiles) {
+        function ($scope, $rootScope, Constant, ResolveProcseletsFiles) {
 
             $scope.files = ResolveProcseletsFiles.category;
-
-            $scope.showFilterBar = function () {
-                $ionicFilterBar.show({
-                    cancelText: 'Cancelar',
-                    items: $scope.files.files,
-                    update: function (filtered) {
-                        $scope.files.files = filtered;
-                    }
-                });
-            };
-
             $scope.stitle = ResolveProcseletsFiles.stitle;
 
             $scope.parseDate = function (date) {

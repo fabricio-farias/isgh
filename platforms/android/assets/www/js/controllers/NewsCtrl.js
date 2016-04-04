@@ -2,7 +2,7 @@ angular.module('isgh.NewsCtrl', ['ngSanitize'])
 
     .controller(
         'NewsCtrl',
-        function ($scope, $filter, $ionicModal, $ionicScrollDelegate, $rootScope, $ionicFilterBar, FactoryNews, ResolveNews, FactoryNewsLocal, FactoryProfileLocal, Constant) {
+        function ($scope, $filter, $ionicModal, $ionicScrollDelegate, $rootScope, FactoryNews, ResolveNews, FactoryNewsLocal, FactoryProfileLocal, Constant) {
 
             $scope.url_intranet = Constant.url_intranet;
             $scope.news = ResolveNews.map(function (item) {
@@ -22,19 +22,7 @@ angular.module('isgh.NewsCtrl', ['ngSanitize'])
                 item.unliked_sum = (item.unliked_sum !== 'undefined') ? item.unliked_sum : 0;
                 return item;
             });
-        
-            // FILTRO NOTICIAS
-            $scope.showFilterBar = function () {
-                $ionicFilterBar.show({
-                    cancelText: 'Cancelar',
-                    items: $scope.news,
-                    update: function (filtered) {
-                        $scope.news = filtered;
-                    },
-                    filterProperties: 'title'
-                });
-            };
-        
+
             // REFRESH NOTICIAS
             $scope.doRefresh = function () {
                 $rootScope.alert = null;

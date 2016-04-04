@@ -5,20 +5,13 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDelegateProvider, $ionicConfigProvider, $ionicFilterBarConfigProvider, ionGalleryConfigProvider, Constant) {
+app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDelegateProvider, $ionicConfigProvider, ionGalleryConfigProvider, Constant) {
 
     $sceDelegateProvider.resourceUrlWhitelist(['.*']);
 
     $ionicConfigProvider.backButton.text('');
     $ionicConfigProvider.backButton.previousTitleText(false);
     $ionicConfigProvider.scrolling.jsScrolling(true);
-
-    $ionicFilterBarConfigProvider.placeholder('Buscar');
-    if (ionic.Platform.isIOS()) {
-        $ionicFilterBarConfigProvider.theme('light');
-    } else if (ionic.Platform.isAndroid()) {
-        $ionicFilterBarConfigProvider.theme('info');
-    }
 
     ionGalleryConfigProvider.setGalleryConfig({
         action_label: '<i class="icon ' + Constant.closeButton + '"></i>',

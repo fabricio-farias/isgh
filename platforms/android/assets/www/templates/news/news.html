@@ -6,7 +6,7 @@
     </ion-nav-buttons>
 
     <!--<ion-content class="has-header" scroll-sista="header-tabs-subheader" delegate-handle="newsScroll">-->
-    <ion-content class="has-header">
+    <ion-content class="has-header" lazy-scroll>
 
         <ion-refresher on-refresh="doRefresh()"></ion-refresher>
 
@@ -23,7 +23,7 @@
             <div class="item item-body">
                 <h2 class="app-no-margin-top">{{itemNew.title}}</h2>
                 <img class="full-image" ng-click="openMimages(itemNew)" ng-if="(itemNew.images.image_fulltext || itemNew.images.image_intro)"
-                ng-src="{{url_intranet + (itemNew.images.image_fulltext || itemNew.images.image_intro)}}">
+                image-lazy-src="{{url_intranet + (itemNew.images.image_fulltext || itemNew.images.image_intro)}}" image-lazy-loader="{{iLLoader}}">
                 <p ui-sref="tab.new({itemNew: itemNew})" class="app-text-align-justfy">{{itemNew.striptext | EllipsisFilter:200}}</p>
                 <a ui-sref="tab.new({itemNew: itemNew})" ng-click="setHits(itemNew)"><span class="item-note">Continue lendo</span></a>
             </div>

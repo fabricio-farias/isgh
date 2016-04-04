@@ -2,35 +2,11 @@ angular.module('isgh.BirthdaysCtrl', ['ngSanitize'])
 
     .controller(
         'BirthdaysCtrl',
-        function ($scope, $filter, $rootScope, $timeout, $ionicFilterBar, $ionicLoading, ResolveBirthDays, FactoryBirthdays, Constant) {
+        function ($scope, $filter, $rootScope, $timeout, $ionicLoading, ResolveBirthDays, FactoryBirthdays, Constant) {
 
             $scope.birthdays = ResolveBirthDays;
             var filterBarInstance;
 
-            $scope.showFilterBar = function () {
-                filterBarInstance = $ionicFilterBar.show({
-                    cancelText: 'Cancelar',
-                    items: $scope.birthdays,
-                    update: function (filteredItems) {
-                        $scope.birthdays = filteredItems;
-                    },
-                    filterProperties: 'dsc_nome'
-                });
-            };
-            
-            // $scope.showFilterBar = function () {
-            //     FactoryBirthdays.birthdaysWSgetEveryone().then(function (response) {
-            //         filterBarInstance = $ionicFilterBar.show({
-            //             cancelText: 'Cancelar',
-            //             items: response.data,
-            //             update: function (filteredItems) {
-            //                 $scope.birthdays = filteredItems;
-            //             },
-            //             filterProperties: 'dsc_nome'
-            //         });
-            //     });
-            // };
-        
             // REFRESH NOTICIAS
             $scope.doRefresh = function () {
                 $rootScope.alert = null;
@@ -44,24 +20,8 @@ angular.module('isgh.BirthdaysCtrl', ['ngSanitize'])
                 });
             }
             
-            // $scope.checkSelectedDay = function (n) {
-            // 	var data = new Date();
-            // 	return (data.getDate() == n) ? true : false;
-            // }
-            
-            // $scope.checkSelectedMonths = function (n) {
-            // 	var data = new Date();
-            // 	return (data.getMonth()+1 == n) ? true : false;
-            // }
-            
             $scope.reset = function () {
-                // var date = new Date();
-                // $scope.data = { "day": date.getDate(), "month": date.getMonth() + 1 };
                 $scope.data = { "day": "", "month": "" };
-                if (filterBarInstance) {
-                    filterBarInstance();
-                    filterBarInstance = null;
-                }
             }; $scope.reset();
 
             $scope.inputDays = [
@@ -92,8 +52,6 @@ angular.module('isgh.BirthdaysCtrl', ['ngSanitize'])
                         filterBarInstance();
                         filterBarInstance = null;
                     }
-                    //data.day = (data.day < 10) ? ('0' + data.day) : data.day;
-                    //data.month = (data.month < 10) ? ('0' + data.month) : data.month;
                     FactoryBirthdays.birthdaysWSgetByDate(data).then(function (response) {
                         $ionicLoading.hide();
                         $scope.birthdays = response.data;
