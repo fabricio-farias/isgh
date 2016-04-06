@@ -13,6 +13,8 @@
     "ionic-filter-bar": "~1.1.1",
     "ion-gallery": "~0.1.12",
     "ionic-scroll-sista": "~1.0.7",
-    "ionic-image-lazy-load": "ion-image-lazy-load#*"
+    "ionic-image-lazy-load": "ion-image-lazy-load#*",
+    "angular-filter": "~0.5.8",
+    "ion-sticky": "~1.0.5"
   }
 }

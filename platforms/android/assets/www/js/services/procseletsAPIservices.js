@@ -76,7 +76,7 @@ angular.module('isgh.procseletsAPIservices', ['isgh.dbAPIservices'])
     
             //GET PROCSELECT BY LOCATION AND STATUS
             var _getProcSeletsByUnitStatus = function (data) {
-                var query = "SELECT catid, code, category, created, file, unit, files FROM " + table.name + " WHERE unid in(" + data.units.join(",") + ") AND status in(" + data.status + ")"
+                var query = "SELECT catid, code, category, created, file, unit, unid, files FROM " + table.name + " WHERE unid in(" + data.units.join(",") + ") AND status in(" + data.status + ")"
                 return db.query(query).then(function (result) {
                     return db.fetchAll(result);
                 }, function (erro) {

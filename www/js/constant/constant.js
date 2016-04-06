@@ -13,7 +13,7 @@ angular.module('isgh.Constant', [])
             // url_site: "http://127.0.0.1/build/site/",
             // url_procseletivo: "http://127.0.0.1/build/processos_seletivos/",
 
-            ionInfiniteScrollConfig: { distance: '10%', interval: '10' },
+            ionInfiniteScrollConfig: { distance: '1%', interval: '10' },
             backButton: (ionic.Platform.isAndroid()) ? 'ion-android-arrow-back' : 'ion-ios-arrow-back',
             closeButton: (ionic.Platform.isAndroid()) ? 'ion-android-close' : 'ion-ios-close-empty',
             procseletsTitles: ['', 'Inscrições Abertas', 'Em Andamento', 'Processos Finalizados'],

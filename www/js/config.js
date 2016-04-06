@@ -280,6 +280,8 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
                             return FactoryProcselets.populateByLocationStatus({ units: units, status: $stateParams.status }).then(function (response) {
                                 $ionicLoading.hide();
                                 response.stitle = $stateParams.stitle;
+                                // response.data = _.sortBy(response.data, 'unid');
+                                response.data = _(response.data).chain().sortBy('code').reverse().sortBy('unid').value();
                                 return response;
                             }, function (erro) {
                                 $ionicLoading.hide();

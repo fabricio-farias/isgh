@@ -34,15 +34,15 @@
 .pane, .view{background-color: #F5F5F5;}
 
 /*SLIDESHOW*/
-.slider {height: 300px;}
-.slider-slide {text-align: center;font-weight: 300;}
+/*.slider {height: 300px;}*/
+/*.slider-slide {text-align: center;font-weight: 300;}*/
 
 /*LIST ITEM*/
 .app-item-bordered{border-bottom-width: 1px;border-style: solid;border-color: #DDD;margin-top: -1px;}
 .app-item-bordered:last-child{border-width: 0px;}
  
  /*BOX-SHADOW*/
- .app-box-shadow{box-shadow: 0 4px 8px rgba(0,0,0,.28);-webkit-box-shadow: 0 4px 8px rgba(0,0,0,.28);}
+ .app-box-shadow, .app-box-shadow.tabs-striped.tabs-background-info .tabs{box-shadow: 0 4px 8px rgba(0,0,0,.28);-webkit-box-shadow: 0 4px 8px rgba(0,0,0,.28);}
 
 /*AVATAR COLORS*/
 .app-units{line-height: 40px; color: #ffffff;font-size:80%;opacity: 1!important;}
@@ -225,6 +225,11 @@ iframe, .app-iframe-issue .scroll{width: 100%!important;height: 100%!important;}
 .bar.app-header-search-ios .ion-close-circled{ position: absolute; right: 0; margin-right: 4px;display: flex;}
 .bar.app-header-search-android .item-input-wrapper{ background: transparent; }
 .bar.app-header-search-android input[type="search"]{ color: #FFF; }
+
+/*ITEM SEARCH*/
+.app-search-ios{background-color: #C9C9CD;}
+.app-search-ios [class*="item-input-"]{background-color: #FFF;}
+
 
 /*TAB ELLIPSIS*/
 .tabs-top.tabs-striped:not(.tabs-icon-left):not(.tabs-icon-top) .tab-item.tab-item-active .tab-title{
@@ -452,3 +457,6 @@ table td[class*="col-"], table th[class*="col-"] { position: static; float: none
   }
 }
 /*TABLE*/
+
+/*TABSLIDEBOX*/
+.tabbed-slidebox .tsb-icons:after{ display:none; }
