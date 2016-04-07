@@ -1,4 +1,4 @@
-<ion-view hide-back-button="true" class="bg-light">
+<ion-view hide-back-button="true">
 
     <ion-nav-buttons side="secondary">
         <!--<button class="button ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" ng-click="showFilterBar()"></button>-->
@@ -22,8 +22,8 @@
 
         <ui-jumbotron ng-if="events.message || events.length == 0" icon="ion-ios-book">{{events.message || 'Não há Eventos para exibir no momento'}}</ui-jumbotron>
 
-        <div class="card" ng-if="events.length > 0">
-            <a class="item item-avatar item-text-wrap" ui-sref="tab.event({event: itemEvents})" ng-repeat="itemEvents in events">
+        <div class="list card" ng-if="events.length > 0" ui-sref="tab.event({event: itemEvents})" ng-repeat="itemEvents in events">
+            <a class="item item-avatar item-text-wrap">
                 <div class="item-image app-units" ng-class="checkColor(itemEvents.unit,'app-units-')">{{itemEvents.unit || "ISGH"}}</div>
                 <h2>{{itemEvents.title}}</h2>
                 <p>{{itemEvents.date | DateRelativeFilter}}</p>

@@ -9,39 +9,44 @@ var app = angular.module(
     'isgh',
     ['ionic', 'ionic.service.core', 'angular.filter', 'ion-gallery', 'ionicLazyLoad', 'ngCordova', 'door3.css', 'angularMoment', 'isgh.Constant', 'isgh.ionicLoadingConfig', 'isgh.emailAPIprovider', 'isgh.dbAPIservices', 'isgh.NewsCtrl', 'isgh.LecturesCtrl', 'isgh.EventsCtrl', 'isgh.ProcseletsCtrl', 'isgh.BirthdaysCtrl', 'isgh.SearchCtrl', 'isgh.ProfileCtrl', 'isgh.EllipsisFilter', 'isgh.CapcaseFilter', 'isgh.DateRelativeFilter', 'isgh.newsAPIservices', 'isgh.lecturesAPIservices', 'isgh.eventsAPIservices', 'isgh.procseletsAPIservices', 'isgh.birthdaysAPIservices', 'isgh.profileAPIservices', 'uiAlertBar', 'uiJumbotron', 'hideTabs', 'compileHtml', 'tabSlideBox'])
 
-    .run(function($ionicPlatform, $rootScope, $cordovaSQLite, amMoment, DB) {
+    .run(function($ionicPlatform, $rootScope, $cordovaSQLite, amMoment, DB, FactoryNews, FactoryLectures, FactoryEvents, FactoryProcselets, FactoryProcseletsLocal, FactoryBirthdays) {
 
         function onDeviceReady() {
 
-            //QUANDO INICI A APLICACAO RODA SO UMA VEZ
-            console.log('run() -->>>>>>>>>> onDeviceReady carregar todas as informações do webserver <<<<<<<<<<--');
-
-            //QQUANDO SAI DA APLICACAO PARA OUTRA MAS NAO FECHA
+            DB.init();
+            FactoryNews.refresh(); FactoryLectures.refresh(); FactoryEvents.refresh(); FactoryBirthdays.refresh(); FactoryProcseletsLocal.refreshTbProcselets();
+            
             document.addEventListener("pause", function(event) {
-                // $rootScope.$broadcast('cordovaPauseEvent');
+                $rootScope.$broadcast('cordovaPauseEvent');
+                ionic.Platform.exitApp();
                 console.log('run() -->>>>>>>>>> PAUSE The event fires when an application is put into the background. <<<<<<<<<<--');
             });
 
             document.addEventListener("resume", function(event) {
-                // $rootScope.$broadcast('cordovaResumeEvent');
+                $rootScope.$broadcast('cordovaResumeEvent');
+                FactoryNews.refresh(); FactoryLectures.refresh(); FactoryEvents.refresh(); FactoryBirthdays.refresh(); FactoryProcseletsLocal.refreshTbProcselets();
                 console.log('run() -->>>>>>>>>> RESUME The resume event fires when the native platform pulls the application out from the background <<<<<<<<<<--');
             });
 
             document.addEventListener("online", function(event) {
-                // $rootScope.$broadcast('cordovaResumeEvent');
+                $rootScope.$broadcast('cordovaOnlineEvent');
                 console.log('run() -->>>>>>>>>> ONLINE This event fires when an application goes online, and the device becomes connected to the Internet. <<<<<<<<<<--');
             });
 
             document.addEventListener("offline", function(event) {
-                // $rootScope.$broadcast('cordovaResumeEvent');
+                $rootScope.$broadcast('cordovaOfflineEvent');
                 console.log('run() -->>>>>>>>>> OFFLINE The event fires when an application goes offline, and the device is not connected to the Internet. <<<<<<<<<<--');
             });
         }
 
         $ionicPlatform.ready(function() {
 
-            DB.init();
-            amMoment.changeLocale('pt');
+            // Apenas para desenvolvimento usando BROWSER CHROME
+            if (Object.keys(ionic.Platform.device()).length == 0) {
+                DB.init(); FactoryNews.refresh(); FactoryLectures.refresh(); FactoryEvents.refresh(); FactoryBirthdays.refresh(); FactoryProcseletsLocal.refreshTbProcselets();
+            }
+
+            // Apenas para devices
             document.addEventListener("deviceready", onDeviceReady, false);
 
             if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
@@ -60,6 +65,7 @@ var app = angular.module(
             $rootScope.isAndroid = ionic.Platform.isAndroid();
             $rootScope.isWindowsPhone = ionic.Platform.isWindowsPhone();
             $rootScope.iLLoader = ionic.Platform.isAndroid() ? "android" : "ios";
+
             // GATILHO PARA ALTERAR A COR DA UNIDADE
             $rootScope.checkColor = function(elem, prefix) {
                 var binding = (prefix !== undefined) ? prefix : "";
@@ -82,6 +88,8 @@ var app = angular.module(
                 return binding + ((filtered[0]) ? filtered[0].color : 'isgh');
 
             }
+
+            amMoment.changeLocale('pt');
 
         });
     });

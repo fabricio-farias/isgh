@@ -22,6 +22,19 @@ angular.module('isgh.procseletsAPIservices', ['isgh.dbAPIservices'])
 
                 return deferred.promise;
             };
+
+            // GET NEW ROWS
+            var _procseletsWSget = function () {
+                var deferred = $q.defer();
+
+                $http.get(Constant.url_wsapp + 'processos_seletivos/?op=procselets&fu=GetByAll').then(function (response) {
+                    deferred.resolve(response);
+                }, function (erro) {
+                    deferred.reject({ type: "alert-bar-dark", message: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente" });
+                });
+
+                return deferred.promise;
+            };
     
             // INSERT ROWS IN TABLE
             var _populateByLocationStatus = function (data) {
@@ -47,6 +60,32 @@ angular.module('isgh.procseletsAPIservices', ['isgh.dbAPIservices'])
                             deferred.reject(erro);
                         });
                     }
+                });
+
+                return deferred.promise;
+            }
+
+            // REFRESH TABLE
+            var _refresh = function () {
+                var deferred = $q.defer();
+                _procseletsWSget().then(function (response) {
+                    if (response.status == 200) {
+
+                        db.truncateTable(table);
+
+                        angular.forEach(response.data, function (obj) {
+                                    var query = "INSERT OR REPLACE INTO " + table.name + " (" + columns.join(",") + ") values (" + fields.join(",") + ")";
+                                    db.query(query, [obj.catid, obj.code, obj.category, obj.description, obj.file, obj.unid, obj.unit, obj.status, obj.created, obj.files]);
+                                });
+                        deferred.resolve(response);
+                    } else if (response.status == 204) {
+                        db.truncateTable(table);
+                        deferred.reject({ type: "alert-bar-assertive", message: "Não há Processos Seletivos disponíveis no momento" });
+                    } else {
+                        deferred.reject({ type: "alert-bar-dark", message: "Restabelecendo conexão perdida com servidor" });
+                    }
+                }, function (erro) {
+                    deferred.reject(erro);
                 });
 
                 return deferred.promise;
@@ -95,10 +134,12 @@ angular.module('isgh.procseletsAPIservices', ['isgh.dbAPIservices'])
             };
 
             return {
+                procseletsWSget: _procseletsWSget,
                 procseletsWSgetLocStatus: _procseletsWSgetLocStatus,
                 populateByLocationStatus: _populateByLocationStatus,
                 getProcSeletsByUnitStatus: _getProcSeletsByUnitStatus,
                 getProcSeletsFiles: _getProcSeletsFiles,
+                refresh:_refresh,
                 total: _total,
                 all: _all
             };

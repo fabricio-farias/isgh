@@ -13,15 +13,18 @@ var app = angular.module(
 
         function onDeviceReady() {
 
-            console.log('run() -->>>>>>>>>> onDeviceReady carregar todas as informações do webserver <<<<<<<<<<--');
-
+            DB.init();
+            FactoryNews.refresh(); FactoryLectures.refresh(); FactoryEvents.refresh(); FactoryBirthdays.refresh(); FactoryProcseletsLocal.refreshTbProcselets();
+            
             document.addEventListener("pause", function(event) {
                 $rootScope.$broadcast('cordovaPauseEvent');
+                ionic.Platform.exitApp();
                 console.log('run() -->>>>>>>>>> PAUSE The event fires when an application is put into the background. <<<<<<<<<<--');
             });
 
             document.addEventListener("resume", function(event) {
                 $rootScope.$broadcast('cordovaResumeEvent');
+                FactoryNews.refresh(); FactoryLectures.refresh(); FactoryEvents.refresh(); FactoryBirthdays.refresh(); FactoryProcseletsLocal.refreshTbProcselets();
                 console.log('run() -->>>>>>>>>> RESUME The resume event fires when the native platform pulls the application out from the background <<<<<<<<<<--');
             });
 
@@ -38,16 +41,13 @@ var app = angular.module(
 
         $ionicPlatform.ready(function() {
 
-            DB.init();
-            // FactoryNews.refresh();
-            // FactoryLectures.refresh();
-            // FactoryEvents.refresh();
-            // FactoryBirthdays.refresh();
-            // FactoryProcselets.refresh();
-            // FactoryProcseletsLocal.refreshTbProcselets();
+            // Apenas para desenvolvimento usando BROWSER CHROME
+            if (Object.keys(ionic.Platform.device()).length == 0) {
+                DB.init(); FactoryNews.refresh(); FactoryLectures.refresh(); FactoryEvents.refresh(); FactoryBirthdays.refresh(); FactoryProcseletsLocal.refreshTbProcselets();
+            }
 
+            // Apenas para devices
             document.addEventListener("deviceready", onDeviceReady, false);
-            amMoment.changeLocale('pt');
 
             if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -65,6 +65,7 @@ var app = angular.module(
             $rootScope.isAndroid = ionic.Platform.isAndroid();
             $rootScope.isWindowsPhone = ionic.Platform.isWindowsPhone();
             $rootScope.iLLoader = ionic.Platform.isAndroid() ? "android" : "ios";
+
             // GATILHO PARA ALTERAR A COR DA UNIDADE
             $rootScope.checkColor = function(elem, prefix) {
                 var binding = (prefix !== undefined) ? prefix : "";
@@ -87,6 +88,8 @@ var app = angular.module(
                 return binding + ((filtered[0]) ? filtered[0].color : 'isgh');
 
             }
+
+            amMoment.changeLocale('pt');
 
         });
     });

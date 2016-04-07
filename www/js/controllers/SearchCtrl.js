@@ -193,6 +193,7 @@ angular.module('isgh.SearchCtrl', ['ngSanitize'])
             // BANCO LOCAL
             var Sctrlp = this;
             Sctrlp.sProcselets = [];
+            Sctrlp.wsProcselets = null;
             Sctrlp.distance = Constant.ionInfiniteScrollConfig.distance;
             Sctrlp.procseletsTitles = Constant.procseletsTitles;
 
@@ -200,18 +201,43 @@ angular.module('isgh.SearchCtrl', ['ngSanitize'])
             Sctrlp.offset = 0;
             Sctrlp.limit = Constant.ionInfiniteScrollConfig.interval;
 
-            FactoryProcselets.total().then(function (response) { Sctrlp.total = response.rows.item(0).total });
+            // FactoryProcselets.total().then(function (response) { Sctrlp.total = response.rows.item(0).total });
 
-            Sctrlp.loadMoreProcselets = function () {
-                FactoryProcselets.all(Sctrlp.offset, Sctrlp.limit).then(function (response) {
-                    response.map(function (item) {
-                        Sctrlp.sProcselets.push(item);
-                    });
-                });
-                $timeout(function () {
-                    Sctrlp.offset += Constant.ionInfiniteScrollConfig.interval;
-                    Sctrlp.limit += Constant.ionInfiniteScrollConfig.interval;
-                }, 100);
+            FactoryProcselets.procseletsWSget().then(function(response) {
+                Sctrlp.total = response.data.length;// response.data = _(response.data).chain().sortBy('code').reverse().sortBy('unid').value();
+                response.data = _(response.data).chain().sortBy('code').reverse().value();
+                Sctrlp.wsProcselets = response;
+            })
+
+            Sctrlp.loadMoreProcselets = function() {
+
+                if (Sctrlp.total > Sctrlp.limit)
+                {
+                    for (var i = Sctrlp.offset; i < Sctrlp.limit; i++) {// Sctrlp.wsProcselets.data[i].created = new Date(Sctrlp.wsProcselets.data[i].created);
+                        Sctrlp.sProcselets.push(Sctrlp.wsProcselets.data[i]);
+                    }
+
+                    $timeout(function () {
+                        Sctrlp.offset += Constant.ionInfiniteScrollConfig.interval;
+                        Sctrlp.limit += Constant.ionInfiniteScrollConfig.interval;
+                    }, 100);
+                } else {
+                    Sctrlp.sProcselets = Sctrlp.wsProcselets.data.map(function(item) {
+                        item.created = new Date(item.created);
+                        return item;
+                    })
+                }
+
+                // FactoryProcselets.all(Sctrlp.offset, Sctrlp.limit).then(function (response) {
+                //     response.map(function (item) {
+                //         Sctrlp.sProcselets.push(item);
+                //     });
+                // });
+                // $timeout(function () {
+                //     Sctrlp.offset += Constant.ionInfiniteScrollConfig.interval;
+                //     Sctrlp.limit += Constant.ionInfiniteScrollConfig.interval;
+                // }, 100);
+
                 $scope.$broadcast('scroll.infiniteScrollComplete');
             }
 

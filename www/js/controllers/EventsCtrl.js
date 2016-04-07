@@ -30,10 +30,6 @@ angular.module('isgh.EventsCtrl', ['ngSanitize'])
             $scope.event = ResolveEvent;
             $scope.url_intranet = Constant.url_intranet;
 
-            $scope.ifExists = function (data) {
-                return (data !== "") ? 'positive' : 'assertive';
-            }
-
         })
 
     .controller(

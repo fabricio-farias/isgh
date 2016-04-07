@@ -49,15 +49,15 @@
                 <span class="input-label app-font-size-80 positive">Investimento</span>
                 <p class="app-no-white-space">{{event.form_investment}}</p>
             </div>
-
-            <div class="item item-divider" style="padding-top: 15px;">
+            
+            <div class="item item-divider" style="padding-top: 15px;" ng-if="event.introtext !== 'undefined'">
                 <h2 class="app-no-white-space app-font-size-70">MAIS INFORMAÇÕES</h2>
             </div>
 
-            <a class="item item-icon-right positive" ui-sref="tab.event-addons({event: event})">
-        Leia mais
-        <i class="icon ion-chevron-right app-font-size-100"></i>
-      </a>
+            <a class="item item-icon-right positive" ng-if="event.introtext !== 'undefined'" ui-sref="tab.event-addons({event: event})">
+                Leia mais
+                <i class="icon ion-chevron-right app-font-size-100"></i>
+            </a>
 
             <div class="item item-divider app-item-divider-last" style="border-bottom-width: 0;"></div>
         </div>
