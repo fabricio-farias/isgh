@@ -2,11 +2,18 @@ angular.module('isgh.ProfileCtrl', ['ngSanitize'])
 
     .controller(
         'LoginCtrl',
-        function ($scope, $filter, $ionicLoading, $rootScope, $ionicPopup, $state, $ionicNavBarDelegate, $timeout, Constant, FactoryProfile, FactoryProfileLocal, FactoryNews) {
+        function ($scope, $filter, $ionicLoading, $rootScope, $ionicPopup, $state, $ionicNavBarDelegate, $timeout, Constant, FactoryProfile, FactoryProfileLocal, FactoryNews, FactoryLectures, FactoryEvents, FactoryBirthdays, FactoryProcselets, FactoryProcseletsLocal) {
 
+            var io = Ionic.io();
             $scope.profile = FactoryProfileLocal.getTbProfile();
 
             if ($scope.profile != null && $scope.profile.dsc_logged == 1) {
+
+                FactoryNews.newsWSgetToggleLikeds($scope.profile).then(function (resp) {
+                    localStorage.setItem($scope.profile.num_matricula + "_liked", JSON.stringify(resp.data));
+                });
+                FactoryNews.refresh(); FactoryLectures.refresh(); FactoryEvents.refresh(); FactoryBirthdays.refresh(); FactoryProcseletsLocal.refreshTbProcselets(); FactoryProcselets.refresh();
+
                 $state.go('tab.news');
             }
 
@@ -52,7 +59,8 @@ angular.module('isgh.ProfileCtrl', ['ngSanitize'])
                     
                     FactoryProfile.doLogin(login).then(function (response) {
                         $ionicLoading.hide();
-                        if (response.data !== "false") {
+                        if (response.data !== "false")
+                        {
                             response.data.isn_filial = login.isn_filial;
                             response.data.dsc_senha = login.dsc_senha;
                             response.data.dsc_logged = 1;
@@ -62,6 +70,8 @@ angular.module('isgh.ProfileCtrl', ['ngSanitize'])
                                 localStorage.setItem(response.data.num_matricula + "_liked", JSON.stringify(resp.data));
                             });
 
+                            FactoryNews.refresh(); FactoryLectures.refresh(); FactoryEvents.refresh(); FactoryBirthdays.refresh(); FactoryProcseletsLocal.refreshTbProcselets(); FactoryProcselets.refresh();
+                            
                             $state.go('tab.news');
                         } else {
                             $ionicPopup.alert({

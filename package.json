@@ -22,15 +22,22 @@
     "com.ionic.keyboard",
     "ionic-plugin-deploy",
     {
-      "locator": "https://github.com/phonegap-build/PushPlugin.git",
-      "id": "com.phonegap.plugins.PushPlugin"
-    },
-    {
       "locator": "https://github.com/apache/cordova-plugin-statusbar.git",
       "id": "cordova-plugin-statusbar"
     },
     "cordova-plugin-statusbar",
-    "net.yoik.cordova.plugins.screenorientation"
+    "net.yoik.cordova.plugins.screenorientation",
+    {
+      "locator": "https://github.com/phonegap-build/PushPlugin.git",
+      "id": "com.phonegap.plugins.PushPlugin"
+    },
+    {
+      "variables": {
+        "SENDER_ID": "324118697770"
+      },
+      "locator": "phonegap-plugin-push",
+      "id": "phonegap-plugin-push"
+    }
   ],
   "cordovaPlatforms": [
     "android"

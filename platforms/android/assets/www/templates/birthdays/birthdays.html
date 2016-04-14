@@ -48,13 +48,14 @@
         <ui-jumbotron ng-if="birthdays.message || birthdays.length == 0" icon="ion-ios-calendar-outline">{{birthdays.message || 'Não há Aniversariantes para exibir no momento'}}</ui-jumbotron>
 
         <div class="list card" ng-repeat="birthday in birthdays">
-            <div class="item item-avatar item-divider item-light info" style="padding-top: 12px;padding-bottom: 12px;">
+            <div class="item item-avatar item-divider item-light dark" style="padding-top: 12px;padding-bottom: 12px;">
                 {{birthday.dsc_nome}}
             </div>
 
             <div class="item item-avatar item-image-top">
 
-                <div class="item-image item-image-top app-units app-units-stable"><i class="icon ion-person app-font-size-300"></i></div>
+                <!--<div class="item-image item-image-top app-units app-units-stable"><i class="icon ion-person app-font-size-300"></i></div>-->
+                <div class="item-image item-image-top app-units" ng-class="checkColor(birthday.dsc_filial, 'app-units-')">{{birthday.dsc_nome | CapNameFilter | limitTo: 2}}</div>
 
                 <label class="item item-input item-divider item-light app-item-no-border">
                     <span class="input-label app-input-label app-font-size-80">Setor:</span>

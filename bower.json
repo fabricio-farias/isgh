@@ -5,7 +5,9 @@
     "ionic": "driftyco/ionic-bower#1.2.4",
     "ionic-service-core": "~0.1.9",
     "ngCordova": "~0.1.17-alpha",
-    "ionic-platform-web-client": "~0.2.1"
+    "angular-websocket": "~1.1.0",
+    "ionic-platform-web-client": "^0.7.1",
+    "ionic-service-push": "^0.1.13"
   },
   "dependencies": {
     "ionic-timepicker": "~0.4.0",

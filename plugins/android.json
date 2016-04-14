@@ -13,9 +13,6 @@
         "com.jcjee.plugins.emailcomposer": {
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
         },
-        "com.phonegap.plugins.PushPlugin": {
-            "PACKAGE_NAME": "com.ionicframework.isgh900684"
-        },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
         },
@@ -44,6 +41,13 @@
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
         },
         "org.apache.cordova.network-information": {
+            "PACKAGE_NAME": "com.ionicframework.isgh900684"
+        },
+        "com.phonegap.plugins.PushPlugin": {
+            "PACKAGE_NAME": "com.ionicframework.isgh900684"
+        },
+        "phonegap-plugin-push": {
+            "SENDER_ID": "324118697770",
             "PACKAGE_NAME": "com.ionicframework.isgh900684"
         }
     },

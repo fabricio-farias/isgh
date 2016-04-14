@@ -37,6 +37,9 @@
 /*.slider {height: 300px;}*/
 /*.slider-slide {text-align: center;font-weight: 300;}*/
 
+/*ION-GALLERY*/
+.imageView .image-subtitle{ left: 0; right: 0; text-align: center; }
+
 /*LIST ITEM*/
 .app-item-bordered{border-bottom-width: 1px;border-style: solid;border-color: #DDD;margin-top: -1px;}
 .app-item-bordered:last-child{border-width: 0px;}
@@ -300,7 +303,7 @@ iframe, .app-iframe-issue .scroll{width: 100%!important;height: 100%!important;}
 /*ITEM AVATAR*/
 /*===============================*/
 .item-image-top{overflow: visible;}
-.item-avatar .item-image-top{top: -16px;}
+.item-avatar .item-image-top{top: -22px;}
 /*===============================*/
 
 

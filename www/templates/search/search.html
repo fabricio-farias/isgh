@@ -83,7 +83,8 @@
                 <ion-content ng-controller="SearchCtrlBirthdays as Sctrlb">
                     <ion-list type="list">
                         <ion-item class="item-avatar" ng-repeat="birthday in Sctrlb.sBirthdays | filter:Sctrlb.filterBirthdaysByField">
-                            <div class="item-image app-units app-units-stable"><i class="icon ion-person app-font-size-300"></i></div>
+                            <div class="item-image app-units" ng-class="checkColor(birthday.dsc_filial, 'app-units-')">{{birthday.dsc_nome | CapNameFilter | limitTo: 2}}</div>
+                            <!--<div class="item-image app-units app-units-stable"><i class="icon ion-person app-font-size-300"></i></div>-->
                             <h2 class="app-font-size-90">{{birthday.dsc_nome}}</h2>
                             <p class="app-font-size-80"><span class="app-font-color-stable">{{birthday.dat_nasc}} &#8226; {{birthday.dsc_filial}} &#8226; {{birthday.dsc_funcao}}</span></p>
                         </ion-item>

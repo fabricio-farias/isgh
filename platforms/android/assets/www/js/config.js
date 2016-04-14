@@ -5,7 +5,12 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDelegateProvider, $ionicConfigProvider, ionGalleryConfigProvider, Constant) {
+app.config(function ($ionicAppProvider, $stateProvider, $urlRouterProvider, $httpProvider, $sceDelegateProvider, $ionicConfigProvider, ionGalleryConfigProvider, Constant) {
+    $ionicAppProvider.identify({
+        app_id: "62db4c01",
+        api_key: "4384b8bea019979c0bcc651e2efa61a5d568477f184ab3b0",
+        dev_push: true
+    });
 
     $sceDelegateProvider.resourceUrlWhitelist(['.*']);
 
@@ -74,8 +79,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
                                 $ionicLoading.hide();
                                 return $rootScope.alert = erro;
                             });
-
-                            $ionicLoading.hide();
                         }
                     }
                 }
@@ -117,8 +120,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
                                 $ionicLoading.hide();
                                 return $rootScope.alert = erro;
                             });
-
-                            $ionicLoading.hide();
                         }
                     }
                 }
@@ -198,8 +199,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
                                 $ionicLoading.hide();
                                 return $rootScope.alert = erro;
                             });
-
-                            $ionicLoading.hide();
                         }
                     }
                 }
@@ -257,8 +256,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
                                 $ionicLoading.hide();
                                 return $rootScope.alert = erro;
                             });
-
-                            $ionicLoading.hide();
                         }
                     }
                 }
@@ -288,8 +285,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
                                 $state.go($state.current, $stateParams.lecture, { reload: false, inherit: false });
                                 return $rootScope.alert = erro;
                             });
-
-                            $ionicLoading.hide();
                         }
                     }
                 }
@@ -331,8 +326,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $sceDele
                                 $ionicLoading.hide();
                                 return $rootScope.alert = erro;
                             });
-
-                            $ionicLoading.hide();
                         }
                     }
                 }

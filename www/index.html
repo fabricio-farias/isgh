@@ -13,7 +13,8 @@
     <!--USANDO SASS IONIC-->
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above -->
     <!-- <link href="css/ionic.app.css" rel="stylesheet"> -->
-
+    <!--API KEY: AIzaSyCrX91CHa_q50MaEhQX59LNthOTfqw4xT0-->
+    <!--GCM: 324118697770-->
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="lib/ionic-filter-bar/dist/ionic.filter.bar.css" rel="stylesheet">
     <link href="lib/ion-gallery/dist/ion-gallery.css" rel="stylesheet">
@@ -28,8 +29,9 @@
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
     <script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
-
+    <script src="lib/angular-websocket/angular-websocket.js"></script>
     <script src="lib/ionic-service-core/ionic-core.js"></script>
+    <script src="lib/ionic-service-push/ionic-push.js"></script>
     <script src="lib/ionic-angular-locale_pt-br.js"></script>
     <script src="lib/css/angular-css.min.js"></script>
     <script src="lib/ion-gallery/dist/ion-gallery.min.js"></script>
@@ -42,7 +44,8 @@
     <!--<script src="lib/ngCordova/dist/ng-cordova-mocks.min.js"></script>-->
     <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
     <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
-    <!-- <script src="cordova.js"></script> -->
+     <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
+    <!--<script src="cordova.js"></script>  -->
 
     <!--CONTROLLERS-->
     <script src="js/controllers/NewsCtrl.js"></script>
@@ -56,6 +59,7 @@
     <!--FILTERS-->
     <script src="js/filters/EllipsisFilter.js"></script>
     <script src="js/filters/CapcaseFilter.js"></script>
+    <script src="js/filters/CapNameFilter.js"></script>
     <script src="js/filters/DateRelativeFilter.js"></script>
 
     <!--CONSTANT-->

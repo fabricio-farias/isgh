@@ -15,13 +15,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/com.phonegap.plugins.PushPlugin/www/PushNotification.js",
-        "id": "com.phonegap.plugins.PushPlugin.PushNotification",
-        "clobbers": [
-            "PushNotification"
-        ]
-    },
-    {
         "file": "plugins/cordova-plugin-device/www/device.js",
         "id": "cordova-plugin-device.device",
         "clobbers": [
@@ -97,6 +90,20 @@ module.exports = [
         "clobbers": [
             "Connection"
         ]
+    },
+    {
+        "file": "plugins/com.phonegap.plugins.PushPlugin/www/PushNotification.js",
+        "id": "com.phonegap.plugins.PushPlugin.PushNotification",
+        "clobbers": [
+            "PushNotification"
+        ]
+    },
+    {
+        "file": "plugins/phonegap-plugin-push/www/push.js",
+        "id": "phonegap-plugin-push.PushNotification",
+        "clobbers": [
+            "PushNotification"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -104,7 +111,6 @@ module.exports.metadata =
 {
     "com.ionic.keyboard": "1.0.4",
     "com.jcjee.plugins.emailcomposer": "1.4.6",
-    "com.phonegap.plugins.PushPlugin": "2.5.0",
     "cordova-plugin-console": "1.0.2",
     "cordova-plugin-device": "1.1.1",
     "cordova-plugin-inappbrowser": "1.1.1",
@@ -114,7 +120,9 @@ module.exports.metadata =
     "cordova-plugin-whitelist": "1.2.1",
     "cordova-sqlite-storage": "0.7.11",
     "ionic-plugin-deploy": "0.5.0",
-    "org.apache.cordova.network-information": "0.2.15"
+    "org.apache.cordova.network-information": "0.2.15",
+    "com.phonegap.plugins.PushPlugin": "2.5.0",
+    "phonegap-plugin-push": "1.6.2"
 };
 // BOTTOM OF METADATA
 });
