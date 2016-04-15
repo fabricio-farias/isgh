@@ -31,27 +31,10 @@
         "is_top_level": true,
         "variables": {}
     },
-    "com.ionic.keyboard": {
-        "source": {
-            "type": "registry",
-            "id": "com.ionic.keyboard"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "ionic-plugin-deploy": {
         "source": {
             "type": "registry",
             "id": "ionic-plugin-deploy"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "com.jcjee.plugins.emailcomposer": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/jcjee/email-composer.git",
-            "subdir": "."
         },
         "is_top_level": true,
         "variables": {}
@@ -61,14 +44,6 @@
             "type": "git",
             "url": "https://github.com/brodysoft/Cordova-SQLitePlugin.git",
             "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "org.apache.cordova.network-information": {
-        "source": {
-            "type": "registry",
-            "id": "org.apache.cordova.network-information"
         },
         "is_top_level": true,
         "variables": {}
@@ -105,15 +80,6 @@
         "is_top_level": true,
         "variables": {}
     },
-    "com.phonegap.plugins.PushPlugin": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/phonegap-build/PushPlugin.git",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "phonegap-plugin-push": {
         "source": {
             "type": "registry",
@@ -123,5 +89,22 @@
         "variables": {
             "SENDER_ID": "324118697770"
         }
+    },
+    "ionic-plugin-keyboard": {
+        "source": {
+            "type": "registry",
+            "id": "ionic-plugin-keyboard"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "com.jcjee.plugins.emailcomposer": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/jcjee/email-composer.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }
