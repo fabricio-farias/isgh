@@ -17,7 +17,7 @@
 
 /*BARS TABS COLORS*/
 .bar.bar-black, .bar.bar-black.bar-footer{background-color:#000000;color:#eee;border-width: 0;background-image: linear-gradient(0deg, #aaa, #aaa 50%, transparent 50%);}
-.bar.bar-black.bar-footer{margin-bottom: 10px;border-color:transparent;border-width: 1px 0 0 0;border-style: solid;margin-bottom: 25px; }
+.bar.bar-black.bar-footer{border-color:transparent;border-width: 1px 0 0 0;border-style: solid;line-height: 14px;}
 
 /*IMAGEVIEW*/
 .imageView .headerView, .imageView .listContainer{background-color:#000000;border-width: 0;}
@@ -43,7 +43,7 @@
 /*LIST ITEM*/
 .app-item-bordered{border-bottom-width: 1px;border-style: solid;border-color: #DDD;margin-top: -1px;}
 .app-item-bordered:last-child{border-width: 0px;}
- 
+
  /*BOX-SHADOW*/
  .app-box-shadow, .app-box-shadow.tabs-striped.tabs-background-info .tabs{box-shadow: 0 4px 8px rgba(0,0,0,.28);-webkit-box-shadow: 0 4px 8px rgba(0,0,0,.28);}
 
@@ -68,16 +68,17 @@
 .bar .button-bar.button-bar-group > .button {display: inline-table}
 .bar .button-bar.button-bar-group > .button-small {display: inline}
 
+/*BUTTON SMALL*/
+.bar .button-bar.bar-small, .bar .buttons.bar-small, .button-bar.bar-small, .buttons.bar-small{height: 26px;line-height: 24px;margin: 4px 0!important;}
+.bar .button-bar.bar-small > .button, .bar .buttons.bar-small > .button, .button-bar.bar-small > .button, .buttons.bar-small > .button {min-width: 28px;min-height: 26px;height: 26px;font-size: 12px;line-height: 24px;}
+/*BUTTON SMALL*/
+
 /*BUTTON PILL*/
 .button-bar.button-pill {box-shadow: 0 1px 3px rgba(0,0,0,0.2);border-radius: 30px;}
 .button-bar.button-pill .button:first-child {-webkit-border-radius: 30px 0 0 30px;border-radius: 30px 0 0 30px;}
 .button-bar.button-pill .button:last-child {-webkit-border-radius: 0 30px 30px 0;border-radius: 0 30px 30px 0;}
 /*BUTTON PILL*/
 
-/*BUTTON SMALL*/
-.bar .button-bar.bar-small, .bar .buttons.bar-small, .button-bar.bar-small, .buttons.bar-small{min-height: 26px;line-height: 26px;margin: 4px 0;}
-.bar .button-bar.bar-small > .button, .bar .buttons.bar-small > .button, .button-bar.bar-small > .button, .buttons.bar-small > .button {min-width: 28px;min-height: 26px;font-size: 12px;line-height: 25px;}
-/*BUTTON SMALL*/
 
 /*TEXT*/
 /*TEXT-COLOR*/
@@ -171,7 +172,7 @@
 .button-bar.bar-dashed > .button:last-child{border-right-width: 0;}
 
 .button-bar > .button-small .icon:before{line-height: 24px;}
- 
+
 /*LEIMAIS E COMPARTILHAR*/
 .app-item-no-padding > .button-bar>.button {border-width: 0px 1px 0px 0px;border-color: transparent;border-radius:0;}
 .app-item-no-padding > .button-bar>.button:last-child {border-right-width: 0px;}
@@ -222,6 +223,7 @@ iframe, .app-iframe-issue .scroll{width: 100%!important;height: 100%!important;}
 .app-title-small{font-size: 80%!important;line-height: 16px;margin-bottom: 10px!important;}
 
 /*BAR HEADER SEARCH*/
+.bar.app-header-search-ios{ height: 44px!important; }
 .bar.app-header-search-ios .item-input-wrapper{ position: relative; }
 /*.bar.app-header-search-ios > .button + .button:last-child{position: relative; top: 0; right: 0; bottom: 0;}*/
 .bar.app-header-search-ios input[type="search"]{ width: 84%;}
@@ -241,7 +243,7 @@ iframe, .app-iframe-issue .scroll{width: 100%!important;height: 100%!important;}
 }
 
 /*IMAGE LOADER*/
-.image-loader-container { padding: 16px; width: 100%; height: 100%; top: 0; left: 0; /*position: absolute;*/ /*background-color: #e5e5e5;*/ display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: center; align-content: stretch; align-items: center; } 
+.image-loader-container { padding: 16px; width: 100%; height: 100%; top: 0; left: 0; /*position: absolute;*/ /*background-color: #e5e5e5;*/ display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: center; align-content: stretch; align-items: center; }
 
 /*FLOAT*/
 .app-float-right{float: right!important}
@@ -277,10 +279,10 @@ iframe, .app-iframe-issue .scroll{width: 100%!important;height: 100%!important;}
 /*===============================*/
 /*.alert-bar{transition: top 0.25s ease;-webkit-transition: top 0.25s ease;position:absolute;padding:5px 10px;color: white;text-align: center;width: 100%;visibility: hidden;display: table;}*/
 .alert-bar{transition: top 400ms cubic-bezier(0.1, 0.7, 0.1, 1) 0s;-webkit-transition: top 400ms cubic-bezier(0.1, 0.7, 0.1, 1) 0s;position:absolute;min-height: 30px;padding:5px 10px;color: white;text-align: center;width: 100%;visibility: hidden;display: table;transform: translate3d(0, -100%, 0);-webkit-transform: translate3d(0, -100%, 0);}
-.alert-bar div{display: table-cell;}
+.alert-bar div{display: table-cell; font-size: 80%; line-height: normal;}
 .alert-bar i{padding: 0 10px;display: table-cell;vertical-align: middle;}
 .platform-ios .alert-bar{top: 0;z-index:9;}
-.platform-ios .bar-active{visibility: visible;top: 44px;transform: translate3d(0, 0, 0);-webkit-transform: translate3d(0, 0, 0);}
+.platform-ios .bar-active{visibility: visible;top: 64px;transform: translate3d(0, 0, 0);-webkit-transform: translate3d(0, 0, 0);}
 .platform-android .alert-bar{top: 44px;z-index: 4;}
 .platform-android .bar-active{visibility: visible;top: 93px;transform: translate3d(0, 0, 0);-webkit-transform: translate3d(0, 0, 0);}
 
@@ -343,7 +345,7 @@ iframe, .app-iframe-issue .scroll{width: 100%!important;height: 100%!important;}
 .checkbox.checkbox-unlike input:before, .checkbox-icon.checkbox-unlike:before{font-family: "Ionicons";content: '\f251';padding: 0 5px;line-height: 24px;font-size: 32px;color: #757575;background: transparent;border-color: transparent;}
 
 .checkbox.checkbox-unlike input:before, .checkbox-icon.checkbox-unlike:before{content: '\f250';border-top-width: 3px;}
-	
+
 .checkbox.checkbox-like input:checked:before, .checkbox.checkbox-like input:checked + .checkbox-icon.checkbox-like:before,
 .checkbox.checkbox-unlike input:checked:before, .checkbox.checkbox-unlike input:checked + .checkbox-icon.checkbox-unlike:before{background: transparent;border-color: transparent;border-width: 1px;color: #37639b;}
 .checkbox.checkbox-unlike input:checked:before, .checkbox.checkbox-unlike input:checked + .checkbox-icon.checkbox-unlike:before{border-width: 3px 1px 1px;}

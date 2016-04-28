@@ -26,7 +26,8 @@ angular.module('isgh.newsAPIservices', ['isgh.dbAPIservices'])
         var _populate = function() {
             var deferred = $q.defer();
 
-            _all().then(function(response) {
+            _all().then(function (response) {
+
                 if (response.length > 0) {
                     deferred.resolve({ data: response });
                 } else {

@@ -12,12 +12,12 @@
             <div class="button button-clear app-item-no-opacity" disabled>{{itemNew.unit || "ISGH"}}</div>
         </div>
     </ion-header-bar>
-    
+
     <ion-scroll on-drag-down="closeMimages()" on-double-tap="zoomOut()" scrollbar-x="false" scrollbar-y="false" zooming="true" direction="yx" delegate-handle="mimagesScroll" class="app-full-size has-header" min-zoom="1">
         <div class="modal-image-box" style="background-image: url( {{url_intranet + (itemNew.images.image_fulltext || itemNew.images.image_intro)}} )"></div>
     </ion-scroll>
 
-    <ion-footer-bar align-title="left" class="bar-black">
+    <ion-footer-bar align-title="left" class="bar-black app-font-size-80">
         {{itemNew.title}}
     </ion-footer-bar>
 

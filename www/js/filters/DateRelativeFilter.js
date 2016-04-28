@@ -2,7 +2,11 @@ angular.module('isgh.DateRelativeFilter', ['angularMoment']).filter("DateRelativ
     return function (date) {
         if (date) {
             var datetime = new Date(date);
-            return moment(datetime).fromNow();
+            if (ionic.Platform.isIOS()) {
+                return moment(date).fromNow();
+            } else {
+                return moment(datetime).fromNow();
+            }
         }
     };
 });

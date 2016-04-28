@@ -57,7 +57,7 @@
     <author email="fabriciorelicario@gmail.com" href="http://www.isgh.org.br">
         ISGH - Conteúdo
     </author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.252.190:8100" />
     <access origin="*" />
     <allow-navigation href="*" />
     <allow-intent href="http://*/*" />

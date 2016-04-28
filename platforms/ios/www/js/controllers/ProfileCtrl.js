@@ -56,7 +56,7 @@ angular.module('isgh.ProfileCtrl', ['ngSanitize'])
                 if (login) {
                     $ionicLoading.show();
                     $scope.alert = null;
-                    
+
                     FactoryProfile.doLogin(login).then(function (response) {
                         $ionicLoading.hide();
                         if (response.data !== "false")
@@ -71,7 +71,7 @@ angular.module('isgh.ProfileCtrl', ['ngSanitize'])
                             });
 
                             FactoryNews.refresh(); FactoryLectures.refresh(); FactoryEvents.refresh(); FactoryBirthdays.refresh(); FactoryProcseletsLocal.refreshTbProcselets(); FactoryProcselets.refresh();
-                            
+
                             $state.go('tab.news');
                         } else {
                             $ionicPopup.alert({

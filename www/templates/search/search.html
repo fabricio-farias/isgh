@@ -1,7 +1,7 @@
 <ion-view hide-back-button="true" hide-nav-bar="false" class="bg-light">
 
 
-    <ion-nav-title class="bar bar-header item-input-inset" style="border-bottom: none;" ng-class="{'app-header-search-android':isAndroid, 'app-header-search-ios':isIOS}">
+    <ion-nav-title class="bar bar-header bar-light item-input-inset" style="border-bottom: none;" ng-class="{'app-header-search-android':isAndroid, 'app-header-search-ios':isIOS}">
         <button ng-if="isAndroid" class="button back-button buttons button-clear button-clear header-item" ng-click="$ionicGoBack()">
             <i class="icon ion-android-arrow-back"></i>
         </button>
@@ -11,20 +11,20 @@
         <button ng-if="isAndroid" class="button button-clear ion-android-close button-stable" ng-show="inputSearch.value.length > 0"
         ng-click="clearSearch()"></button>
 
-        <label ng-if="isIOS" class="item-input-wrapper">
+        <label ng-if="isIOS" class="item-input-wrapper" style="margin-top:0!important;">
             <i class="icon ion-ios-search placeholder-icon"></i>
             <button class="button button-clear ion-close-circled placeholder-icon button-stable" ng-show="inputSearch.value.length > 0"
             ng-click="clearSearch()"></button>
             <input type="search" ng-model="inputSearch.value" placeholder="Procurar">
         </label>
-        <button ng-if="isIOS" class="button button-clear" ng-click="$ionicGoBack()"><span class="app-font-size-80">Cancelar</span></button>
+        <button ng-if="isIOS" class="button button-clear" style="margin-top:0!important;" ng-click="$ionicGoBack()"><span class="app-font-size-80">Cancelar</span></button>
     </ion-nav-title>
 
     <ion-tabs class="tabs-striped tabs-top tabs-background-light tabs-color-info" delegate-handle="searchtabs">
         <!--NEWS-->
         <ion-tab title="Notícias" class="app-font-size-90" href="#/search">
             <ion-nav-view name="search-news">
-                <ion-content ng-controller="SearchCtrlNews as Sctrln">
+                <ion-content ng-controller="SearchCtrlNews as Sctrln" ng-class="{'has-header':isIOS}">
                     <ion-list type="list">
                         <ion-item class="item-avatar" ng-repeat="iNew in Sctrln.sNews | filter:Sctrln.filterNewsByField" ng-click="Sctrln.openMnew(iNew)">
                             <img ng-if="(iNew.images.image_fulltext || iNew.images.image_intro)" ng-src="{{url_intranet + (iNew.images.image_fulltext || iNew.images.image_intro)}}">
@@ -40,7 +40,7 @@
         <!--LECTURES & EVENTS-->
         <ion-tab title="Educação" class="app-font-size-90" href="#/search">
             <ion-nav-view name="search-lectures">
-                <ion-content>
+                <ion-content ng-class="{'has-header':isIOS}">
                     <ion-list type="list" ng-controller="SearchCtrlLectures as Sctrll">
                         <ion-item class="item-avatar" ng-repeat="lecture in Sctrll.sLectures | filter:Sctrll.filterLecturesByField" ng-click="Sctrll.openMlecture(lecture)">
                             <img ng-if="(lecture.thumbnail)" ng-src="{{url_site + lecture.thumbnail}}">
@@ -63,7 +63,7 @@
         <!--PROCESSOS SELETIVOS-->
         <ion-tab title="Processos Seletivos" class="app-font-size-90" href="#/search">
             <ion-nav-view name="search-procselets">
-                <ion-content ng-controller="SearchCtrlProcselets as Sctrlp">
+                <ion-content ng-controller="SearchCtrlProcselets as Sctrlp" ng-class="{'has-header':isIOS}">
                     <ion-list type="list">
                         <ion-item class="item-avatar" ng-repeat="procselect in Sctrlp.sProcselets | filter:Sctrlp.filterProcseletsByField" ng-click="Sctrlp.openMprocselet(procselect)">
                             <div class="item-image app-units app-text-uppercase" ng-class="checkColor(procselect.unit, 'app-units-')">{{procselect.unit}}</div>
@@ -80,7 +80,7 @@
         <!--BIRTHDAYS-->
         <ion-tab title="Aniversários" class="app-font-size-90" href="#/search">
             <ion-nav-view name="search-birthdays">
-                <ion-content ng-controller="SearchCtrlBirthdays as Sctrlb">
+                <ion-content ng-controller="SearchCtrlBirthdays as Sctrlb" ng-class="{'has-header':isIOS}">
                     <ion-list type="list">
                         <ion-item class="item-avatar" ng-repeat="birthday in Sctrlb.sBirthdays | filter:Sctrlb.filterBirthdaysByField">
                             <div class="item-image app-units" ng-class="checkColor(birthday.dsc_filial, 'app-units-')">{{birthday.dsc_nome | CapNameFilter | limitTo: 2}}</div>
