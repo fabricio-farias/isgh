@@ -57,7 +57,8 @@ var app = angular.module(
             }
 
             if (window.StatusBar) {
-                StatusBar.styleLightContent();
+                StatusBar.overlaysWebView(true);
+                StatusBar.styleDefault(); //preto
             }
 
             $rootScope.isWebView = ionic.Platform.isWebView();

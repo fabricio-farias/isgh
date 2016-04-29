@@ -54,12 +54,12 @@ angular.module('isgh.NewsCtrl', ['ngSanitize'])
                 });
 
             }
-            
+
             // $scope.$on('$stateChangeSuccess', function () {
             //     SEMPRE QUE ENTRAR NO STATE DO NEWS TRAGA MAIS DO BANCO DE HOUVER
             //     console.log('stateChangeSuccess');
             // });
-            
+
 
             //ADICIONAR AO CONTADOR VISUALIZAÇÕES
             $scope.setHits = function (data) {
@@ -74,7 +74,7 @@ angular.module('isgh.NewsCtrl', ['ngSanitize'])
                     });
                 }
             }
-        
+
             /****MODAL IMAGES****/
             $ionicModal.fromTemplateUrl('templates/news/new-images.html', {
                 scope: $scope,
@@ -83,9 +83,12 @@ angular.module('isgh.NewsCtrl', ['ngSanitize'])
                 $scope.mimages = modal;
                 $scope.closeButton = Constant.closeButton;
             });
-        
+
             // GATILHO PRA ABRIR MODAL IMAGENS
             $scope.openMimages = function (itemNew) {
+                if (window.StatusBar) {
+                    StatusBar.styleLightContent();
+                }
                 $scope.mimages.show();
                 $scope.itemNew = itemNew;
             };
@@ -96,6 +99,9 @@ angular.module('isgh.NewsCtrl', ['ngSanitize'])
             }
 
             $scope.closeMimages = function () {
+                if (window.StatusBar) {
+                    StatusBar.styleDefault();
+                }
                 $scope.mimages.hide();
                 $scope.zoomOut();
             };
@@ -114,7 +120,7 @@ angular.module('isgh.NewsCtrl', ['ngSanitize'])
                     });
                 }
             }
-        
+
             /****BOTÃO LIKE****/
             $scope.doLikeNews = function (itemNew) {
                 if (itemNew.liked) {
@@ -133,7 +139,7 @@ angular.module('isgh.NewsCtrl', ['ngSanitize'])
                 }
             }
             /****BOTÃO LIKE****/
-        
+
             /****BOTÃO UNLIKE****/
             $scope.doUnlikeNews = function (itemNew) {
                 if (itemNew.unliked) {

@@ -29,7 +29,7 @@
                         <ion-item class="item-avatar" ng-repeat="iNew in Sctrln.sNews | filter:Sctrln.filterNewsByField" ng-click="Sctrln.openMnew(iNew)">
                             <img ng-if="(iNew.images.image_fulltext || iNew.images.image_intro)" ng-src="{{url_intranet + (iNew.images.image_fulltext || iNew.images.image_intro)}}">
                             <h2 class="app-font-size-90">{{iNew.title}}</h2>
-                            <p class="app-font-size-80"><span class="app-font-color-stable">{{iNew.unit || "ISGH"}} &#8226; {{iNew.category}}</span></p>
+                            <p class="app-font-size-80"><span class="app-font-color-stable"><span ng-class="checkColor(iNew.unit)">{{iNew.unit || "ISGH"}}</span> &#8226; {{iNew.category}}</span></p>
                         </ion-item>
                     </ion-list>
                     <ion-infinite-scroll ng-if="Sctrln.checkTotalNews()" spinner="ios-small" on-infinite="Sctrln.loadMoreNews()" distance="{{Sctrln.distance}}"></ion-infinite-scroll>
@@ -83,10 +83,10 @@
                 <ion-content ng-controller="SearchCtrlBirthdays as Sctrlb" ng-class="{'has-header':isIOS}">
                     <ion-list type="list">
                         <ion-item class="item-avatar" ng-repeat="birthday in Sctrlb.sBirthdays | filter:Sctrlb.filterBirthdaysByField">
-                            <div class="item-image app-units" ng-class="checkColor(birthday.dsc_filial, 'app-units-')">{{birthday.dsc_nome | CapNameFilter | limitTo: 2}}</div>
+                            <div class="item-image app-units app-units-stable">{{birthday.dsc_nome | CapNameFilter | limitTo: 2}}</div>
                             <!--<div class="item-image app-units app-units-stable"><i class="icon ion-person app-font-size-300"></i></div>-->
                             <h2 class="app-font-size-90">{{birthday.dsc_nome}}</h2>
-                            <p class="app-font-size-80"><span class="app-font-color-stable">{{birthday.dat_nasc}} &#8226; {{birthday.dsc_filial}} &#8226; {{birthday.dsc_funcao}}</span></p>
+                            <p class="app-font-size-80"><span class="app-font-color-stable">{{birthday.dat_nasc}} &#8226; <span ng-class="checkColor(birthday.dsc_filial)">{{birthday.dsc_filial}}</span> &#8226; {{birthday.dsc_funcao}}</span></p>
                         </ion-item>
                     </ion-list>
                     <ion-infinite-scroll ng-if="Sctrlb.checkTotalBirthdays()" spinner="ios-small" on-infinite="Sctrlb.loadMoreBirthdays()" distance="{{Sctrlb.distance}}"></ion-infinite-scroll>
