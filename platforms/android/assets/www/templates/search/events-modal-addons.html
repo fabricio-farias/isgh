@@ -1,0 +1,39 @@
+<ion-modal-view class="modal-full bg-stable">
+
+    <ion-header-bar class="ionic has-tabs-top" ng-class="{'bar-info': isAndroid, 'bar-light': isIOS}">
+
+        <div class="buttons">
+            <button ng-if="isAndroid" class="button back-button buttons button-clear header-item" ng-click="Sctrle.closeMeventAddon()"><i class="icon ion-android-arrow-back"></i></button>
+            <button ng-if="isIOS" class="button back-button buttons button-clear button-info header-item" ng-click="Sctrle.closeMeventAddon()"><i class="icon ion-ios-arrow-back"></i></button>
+        </div>
+
+        <div class="title">
+            <span class="nav-bar-title">
+                <small>Evento</small>
+                <small class="tiny">{{item.date | DateRelativeFilter}}</small>
+            </span>
+        </div>
+
+        <div class="buttons">
+            <button ng-if="isIOS" class="button button-clear app-item-no-opacity" disabled ng-class="checkColor(item.unit, 'button-')">{{item.unit || "ISGH"}}</button>
+            <button ng-if="isAndroid" class="button button-clear button-light app-item-no-opacity" disabled>{{item.unit || "ISGH"}}</button>
+        </div>
+
+    </ion-header-bar>
+    
+    <div ng-if="isIOS" class="item item-text-wrap has-header app-font-size-100 app-box-shadow" ng-class="checkColor(item.unit, 'item-')"
+    style="padding: 6px 10px;">
+        {{item.title}}
+    </div>
+    <div ng-if="isAndroid" class="item item-light item-text-wrap has-header app-font-size-100 app-box-shadow" style="padding: 6px 10px;">
+        {{item.title}}
+    </div>
+
+
+    <ion-scroll on-swipe-right="Sctrle.closeMeventAddon()" scrollbar-x="false" scrollbar-y="false" on-double-tap="Sctrle.zoomOut()" zooming="true" direction="yx" delegate-handle="maddonScroll" class="app-full-size" min-zoom="1">
+        <ion-content class="bg-light app-zoom-page padding jcontent" padding="true" scroll="false" overflow-scroll="false" compile-html="item.introtext"></ion-content>
+    </ion-scroll>
+
+
+
+</ion-modal-view>

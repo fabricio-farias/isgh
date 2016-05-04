@@ -1,0 +1,24 @@
+<ion-modal-view class="modal-image">
+
+    <ion-header-bar class="ionic bar-black">
+        <div class="buttons">
+            <button class="button button-clear icon {{closeButton}}" ng-click="closeMimages()"></button>
+        </div>
+        <p class="title app-font-size-100">
+            <small>{{itemNew.category}}</small>
+            <small class="tiny">{{itemNew.created | DateRelativeFilter}}</small>
+        </p>
+        <div class="buttons">
+            <div class="button button-clear app-item-no-opacity" disabled>{{itemNew.unit || "ISGH"}}</div>
+        </div>
+    </ion-header-bar>
+
+    <ion-scroll on-drag-down="closeMimages()" on-double-tap="zoomOut()" scrollbar-x="false" scrollbar-y="false" zooming="true" direction="yx" delegate-handle="mimagesScroll" class="app-full-size has-header" min-zoom="1">
+        <div class="modal-image-box" style="background-image: url( {{url_intranet + (itemNew.images.image_fulltext || itemNew.images.image_intro)}} )"></div>
+    </ion-scroll>
+
+    <ion-footer-bar align-title="left" class="bar-black app-font-size-80">
+        {{itemNew.title}}
+    </ion-footer-bar>
+
+</ion-modal-view>
