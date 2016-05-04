@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="item" style="max-height: 122px">
-                    <h2 class="app-title-clamp-two app-font-size-90">{{lectures[$index].title | CapcaseFilter}}</h2>
+                    <h2 class="app-title-clamp-two app-font-size-90 app-text-uppercase">{{lectures[$index].title | CapcaseFilter}}</h2>
                     <p class=""><span class="app-font-size-80 app-font-color-stable"><i class="icon ion-ios-location"></i> {{lectures[$index].location}}</span></p>
                     <p class="padding-top app-text-uppercase app-font-size-80 {{lectures[$index].status.color}}">{{lectures[$index].status.desc1+" "+lectures[$index].status.desc2}}</p>
                 </div>
@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="item" style="max-height: 122px">
-                    <h2 class="app-title-clamp-two app-font-size-90">{{lectures[$index+1].title | CapcaseFilter}}</h2>
+                    <h2 class="app-title-clamp-two app-font-size-90 app-text-uppercase">{{lectures[$index+1].title | CapcaseFilter}}</h2>
                     <p class=""><span class="app-font-size-80 app-font-color-stable"><i class="icon ion-ios-location"></i> {{lectures[$index+1].location}}</span></p>
                     <p class="padding-top app-text-uppercase app-font-size-80 {{lectures[$index+1].status.color}}">{{lectures[$index+1].status.desc1+" "+lectures[$index+1].status.desc2}}</p>
                 </div>

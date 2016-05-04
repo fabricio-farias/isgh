@@ -162,10 +162,37 @@ angular.module('isgh.NewsCtrl', ['ngSanitize'])
 
     .controller(
         'NewCtrl',
-        function ($scope, $filter, $sce, $ionicScrollDelegate, ResolveNew, Constant) {
+        function ($scope, $rootScope, $state, $stateParams, $filter, $sce, $ionicScrollDelegate, ResolveNew, FactoryNews, Constant) {
 
             $scope.new = ResolveNew;
             $scope.url_intranet = Constant.url_intranet;
+
+            //ESCONDE TABS ENQUANTO A VIEW É tab.new
+            $rootScope.$on('$ionicView.beforeEnter', function() {
+                $rootScope.hideTabs = false;
+                if ($state.current.name === 'tab.new') {
+                    $rootScope.hideTabs = true;
+                }
+            });
+
+            $scope.openPDF = function (url) {
+                var nUrl = ($rootScope.isAndroid) ? 'http://docs.google.com/viewer?url=' + encodeURIComponent(url) + '&embedded=true' : url;
+                var options = ($rootScope.isAndroid) ? 'location=yes' : 'location=no';
+                window.open(nUrl, '_blank', options);
+            }
+
+            $scope.openLink = function (url) {
+                if (url) {
+                    if (url.indexOf('intranet') > -1 && url.indexOf('com_content') > -1) {
+                        var regexp = new RegExp("id=(.*?)\\d{4,9}", "ig");
+                        var id = url.match(regexp)[0].split("=")[1];
+                        $state.go($state.current, { id: id }, { reload: true, inherit: false });
+                    } else {
+                        var options = ($rootScope.isAndroid) ? 'location=yes' : 'location=no';
+                        window.open(url, "_system", options);
+                    }
+                }
+            }
 
             $scope.zoomOut = function () {
                 $ionicScrollDelegate.$getByHandle('mimagesScroll').zoomTo(1);

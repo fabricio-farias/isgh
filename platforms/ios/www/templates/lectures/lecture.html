@@ -8,7 +8,7 @@
     <div class="list">
       
       <div class="item item-avatar item-divider" style="padding:20px 10px 20px 106px;">
-        <h2 class="app-no-margin-top app-no-white-space">{{lecture.title}}</h2>
+        <h2 class="app-no-margin-top app-no-white-space app-text-uppercase">{{lecture.title}}</h2>
       </div>
 
       <div class="item item-thumbnail-left item-thumbnail-img">
@@ -91,15 +91,17 @@
         </a>
       </div>
       
-      <div class="item item-divider" style="padding-top: 15px;">
-        <h2 class="app-no-white-space app-font-size-70">PARA ACESSAR A PROGRAMAÇÃO</h2>
+      <div ng-if="lecture.filename != ''">
+        <div class="item item-divider" style="padding-top: 15px;">
+          <h2 class="app-no-white-space app-font-size-70">PARA ACESSAR A PROGRAMAÇÃO</h2>
+        </div>
+        
+        <a class="item item-icon-left item-icon-right positive" ng-click="externalLink(url_site+'lecturesevents/'+lecture.filename, '_blank',lecture)">
+          <i class="icon ion-document-text assertive"></i>
+          Edital
+          <i class="icon ion-chevron-right app-font-size-100"></i>
+        </a>
       </div>
-      
-      <a class="item item-icon-left item-icon-right positive" ng-click="externalLink(url_site+'lecturesevents/'+lecture.filename, '_blank',lecture)">
-        <i class="icon ion-document-text assertive"></i>
-        Edital
-        <i class="icon ion-chevron-right app-font-size-100"></i>
-      </a>
       
       <div class="item item-divider app-item-divider-last" style="border-bottom-width: 0;"></div>
     </div>

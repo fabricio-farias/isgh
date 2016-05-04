@@ -74,10 +74,18 @@ angular.module('isgh.LecturesCtrl', ['ngSanitize'])
 
     .controller(
         'LectureAddonsCtrl',
-        function ($scope, $sce, $filter, Constant, ResolveLectureAddons, $ionicScrollDelegate) {
+        function ($scope, $rootScope, $sce, $filter, $state, Constant, ResolveLectureAddons, $ionicScrollDelegate) {
             $scope.addon = ResolveLectureAddons;
             $scope.url_site = Constant.url_site;
 
+            //ESCONDE TABS ENQUANTO A VIEW É tab.lecture-addons
+            $rootScope.$on('$ionicView.beforeEnter', function() {
+                $rootScope.hideTabs = false;
+                if ($state.current.name === 'tab.lecture-addons') {
+                    $rootScope.hideTabs = true;
+                }
+            });
+            
             $scope.zoomOut = function () {
                 $ionicScrollDelegate.$getByHandle('maddonScroll').zoomTo(1);
             }

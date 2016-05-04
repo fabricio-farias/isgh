@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 var app = angular.module(
     'isgh',
-    ['ionic', 'ngCordova', 'ionic.service.core', 'ionic.service.push', 'angular.filter', 'ion-gallery', 'ionicLazyLoad', 'door3.css', 'angularMoment', 'isgh.Constant', 'isgh.ionicLoadingConfig', 'isgh.emailAPIprovider', 'isgh.dbAPIservices', 'isgh.NewsCtrl', 'isgh.LecturesCtrl', 'isgh.EventsCtrl', 'isgh.ProcseletsCtrl', 'isgh.BirthdaysCtrl', 'isgh.SearchCtrl', 'isgh.ProfileCtrl', 'isgh.EllipsisFilter', 'isgh.CapcaseFilter', 'isgh.CapNameFilter', 'isgh.DateRelativeFilter', 'isgh.newsAPIservices', 'isgh.lecturesAPIservices', 'isgh.eventsAPIservices', 'isgh.procseletsAPIservices', 'isgh.birthdaysAPIservices', 'isgh.profileAPIservices', 'uiAlertBar', 'uiJumbotron', 'hideTabs', 'compileHtml', 'tabSlideBox'])
+    ['ionic', 'ngCordova', 'ionic.service.core', 'ionic.service.push', 'angular.filter', 'ion-gallery', 'ionicLazyLoad', 'door3.css', 'angularMoment', 'isgh.Constant', 'isgh.ionicLoadingConfig', 'isgh.emailAPIprovider', 'isgh.dbAPIservices', 'isgh.NewsCtrl', 'isgh.LecturesCtrl', 'isgh.EventsCtrl', 'isgh.ProcseletsCtrl', 'isgh.BirthdaysCtrl', 'isgh.SearchCtrl', 'isgh.ProfileCtrl', 'isgh.EllipsisFilter', 'isgh.CapcaseFilter', 'isgh.CapNameFilter', 'isgh.DateRelativeFilter', 'isgh.newsAPIservices', 'isgh.lecturesAPIservices', 'isgh.eventsAPIservices', 'isgh.procseletsAPIservices', 'isgh.birthdaysAPIservices', 'isgh.profileAPIservices', 'uiAlertBar', 'uiJumbotron', 'compileHtml', 'tabSlideBox'])
 
     .run(function($ionicPlatform, $rootScope, $cordovaSQLite, amMoment, DB, FactoryNews, FactoryLectures, FactoryEvents, FactoryProcselets, FactoryProcseletsLocal, FactoryBirthdays, FactoryProfileLocal) {
 
@@ -22,10 +22,10 @@ var app = angular.module(
 
             document.addEventListener("resume", function(event) {
                 $rootScope.$broadcast('cordovaResumeEvent');
-                var profile = FactoryProfileLocal.getTbProfile();
-                if (profile !== undefined) {
-                    FactoryNews.refresh(); FactoryLectures.refresh(); FactoryEvents.refresh(); FactoryBirthdays.refresh(); FactoryProcseletsLocal.refreshTbProcselets(); FactoryProcselets.refresh();
-                }
+                //var profile = FactoryProfileLocal.getTbProfile();
+                //if (profile !== undefined) {
+                    //FactoryNews.refresh(); FactoryLectures.refresh(); FactoryEvents.refresh(); FactoryBirthdays.refresh(); FactoryProcseletsLocal.refreshTbProcselets(); FactoryProcselets.refresh();
+                //}
                 console.log('run() -->>>>>>>>>> RESUME <<<<<<<<<<--');
             });
 

@@ -10,10 +10,11 @@ angular.module('isgh.newsAPIservices', ['isgh.dbAPIservices'])
         var fields = Array.apply(null, Array(columns.length)).map(function() { return "?" });
 
         // GET NEW ROWS
-        var _newsWSget = function() {
+        var _newsWSget = function (id) {
+            id = typeof id !== 'undefined' ? '&id='+ id : '';
             var deferred = $q.defer();
 
-            $http.get(Constant.url_wsapp + 'intranet/?op=news&fu=All').then(function(response) {
+            $http.get(Constant.url_wsapp + 'intranet/?op=news&fu=All'+id).then(function(response) {
                 deferred.resolve(response);
             }, function(erro) {
                 deferred.reject({ type: "alert-bar-dark", message: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente" });

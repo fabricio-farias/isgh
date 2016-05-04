@@ -87,14 +87,24 @@ app.config(function ($ionicAppProvider, $stateProvider, $urlRouterProvider, $htt
     //TAB.NEW
         .state('tab.new', {
             url: '/news',
-            params: { itemNew: null },
+            params: { itemNew: null, id: null },
             views: {
                 'tab-news': {
                     templateUrl: 'templates/news/new.html',
                     controller: 'NewCtrl',
                     resolve: {
                         ResolveNew: function (FactoryNews, $stateParams) {
-                            return $stateParams.itemNew;
+                            if ($stateParams.id) {
+                                return FactoryNews.newsWSget($stateParams.id).then(function (response) {
+                                    response.data.map(function (resp) {
+                                        resp.images = JSON.parse(resp.images);
+                                        return resp;
+                                    });
+                                    return response.data[0];
+                                })
+                            } else {
+                                return $stateParams.itemNew;
+                            }
                         }
                     }
                 }
