@@ -189,7 +189,7 @@ angular.module('isgh.NewsCtrl', ['ngSanitize'])
                         $state.go($state.current, { id: id }, { reload: true, inherit: false });
                     } else {
                         var options = ($rootScope.isAndroid) ? 'location=yes' : 'location=no';
-                        window.open(url, "_blank", options);
+                        window.open(url, "_system", options);
                     }
                 }
             }
