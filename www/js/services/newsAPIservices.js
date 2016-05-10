@@ -22,7 +22,7 @@ angular.module('isgh.newsAPIservices', ['isgh.dbAPIservices'])
 
             return deferred.promise;
         };
-
+        
         // INSERT ROWS IN TABLE
         var _populate = function() {
             var deferred = $q.defer();

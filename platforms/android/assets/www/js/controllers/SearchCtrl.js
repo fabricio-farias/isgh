@@ -35,8 +35,7 @@ angular.module('isgh.SearchCtrl', ['ngSanitize'])
                     });
                 });
                 $timeout(function () {
-                    Sctrln.offset += Constant.ionInfiniteScrollConfig.interval;
-                    Sctrln.limit += Constant.ionInfiniteScrollConfig.interval;
+                    Sctrln.offset += parseInt(Constant.ionInfiniteScrollConfig.interval);
                 }, 100);
                 $scope.$broadcast('scroll.infiniteScrollComplete');
             }
@@ -235,8 +234,7 @@ angular.module('isgh.SearchCtrl', ['ngSanitize'])
                     });
                 });
                 $timeout(function () {
-                    Sctrlp.offset += Constant.ionInfiniteScrollConfig.interval;
-                    Sctrlp.limit += Constant.ionInfiniteScrollConfig.interval;
+                    Sctrlp.offset += parseInt(Constant.ionInfiniteScrollConfig.interval);
                 }, 100);
 
                 $scope.$broadcast('scroll.infiniteScrollComplete');
@@ -302,8 +300,7 @@ angular.module('isgh.SearchCtrl', ['ngSanitize'])
                     });
                 });
                 $timeout(function () {
-                    Sctrlb.offset += Constant.ionInfiniteScrollConfig.interval;
-                    Sctrlb.limit += Constant.ionInfiniteScrollConfig.interval;
+                    Sctrlb.offset += parseInt(Constant.ionInfiniteScrollConfig.interval);
                 }, 100);
                 $scope.$broadcast('scroll.infiniteScrollComplete');
             }

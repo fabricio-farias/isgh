@@ -44,7 +44,7 @@ angular.module('isgh.ProcseletsCtrl', ['ngSanitize'])
             $scope.categories = [];
             $scope.distance = Constant.ionInfiniteScrollConfig.distance;
             var total = ResolveProcseletsCategories.data.length;
-            var limit = Constant.ionInfiniteScrollConfig.interval;
+            var limit = parseInt(Constant.ionInfiniteScrollConfig.interval);
             var offset = 0;
 
             
@@ -57,8 +57,8 @@ angular.module('isgh.ProcseletsCtrl', ['ngSanitize'])
                     }
                     
                     $timeout(function () {
-                        offset += Constant.ionInfiniteScrollConfig.interval;
-                        limit += Constant.ionInfiniteScrollConfig.interval;
+                        offset += parseInt(Constant.ionInfiniteScrollConfig.interval);
+                        limit += parseInt(Constant.ionInfiniteScrollConfig.interval);
                     }, 100);
                 }
                 else

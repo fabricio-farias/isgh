@@ -32,7 +32,7 @@
                             <p class="app-font-size-80"><span class="app-font-color-stable"><span ng-class="checkColor(iNew.unit)">{{iNew.unit || "ISGH"}}</span> &#8226; {{iNew.category}}</span></p>
                         </ion-item>
                     </ion-list>
-                    <ion-infinite-scroll ng-if="Sctrln.checkTotalNews()" spinner="ios-small" on-infinite="Sctrln.loadMoreNews()" distance="{{Sctrln.distance}}"></ion-infinite-scroll>
+                    <ion-infinite-scroll ng-if="Sctrln.checkTotalNews()" on-infinite="Sctrln.loadMoreNews()" distance="{{Sctrln.distance}}"></ion-infinite-scroll>
                 </ion-content>
             </ion-nav-view>
         </ion-tab>
@@ -71,7 +71,7 @@
                             <p class="app-font-size-80"><span class="app-font-color-stable">{{procselect.code}} &#8226; {{Sctrlp.procseletsTitles[procselect.status]}} &#8226; {{procselect.file}}</span></p>
                         </ion-item>
                     </ion-list>
-                    <ion-infinite-scroll ng-if="Sctrlp.checkTotalProcselets()" spinner="ios-small" on-infinite="Sctrlp.loadMoreProcselets()"
+                    <ion-infinite-scroll ng-if="Sctrlp.checkTotalProcselets()" on-infinite="Sctrlp.loadMoreProcselets()"
                     distance="{{Sctrlp.distance}}"></ion-infinite-scroll>
                 </ion-content>
             </ion-nav-view>
@@ -89,7 +89,7 @@
                             <p class="app-font-size-80"><span class="app-font-color-stable">{{birthday.dat_nasc}} &#8226; <span ng-class="checkColor(birthday.dsc_filial)">{{birthday.dsc_filial}}</span> &#8226; {{birthday.dsc_funcao}}</span></p>
                         </ion-item>
                     </ion-list>
-                    <ion-infinite-scroll ng-if="Sctrlb.checkTotalBirthdays()" spinner="ios-small" on-infinite="Sctrlb.loadMoreBirthdays()" distance="{{Sctrlb.distance}}"></ion-infinite-scroll>
+                    <ion-infinite-scroll ng-if="Sctrlb.checkTotalBirthdays()" on-infinite="Sctrlb.loadMoreBirthdays()" distance="{{Sctrlb.distance}}"></ion-infinite-scroll>
                 </ion-content>
             </ion-nav-view>
         </ion-tab>
