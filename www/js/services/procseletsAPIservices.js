@@ -14,7 +14,7 @@ angular.module('isgh.procseletsAPIservices', ['isgh.dbAPIservices'])
                 var deferred = $q.defer();
                 var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' } };
 
-                $http.post(Constant.url_wsapp + 'processos_seletivos/?op=procselets&fu=GetByLocStatus', data, headers).then(function (response) {
+                $http.post(Constant.url_wsapp + 'ps/?op=procselets&fu=GetByLocStatus', data, headers).then(function (response) {
                     deferred.resolve(response);
                 }, function (erro) {
                     deferred.reject({ type: "alert-bar-dark", message: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente" });
@@ -27,7 +27,7 @@ angular.module('isgh.procseletsAPIservices', ['isgh.dbAPIservices'])
             var _procseletsWSget = function () {
                 var deferred = $q.defer();
 
-                $http.get(Constant.url_wsapp + 'processos_seletivos/?op=procselets&fu=GetByAll').then(function (response) {
+                $http.get(Constant.url_wsapp + 'ps/?op=procselets&fu=GetByAll').then(function (response) {
                     deferred.resolve(response);
                 }, function (erro) {
                     deferred.reject({ type: "alert-bar-dark", message: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente" });
@@ -157,7 +157,7 @@ angular.module('isgh.procseletsAPIservices', ['isgh.dbAPIservices'])
             var _procseletsWSgetcounts = function () {
                 var deferred = $q.defer();
 
-                $http.get(Constant.url_wsapp + 'processos_seletivos/?op=procselets&fu=All').then(function (response) {
+                $http.get(Constant.url_wsapp + 'ps/?op=procselets&fu=All').then(function (response) {
                     deferred.resolve(response);
                 }, function (erro) {
                     deferred.reject({ type: "alert-bar-dark", message: "Ocorreu um problema ao conectar-se ao servidor verifique sua conexao e tente novamente" });

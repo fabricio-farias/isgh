@@ -3,15 +3,15 @@ angular.module('isgh.Constant', [])
         "Constant",
         {
 
-            url_wsapp: "http://177.136.74.42/appWSisgh/",
-            url_intranet: "http://177.136.74.42/intranet/",
-            url_site: "http://177.136.74.42/",
-            url_procseletivo: "http://177.136.74.42/processos_seletivos/",
+            url_wsapp: "http://isgh.org.br/wsapp/",
+            url_intranet: "http://isgh.org.br/intranet/",
+            url_site: "http://isgh.org.br/",
+            url_procseletivo: "http://isgh.org.br/ps/",
 
-            // url_wsapp: "http://127.0.0.1/build/appWSisgh/", 
-            // url_intranet: "http://127.0.0.1/build/intranet/",
-            // url_site: "http://127.0.0.1/build/site/",
-            // url_procseletivo: "http://127.0.0.1/build/processos_seletivos/",
+            // url_wsapp: "http://127.0.0.1/dev/wsapp/", 
+            // url_intranet: "http://127.0.0.1/dev/intranet/",
+            // url_site: "http://127.0.0.1/dev/site/",
+            // url_procseletivo: "http://127.0.0.1/dev/ps/",
 
             ionInfiniteScrollConfig: { distance: '1%', interval: '15' },
             backButton: (ionic.Platform.isAndroid()) ? 'ion-android-arrow-back' : 'ion-ios-arrow-back',
