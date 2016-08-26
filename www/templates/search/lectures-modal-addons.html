@@ -1,10 +1,10 @@
 <ion-modal-view class="modal-full bg-stable">
   
-  <ion-header-bar class="ionic has-tabs-top" ng-class="{'bar-info': isAndroid, 'bar-light': isIOS}">
+  <ion-header-bar class="ionic has-tabs-top" ng-class="::bar_color">
 
         <div class="buttons">
-            <button ng-if="isAndroid" class="button back-button buttons button-clear header-item" ng-click="Sctrll.closeMlectureAddon()"><i class="icon ion-android-arrow-back"></i></button>
-            <button ng-if="isIOS" class="button back-button buttons button-clear button-info header-item" ng-click="Sctrll.closeMlectureAddon()"><i class="icon ion-ios-arrow-back"></i></button>
+            <button ng-if="::isAndroid" class="button back-button buttons button-clear header-item" ng-click="Sctrll.closeMlectureAddon()"><i class="icon ion-android-arrow-back"></i></button>
+            <button ng-if="::isIOS" class="button back-button buttons button-clear button-info header-item" ng-click="Sctrll.closeMlectureAddon()"><i class="icon ion-ios-arrow-back"></i></button>
         </div>
 
         <div class="title">

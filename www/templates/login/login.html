@@ -2,41 +2,41 @@
 
     <ion-content padding="false" has-header="false" class="bg-light">
 
-        <img style="width: 100%;" src="img/login-top.png" />
+        <img style="width: 100%;" ng-src="img/login-top.png" />
 
-        <a class="item item-avatar" ng-if="profile !== null" ng-click="relogProfile(profile)">
+        <a class="item item-avatar" style="margin-top: 40px;" ng-if="profile !== null" ng-click="relogProfile(profile)">
             <div class="item-image app-units app-units-stable"><i class="icon ion-person app-font-size-300"></i></div>
-            <h2>{{profile.dsc_nome}}</h2>
-            <span class="item-note app-float-left"><span class="app-font-size-80">Função: </span>{{profile.dsc_funcao}}</span>
-            <span class="item-note"><span class="app-font-size-80">Matrícula: </span>{{profile.num_matricula}}</span>
+            <h2>{{::profile.dsc_nome}}</h2>
+            <span class="item-note app-float-left"><span class="app-font-size-80">Função: </span>{{::profile.dsc_funcao}}</span>
+            <span class="item-note"><span class="app-font-size-80">Matrícula: </span>{{::profile.num_matricula}}</span>
         </a>
 
-        <div class="item" ng-if="profile !== null"></div>
+        <div class="item" style="border-bottom-width: 0" ng-if="profile !== null"></div>
         <a class="item app-item-no-border" ng-if="profile !== null" ng-click="clearProfile(profile)">
             <div class="title app-text-align-center app-font-size-100 app-font-color-stable">Entrar em outra conta</div>
         </a>
 
-        <form name="loginForm" ng-if="profile === null" ng-submit="searchProfile(login)">
+        <form style="padding: 0 50px;margin-top: -20px;" name="loginForm" ng-if="profile === null" ng-submit="searchProfile(login)">
+
             <div class="list">
-                <label class="item item-input">
-                    <span class="input-label app-input-label app-font-size-80">Matrícula:</span>
-                    <input type="text" ng-model="login.num_matricula" name="num_matricula" ng-required="true">
+                <label class="item item-input item-floating-label" style="border-width: 0 0 1px 0;">
+                    <span class="input-label">Matrícula</span>
+                    <input type="text" ng-model="login.num_matricula" name="num_matricula" ng-required="true" placeholder="Matrícula">
                 </label>
-                <label class="item item-input">
-                    <span class="input-label app-input-label app-font-size-80">Senha:</span>
-                    <input type="password" ng-model="login.dsc_senha" name="dsc_senha" ng-required="true">
+                <label class="item item-input item-floating-label" style="border-width:1px 0;">
+                    <span class="input-label">Senha</span>
+                    <input type="password" ng-model="login.dsc_senha" name="dsc_senha" ng-required="true" placeholder="Senha">
                 </label>
 
-                <label class="item item-input item-select">
-                    <div class="input-label app-input-label app-font-size-80">
-                        Filial:
-                    </div>
-                    <select class="app-font-size-70 item-select" ng-model="login.isn_filial" name="isn_filial" ng-required="true">
-                        <option value="">Selecione</option>
-                        <option ng-repeat="f in filiais" value="{{f.isn_filial}}">{{f.dsc_filial}}</option>
+                <label class="item item-floating-label item-select" style="border-width: 1px 0;padding: 22px 16px;height: 74px">
+                    <span class="input-label" ng-class="has_input" style="opacity: 1">Filial</span>
+                    <select class="item-select" ng-model="login.isn_filial" name="isn_filial" ng-required="true" style="direction: ltr; width: 100%;" ng-change="hasInput(login.isn_filial)">
+                        <option value="">- Selecione -</option>
+                        <option ng-repeat="f in filiais" value="{{::f.isn_filial}}">{{::f.dsc_filial}}</option>
                     </select>
                 </label>
             </div>
+
             <div class="padding">
                 <div class="item item-info app-item-no-padding">
                     <button type="submit" class="button button-block button-clear button-light app-item-no-margin" ng-disabled="!loginForm.$valid">
@@ -54,11 +54,11 @@
 
         <div style="width: 100%; display: table;">
             <div style="display: table-cell; text-align: right; padding-right: 15px; width: 50%">
-                <img height="34" src="img/gov-01.png">
+                <img height="34" ng-src="img/gov-01.png">
             </div>
             <div style="display: table-cell; border-width: 0 0 0 1px;border-style: solid;border-color: #DDD;"></div>
             <div style="display: table-cell; text-align: left; padding-left: 15px; width: 50%">
-                <img height="34" src="img/prf-01.png">
+                <img height="34" ng-src="img/prf-01.png">
             </div>
         </div>
 

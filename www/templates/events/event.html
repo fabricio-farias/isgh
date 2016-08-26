@@ -2,7 +2,7 @@
 
     <ion-nav-buttons side="secondary">
         <!--<button class="button ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" ng-click="showFilterBar()"></button>-->
-        <a class="button ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" ui-sref="search({tab: 1})"></a>
+        <a class="button ion-ios-search-strong button-clear" ng-class="::button_class" ui-sref="search({tab: 1})"></a>
     </ion-nav-buttons>
 
     <ion-content on-swipe-right="$ionicGoBack()" class="has-header">
@@ -10,51 +10,51 @@
         <div class="list">
 
             <div class="item item-avatar">
-                <div class="item-image app-units" ng-class="checkColor(event.unit, 'app-units-')">{{event.unit || "ISGH"}}</div>
-                <h2 class="app-title-clamp-two">{{event.title}}</h2>
-                <p>{{event.created | DateRelativeFilter}}</p>
+                <div class="item-image app-units" ng-class="::event.unit_color">{{::event.unit}}</div>
+                <h2 class="app-title-clamp-two">{{::event.title}}</h2>
+                <p>{{::event.date_relative}}</p>
             </div>
 
-            <div class="item" ng-if="event.form_date_up">
+            <div class="item" ng-if="::event.form_date_up">
                 <span class="input-label app-font-size-80 positive">Data Início</span>
-                <p class="app-no-white-space">{{event.form_date_up}}</p>
+                <p class="app-no-white-space">{{::event.form_date_up}}</p>
             </div>
 
-            <div class="item" ng-if="event.form_date_down">
+            <div class="item" ng-if="::event.form_date_down">
                 <span class="input-label app-font-size-80 positive">Data Fim</span>
-                <p class="app-no-white-space">{{event.form_date_down}}</p>
+                <p class="app-no-white-space">{{::event.form_date_down}}</p>
             </div>
 
-            <div class="item" ng-if="event.form_workload">
+            <div class="item" ng-if="::event.form_workload">
                 <span class="input-label app-font-size-80 positive">Carga Horária</span>
-                <p class="app-no-white-space">{{event.form_workload}}</p>
+                <p class="app-no-white-space">{{::event.form_workload}}</p>
             </div>
 
-            <div class="item" ng-if="event.form_location">
+            <div class="item" ng-if="::event.form_location">
                 <span class="input-label app-font-size-80 positive">Local</span>
-                <p class="app-no-white-space">{{event.form_location}}</p>
+                <p class="app-no-white-space">{{::event.form_location}}</p>
             </div>
 
-            <div class="item" ng-if="event.form_speaker">
+            <div class="item" ng-if="::event.form_speaker">
                 <span class="input-label app-font-size-80 positive">Ministrante</span>
-                <p class="app-no-white-space">{{event.form_speaker}}</p>
+                <p class="app-no-white-space">{{::event.form_speaker}}</p>
             </div>
 
-            <div class="item" ng-if="event.form_audience">
+            <div class="item" ng-if="::event.form_audience">
                 <span class="input-label app-font-size-80 positive">Público Alvo</span>
-                <p class="app-no-white-space">{{event.form_audience}}</p>
+                <p class="app-no-white-space">{{::event.form_audience}}</p>
             </div>
 
-            <div class="item" ng-if="event.form_investment">
+            <div class="item" ng-if="::event.form_investment">
                 <span class="input-label app-font-size-80 positive">Investimento</span>
-                <p class="app-no-white-space">{{event.form_investment}}</p>
+                <p class="app-no-white-space">{{::event.form_investment}}</p>
             </div>
-            
-            <div class="item item-divider" style="padding-top: 15px;" ng-if="event.introtext !== 'undefined'">
+
+            <div class="item item-divider" style="padding-top: 15px;" ng-if="has_introtext">
                 <h2 class="app-no-white-space app-font-size-70">MAIS INFORMAÇÕES</h2>
             </div>
 
-            <a class="item item-icon-right positive" ng-if="event.introtext !== 'undefined'" ui-sref="tab.event-addons({event: event})">
+            <a class="item item-icon-right positive" ng-if="has_introtext" ui-sref="tab.event-addons({event: event})">
                 Leia mais
                 <i class="icon ion-chevron-right app-font-size-100"></i>
             </a>

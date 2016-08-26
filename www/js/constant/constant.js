@@ -17,6 +17,16 @@ angular.module('isgh.Constant', [])
             backButton: (ionic.Platform.isAndroid()) ? 'ion-android-arrow-back' : 'ion-ios-arrow-back',
             closeButton: (ionic.Platform.isAndroid()) ? 'ion-android-close' : 'ion-ios-close-empty',
             procseletsTitles: ['', 'Inscrições Abertas', 'Em Andamento', 'Processos Finalizados'],
+
+            isWebView: ionic.Platform.isWebView(),
+            isIPad: ionic.Platform.isIPad(),
+            isIOS: ionic.Platform.isIOS(),
+            isAndroid: ionic.Platform.isAndroid(),
+            isWindowsPhone: ionic.Platform.isWindowsPhone(),
+            iLLoader: ionic.Platform.isAndroid() ? "android" : "ios",
+
+            units: [{ name: "ISGH", color: "info" }, { name: "HGWA", color: "success" }, { name: "HRN", color: "success" }, { name: "HRC", color: "success" }, { name: "UPA", color: "danger" }, { name: "APS", color: "warning" }, { name: "SMS", color: "warning"}, { name: "PRIMILAB", color: "info" }],
+
             emails: {
                 cursos: { to: "cepep@isgh.org.br", cc: "contato@isgh.org.br" }
             },

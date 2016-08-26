@@ -4,8 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-
-    <!--teste-->
     <meta http-equiv="Content-Security-Policy" content="default-src *; style-src &apos;self&apos; &apos;unsafe-inline&apos;; script-src * &apos;unsafe-inline&apos; &apos;unsafe-eval&apos;">
     <title>ISGH</title>
 
@@ -18,6 +16,8 @@
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="lib/ionic-filter-bar/dist/ionic.filter.bar.css" rel="stylesheet">
     <link href="lib/ion-gallery/dist/ion-gallery.css" rel="stylesheet">
+    <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/animations.css" rel="stylesheet">
     <link href="css/tabSlideBox.css" rel="stylesheet">
     <link href="css/timeline.css" rel="stylesheet">
     <link href="css/style-colors.css" rel="stylesheet">
@@ -43,8 +43,6 @@
     <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
     <!--<script src="lib/ngCordova/dist/ng-cordova-mocks.min.js"></script>-->
     <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
-    <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
-     <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
     <script src="cordova.js"></script>
 
     <!--CONTROLLERS-->
@@ -68,15 +66,19 @@
 
     <!--PROVIDERS-->
     <script src="js/providers/emailAPIprovider.js"></script>
+    <script src="js/providers/utilityAPIprovider.js"></script>
+
+    <!--FACTORIES-->
+    <script src="js/factories/dbAPIfactory.js"></script>
+    <script src="js/factories/newsAPIfactory.js"></script>
+    <script src="js/factories/lecturesAPIfactory.js"></script>
+    <script src="js/factories/eventsAPIfactory.js"></script>
+    <script src="js/factories/procseletsAPIfactory.js"></script>
+    <script src="js/factories/birthdaysAPIfactory.js"></script>
+    <script src="js/factories/profileAPIfactory.js"></script>
 
     <!--SERVICES-->
-    <script src="js/services/dbAPIservices.js"></script>
-    <script src="js/services/newsAPIservices.js"></script>
-    <script src="js/services/lecturesAPIservices.js"></script>
-    <script src="js/services/eventsAPIservices.js"></script>
-    <script src="js/services/procseletsAPIservices.js"></script>
-    <script src="js/services/birthdaysAPIservices.js"></script>
-    <script src="js/services/profileAPIservices.js"></script>
+
 
     <!--MOMENT-->
     <script src="lib/moment/moment-with-locales.js"></script>
@@ -103,11 +105,11 @@
     <!--
       The nav bar that will be updated as we navigate between views.
     -->
-    <ion-nav-bar ng-if="isIOS" class="bar-light">
+    <ion-nav-bar ng-if="::isIOS" class="bar-light">
         <ion-nav-back-button class="button-clear button-info"></ion-nav-back-button>
     </ion-nav-bar>
 
-    <ion-nav-bar ng-if="isAndroid" class="bar-info has-tabs-top" align-title="left">
+    <ion-nav-bar ng-if="::isAndroid" class="bar-info has-tabs-top" align-title="left">
         <ion-nav-back-button class="button-clear"></ion-nav-back-button>
     </ion-nav-bar>
     <!--

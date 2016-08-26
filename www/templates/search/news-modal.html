@@ -1,31 +1,31 @@
 <ion-modal-view class="modal-full bg-stable">
 
-    <ion-header-bar class="ionic has-tabs-top" ng-class="{'bar-info': isAndroid, 'bar-light': isIOS}">
+    <ion-header-bar class="ionic has-tabs-top" ng-class="::bar_color">
 
         <div class="buttons">
-            <button ng-if="isAndroid" class="button back-button buttons button-clear header-item" ng-click="Sctrln.closeMnew()"><i class="icon ion-android-arrow-back"></i></button>
-            <button ng-if="isIOS" class="button back-button buttons button-clear button-info header-item" ng-click="Sctrln.closeMnew()"><i class="icon ion-ios-arrow-back"></i></button>
+            <button ng-if="::isAndroid" class="button back-button buttons button-clear header-item" ng-click="Sctrln.closeMnew()"><i class="icon ion-android-arrow-back"></i></button>
+            <button ng-if="::isIOS" class="button back-button buttons button-clear button-info header-item" ng-click="Sctrln.closeMnew()"><i class="icon ion-ios-arrow-back"></i></button>
         </div>
 
         <div class="title">
             <span class="nav-bar-title">
                 <small>{{iNew.category}}</small>
-                <small class="tiny">{{iNew.created | DateRelativeFilter}}</small>
+                <small class="tiny">{{iNew.created_relative}}</small>
             </span>
         </div>
 
         <div class="buttons">
-            <button ng-if="isIOS" class="button button-clear app-item-no-opacity" disabled ng-class="checkColor(iNew.unit, 'button-')">{{iNew.unit || "ISGH"}}</button>
-            <button ng-if="isAndroid" class="button button-clear button-light app-item-no-opacity" disabled>{{iNew.unit || "ISGH"}}</button>
+            <button ng-if="::isIOS" class="button button-clear app-item-no-opacity" disabled ng-class="iNew.unit_b_color">{{iNew.unit}}</button>
+            <button ng-if="::isAndroid" class="button button-clear button-light app-item-no-opacity" disabled>{{iNew.unit}}</button>
         </div>
 
     </ion-header-bar>
 
-    <div ng-if="isIOS" class="item item-text-wrap has-header app-font-size-100 app-box-shadow" ng-class="checkColor(iNew.unit, 'item-')"
+    <div ng-if="::isIOS" class="item item-text-wrap has-header app-font-size-100 app-box-shadow" ng-class="iNew.unit_i_color"
     style="padding: 6px 10px;">
         {{iNew.title}}
     </div>
-    <div ng-if="isAndroid" class="item item-light item-text-wrap has-header app-font-size-100 app-box-shadow" style="padding: 6px 10px;">
+    <div ng-if="::isAndroid" class="item item-light item-text-wrap has-header app-font-size-100 app-box-shadow" style="padding: 6px 10px;">
         {{iNew.title}}
     </div>
 

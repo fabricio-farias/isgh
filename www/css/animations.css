@@ -1,0 +1,8 @@
+@-webkit-keyframes explode { 0% { opacity: 1; -webkit-transform: translateZ(0); transform: translateZ(0) } 100% { opacity: 0; -webkit-transform: scale(5); transform: scale(5) } }
+@keyframes explode { 0% { opacity: 1; -webkit-transform: translateZ(0); transform: translateZ(0) } 100% { opacity: 0; -webkit-transform: scale(5); transform: scale(5) } }
+@-webkit-keyframes pulse { 0% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } 50% { -webkit-transform: scale3d(1.05, 1.05, 1.05); transform: scale3d(1.05, 1.05, 1.05); } 100% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } }
+@keyframes pulse { 0% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } 50% { -webkit-transform: scale3d(1.05, 1.05, 1.05); transform: scale3d(1.05, 1.05, 1.05); } 100% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } }
+
+[class*="app-animation-"]{ -webkit-animation-fill-mode: both; animation-fill-mode: both; }
+.app-animation-explode { -webkit-animation: explode .5s 0s none; animation: explode .5s 0s none; }
+.app-animation-pulse { -webkit-animation-name: pulse; animation-name: pulse; -webkit-animation-duration: 1s; animation-duration: 1s; }

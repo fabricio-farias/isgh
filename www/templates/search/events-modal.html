@@ -1,10 +1,10 @@
 <ion-modal-view class="modal-full bg-stable">
 
-    <ion-header-bar class="ionic has-tabs-top" ng-class="{'bar-info': isAndroid, 'bar-light': isIOS}">
+    <ion-header-bar class="ionic has-tabs-top" ng-class="::bar_color">
 
         <div class="buttons">
-            <button ng-if="isAndroid" class="button back-button buttons button-clear header-item" ng-click="Sctrle.closeMevent()"><i class="icon ion-android-arrow-back"></i></button>
-            <button ng-if="isIOS" class="button back-button buttons button-clear button-info header-item" ng-click="Sctrle.closeMevent()"><i class="icon ion-ios-arrow-back"></i></button>
+            <button ng-if="::isAndroid" class="button back-button buttons button-clear header-item" ng-click="Sctrle.closeMevent()"><i class="icon ion-android-arrow-back"></i></button>
+            <button ng-if="::isIOS" class="button back-button buttons button-clear button-info header-item" ng-click="Sctrle.closeMevent()"><i class="icon ion-ios-arrow-back"></i></button>
         </div>
 
         <p class="title">Evento</p>
@@ -17,9 +17,9 @@
         <div class="list">
 
             <div class="item item-avatar">
-                <div class="item-image app-units" ng-class="checkColor(event.unit, 'app-units-')">{{event.unit || "ISGH"}}</div>
+                <div class="item-image app-units" ng-class="event.unit_color">{{event.unit}}</div>
                 <h2 class="app-title-clamp-two">{{event.title}}</h2>
-                <p>{{event.created | DateRelativeFilter}}</p>
+                <p>{{event.date_relative}}</p>
             </div>
 
             <div class="item" ng-if="event.form_date_up">
@@ -57,11 +57,11 @@
                 <p class="app-no-white-space">{{event.form_investment}}</p>
             </div>
 
-            <div class="item item-divider" style="padding-top: 15px;">
+            <div ng-if="has_introtext" class="item item-divider" style="padding-top: 15px;">
                 <h2 class="app-no-white-space app-font-size-70">MAIS INFORMAÇÕES</h2>
             </div>
 
-            <a class="item item-icon-right positive" ng-click="Sctrle.openMeventAddon(event)">
+            <a ng-if="has_introtext" class="item item-icon-right positive" ng-click="Sctrle.openMeventAddon(event)">
                 Leia mais
                 <i class="icon ion-chevron-right app-font-size-100"></i>
             </a>

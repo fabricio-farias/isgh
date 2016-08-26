@@ -2,23 +2,49 @@ angular.module('isgh.BirthdaysCtrl', ['ngSanitize'])
 
     .controller(
         'BirthdaysCtrl',
-        function ($scope, $filter, $rootScope, $timeout, $ionicLoading, ResolveBirthDays, FactoryBirthdays, Constant) {
+        function ($scope, $filter, $state, $rootScope, $timeout, $ionicLoading, ResolveBirthDays, FactoryBirthdays, Constant, Utility) {
 
             $scope.birthdays = ResolveBirthDays;
+            $scope.button_class = (Constant.isAndroid) ? 'button-light' : 'button-info';
+            $scope.has_header = (Constant.isIOS) ? 'has-header' : '';
+            $scope.has_message = (ResolveBirthDays.message || ResolveBirthDays.length == 0) ? true : false;
+            $scope.message = (ResolveBirthDays.message) ? ResolveBirthDays.message : 'Não há Aniversariantes para exibir no momento';
             var filterBarInstance;
+
+            var init = function(){
+                prepareDocument($scope.birthdays);
+            };
+
+            var prepareDocument = function(data){
+                if(typeof (data) === 'undefined') return;
+
+                data.map(function(item){
+                    item.dsc_alias = $filter('CapNameFilter')(item.dsc_nome);
+                    item.dsc_alias = $filter('limitTo')(item.dsc_alias, 2);
+                    item.unit_color = Utility.getUnitColor(item.dsc_filial);
+                    return item;
+                });
+
+                return data;
+            }
 
             // REFRESH NOTICIAS
             $scope.doRefresh = function () {
                 $rootScope.alert = null;
                 FactoryBirthdays.refresh().then(function (response) {
-                    $scope.birthdays = response.data;
+                    $scope.birthdays = [];
+                    $scope.has_message = false;
+                    $scope.birthdays = prepareDocument(response.data);
                     $scope.reset();
                     $scope.$broadcast('scroll.refreshComplete');
                 }, function (erro) {
                     $scope.$broadcast('scroll.refreshComplete');
                     $rootScope.alert = erro;
+                    $scope.has_message = true;
+                    $scope.message = 'Não há Aniversariantes para exibir no momento';
+                    $scope.birthdays = [];
                 });
-            }
+            };
             
             $scope.reset = function () {
                 $scope.data = { "day": "", "month": "" };
@@ -48,13 +74,17 @@ angular.module('isgh.BirthdaysCtrl', ['ngSanitize'])
                 if (data) {
                     $ionicLoading.show();
                     $rootScope.alert = null;
+
                     if (filterBarInstance) {
                         filterBarInstance();
                         filterBarInstance = null;
                     }
+
                     FactoryBirthdays.birthdaysWSgetByDate(data).then(function (response) {
                         $ionicLoading.hide();
-                        $scope.birthdays = response.data;
+
+                        $scope.birthdays = [];
+                        $scope.birthdays = prepareDocument(response.data);
                     }, function (erro) {
                         $ionicLoading.hide();
                         $rootScope.alert = erro;
@@ -62,5 +92,7 @@ angular.module('isgh.BirthdaysCtrl', ['ngSanitize'])
 
                 }
 
-            }
-        })
+            };
+
+            init();
+        });

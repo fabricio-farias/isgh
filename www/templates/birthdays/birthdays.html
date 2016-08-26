@@ -2,10 +2,10 @@
 
     <ion-nav-buttons side="secondary">
         <!--<button class="button ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" ng-click="showFilterBar()"></button>-->
-        <a class="button ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" ui-sref="search({tab: 3})"></a>
+        <a class="button ion-ios-search-strong button-clear" ng-class="::button_class" ui-sref="search({tab: 3})"></a>
     </ion-nav-buttons>
 
-    <ion-content ng-class="{'has-header': isIOS}">
+    <ion-content ng-class="::has_header">
 
         <ion-refresher on-refresh="doRefresh()"></ion-refresher>
 
@@ -23,7 +23,7 @@
                             </div>
                             <select class="app-font-size-80 app-item-select" ng-model="data.day" name="day" ng-required="true">
                                 <option value=""></option>
-                                <option ng-repeat="d in inputDays track by $index" value="{{d}}">{{d}}</option>
+                                <option ng-repeat="d in inputDays track by $index" value="{{::d}}">{{::d}}</option>
                             </select>
                         </label>
                     </div>
@@ -34,7 +34,7 @@
                             </div>
                             <select class="app-font-size-80 app-item-select" ng-model="data.month" name="month" ng-required="true">
                                 <option value=""></option>
-                                <option ng-repeat="m in inputMonths" value="{{m.id}}">{{m.desc}}</option>
+                                <option ng-repeat="m in inputMonths track by $index" value="{{::m.id}}">{{::m.desc}}</option>
                             </select>
                         </label>
                     </div>
@@ -45,31 +45,31 @@
             </form>
         </div>
 
-        <ui-jumbotron ng-if="birthdays.message || birthdays.length == 0" icon="ion-ios-calendar-outline">{{birthdays.message || 'Não há Aniversariantes para exibir no momento'}}</ui-jumbotron>
+        <ui-jumbotron ng-if="::has_message" icon="ion-ios-calendar-outline">{{::message}}</ui-jumbotron>
 
         <div class="list card" ng-repeat="birthday in birthdays">
             <div class="item item-avatar item-divider item-light dark" style="padding-top: 12px;padding-bottom: 12px;">
-                {{birthday.dsc_nome}}
+                {{::birthday.dsc_nome}}
             </div>
 
             <div class="item item-avatar item-image-top">
 
                 <!--<div class="item-image item-image-top app-units app-units-stable"><i class="icon ion-person app-font-size-300"></i></div>-->
-                <div class="item-image item-image-top app-units app-units-stable">{{birthday.dsc_nome | CapNameFilter | limitTo: 2}}</div>
+                <div class="item-image item-image-top app-units app-units-stable">{{::birthday.dsc_alias}}</div>
 
                 <label class="item item-input item-divider item-light app-item-no-border">
                     <span class="input-label app-input-label app-font-size-80">Setor:</span>
-                    <p class="app-no-white-space">{{birthday.dsc_setor}}</p>
+                    <p class="app-no-white-space">{{::birthday.dsc_setor}}</p>
                 </label>
                 <label class="item item-input item-divider item-light">
                     <span class="input-label app-input-label app-font-size-80">Função:</span>
-                    <p class="app-no-white-space">{{birthday.dsc_funcao}}</p>
+                    <p class="app-no-white-space">{{::birthday.dsc_funcao}}</p>
                 </label>
                 <label class="item item-input item-divider item-light">
                     <span class="input-label app-input-label app-font-size-80">&nbsp;</span>
                     <p>
-                        <span class="app-font-color-stable"><i class="icon ion-android-calendar"></i> {{birthday.dat_nasc}}</span>
-                        <span ng-class="checkColor(birthday.dsc_filial)"><i class="icon ion-location"></i> {{birthday.dsc_filial}}</span>
+                        <span class="app-font-color-stable"><i class="icon ion-android-calendar"></i> {{::birthday.dat_nasc}}</span>
+                        <span ng-class="::birthday.unit_color"><i class="icon ion-location"></i> {{::birthday.dsc_filial}}</span>
                     </p>
                 </label>
 

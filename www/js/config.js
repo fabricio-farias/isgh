@@ -5,7 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-app.config(function ($ionicAppProvider, $stateProvider, $urlRouterProvider, $httpProvider, $sceDelegateProvider, $ionicConfigProvider, ionGalleryConfigProvider, Constant) {
+angular.module('isgh')
+    .config(function ($ionicAppProvider, $stateProvider, $urlRouterProvider, $httpProvider, $sceDelegateProvider, $ionicConfigProvider, ionGalleryConfigProvider, Constant) {
+
     $ionicAppProvider.identify({
         app_id: "62db4c01",
         api_key: "4384b8bea019979c0bcc651e2efa61a5d568477f184ab3b0",
@@ -93,16 +95,20 @@ app.config(function ($ionicAppProvider, $stateProvider, $urlRouterProvider, $htt
                     templateUrl: 'templates/news/new.html',
                     controller: 'NewCtrl',
                     resolve: {
-                        ResolveNew: function (FactoryNews, $stateParams) {
+                        ResolveNew: function (FactoryNews, $stateParams, Utility) {
                             if ($stateParams.id) {
                                 return FactoryNews.newsWSget($stateParams.id).then(function (response) {
                                     response.data.map(function (resp) {
                                         resp.images = JSON.parse(resp.images);
+                                        resp.unit_color_i = Utility.getUnitColor(resp.unit, 'item-');
+                                        resp.unit_color_b = Utility.getUnitColor(resp.unit, 'button-');
                                         return resp;
                                     });
                                     return response.data[0];
                                 })
                             } else {
+                                $stateParams.itemNew.unit_color_i = Utility.getUnitColor($stateParams.itemNew.unit, 'item-');
+                                $stateParams.itemNew.unit_color_b = Utility.getUnitColor($stateParams.itemNew.unit, 'button-');
                                 return $stateParams.itemNew;
                             }
                         }
@@ -204,7 +210,6 @@ app.config(function ($ionicAppProvider, $stateProvider, $urlRouterProvider, $htt
                             return FactoryEvents.populate().then(function (response) {
                                 $ionicLoading.hide();
                                 return response.data;
-
                             }, function (erro) {
                                 $ionicLoading.hide();
                                 return $rootScope.alert = erro;
@@ -287,8 +292,7 @@ app.config(function ($ionicAppProvider, $stateProvider, $urlRouterProvider, $htt
                             return FactoryProcselets.populateByLocationStatus({ units: units, status: $stateParams.status }).then(function (response) {
                                 $ionicLoading.hide();
                                 response.stitle = $stateParams.stitle;
-                                // response.data = _.sortBy(response.data, 'unid');
-                                response.data = _(response.data).chain().sortBy('code').reverse().sortBy('unid').value();
+                                response.data = _(response.data).chain().sortBy('code').reverse().sortBy('unid').value();// response.data = _.sortBy(response.data, 'unid');
                                 return response;
                             }, function (erro) {
                                 $ionicLoading.hide();

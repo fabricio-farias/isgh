@@ -2,12 +2,12 @@
 
     <ion-nav-title>
         <small>Curso</small>
-        <small class="tiny">{{addon.title}}</small>
+        <small class="tiny">{{::addon.title}}</small>
     </ion-nav-title>
 
     <ion-scroll on-swipe-right="$ionicGoBack()" on-double-tap="zoomOut()" scrollbar-x="false" scrollbar-y="false" zooming="true"
     direction="yx" delegate-handle="maddonScroll" class="app-full-size has-header" min-zoom="1">
-        <ion-content class="bg-light app-zoom-page padding jcontent" padding="true" scroll="false" overflow-scroll="false" compile-html="addon.content"></ion-content>
+        <ion-content class="bg-light app-zoom-page padding jcontent" padding="true" scroll="false" overflow-scroll="false" compile-html="::addon.content"></ion-content>
     </ion-scroll>
 
 </ion-view>

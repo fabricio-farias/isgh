@@ -5,9 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-var app = angular.module(
+angular.module(
     'isgh',
-    ['ionic', 'ngCordova', 'ionic.service.core', 'ionic.service.push', 'angular.filter', 'ion-gallery', 'ionicLazyLoad', 'door3.css', 'angularMoment', 'isgh.Constant', 'isgh.ionicLoadingConfig', 'isgh.emailAPIprovider', 'isgh.dbAPIservices', 'isgh.NewsCtrl', 'isgh.LecturesCtrl', 'isgh.EventsCtrl', 'isgh.ProcseletsCtrl', 'isgh.BirthdaysCtrl', 'isgh.SearchCtrl', 'isgh.ProfileCtrl', 'isgh.EllipsisFilter', 'isgh.CapcaseFilter', 'isgh.CapNameFilter', 'isgh.DateRelativeFilter', 'isgh.newsAPIservices', 'isgh.lecturesAPIservices', 'isgh.eventsAPIservices', 'isgh.procseletsAPIservices', 'isgh.birthdaysAPIservices', 'isgh.profileAPIservices', 'uiAlertBar', 'uiJumbotron', 'compileHtml', 'tabSlideBox'])
+    ['ionic', 'ngCordova', 'ionic.service.core', 'ionic.service.push', 'angular.filter', 'ion-gallery', 'ionicLazyLoad', 'door3.css', 'angularMoment', 'isgh.Constant', 'isgh.ionicLoadingConfig', 'isgh.emailAPIprovider', 'isgh.utilityAPIprovider', 'isgh.dbAPIfactory', 'isgh.NewsCtrl', 'isgh.LecturesCtrl', 'isgh.EventsCtrl', 'isgh.ProcseletsCtrl', 'isgh.BirthdaysCtrl', 'isgh.SearchCtrl', 'isgh.ProfileCtrl', 'isgh.EllipsisFilter', 'isgh.CapcaseFilter', 'isgh.CapNameFilter', 'isgh.DateRelativeFilter', 'isgh.newsAPIfactory', 'isgh.lecturesAPIfactory', 'isgh.eventsAPIfactory', 'isgh.procseletsAPIfactory', 'isgh.birthdaysAPIfactory', 'isgh.profileAPIfactory', 'uiAlertBar', 'uiJumbotron', 'compileHtml', 'tabSlideBox'])
 
     .run(function($ionicPlatform, $rootScope, $cordovaSQLite, amMoment, DB, FactoryNews, FactoryLectures, FactoryEvents, FactoryProcselets, FactoryProcseletsLocal, FactoryBirthdays, FactoryProfileLocal) {
 
@@ -67,20 +67,6 @@ var app = angular.module(
             $rootScope.isAndroid = ionic.Platform.isAndroid();
             $rootScope.isWindowsPhone = ionic.Platform.isWindowsPhone();
             $rootScope.iLLoader = ionic.Platform.isAndroid() ? "android" : "ios";
-
-            // GATILHO PARA ALTERAR A COR DA UNIDADE
-            $rootScope.checkColor = function(elem, prefix) {
-                var binding = (prefix !== undefined) ? prefix : "";
-                var units = [{ name: "ISGH", color: "info" }, { name: "HGWA", color: "success" }, { name: "HRN", color: "success" }, { name: "HRC", color: "success" }, { name: "UPA", color: "danger" }, { name: "APS", color: "warning" }, { name: "SMS", color: "warning" },];
-
-                var filtered = units.filter(function(unit) {
-                    var search = new RegExp(unit.name, "i");
-                    return search.test(elem);
-                });
-
-                return binding + ((filtered[0]) ? filtered[0].color : 'isgh');
-
-            }
 
             amMoment.changeLocale('pt');
 

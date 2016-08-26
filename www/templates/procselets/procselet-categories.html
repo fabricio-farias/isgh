@@ -1,41 +1,41 @@
 <ion-view view-title="{{stitle}}">
 
     <ion-nav-buttons side="secondary">
-        <a class="button ion-ios-search-strong button-clear" ng-class="{'button-light':isAndroid, 'button-info':isIOS}" ui-sref="search({tab: 2})"></a>
+        <a class="button ion-ios-search-strong button-clear" ng-class="::button_class" ui-sref="search({tab: 2})"></a>
     </ion-nav-buttons>
 
     <!--<ion-content ng-class="{'has-header': isIOS}" scroll-sista="header-tabs-subheader" delegate-handle="procseletScroll">-->
-    <ion-content on-swipe-right="$ionicGoBack()" ng-class="{'has-header': isIOS}" delegate-handle="mainScroll">
+    <ion-content on-swipe-right="$ionicGoBack()" ng-class="::hasHeaderFooter" delegate-handle="mainScroll">
 
-        <ui-jumbotron ng-if="categories.length == 0" icon="ion-ios-people">Não há {{stitle}} para exibir</ui-jumbotron>
+        <ui-jumbotron ng-if="categories.length == 0" icon="ion-ios-people">Não há {{::stitle}} para exibir</ui-jumbotron>
 
         <div class="item item-input-inset app-search-ios" ng-if="isIOS && categories.length >= 5">
             <label class="item-input-wrapper">
                 <i class="icon ion-ios-search placeholder-icon"></i>
-                <input type="text" placeholder="Buscar" ng-model="searchQuery.value">
+                <input type="text" placeholder="Buscar" ng-model="searchQuery.value" ng-model-options="{updateOn: 'default', debounce:{default: 500}}">
             </label>
         </div>
 
         <label class="item item-input app-search-android" ng-if="isAndroid && categories.length >= 5">
             <i class="icon ion-android-search placeholder-icon"></i>
-            <input type="text" placeholder="Buscar" ng-model="searchQuery.value">
+            <input type="text" placeholder="Buscar" ng-model="searchQuery.value" ng-model-options="{updateOn: 'default', debounce:{default: 500}}">
         </label>
 
         <ion-list type="list" collection-repeat="category in categories | filter:filterProcselet" item-width="100%" item-height="120px" ui-sref="tab.procselets-files({category: category, stitle: stitle})">
 
             <ion-item class="item item-avatar">
-                <div class="item-image app-units app-text-uppercase" ng-class="checkColor(category.unit, 'app-units-')">{{category.unit}}</div>
+                <div class="item-image app-units app-text-uppercase" ng-class="category.unit_color">{{category.unit}}</div>
                 <h2 class="">{{category.category}}</h2>
                 <p class="item-note item-note-mini app-float-none">{{category.code}}</p>
             </ion-item>
 
             <ion-item class="item item-divider bg-light">
                 <span class="item-note item-note-mini app-float-left"><i class="icon ion-document-text assertive app-font-size-150"></i> {{category.file}}</span>
-                <span class="item-note item-note-mini"><i class="icon ion-android-calendar positive app-font-size-150"></i> {{category.created | date:'dd/MM/yyyy'}}</span>
+                <span class="item-note item-note-mini"><i class="icon ion-android-calendar positive app-font-size-150"></i> {{category.created}}</span>
             </ion-item>
 
         </ion-list>
-        <ion-infinite-scroll ng-if="checktotalCategories()" on-infinite="loadMoreCategories()" distance="{{distance}}"></ion-infinite-scroll>
+        <ion-infinite-scroll ng-if="checkTCats" on-infinite="loadMoreCategories()" distance="{{distance}}"></ion-infinite-scroll>
         <ion-item class="item item-divider app-item-divider-last" style="border-width: 0;"></ion-item>
     </ion-content>
 
